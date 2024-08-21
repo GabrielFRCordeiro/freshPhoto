@@ -1,5 +1,5 @@
-from freshPhoto.view.viewCadastro import ViewCadastro
-from freshPhoto.controller.controllerCadastro import ControllerCadastro
+from view.viewCadastro import ViewCadastro
+from controller.controllerCadastro import ControllerCadastro
 
 
 def constructorCadastro():

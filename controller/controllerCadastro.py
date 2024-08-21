@@ -1,4 +1,4 @@
-from freshPhoto.view.viewCadastro import ViewCadastro
+from view.viewCadastro import ViewCadastro
 
 
 class ControllerCadastro:

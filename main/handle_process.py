@@ -1,5 +1,5 @@
 from flet import Page, View
-from freshPhoto.main.contructor.contructorCadastro import constructorCadastro
+from main.contructor.contructorCadastro import constructorCadastro
 
 
 def start(page: Page):
