@@ -1,8 +1,9 @@
 from flet import Page, View
 from freshPhoto.main.constructor.constructorLogin import constructorLogin
 
+
 def start(page: Page):
-    page.title = 'Sistema Bancario'
+    page.title = 'Fresh Photo'
 
     def modificarRota(rota):
         page.views.clear()

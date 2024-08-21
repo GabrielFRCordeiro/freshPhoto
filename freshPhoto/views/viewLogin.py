@@ -8,6 +8,7 @@ class ViewLogin(UserControl):
         super().__init__()
         self.cores = CoresAplicacao()
         self.titulo = Text('Fresh Photo', size=30, color=self.cores.corPreta)
+        self.btn_voltar = Image('btn_voltar.png', width=55)
         self.img_login = Image('img_logo.png')
         self.t_field_login = TextField(label='Usuário ou e-mail')
         self.t_field_senha = TextField(label='Senha', password=True, can_reveal_password=True)
@@ -22,13 +23,19 @@ class ViewLogin(UserControl):
     def build(self):
         linhaBtnEntrar = Row(col={'xs': 6, 'sm': 2, 'md': 3},
                              controls=[self.btn_enter])
+        linhaBtnVoltar = Row(col={'xs': 6, 'sm': 2, 'md': 3},
+                             controls=[self.btn_voltar],
+                             alignment=MainAxisAlignment.START)
+
         layout = ResponsiveRow(
             controls=[
                 Column(col={'xs': 10, 'sm': 8, 'md': 6, 'lg': 5, 'xl': 3},
                        controls=[
+                        Column(col={'sm': 12, 'md': 8},
+                               controls=[linhaBtnVoltar]),  # fim do campo do botao voltar
                         Column(col={'xs': 6, 'sm': 2, 'md': 1, 'lg': 2, 'xl': 1},
                                controls=[self.img_login],
-                               alignment=alignment.center),
+                               alignment=alignment.center),  # fim do campo da logo
                         Column(col={'sm': 12, 'md': 8},
                                controls=[self.titulo,
                                          self.t_field_login,
