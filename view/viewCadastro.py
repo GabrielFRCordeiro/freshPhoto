@@ -29,16 +29,19 @@ class ViewCadastro(UserControl):
 
         self.t_field_usuario = TextField(label='Usuario',
                                          border_radius=8,
-                                         width=450, height=45,)
+                                         width=450, height=45,
+                                         color=self.cores.corPreta)
 
         self.t_field_senha = TextField(label='Senha',
                                        password=True, can_reveal_password=True,
                                        border_radius=8,
-                                       width=450, height=45)
+                                       width=450, height=45,
+                                       color=self.cores.corPreta)
 
         self.t_field_email = TextField(label='E-mail',
                                        border_radius=8,
-                                       width=450, height=45)
+                                       width=450, height=45,
+                                       color=self.cores.corPreta)
 
         self.btn_cadastrar = ElevatedButton(text='Cadastrar',
                                             expand=True,
