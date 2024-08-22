@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a910d0fa-5b1a-4b03-8591-5655400daaea" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/btn_voltar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img_fundo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/freshPhoto/view/viewCadastro.py" beforeDir="false" afterPath="$PROJECT_DIR$/freshPhoto/view/viewCadastro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/viewCadastro.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewCadastro.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,20 +34,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.run.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/gustavo.bbechelli/Documents/GitHub/EstudosFletTI97",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.run.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/gustavo.bbechelli/Documents/GitHub/freshPhoto_grupo/freshPhoto/assests&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\gustavo.bbechelli\Documents\GitHub\freshPhoto_grupo\freshPhoto\main" />
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\gustavo.bbechelli\Documents\GitHub\freshPhoto_grupo\freshPhoto\assests" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\gustavo.bbechelli\Documents\GitHub\freshPhoto_grupo\assets" />
+      <recent name="C:\Users\gustavo.bbechelli\Documents\GitHub\freshPhoto_grupo" />
+      <recent name="C:\Users\gustavo.bbechelli\Documents\GitHub\freshPhoto_grupo\freshPhoto\assests" />
+      <recent name="C:\Users\gustavo.bbechelli\Documents\GitHub\freshPhoto_grupo\freshPhoto\main" />
     </key>
   </component>
   <component name="RunManager">
@@ -62,7 +69,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/freshPhoto/run.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\gustavo.bbechelli\Documents\GitHub\freshPhoto_grupo\run.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />

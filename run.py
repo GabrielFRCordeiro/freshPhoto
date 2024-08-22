@@ -1,4 +1,5 @@
-from flet import app
+from flet import app, WEB_BROWSER
 from main.handle_process import start
 
-app(start, assets_dir='assets')
+if __name__ == '__main__':
+    app(start, assets_dir='assets', view=WEB_BROWSER)
