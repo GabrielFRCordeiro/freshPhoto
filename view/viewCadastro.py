@@ -12,23 +12,24 @@ class ViewCadastro(UserControl):
         self.fundo = Container(image_src='img_fundo.png', image_repeat=ImageRepeat.NO_REPEAT,
                                image_fit=ImageFit.COVER)
 
-        self.titulo = Text('Fresh Photo',
+        self.titulo = Text(value='Fresh Photo',
                            size=30,
                            color=self.cores.corPreta)
 
         self.img_fundo = Image(src='img_fundo.png')
 
-        self.btn_voltar = Image('btn_voltar.png', width=55)
+        self.btn_voltar = Image(src='btn_voltar.png', width=55)
 
         self.img_cadastrar = Image(src='img_cadastrar.png')
 
         self.t_field_nome = TextField(label='Nome',
                                       border_radius=8,
-                                      width=450, height=45)
+                                      width=450, height=45,
+                                      color=self.cores.corPreta)
 
         self.t_field_usuario = TextField(label='Usuario',
                                          border_radius=8,
-                                         width=450, height=45)
+                                         width=450, height=45,)
 
         self.t_field_senha = TextField(label='Senha',
                                        password=True, can_reveal_password=True,
