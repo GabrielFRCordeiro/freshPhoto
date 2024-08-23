@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a910d0fa-5b1a-4b03-8591-5655400daaea" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/btn_voltar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img_fundo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/viewCadastro.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/viewCadastro.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +37,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/gustavo.bbechelli/Documents/GitHub/freshPhoto_grupo/freshPhoto/assests&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/gustavo.bbechelli/Documents/GitHub/EstudosFletTI97&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
