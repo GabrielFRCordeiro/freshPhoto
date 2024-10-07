@@ -1,4 +1,4 @@
-from freshPhoto.views.viewLogin import ViewLogin
+from views.viewLogin import ViewLogin
 from controller.controllerLogin import ControllerLogin
 
 
