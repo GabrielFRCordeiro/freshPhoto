@@ -1,5 +1,5 @@
 from flet import Page, View
-from freshPhoto.main.constructor.constructorLogin import constructorLogin
+from main.constructor.constructorLogin import constructorLogin
 
 
 def start(page: Page):

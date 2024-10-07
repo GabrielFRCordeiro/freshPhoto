@@ -1,7 +1,7 @@
 from flet import (UserControl, Text, Image, TextField, ElevatedButton, ButtonStyle,
                   MaterialState, RoundedRectangleBorder, ResponsiveRow, Column, MainAxisAlignment,
                   alignment, Row, TextButton)
-from freshPhoto.utils.paletaCores import CoresAplicacao
+from utils.paletaCores import CoresAplicacao
 
 class ViewLogin(UserControl):
     def __init__(self):

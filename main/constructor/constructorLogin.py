@@ -1,5 +1,5 @@
 from freshPhoto.views.viewLogin import ViewLogin
-from freshPhoto.controller.controllerLogin import ControllerLogin
+from controller.controllerLogin import ControllerLogin
 
 
 def constructorLogin():
