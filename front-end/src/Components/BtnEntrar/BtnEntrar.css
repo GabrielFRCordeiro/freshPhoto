@@ -1,0 +1,5 @@
+#btnEntrar{
+    color: var(--color-text);
+    background-color: var(--color-white);
+    width: 10em;
+}

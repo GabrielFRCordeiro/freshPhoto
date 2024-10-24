@@ -1,0 +1,30 @@
+:root{
+    --color-primary: #072C39;
+    --color-secundary: #299F23;
+    --color-terciary: #7CB930;
+    --color-background: #0045171a;
+    --color-white: #fff;
+    --color-text: #939393;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter';
+    color: var(--color-text);
+}
+
+body{
+    background-color: var(--color-background);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    font-size: .8em;
+}
