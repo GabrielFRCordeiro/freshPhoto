@@ -8,14 +8,16 @@ import BtnVoltar from './Components/BtnVoltar';
 function App() {
   return (<>
     <BtnVoltar />
-    <main className='container'>
-      <img src='assets/logo_login.png' alt='pedaço de melancia com Fresh Photo escrito em baixo' />
-      <form>
-        <TField texto='Usuário ou email' tamanho='small' />
-        <TFieldSenha tamanho='small' />
-        <a href='#'><p>Esqueceu sua senha?</p></a>
-        <BtnEntrar texto={'LOGIN'} componente={<LoginIcon />} />
-      </form>
+    <main className='container text-center tela_login'>
+      <div className='h-100 d-flex flex-column align-items-center justify-content-around'>
+        <img src='assets/logo_login.png' alt='pedaço de melancia com Fresh Photo escrito em baixo' />
+        <form className='h-50 d-flex flex-column justify-content-around'>
+          <TField texto='Usuário ou email' tamanho='small' />
+          <TFieldSenha tamanho='small' />
+          <a href='#'><p className='text-start ms-2'>Esqueceu sua senha?</p></a>
+          <BtnEntrar texto={'LOGIN'} componente={<LoginIcon />} />
+        </form>
+      </div>
     </main>
   </>
   );
