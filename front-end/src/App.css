@@ -14,3 +14,12 @@
     font-family: 'Inter';
     color: var(--color-text);
 }
+
+body{
+    background-color: var(--color-background);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
