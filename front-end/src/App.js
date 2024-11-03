@@ -1,26 +1,13 @@
 import './App.css';
-import TField from './Components/TField';
-import TFieldSenha from './Components/TFieldSenha';
-import BtnEntrar from './Components/BtnEntrar';
-import LoginIcon from '@mui/icons-material/Login';
-import BtnVoltar from './Components/BtnVoltar';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from './pages/Login';
 
 function App() {
-  return (<>
-    <BtnVoltar />
-    <main className='container text-center tela_login'>
-      <div className='h-100 d-flex flex-column align-items-center justify-content-around'>
-        <img src='assets/logo_login.png' alt='pedaço de melancia com Fresh Photo escrito em baixo' />
-        <form className='h-50 d-flex flex-column justify-content-around'>
-          <TField texto='Usuário ou email' tamanho='small' />
-          <TFieldSenha tamanho='small' />
-          <a href='#'><p className='text-start ms-2'>Esqueceu sua senha?</p></a>
-          <BtnEntrar texto={'LOGIN'} componente={<LoginIcon />} />
-        </form>
-      </div>
-    </main>
-  </>
-  );
+  return (<BrowserRouter>
+    <Routes>
+      <Route path="/login" element={<Login />} />
+    </Routes>
+  </BrowserRouter>);
 }
 
 export default App;

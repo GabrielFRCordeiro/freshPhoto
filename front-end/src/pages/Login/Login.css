@@ -1,0 +1,17 @@
+body{
+    background-color: var(--color-background);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tela_login{
+    height: 60vh;
+}
+
+a{
+    text-decoration: none;
+    font-size: .8em;
+}
