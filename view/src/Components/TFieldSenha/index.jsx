@@ -16,7 +16,7 @@ export default function BasicTextFields(props) {
 
   return (
     <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined" size={tamanho}>
-        <InputLabel htmlFor="outlined-adornment-password">Senha</InputLabel>
+        <InputLabel htmlFor="outlined-adornment-password" className='text-capitalize'>senha</InputLabel>
         <OutlinedInput
           id="outlined-adornment-password"
           type={showPassword ? 'text' : 'password'}

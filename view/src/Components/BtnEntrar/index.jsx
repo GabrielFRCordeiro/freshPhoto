@@ -3,7 +3,7 @@ import './BtnEntrar.css';
 
 export default function BtnEntrar({texto, componente}) {
   return (
-    <Button variant="contained" startIcon={componente} type='submit' id='btnEntrar' >
+    <Button variant="contained" startIcon={componente} type='submit' id='btnEntrar' className='text-uppercase' >
         {texto}
     </Button>
   )
