@@ -14,3 +14,14 @@
 .navIconFocus{
     color: var(--color-secundary);
 }
+
+@media (min-width: 992px) {
+    .navegacao{
+        width: 10vw;
+        height: 100vh;
+    }
+
+    .navegacao div{
+        height: 100vh;
+    }
+}
