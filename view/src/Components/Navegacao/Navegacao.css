@@ -1,0 +1,16 @@
+.navegacao{
+    width: 100vw;
+    height: 10vh;
+    background-color: var(--color-primary);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.navIcon{
+    color: var(--color-white);
+}
+
+.navIconFocus{
+    color: var(--color-secundary);
+}

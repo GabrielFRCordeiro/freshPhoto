@@ -12,9 +12,9 @@ function Login() {
       <div className='h-100 d-flex flex-column align-items-center justify-content-around'>
         <img src='assets/logo_login.png' alt='pedaço de melancia com Fresh Photo escrito em baixo' />
         <form className='h-50 d-flex flex-column justify-content-around'>
-          <TField texto='usuário ou email' tamanho='small' />
+          <TField texto='Usuário ou email' tamanho='small' />
           <TFieldSenha tamanho='small' />
-          <a href='#'><p className='text-start ms-2 text-capitalize'>esqueceu sua senha?</p></a>
+          <a href='#'><p className='text-start ms-2'>Esqueceu sua senha?</p></a>
           <BtnEntrar texto={'login'} componente={<LoginIcon />} />
         </form>
       </div>

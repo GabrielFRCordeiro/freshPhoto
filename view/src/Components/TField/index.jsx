@@ -12,7 +12,7 @@ export default function TField(props) {
       noValidate
       autoComplete="off"
     >
-      <TextField id="outlined-basic" label={texto} variant="outlined" type={tipo} size={tamanho} className='text-capitalize' />
+      <TextField id="outlined-basic" label={texto} variant="outlined" type={tipo} size={tamanho} />
     </Box>
   );
 }
