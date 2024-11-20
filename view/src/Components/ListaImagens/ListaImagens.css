@@ -1,0 +1,15 @@
+#lista{
+    position: absolute;
+    left: 0;
+    top: 30vh;
+    height: 60vh;
+    width: 100vw;
+}
+
+@media (min-width: 992px) {
+    #lista{
+        width: 50vw;
+        left: 25%;
+        top: 40vh;
+    }
+}
