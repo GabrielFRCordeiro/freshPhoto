@@ -1,0 +1,38 @@
+.caixaPerfil{
+    width: 100vw;
+    height: 30vh;
+    background-color: var(--color-white);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.caixaPerfil img{
+    height: 7rem;
+}
+
+.caixaPerfil h2{
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin: 0;
+}
+
+.caixaPerfil p{
+    color: var(--color-secundary);
+    font-size: 1rem;
+    margin: 0;
+}
+
+@media (min-width: 992px) {
+    .caixaPerfil{
+        width: 50vw;
+        left: 25%;
+        top: 10vh;
+        border-top-left-radius: 1em;
+        border-top-right-radius: 1em;
+    }
+
+    .caixaPerfil img{
+        height: 8rem;
+    }
+}

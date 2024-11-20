@@ -1,3 +1,7 @@
+.perfil{
+    display: none;
+}
+
 .barraTitulo{
     color: var(--color-secundary);
     background-color: var(--color-secundary);
@@ -30,6 +34,10 @@
 }
 
 @media (min-width: 992px) {
+    .perfil{
+        display: block;
+    }
+
     .barraTitulo, .caixaTitulo{
         width: 50vw;
         left: 25%;

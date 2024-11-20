@@ -4,7 +4,9 @@
     --color-terciary: #7CB930;
     --color-background: #0045171a;
     --color-white: #fff;
+    --color-black: #000;
     --color-text: #939393;
+    --color-text-secundary: #004517;
 }
 
 *{

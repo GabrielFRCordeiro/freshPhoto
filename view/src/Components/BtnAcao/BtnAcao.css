@@ -1,0 +1,9 @@
+.btnAcao{
+    border: none;
+    background-color: var(--color-terciary);
+    color: var(--color-text-secundary);
+    border-radius: .5em;
+    width: 10em;
+    height: 2.5em;
+    align-self: center;
+}
