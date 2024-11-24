@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
 export default function TField(props) {
-    const { texto, tipo, tamanho } = props;
+    const { texto, tipo, tamanho, id_campo } = props;
 
   return (
     <Box
@@ -12,7 +12,7 @@ export default function TField(props) {
       noValidate
       autoComplete="off"
     >
-      <TextField id="outlined-basic" label={texto} variant="outlined" type={tipo} size={tamanho} />
+      <TextField id={id_campo} label={texto} variant="outlined" type={tipo} size={tamanho} />
     </Box>
   );
 }

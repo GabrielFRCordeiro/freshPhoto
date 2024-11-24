@@ -1,4 +1,4 @@
-#btnEntrar{
+#btn_cadastrar, #btn_login{
     color: var(--color-text);
     background-color: var(--color-white);
     width: 10em;

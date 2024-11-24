@@ -18,7 +18,7 @@ export default function BasicTextFields(props) {
     <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined" size={tamanho}>
         <InputLabel htmlFor="outlined-adornment-password" className='text-capitalize'>senha</InputLabel>
         <OutlinedInput
-          id="outlined-adornment-password"
+          id="t_field_senha"
           type={showPassword ? 'text' : 'password'}
           endAdornment={
             <InputAdornment position="end">

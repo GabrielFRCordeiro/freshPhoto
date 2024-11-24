@@ -10,7 +10,7 @@ function CaixaPerfil() {
         <p>@usuario</p>
         </div>
     </div>
-    <BtnAcao texto='Seguir' />
+    <BtnAcao texto='Nova Publicação' id_acao={'btn_postar'} />
   </header>
   )
 }
