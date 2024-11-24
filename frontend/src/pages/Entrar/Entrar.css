@@ -24,9 +24,31 @@
     place-items: center;
 }
 
-#img_logo{
+.img_container{
     grid-area: logo;
     width: 12em;
+    position: relative;
+}
+
+#img_logo{
+    width: 100%;
+}
+
+.img_container::after{
+    font-family: 'Kodchasan';
+    content: attr(data-titulo);
+    position: absolute;
+    left: 0;
+    bottom: -.8em;
+    color: var(--color-text-secundary);
+    font-size: 2em;
+    width: 12em;
+    font-weight: bold;
+}
+
+.entrar_titulo{
+    color: var(--color-primary);
+    grid-area: titulo;
 }
 
 #link_login{
@@ -49,5 +71,13 @@
     '. logo btn_cadastrar .'  1fr
     '. . . .'  1fr
     / .25fr .25fr .25fr .25fr;
+    }
+
+    .img_container{
+        width: 20em;
+    }
+
+    .img_container::after{
+        left: 1.5em;
     }
 }

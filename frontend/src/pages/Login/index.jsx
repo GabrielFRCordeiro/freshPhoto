@@ -10,7 +10,9 @@ function Login() {
     <BtnVoltar pagina={'/'} />
     <main className='container text-center tela_login'>
       <div className='h-100 d-flex flex-column align-items-center justify-content-around'>
-        <img src='assets/logo_login.png' alt='pedaço de melancia com Fresh Photo escrito em baixo' />
+        <div className="img_container_login" data-titulo='Fresh Photo'>
+          <img src='assets/logo_login.png' alt='pedaço de melancia com Fresh Photo escrito em baixo' id='img_logo' />
+        </div>
         <form className='h-50 d-flex flex-column justify-content-around'>
           <TField id_campo={'t_field_login'} texto='Usuário ou email' tamanho='small' />
           <TFieldSenha tamanho='small' />

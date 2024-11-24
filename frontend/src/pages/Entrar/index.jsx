@@ -8,7 +8,9 @@ function Entrar() {
   return (
     <div className='fundo_entrar'>
         <main className='tela_entrar'>
-            <img src='assets/logo_login.png' id='img_logo' alt='pedaço de melancia com Fresh Photo escrito em baixo' />
+            <div className="img_container" data-titulo='Fresh Photo'>
+              <img src='assets/logo_login.png' id='img_logo' alt='pedaço de melancia com Fresh Photo escrito em baixo' />
+            </div>
             <Link to={'/login'} id='link_login'>
               <BtnEntrar texto={'login'} componente={<LoginIcon />} id_entrada={'btn_login'} />
             </Link>

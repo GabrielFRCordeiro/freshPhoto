@@ -2,6 +2,23 @@
     height: 60vh;
 }
 
+.img_container_login{
+    width: 12em;
+    position: relative;
+}
+
+.img_container_login::after{
+    font-family: 'Kodchasan';
+    content: attr(data-titulo);
+    position: absolute;
+    left: -3em;
+    bottom: -.8em;
+    color: var(--color-secundary);
+    font-size: 2em;
+    width: 12em;
+    font-weight: bold;
+}
+
 a{
     text-decoration: none;
     font-size: .8em;
