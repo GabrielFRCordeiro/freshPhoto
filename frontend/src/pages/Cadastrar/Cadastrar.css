@@ -7,6 +7,10 @@
     font-weight: bold;
 }
 
+.img_cadastrar{
+    cursor: pointer;
+}
+
 a{
     text-decoration: none;
     font-size: .8em;

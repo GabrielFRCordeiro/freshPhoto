@@ -11,7 +11,7 @@ function Cadastrar() {
     <main className='container text-center tela_cadastrar'>
       <h1 className='titulo_config'>Fresh Photo</h1>
       <div className='h-100 d-flex flex-column align-items-center justify-content-around'>
-        <img src='assets/img_perfil.svg' alt='imagem padrão de usuário' />
+        <img src='assets/img_perfil.svg' alt='imagem padrão de usuário' className='img_cadastrar' />
         <form className='h-50 d-flex flex-column justify-content-around'>
           <TField id_campo={'t_field_nome'} texto='Nome' tamanho='small' />
           <TField id_campo={'t_field_usuario'} texto='Usuário' tamanho='small' />
