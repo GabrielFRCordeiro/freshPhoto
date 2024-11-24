@@ -8,7 +8,11 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 export default function BasicTextFields(props) {
-    const { tamanho } = props;
+    const { tamanho, value, onChange } = props;
+
+    const handleChange = (e) => {
+      onChange(e.target.value);
+  };
 
     const [showPassword, setShowPassword] = React.useState(false);
 
@@ -25,7 +29,6 @@ export default function BasicTextFields(props) {
               <IconButton
                 aria-label="toggle password visibility"
                 onClick={handleClickShowPassword}
-                
                 edge="end"
               >
                 {showPassword ? <VisibilityOff /> : <Visibility />}
@@ -33,6 +36,8 @@ export default function BasicTextFields(props) {
             </InputAdornment>
           }
           label="Password"
+          value={value}
+          onChange={handleChange}
         />
       </FormControl>
   );
