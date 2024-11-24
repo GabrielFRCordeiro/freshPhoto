@@ -1,11 +1,14 @@
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import './BtnVoltar.css';
+import { Link } from 'react-router-dom';
 
-export default function BtnVoltar() {
+export default function BtnVoltar({pagina}) {
   return (
-    <IconButton aria-label="delete" id='btnVoltar'>
-        <ArrowBackIcon />
-    </IconButton>
+    <Link to={pagina}>
+      <IconButton aria-label="delete" id='btnVoltar'>
+          <ArrowBackIcon />
+      </IconButton>
+    </Link>
   )
 }

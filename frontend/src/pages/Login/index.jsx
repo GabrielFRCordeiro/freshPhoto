@@ -7,7 +7,7 @@ import BtnVoltar from '../../Components/BtnVoltar';
 
 function Login() {
   return (<>
-    <BtnVoltar />
+    <BtnVoltar pagina={'/'} />
     <main className='container text-center tela_login'>
       <div className='h-100 d-flex flex-column align-items-center justify-content-around'>
         <img src='assets/logo_login.png' alt='pedaço de melancia com Fresh Photo escrito em baixo' />

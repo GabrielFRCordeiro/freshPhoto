@@ -29,11 +29,11 @@
     width: 12em;
 }
 
-#btn_login{
+#link_login{
     grid-area: btn_login;
 }
 
-#btn_cadastrar{
+#link_cadastrar{
     grid-area: btn_cadastrar;
 }
 

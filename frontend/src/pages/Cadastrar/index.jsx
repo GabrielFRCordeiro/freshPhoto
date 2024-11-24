@@ -7,7 +7,7 @@ import BtnVoltar from '../../Components/BtnVoltar';
 
 function Cadastrar() {
   return (<>
-    <BtnVoltar />
+    <BtnVoltar pagina={'/'} />
     <main className='container text-center tela_cadastrar'>
       <h1 className='titulo_config'>Fresh Photo</h1>
       <div className='h-100 d-flex flex-column align-items-center justify-content-around'>
@@ -19,7 +19,7 @@ function Cadastrar() {
           <TField id_campo={'t_field_email'} texto='Email' tipo='email' tamanho='small' />
           <div className='text-start ms-2 mb-2'>
             <input type="checkbox" name="termos" id="termos" />
-            <label htmlFor="termos" className='ms-2 text-capitalize'>aceitar termos e usos</label><br />
+            <label htmlFor="termos" className='ms-2 text-capitalize'>aceitar termos de uso</label><br />
           </div>
           <BtnEntrar texto={'cadastrar'} componente={<CreateIcon />} id_entrada={'btn_cadastrar'} />
         </form>
