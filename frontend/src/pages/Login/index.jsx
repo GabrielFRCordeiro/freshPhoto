@@ -35,7 +35,8 @@ function Login() {
             size='small'
             style={{margin: 8 + 'px', width: 25 + 'ch'}}
             value={login} 
-            onChange={(e) => setLogin(e.target.value)} 
+            onChange={(e) => setLogin(e.target.value)}
+            required
           />
           <TFieldSenha
             tamanho='small'

@@ -38,7 +38,8 @@ function Cadastrar() {
             size='small' 
             style={{ margin: '8px', width: '25ch' }} 
             value={nome} 
-            onChange={(e) => setNome(e.target.value)} 
+            onChange={(e) => setNome(e.target.value)}
+            required
           />
           <TextField 
             id='t_field_usuario' 
@@ -47,7 +48,8 @@ function Cadastrar() {
             size='small' 
             style={{ margin: '8px', width: '25ch' }} 
             value={usuario} 
-            onChange={(e) => setUsuario(e.target.value)} 
+            onChange={(e) => setUsuario(e.target.value)}
+            required
           />
           <TFieldSenha
             tamanho='small'
@@ -62,7 +64,8 @@ function Cadastrar() {
             size='small' 
             style={{ margin: '8px', width: '25ch' }} 
             value={email} 
-            onChange={(e) => setEmail(e.target.value)} 
+            onChange={(e) => setEmail(e.target.value)}
+            required
           />
           <div className='text-start ms-2 mb-2'>
             <input type="checkbox" name="termos" id="termos" />
