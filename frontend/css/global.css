@@ -82,6 +82,10 @@ h1, h2{
     font-weight: bold;
 }
 
+.img_container_login::after{
+    width: 7em;
+}
+
 .link_login{
     grid-area: btn_login;
 }
@@ -107,4 +111,23 @@ h1, h2{
     .img_logo{
         width: 20em;
     }
+}
+
+.t_field{
+    margin: 8px !important;
+    width: 25ch !important;
+}
+
+.termos_de_uso{
+    width: 25ch;
+    margin: 8px 0 16px;
+}
+
+.titulo_config{
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+.img_cadastrar{
+    cursor: pointer;
 }

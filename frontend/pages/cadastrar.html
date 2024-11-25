@@ -11,29 +11,29 @@
 <body>
     <main class="container">
         <!-- logo -->
-        <div className='h-100 d-flex flex-column align-items-center justify-content-around'>
-            <div class="img_container_login" data-titulo='Fresh Photo'>
-                <img src='../assets/img_perfil.svg' alt='pedaço de melancia com Fresh Photo escrito em baixo' id='img_logo' />
-            </div>
+        <div class='h-100 d-flex flex-column align-items-center justify-content-around'>
+            <h1 class='titulo_config'>Fresh Photo</h1>
+
+            <img src='../assets/img_perfil.svg' alt='pedaço de melancia com Fresh Photo escrito em baixo' class='img_cadastrar' />
 
             <!-- nome -->
-            <input type="text" id="t_field_nome" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Nome" required>
+            <input type="text" id="t_field_nome" class="form-control t_field" aria-describedby="passwordHelpBlock" placeholder="Nome" required>
 
             <!-- input usuario -->
-            <input type="text" id="t_field_usuario" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Usuário" required>
+            <input type="text" id="t_field_usuario" class="form-control t_field" aria-describedby="passwordHelpBlock" placeholder="Usuário" required>
 
             <!-- input senha -->
-            <input type="password" id="t_field_senha" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Senha" required>
+            <input type="password" id="t_field_senha" class="form-control t_field" aria-describedby="passwordHelpBlock" placeholder="Senha" required>
             <!-- <div id="passwordHelpBlock" class="form-text">
             Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
             </div> -->
             
             <!-- email -->
-            <input type="email" id="t_field_email" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Email" required>
+            <input type="email" id="t_field_email" class="form-control t_field" aria-describedby="passwordHelpBlock" placeholder="Email" required>
             
             <!-- termos de uso -->
-            <div class="input-group mb-3">
-                <div class="input-group-text">
+            <div class="input-group justify-content-center">
+                <div class="input-group-text termos_de_uso">
                   <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
                   <label htmlFor="termos" class='ms-2 text-capitalize'>aceitar termos de uso</label>
                 </div>
