@@ -1,7 +1,0 @@
-#btnVoltar{
-    position: absolute;
-    left: 1em;
-    top: 1em;
-    background-color: var(--color-white);
-    border-radius: .5em;
-}
