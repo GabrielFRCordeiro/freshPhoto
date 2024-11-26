@@ -10,6 +10,7 @@
     --color-text: #939393;
     --color-text-secundary: #004517;
     --color-entrar: #FEE2D0;
+    --color-validacao: #e92e2e;
 }
 
 *{
@@ -145,4 +146,10 @@ h1, h2{
 .btn_voltar i{
     font-size: 2em;
     color: var(--color-black);
+}
+
+.validacao{
+    color: var(--color-validacao);
+    font-size: .8em;
+    display: none;
 }
