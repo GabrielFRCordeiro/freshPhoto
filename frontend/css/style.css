@@ -30,10 +30,11 @@
 }
 
 .caixaTitulo h1{
-    text-align: center;
+    text-align: start;
     font-weight: bold;
     color: var(--color-white);
     letter-spacing: 2px;
+    margin-left: 1em;
 }
 
 @media (min-width: 992px) {
@@ -44,6 +45,11 @@
     .barraTitulo, .caixaTitulo{
         width: 50vw;
         left: 25%;
+    }
+    
+    .caixaTitulo h1{
+        text-align: center;
+        margin-left: 0;
     }
 }
 
