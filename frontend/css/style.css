@@ -1,4 +1,25 @@
+/* GERAL */
+
 @import url('./global.css');
+
+/* PERFIL */
+
+.navegacao{
+    width: 100vw;
+    height: 10vh;
+    background-color: var(--color-primary);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.navIcon{
+    color: var(--color-white);
+}
+
+.navIconFocus{
+    color: var(--color-secundary);
+}
 
 .perfil{
     display: none;
@@ -37,20 +58,26 @@
     margin-left: 1em;
 }
 
-@media (min-width: 992px) {
-    .perfil{
-        display: block;
-    }
+.btn_sair{
+    border: none;
+    background-color: var(--color-white);
+    color: var(--color-text-secundary);
+    border-color: black;
+    border-radius: .5em;
+    width: 5em;
+    height: 2.5em;
+    position: absolute;
+    top: 3em;
+    right: 3em;
+    z-index: 2;
+    align-self: center;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
 
-    .barraTitulo, .caixaTitulo{
-        width: 50vw;
-        left: 25%;
-    }
-   
-    .caixaTitulo h1{
-        text-align: center;
-        margin-left: 0;
-    }
+.btn_sair:hover{
+    background-color: #e1e1e1;
+    color: black;
+    transition: .5s;
 }
 
 .caixaPerfil{
@@ -78,21 +105,7 @@
     margin: 0;
 }
 
-@media (min-width: 992px) {
-    .caixaPerfil{
-        width: 50vw;
-        left: 25%;
-        top: 10vh;
-        border-top-left-radius: 1em;
-        border-top-right-radius: 1em;
-    }
-
-    .caixaPerfil img{
-        height: 8rem;
-    }
-}
-
-.btnAcao{
+.btn_acao{
     border: none;
     background-color: var(--color-terciary);
     color: var(--color-text-secundary);
@@ -102,66 +115,13 @@
     align-self: center;
 }
 
-.btnAcao:hover{
+.btn_acao:hover{
     background-color: rgb(124, 185, 48, 0.6);
     color: black;
     transition: .5s;
 }
 
-.btnSair{
-    border: none;
-    background-color: var(--color-white);
-    color: var(--color-text-secundary);
-    border-color: black;
-    border-radius: .5em;
-    width: 5em;
-    height: 2.5em;
-    position: absolute;
-    top: 3em;
-    right: 3em;
-    z-index: 2;
-    align-self: center;
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
-}
-
-.btnSair:hover{
-    background-color: #e1e1e1;
-    color: black;
-    transition: .5s;
-}
-
-.navegacao{
-    width: 100vw;
-    height: 10vh;
-    background-color: var(--color-primary);
-    position: fixed;
-    bottom: 0;
-    left: 0;
-}
-
-.navIcon{
-    color: var(--color-white);
-}
-
-.navIconFocus{
-    color: var(--color-secundary);
-}
-
-@media (min-width: 992px) {
-    .navegacao{
-        width: 10vw;
-        height: 100vh;
-    }
-
-    .navegacao div{
-        height: 100vh;
-    }
-
-    .navIcon{
-    cursor: pointer;
-    }
-
-}
+/* USER FEED */
 
 .cor_fundo{
     width: 100vw;
@@ -170,15 +130,6 @@
     position: absolute;
     top: 0;
     overflow: scroll;
-}
-
-@media (min-width: 992px) {
-    .cor_fundo{
-        background-color: transparent;
-        width: 50vw;
-        height: 92vh;
-        top: 4vh;
-    }
 }
 
 .post_cards{
@@ -208,6 +159,7 @@
 
 .user_img{
     grid-area: user_img;
+    width: 5em;
 }
 
 .user_usuario{
@@ -217,18 +169,6 @@
 
 .icon_receita{
     grid-area: icon_receita;
-}
-
-.icon_curtir{
-    grid-area: icon_curtir;
-}
-
-.icon_comentario{
-    grid-area: icon_comentario;
-}
-
-.user_img{
-    width: 5em;
 }
 
 .icon_receita, .icon_curtir, .icon_comentario{
@@ -246,7 +186,65 @@
     width: 100%;
 }
 
+.icon_curtir{
+    grid-area: icon_curtir;
+}
+
+.icon_comentario{
+    grid-area: icon_comentario;
+}
+
 @media (min-width: 992px) {
+    /* PERFIL */
+
+    .navegacao{
+        width: 10vw;
+        height: 100vh;
+    }
+
+    .navegacao div{
+        height: 100vh;
+    }
+
+    .navIcon{
+    cursor: pointer;
+    }
+
+    .perfil{
+        display: block;
+    }
+
+    .barraTitulo, .caixaTitulo{
+        width: 50vw;
+        left: 25%;
+    }
+   
+    .caixaTitulo h1{
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .caixaPerfil{
+        width: 50vw;
+        left: 25%;
+        top: 10vh;
+        border-top-left-radius: 1em;
+        border-top-right-radius: 1em;
+    }
+
+    .caixaPerfil img{
+        height: 8rem;
+    }
+
+    /* USER FEED */
+
+    .cor_fundo{
+        background-color: transparent;
+        width: 50vw;
+        height: 92vh;
+        top: 4vh;
+    }
+
     .post_cards{
         margin-top: 6vh;
     }
