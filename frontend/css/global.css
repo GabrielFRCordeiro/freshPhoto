@@ -90,6 +90,7 @@ h1, h2{
 
 .link_login{
     grid-area: btn_login;
+    margin: 32px 0 24px;
 }
 
 .link_login:focus-visible, .link_cadastrar:focus-visible{
