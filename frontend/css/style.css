@@ -14,7 +14,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 2;
     margin: 0;
 }
 
@@ -25,6 +25,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 1;
     padding: 1em 0;
 }
 
@@ -127,6 +128,9 @@
     width: 100vw;
     height: 90vh;
     background-color: var(--color-white);
+    position: absolute;
+    top: 0;
+    overflow: scroll;
 }
 
 @media (min-width: 992px) {
@@ -134,7 +138,77 @@
         background-color: transparent;
         width: 50vw;
         height: 92vh;
-        position: relative;
         top: 4vh;
+    }
+}
+
+.post_cards{
+    width: 100%;
+    min-height: 70vh;
+    background-color: red;
+    margin-top: 12vh;
+}
+
+.post_card{
+    width: 100%;
+    height: 70vh;
+    background-color: var(--color-white);
+    margin-bottom: 8vh;
+    display: grid;
+    grid-template-areas: 
+        'user_img user_usuario . . icon_receita'
+        'post_img post_img post_img post_img post_img'
+        'post_img post_img post_img post_img post_img'
+        'post_img post_img post_img post_img post_img'
+        'post_img post_img post_img post_img post_img'
+        'icon_curtir icon_comentario . . .';
+    grid-template-rows: .2f .2f .2f .2f .2f;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    place-items: center;
+}
+
+.user_img{
+    grid-area: user_img;
+}
+
+.user_usuario{
+    grid-area: user_usuario;
+    justify-self: start;
+}
+
+.icon_receita{
+    grid-area: icon_receita;
+}
+
+.icon_curtir{
+    grid-area: icon_curtir;
+}
+
+.icon_comentario{
+    grid-area: icon_comentario;
+}
+
+.user_img{
+    width: 5em;
+}
+
+.icon_receita, .icon_curtir, .icon_comentario{
+    width: 2.5em;
+}
+
+.post_img{
+    width: 100%;
+    height: 50vh;
+    grid-area: post_img;
+    overflow: hidden;
+}
+
+.post_img img{
+    width: 100%;
+}
+
+@media (min-width: 992px) {
+    .post_cards{
+        margin-top: 6vh;
     }
 }
