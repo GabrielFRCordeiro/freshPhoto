@@ -1,0 +1,155 @@
+@import url('./global.css');
+
+.perfil{
+    display: none;
+}
+
+.barraTitulo{
+    color: var(--color-secundary);
+    background-color: var(--color-secundary);
+    border: none;
+    height: .25em;
+    width: 100vw;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    margin: 0;
+}
+
+.caixaTitulo{
+    width: 100vw;
+    height: 8vh;
+    background-color: var(--color-primary);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1em 0;
+}
+
+.caixaTitulo h1{
+    text-align: center;
+    font-weight: bold;
+    color: var(--color-white);
+    letter-spacing: 2px;
+}
+
+@media (min-width: 992px) {
+    .perfil{
+        display: block;
+    }
+
+    .barraTitulo, .caixaTitulo{
+        width: 50vw;
+        left: 25%;
+    }
+}
+
+.caixaPerfil{
+    width: 100vw;
+    height: 30vh;
+    background-color: var(--color-white);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.caixaPerfil img{
+    height: 7rem;
+}
+
+.caixaPerfil h2{
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin: 0;
+}
+
+.caixaPerfil p{
+    color: var(--color-secundary);
+    font-size: 1rem;
+    margin: 0;
+}
+
+@media (min-width: 992px) {
+    .caixaPerfil{
+        width: 50vw;
+        left: 25%;
+        top: 10vh;
+        border-top-left-radius: 1em;
+        border-top-right-radius: 1em;
+    }
+
+    .caixaPerfil img{
+        height: 8rem;
+    }
+}
+
+.btnAcao{
+    border: none;
+    background-color: var(--color-terciary);
+    color: var(--color-text-secundary);
+    border-radius: .5em;
+    width: 10em;
+    height: 2.5em;
+    align-self: center;
+}
+
+.btnAcao:hover{
+    background-color: rgb(124, 185, 48, 0.6);
+    color: black;
+}
+
+.btnSair{
+    border: none;
+    background-color: var(--color-white);
+    color: var(--color-text-secundary);
+    border-color: black;
+    border-radius: .5em;
+    width: 5em;
+    height: 2.5em;
+    position: absolute;
+    top: 3em;
+    right: 3em;
+    z-index: 2;
+    align-self: center;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+.btnSair:hover{
+    background-color: #e1e1e1;
+    color: black;
+}
+
+.navegacao{
+    width: 100vw;
+    height: 10vh;
+    background-color: var(--color-primary);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.navIcon{
+    color: var(--color-white);
+}
+
+.navIconFocus{
+    color: var(--color-secundary);
+}
+
+@media (min-width: 992px) {
+    .navegacao{
+        width: 10vw;
+        height: 100vh;
+    }
+
+    .navegacao div{
+        height: 100vh;
+    }
+
+    .navIcon{
+    cursor: pointer;
+
+    }
+}
