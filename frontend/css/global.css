@@ -1,3 +1,5 @@
+/* GERAL */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kodchasan:wght@400;700&display=swap');
 
 :root{
@@ -30,6 +32,17 @@ body{
     align-items: center;
 }
 
+a{
+    text-decoration: none;
+    font-size: .8em;
+}
+
+h1, h2{
+    font-family: 'Kodchasan';
+}
+
+/* ENTRAR */
+
 .fundo{
     background-image: url('../assets/img_background.png');
     background-repeat: no-repeat;
@@ -52,26 +65,18 @@ body{
     place-items: center;
 }
 
-a{
-    text-decoration: none;
-    font-size: .8em;
-}
-
-h1, h2{
-    font-family: 'Kodchasan';
+.img_container{
+    grid-area: logo;
+    width: 12em;
+    position: relative;
 }
 
 .img_logo{
     width: 12em;
 }
 
-.img_container, .img_container_login{
-    grid-area: logo;
-    width: 12em;
-    position: relative;
-}
 
-.img_container::after, .img_container_login::after{
+.img_container::after{
     font-family: 'Kodchasan';
     content: attr(data-titulo);
     position: absolute;
@@ -79,12 +84,16 @@ h1, h2{
     bottom: -1.5em;
     color: var(--color-secundary);
     font-size: 2em;
-    width: 12em;
+    width: 7em;
     font-weight: bold;
 }
 
-.img_container_login::after{
-    width: 7em;
+.link_login{
+    grid-area: btn_login;
+}
+
+.link_login:focus-visible, .link_cadastrar:focus-visible{
+    outline: none;
 }
 
 .btn_entrar{
@@ -97,10 +106,6 @@ h1, h2{
     height: 2.5em;
     align-self: center;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
-}
-
-.link_login{
-    grid-area: btn_login;
 }
 
 .btn_entrar:hover{
@@ -119,51 +124,7 @@ h1, h2{
     grid-area: btn_cadastrar;
 }
 
-.link_login:focus-visible, .link_cadastrar:focus-visible{
-    outline: none;
-}
-
-.btn_entrar_alinhado{
-    justify-self: center;
-}
-
-@media (min-width: 992px) {
-    .fundo_entrar{
-        padding: 15vh 0 0;
-    }
-
-    .tela_entrar{
-        grid-template: 
-    '. . . .'  1fr
-    '. logo btn_login .'  1fr
-    '. logo btn_cadastrar .'  1fr
-    '. . . .'  1fr
-    / .25fr .25fr .25fr .25fr;
-    }
-
-    .img_logo{
-        width: 20em;
-    }
-}
-
-.t_field{
-    margin: 8px !important;
-    width: 25ch !important;
-}
-
-.termos_de_uso{
-    width: 25ch;
-    margin: 8px 0 16px;
-}
-
-.titulo_config{
-    color: var(--color-primary);
-    font-weight: bold;
-}
-
-.img_cadastrar{
-    cursor: pointer;
-}
+/* LOGIN */
 
 .btn_voltar{
     width: 4em;
@@ -180,8 +141,50 @@ h1, h2{
     color: var(--color-black);
 }
 
+.t_field{
+    margin: 8px !important;
+    width: 25ch !important;
+}
+
 .validacao{
     color: var(--color-validacao);
     font-size: .8em;
     display: none;
+}
+
+.btn_entrar_alinhado{
+    justify-self: center;
+}
+
+/* CADASTRAR */
+
+.titulo_config{
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+.img_cadastrar{
+    cursor: pointer;
+}
+
+.termos_de_uso{
+    width: 25ch;
+    margin: 8px 0 16px;
+}
+
+@media (min-width: 992px) {
+    /* ENTRAR */
+
+    .tela_entrar{
+        grid-template: 
+    '. . . .'  1fr
+    '. logo btn_login .'  1fr
+    '. logo btn_cadastrar .'  1fr
+    '. . . .'  1fr
+    / .25fr .25fr .25fr .25fr;
+    }
+
+    .img_logo{
+        width: 20em;
+    }
 }
