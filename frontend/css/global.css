@@ -131,3 +131,18 @@ h1, h2{
 .img_cadastrar{
     cursor: pointer;
 }
+
+.btn_voltar{
+    width: 4em;
+    height: 4em;
+    border: none;
+    border-radius: 1em;
+    position: absolute;
+    top: 2em;
+    left: 2em;
+}
+
+.btn_voltar i{
+    font-size: 2em;
+    color: var(--color-black);
+}
