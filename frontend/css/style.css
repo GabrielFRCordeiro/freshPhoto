@@ -122,3 +122,19 @@
         height: 100vh;
     }
 }
+
+.cor_fundo{
+    width: 100vw;
+    height: 90vh;
+    background-color: var(--color-white);
+}
+
+@media (min-width: 992px) {
+    .cor_fundo{
+        background-color: transparent;
+        width: 50vw;
+        height: 92vh;
+        position: relative;
+        top: 4vh;
+    }
+}
