@@ -87,46 +87,44 @@ h1, h2{
     width: 7em;
 }
 
+.btn_entrar{
+    width: 9em;
+    border: none;
+    background-color: var(--color-white);
+    color: var(--color-text-secundary);
+    border-color: black;
+    border-radius: .5em;
+    height: 2.5em;
+    align-self: center;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
 .link_login{
-    width: 9em;
     grid-area: btn_login;
-    border: none;
-    background-color: var(--color-white);
-    color: var(--color-text-secundary);
-    border-color: black;
-    border-radius: .5em;
-    width: 9em;
-    height: 2.5em;
-    align-self: center;
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 
-.link_login:hover{
+.btn_entrar:hover{
     background-color: #e1e1e1;
     color: black;
 }
 
-.link_cadastrar{
-    width: 9em;
-    grid-area: btn_cadastrar;
-    border: none;
+.btn_entrar:focus-visible, .tela_entrar .btn_entrar:active{
     background-color: var(--color-white);
     color: var(--color-text-secundary);
     border-color: black;
-    border-radius: .5em;
-    width: 9em;
-    height: 2.5em;
-    align-self: center;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
-}
-
-.link_cadastrar:hover{
-    background-color: #e1e1e1;
-    color: black;
 }
 
 .link_cadastrar{
     grid-area: btn_cadastrar;
+}
+
+.link_login:focus-visible, .link_cadastrar:focus-visible{
+    outline: none;
+}
+
+.btn_entrar_alinhado{
+    justify-self: center;
 }
 
 @media (min-width: 992px) {
