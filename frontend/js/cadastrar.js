@@ -30,7 +30,7 @@ const text_validacao = document.querySelector('#text_validacao');
 // }
 
 // pega endereço da api (app.py)
-const API_URL = 'http://127.0.0.1:5000/users';
+const API_URL = 'http://127.0.0.1:5000/usuario';
 
 // ve se user existe
 async function user_dont_exist(usuario, email) {
