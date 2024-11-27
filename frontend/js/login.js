@@ -15,7 +15,7 @@ form_login.addEventListener('submit', async (e) => {
         console.log(user);
         user_exist = (t_field_login.value === user.usuario || t_field_login.value === user.email) && t_field_senha.value === user.senha;
         if (user_exist) {
-            localStorage.setItem('isLoggedIn', 'true');
+            sessionStorage.setItem('usuario', user.usuario);
         	window.location.href = 'perfil.html';
         } else {
             alert('erro');

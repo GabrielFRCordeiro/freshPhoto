@@ -45,6 +45,14 @@
         </section>
     </main>
 
+    <script>
+        const usuarioNome = sessionStorage.getItem('usuario');
+        if (usuarioNome) {
+            document.getElementById('usuarioNome').textContent = usuarioNome;
+        } else {
+            window.location.href = "../index.html";
+        }
+    </script>
     <script src="../js/logout.js"></script>
 </body>
 </html>
