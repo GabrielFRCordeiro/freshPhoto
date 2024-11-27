@@ -40,6 +40,7 @@
                         <label htmlFor="termos" class='ms-2 text-capitalize'>aceitar termos de uso</label>
                     </div>
                 </div>
+                <p class="validacao text-center" id="text_validacao"></p>
                 
                 <div class="d-grid gap-2">
                     <button class="btn btn-primary text-uppercase btn_entrar btn_entrar_alinhado" type="submit" id="btn_cadastrar"><i class="bi bi-pen"></i> cadastrar</button>
@@ -48,6 +49,14 @@
         </div>
     </main>
     
+    <script>
+        const usuarioNome = sessionStorage.getItem('usuario');
+        if (usuarioNome) {
+          window.location.href = "perfil.html";
+        } else {
+          document.getElementById('usuarioNome').textContent = usuarioNome;
+        }
+    </script>
     <script src="../js/cadastrar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
