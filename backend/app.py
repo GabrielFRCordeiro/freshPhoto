@@ -16,7 +16,7 @@ def pegar_usuario():
     return jsonify(usuario), 200
 
 # Criado usuario
-@app.route("/usuario", method=['POST'])
+@app.route("/usuario", methods=['POST'])
 def criar_usuario():
     data = request.json
     conn = get_connection()
@@ -29,7 +29,7 @@ def criar_usuario():
     return jsonify({"message": "Usuario criado com sucesso"}), 201
 
 # Criar uma publicação
-@app.route("/postagem" method=["POST"])
+@app.route("/postagem", methods=["POST"])
 def criar_postagem():
     data = request.json
     conn = get_connection()
@@ -41,3 +41,5 @@ def criar_postagem():
     conn.commit()
     return jsonify({"message": "Usuario criado com sucesso"}), 201
 
+if __name__ == '__main__':
+    app.run(debug=True)
