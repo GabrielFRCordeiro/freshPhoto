@@ -6,33 +6,8 @@ const input_termos = document.querySelector('#input_termos');
 const form_cadastrar = document.querySelector("#form_cadastrar");
 const text_validacao = document.querySelector('#text_validacao');
 
-// const validName = 'Nome Completo';
-// const validUser = 'nome.com';
-// const validEmail = 'usuario@example.com';
-// const validPassword = '123456';
-
-// function cadastrarSistema(e) {
-// 	e.preventDefault();
-
-// 	user_exist = t_field_usuario.value === validUser && t_field_email.value === validEmail;
-// 	if (!user_exist && t_field_nome.value && t_field_senha && input_termos) {
-//         localStorage.setItem('isLoggedIn', 'true');
-// 		window.location.href = 'perfil.html';
-//     } else {
-//         console.log('texto de validacao');
-//     }
-// }
-
-// form_cadastrar.addEventListener("submit", cadastrarSistema);
- 
-// if (localStorage.getItem('isLoggedIn')) {
-//     window.location.href = 'perfil.html';
-// }
-
-// pega endereço da api (app.py)
 const API_URL = 'http://127.0.0.1:5000/usuario';
 
-// ve se user existe
 async function user_dont_exist(usuario, email) {
     const response = await fetch(API_URL);
     const users = await response.json();
@@ -46,8 +21,7 @@ async function user_dont_exist(usuario, email) {
         }
     });
 }
- 
-// add novo usuario
+
 form_cadastrar.addEventListener('submit', async (e) => {
     e.preventDefault();
     const new_user = {
