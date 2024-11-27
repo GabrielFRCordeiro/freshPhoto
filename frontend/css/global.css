@@ -44,7 +44,7 @@ h1, h2{
 /* ENTRAR */
 
 .fundo{
-    background-image: url('../assets/img_background.png');
+    background-image: url('../assets/img_background.svg');
     background-repeat: no-repeat;
     background-size: cover;
 }
