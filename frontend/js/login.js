@@ -14,11 +14,18 @@ form_login.addEventListener('submit', async (e) => {
     users.forEach(user => {
         console.log(user);
         user_exist = (t_field_login.value === user.usuario || t_field_login.value === user.email) && t_field_senha.value === user.senha;
-        if (user_exist) {
-            sessionStorage.setItem('usuario', user.usuario);
-        	window.location.href = 'perfil.html';
+        if (!t_field_login.value) {
+            text_validacao.innerText = 'Preencha o campo de usuario';
+		    text_validacao.style.display = 'block';
+        } else if (!t_field_senha.value) {
+            text_validacao.innerText = 'Preencha o campo de senha';
+		    text_validacao.style.display = 'block';
+        } else if (!user_exist) {
+            text_validacao.innerText = 'Usuário ou senha incorretos';
+		    text_validacao.style.display = 'block';
         } else {
-            alert('erro');
+            sessionStorage.setItem('usuario', user.usuario);
+            window.location.href = 'perfil.html';
         }
     });
 })
