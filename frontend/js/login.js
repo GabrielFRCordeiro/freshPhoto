@@ -13,7 +13,16 @@ function entrarSistema(e){
 	if ((t_field_login.value === validEmail && t_field_senha.value === validPassword) || (t_field_login.value === validUser && t_field_senha.value === validPassword)) {
 		localStorage.setItem('isLoggedIn', 'true');
 		window.location.href = 'perfil.html';
+	} else if (t_field_login.value === '') {
+		text_validacao.innerText = 'Preencha o campo de usuario';
+		text_validacao.style.display = 'block';
+		console.log(t_field_login.value);
+	} else if (t_field_senha.value === '') {
+		text_validacao.innerText = 'Preencha o campo de senha';
+		text_validacao.style.display = 'block';
+		console.log(t_field_senha.value);
 	} else {
+		text_validacao.innerText = 'Usuário ou senha incorretos';
 		text_validacao.style.display = 'block';
 	}
 }
