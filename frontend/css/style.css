@@ -132,6 +132,27 @@
     overflow: scroll;
 }
 
+/* Largura (mudar so width) */
+::-webkit-scrollbar {
+    width: .4em;
+    height: 0;
+}
+      
+/* Cor de fundo */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+       
+/* Cor da barra */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+      
+/* Cor da barra quando mouse ta em cima */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
 .post_cards{
     width: 100%;
     min-height: 70vh;

@@ -8,15 +8,14 @@ CORS(app)
 # Pegando usuario do banco de dados
 @app.route('/usuario', methods=['GET'])
 def pegar_usuario():
-    data = request.json
     conn = get_connection()
-    cursor = conn.cursor()
+    cursor = conn.cursor(dictionary = True)
     cursor.execute("SELECT * FROM usuario")
-    usuario = sursor.fetchall()
+    usuario = cursor.fetchall()
     return jsonify(usuario), 200
 
 # Criado usuario
-@app.route("/usuario", method=['POST'])
+@app.route("/usuario", methods=['POST'])
 def criar_usuario():
     data = request.json
     conn = get_connection()
@@ -29,7 +28,7 @@ def criar_usuario():
     return jsonify({"message": "Usuario criado com sucesso"}), 201
 
 # Criar uma publicação
-@app.route("/postagem" method=["POST"])
+@app.route("/postagem", methods=["POST"])
 def criar_postagem():
     data = request.json
     conn = get_connection()
@@ -41,3 +40,5 @@ def criar_postagem():
     conn.commit()
     return jsonify({"message": "Usuario criado com sucesso"}), 201
 
+if __name__ == '__main__':
+    app.run(debug=True)
