@@ -135,7 +135,7 @@
 .post_cards{
     width: 100%;
     min-height: 70vh;
-    background-color: red;
+    background-color: transparent;
     margin-top: 12vh;
 }
 
@@ -165,14 +165,24 @@
 .user_usuario{
     grid-area: user_usuario;
     justify-self: start;
+    margin: 0;
+    color: var(--color-secundary);
+    font-size: 1rem;
 }
 
 .icon_receita{
     grid-area: icon_receita;
 }
 
-.icon_receita, .icon_curtir, .icon_comentario{
+.icon_receita{
     width: 2.5em;
+}
+
+.icon_curtir, .icon_comentario{
+    width: 1em;
+    font-size: 2.5em;
+    color: var(--color-secundary);
+    text-align: center;
 }
 
 .post_img{
