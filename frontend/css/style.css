@@ -316,3 +316,19 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+.feed_cards{
+    position: absolute;
+    top: 30vh;
+    left: 0;
+    width: 100vw;
+    height: 60vh;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.feed_card{
+    width: 25vw;
+    height: 25vw;
+}
