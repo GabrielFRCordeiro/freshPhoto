@@ -9,6 +9,7 @@ const API_URL = 'http://127.0.0.1:5000/postagem';
 
 form_publicar.addEventListener('submit', async (e) => {
     e.preventDefault();
+
     const nova_publicacao = {
         imagem: input_img.value,
         categoria: input_categoria.value,
