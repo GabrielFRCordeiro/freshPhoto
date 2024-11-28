@@ -93,10 +93,6 @@ h1, h2{
     margin: 32px 0 24px;
 }
 
-.link_login:focus-visible, .link_cadastrar:focus-visible{
-    outline: none;
-}
-
 .btn_entrar{
     width: 9em;
     border: none;
