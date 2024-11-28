@@ -42,6 +42,37 @@
             </div>
 
             <button class="btn_acao text-capitalize" id="btn_postar">publicar</button>
+
+            <!-- Modal Publicar -->
+            <div id="modal_postar" class="modal">
+                <form class="modal-content" id="form_publicar">
+                    <fieldset class="img_postar">
+                        <input type="file" id="input_img">
+                    </fieldset>
+
+                    <fieldset>
+                        <legend class="text-capitalize">categoria</legend>
+                        <select name="categoria" id="input_categoria">
+                            <option value="doce">Doce</option>
+                            <option value="salgado">Salgado</option>
+                        </select>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend class="text-capitalize">legenda</legend>
+                        <input type="text" name="legenda" id="t_field_legenda">
+                    </fieldset>
+
+                    <fieldset>
+                        <legend class="text-capitalize">receita</legend>
+                        <input type="text" name="receita" id="t_field_receita">
+                    </fieldset>
+
+                    <button type="submit" class="text-capitalize" id="btn_publicar">publicar</button>
+                    
+                </div>
+
+            </div>
         </section>
     </main>
 
@@ -54,5 +85,6 @@
         }
     </script>
     <script src="../js/logout.js"></script>
+    <script src="../js/modal.js"></script>
 </body>
 </html>

@@ -280,3 +280,39 @@
         margin-top: 6vh;
     }
 }
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--color-primary);
+    background-color: var(--color-modal);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.fechar_modal {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.fechar_modal:hover,
+.fechar_modal:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
