@@ -162,7 +162,15 @@ h1, h2{
     font-weight: bold;
 }
 
-.img_cadastrar{
+.img_cadastrar {
+    display: none;
+}
+  
+.img_placeholder {
+    width: 7em;
+    height: 7em;
+    object-fit: cover;
+    border-radius: 50%;
     cursor: pointer;
 }
 
