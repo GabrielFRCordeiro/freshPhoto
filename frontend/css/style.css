@@ -297,12 +297,49 @@
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: transparent;
     margin: auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: none;
     width: 80%;
+    row-gap: 1em;
 }
+
+.modal-content .field_verde {
+    background-color: var(--color-terciary);
+    border-radius: .7em;
+}
+
+.modal-content label {
+    display: block;
+    font-size: 1.5em;
+    color: var(--color-white);
+}
+
+.modal-content input {
+    width: 100%;
+    border: none;
+}
+
+.modal-content #t_field_legenda{
+    height: 10em;
+}
+
+/* .modal-content label[for='t_field_legenda'] {
+    height: 5em;
+}
+
+.modal-content #t_field_legenda {
+    font-size: 1em;
+}
+
+.modal-content label[for='t_field_receita'] {
+    height: 20em;
+}
+
+.modal-content #t_field_receita {
+    font-size: 1em;
+} */
 
 .fechar_modal {
     color: #aaaaaa;
@@ -332,4 +369,10 @@
 .feed_card{
     width: 25vw;
     height: 25vw;
+}
+
+@media (min-width: 992px) {
+    .modal-content{
+        background-color: var(--color-white);
+    }
 }

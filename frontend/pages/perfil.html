@@ -51,7 +51,7 @@
                     </fieldset>
 
                     <fieldset>
-                        <legend class="text-capitalize">categoria</legend>
+                        <label for="input_categoria" class="text-capitalize">categoria</label>
                         <!-- Required -->
                         <select name="categoria" id="input_categoria">
                             <option value="doce">Doce</option>
@@ -59,13 +59,13 @@
                         </select>
                     </fieldset>
 
-                    <fieldset>
-                        <legend class="text-capitalize">legenda</legend>
+                    <fieldset class="field_verde">
+                        <label for="t_field_legenda" class="text-capitalize">legenda</label>
                         <input type="text" name="legenda" id="t_field_legenda">
                     </fieldset>
 
-                    <fieldset>
-                        <legend class="text-capitalize">receita</legend>
+                    <fieldset class="field_verde">
+                        <label for="t_field_receita" class="text-capitalize">receita</label>
                         <input type="text" name="receita" id="t_field_receita">
                     </fieldset>
 
@@ -91,14 +91,14 @@
         </section>
     </main>
 
-    <script>
+    <!-- <script>
         const usuarioNome = sessionStorage.getItem('usuario');
         if (usuarioNome) {
             document.getElementById('usuarioNome').textContent = usuarioNome;
         } else {
             window.location.href = "../index.html";
         }
-    </script>
+    </script> -->
     
     <script src="../js/publicar.js"></script>
     <script src="../js/logout.js"></script>
