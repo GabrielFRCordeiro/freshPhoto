@@ -308,6 +308,8 @@
 .modal-content .field_verde {
     background-color: var(--color-terciary);
     border-radius: .7em;
+    box-sizing: content-box;
+    padding: 0 0 1em;
 }
 
 .modal-content label {
@@ -316,30 +318,21 @@
     color: var(--color-white);
 }
 
-.modal-content input {
+.modal-content textarea {
     width: 100%;
     border: none;
+    word-wrap: break-word;
+    word-break: break-word;
+    resize: none;
 }
 
-.modal-content #t_field_legenda{
-    height: 10em;
+.modal-content textarea[name="legenda"] {
+    height: 4em;
 }
 
-/* .modal-content label[for='t_field_legenda'] {
-    height: 5em;
+.modal-content textarea[name="receita"] {
+    height: 12em;
 }
-
-.modal-content #t_field_legenda {
-    font-size: 1em;
-}
-
-.modal-content label[for='t_field_receita'] {
-    height: 20em;
-}
-
-.modal-content #t_field_receita {
-    font-size: 1em;
-} */
 
 .fechar_modal {
     color: #aaaaaa;
@@ -372,7 +365,20 @@
 }
 
 @media (min-width: 992px) {
+    .modal {
+        width: 50vw;
+        left: 25%;
+    }
+
     .modal-content{
         background-color: var(--color-white);
+    }
+
+    .modal-content textarea[name="legenda"] {
+        height: 3em;
+    }
+
+    .modal-content textarea[name="receita"] {
+        height: 9em;
     }
 }
