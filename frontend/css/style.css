@@ -364,6 +364,15 @@
     height: 25vw;
 }
 
+.img_placeholder_publicar {
+    height: 20em;
+    width: 100%;
+    border-radius: 1.5em;
+    background-color: var(--color-img-modal);
+    background-size: cover;
+    cursor: pointer;
+}
+
 @media (min-width: 992px) {
     .modal {
         width: 50vw;

@@ -47,7 +47,10 @@
             <div id="modal_postar" class="modal">
                 <form class="modal-content" id="form_publicar">
                     <fieldset class="img_postar">
-                        <input type="file" id="input_img" required>
+                        <label for="publicacao_img" class="w-100 d-flex justify-content-center">
+                            <div id="img_preview_publicar" class="img_placeholder_publicar"></div>
+                        </label>
+                        <input type="file" name="publicacao_img" id="publicacao_img" accept="image/*" class="img_cadastrar" required>
                     </fieldset>
 
                     <fieldset>
@@ -103,5 +106,6 @@
     <script src="../js/publicar.js"></script>
     <script src="../js/logout.js"></script>
     <script src="../js/modal.js"></script>
+    <script src="../js/img_cadastrar.js"></script>
 </body>
 </html>
