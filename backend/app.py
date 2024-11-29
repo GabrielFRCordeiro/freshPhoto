@@ -20,10 +20,17 @@ def criar_usuario():
     data = request.json
     conn = get_connection()
     cursor = conn.cursor()
-    cursor.execute("""
-    INSERT INTO usuario(nome, usuario, senha, email)
-    VALUES (%s, %s, %s, %s)
-    """, (data["nome"], data["usuario"], data["senha"], data["email"]))
+    print(data["img"])
+    if "img" in data and data["img"]:
+        cursor.execute("""
+        INSERT INTO usuario(nome, usuario, senha, email, foto)
+        VALUES (%s, %s, %s, %s, %s)
+        """, (data["nome"], data["usuario"], data["senha"], data["email"], data["img"]))
+    else:
+        cursor.execute("""
+        INSERT INTO usuario(nome, usuario, senha, email)
+        VALUES (%s, %s, %s, %s)
+        """, (data["nome"], data["usuario"], data["senha"], data["email"]))
     conn.commit()
     return jsonify({"message": "Usuario criado com sucesso"}), 201
 

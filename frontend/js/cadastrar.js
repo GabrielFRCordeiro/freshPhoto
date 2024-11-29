@@ -47,7 +47,7 @@ form_cadastrar.addEventListener('submit', async (e) => {
         usuario: t_field_usuario.value,
         senha: t_field_senha.value,
         email: t_field_email.value,
-        img: user_img
+        img: user_img.value
     };
 
     const usuario_existe = await verifica_existencia(new_user.usuario, new_user.email);
