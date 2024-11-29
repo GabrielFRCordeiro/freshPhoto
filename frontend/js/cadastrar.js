@@ -7,7 +7,7 @@ const input_termos = document.querySelector('#input_termos');
 const form_cadastrar = document.querySelector("#form_cadastrar");
 const text_validacao = document.querySelector('#text_validacao');
 
-const API_URL = 'http://127.0.0.1:5000/usuario';
+const API_URL = 'http://127.0.0.1:5000/usuario/cadastrar';
 
 async function verifica_existencia(usuario, email) {
     const response = await fetch(API_URL);

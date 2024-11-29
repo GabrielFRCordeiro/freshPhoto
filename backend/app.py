@@ -14,8 +14,59 @@ def pegar_usuario():
     usuario = cursor.fetchall()
     return jsonify(usuario), 200
 
+@app.route("/usuario/login", methods=["GET"])
+def get_usuario_login():
+    try:
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("CALL login()")
+        usuario = cursor.fetchall() 
+        return jsonify(usuario), 200
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({"error": "Failed to fetch products"}), 500
+
+    finally:
+        cursor.close()
+        conn.close()
+
+@app.route("/usuario/cadastrar", methods=["GET"])
+def get_usuario_cadastrar():
+    try:
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("CALL cadastrar()")
+        usuario = cursor.fetchall() 
+        return jsonify(usuario), 200
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({"error": "Failed to fetch products"}), 500
+
+    finally:
+        cursor.close()
+        conn.close()
+
+@app.route("/usuario/perfil", methods=["GET"])
+def get_usuario_perfil():
+    try:
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("CALL perfil()")
+        usuario = cursor.fetchall() 
+        return jsonify(usuario), 200
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({"error": "Failed to fetch products"}), 500
+
+    finally:
+        cursor.close()
+        conn.close()
+
 # Criado usuario
-@app.route("/usuario", methods=['POST'])
+@app.route("/usuario/cadastrar", methods=['POST'])
 def criar_usuario():
     data = request.json
     conn = get_connection()
