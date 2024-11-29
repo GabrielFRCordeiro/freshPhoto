@@ -370,6 +370,7 @@
     border-radius: 1.5em;
     background-color: var(--color-img-modal);
     background-size: cover;
+    background-position: center;
     cursor: pointer;
 }
 
