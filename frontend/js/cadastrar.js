@@ -7,7 +7,7 @@ const input_termos = document.querySelector('#input_termos');
 const form_cadastrar = document.querySelector("#form_cadastrar");
 const text_validacao = document.querySelector('#text_validacao');
 
-const API_URL = 'http://127.0.0.1:5000/usuario';
+const API_URL = 'http://127.0.0.1:5000/usuario/cadastrar';
 
 async function verifica_existencia(usuario, email) {
     const response = await fetch(API_URL);
@@ -47,7 +47,7 @@ form_cadastrar.addEventListener('submit', async (e) => {
         usuario: t_field_usuario.value,
         senha: t_field_senha.value,
         email: t_field_email.value,
-        img: user_img
+        img: user_img.value
     };
 
     const usuario_existe = await verifica_existencia(new_user.usuario, new_user.email);

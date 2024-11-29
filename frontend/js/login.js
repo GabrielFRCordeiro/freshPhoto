@@ -3,7 +3,7 @@ const t_field_senha = document.querySelector('#t_field_senha');
 const form_login = document.querySelector("#form_login");
 const text_validacao = document.querySelector('#text_validacao');
 
-const API_URL = 'http://127.0.0.1:5000/usuario';
+const API_URL = 'http://127.0.0.1:5000/usuario/login';
 
 form_login.addEventListener('submit', async (e) => {
     e.preventDefault();
