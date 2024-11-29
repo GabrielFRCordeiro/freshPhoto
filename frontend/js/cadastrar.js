@@ -1,6 +1,7 @@
-const t_field_senha = document.querySelector('#t_field_senha');
+const user_img = document.querySelector('#user_img');
 const t_field_nome = document.querySelector('#t_field_nome');
 const t_field_usuario = document.querySelector('#t_field_usuario');
+const t_field_senha = document.querySelector('#t_field_senha');
 const t_field_email = document.querySelector('#t_field_email');
 const input_termos = document.querySelector('#input_termos');
 const form_cadastrar = document.querySelector("#form_cadastrar");
@@ -45,7 +46,8 @@ form_cadastrar.addEventListener('submit', async (e) => {
         nome: t_field_nome.value,
         usuario: t_field_usuario.value,
         senha: t_field_senha.value,
-        email: t_field_email.value
+        email: t_field_email.value,
+        img: user_img
     };
 
     const usuario_existe = await verifica_existencia(new_user.usuario, new_user.email);
