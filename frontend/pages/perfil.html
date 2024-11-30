@@ -14,10 +14,10 @@
     <header>
         <nav class='navbar navegacao fs-1'>
             <div class="container d-lg-flex flex-lg-column justify-content-lg-aroundcontainer d-lg-flex flex-lg-column justify-content-lg-start">
-                <i class="bi bi-house-door navIcon mt-lg-5"></i>
-                <i class="bi bi-search navIcon mt-lg-4"></i>
-                <i class="bi bi-hand-thumbs-up navIcon mt-lg-4"></i>
-                <i class="bi bi-person-circle navIcon navIconFocus mt-lg-4"></i>
+                <a href="./desenvolvimento.html" class="mt-lg-5"><i class="bi bi-house-door navIcon"></i></a>
+                <a href="./desenvolvimento.html" class="mt-lg-4"><i class="bi bi-search navIcon"></i></a>
+                <a href="./desenvolvimento.html" class="mt-lg-4"><i class="bi bi-hand-thumbs-up navIcon"></i></a>
+                <a href="#" class="mt-lg-4"><i class="bi bi-person-circle navIcon navIconFocus"></i></a>
             </div>
         </nav>
 
@@ -42,9 +42,70 @@
             </div>
 
             <button class="btn_acao text-capitalize" id="btn_postar">publicar</button>
+
+            <!-- Modal Publicar -->
+            <div id="modal_postar" class="modal">
+                <form class="modal-content" id="form_publicar">
+                    <fieldset class="img_postar">
+                        <label for="publicacao_img" class="w-100 d-flex justify-content-center">
+                            <div id="img_preview_publicar" class="img_placeholder_publicar"></div>
+                        </label>
+                        <input type="file" name="publicacao_img" id="publicacao_img" accept="image/*" class="img_cadastrar" required>
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="input_categoria" class="text-capitalize">categoria</label>
+                        <!-- Required -->
+                        <select name="categoria" id="input_categoria">
+                            <option value="doce">Doce</option>
+                            <option value="salgado">Salgado</option>
+                        </select>
+                    </fieldset>
+
+                    <fieldset class="field_verde">
+                        <label for="t_field_legenda" class="text-capitalize">legenda</label>
+                        <textarea name="legenda" id="t_field_legenda" maxlength="50"></textarea>
+                    </fieldset>
+
+                    <fieldset class="field_verde">
+                        <label for="t_field_receita" class="text-capitalize">receita</label>
+                        <textarea name="receita" id="t_field_receita" maxlength="500"></textarea>
+                    </fieldset>
+
+                    <button type="submit" class="btn_acao text-capitalize" id="btn_publicar">publicar</button>
+                    
+                </div>
+
+            </div>
+        </section>
+
+        <section class="feed_cards">
+            <div class="feed_card">
+                <img src="../assets/imgs/img_teste_1.png" alt="">
+            </div>
+
+            <div class="feed_card">
+                <img src="../assets/imgs/img_teste_2.png" alt="">
+            </div>
+
+            <div class="feed_card">
+                <img src="../assets/imgs/img_teste_3.png" alt="">
+            </div>
         </section>
     </main>
 
+    <!-- <script>
+        const usuarioNome = sessionStorage.getItem('usuario');
+        if (usuarioNome) {
+            document.getElementById('usuarioNome').textContent = usuarioNome;
+        } else {
+            window.location.href = "../index.html";
+        }
+    </script> -->
+    
+    <script src="../js/publicar.js"></script>
     <script src="../js/logout.js"></script>
+    <script src="../js/modal.js"></script>
+    <script src="../js/img_cadastrar.js"></script>
 </body>
 </html>

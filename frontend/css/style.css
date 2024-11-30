@@ -281,3 +281,114 @@
         margin-top: 6vh;
     }
 }
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 3;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--color-primary);
+    background-color: var(--color-modal);
+}
+
+.modal-content {
+    background-color: transparent;
+    margin: auto;
+    padding: 20px;
+    border: none;
+    width: 80%;
+    row-gap: 1em;
+}
+
+.modal-content .field_verde {
+    background-color: var(--color-terciary);
+    border-radius: .7em;
+    box-sizing: content-box;
+    padding: 0 0 1em;
+}
+
+.modal-content label {
+    display: block;
+    font-size: 1.5em;
+    color: var(--color-white);
+}
+
+.modal-content textarea {
+    width: 100%;
+    border: none;
+    word-wrap: break-word;
+    word-break: break-word;
+    resize: none;
+}
+
+.modal-content textarea[name="legenda"] {
+    height: 4em;
+}
+
+.modal-content textarea[name="receita"] {
+    height: 12em;
+}
+
+.fechar_modal {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.fechar_modal:hover,
+.fechar_modal:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.feed_cards{
+    position: absolute;
+    top: 30vh;
+    left: 0;
+    width: 100vw;
+    height: 60vh;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.feed_card{
+    width: 25vw;
+    height: 25vw;
+}
+
+.img_placeholder_publicar {
+    height: 20em;
+    width: 100%;
+    border-radius: 1.5em;
+    background-color: var(--color-img-modal);
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+}
+
+@media (min-width: 992px) {
+    .modal {
+        width: 50vw;
+        left: 25%;
+    }
+
+    .modal-content{
+        background-color: var(--color-white);
+    }
+
+    .modal-content textarea[name="legenda"] {
+        height: 3em;
+    }
+
+    .modal-content textarea[name="receita"] {
+        height: 9em;
+    }
+}

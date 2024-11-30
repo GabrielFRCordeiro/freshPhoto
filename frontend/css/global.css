@@ -13,6 +13,8 @@
     --color-text-secundary: #004517;
     --color-entrar: #FEE2D0;
     --color-validacao: #e92e2e;
+    --color-modal: #072c3980;
+    --color-img-modal: #d9d9d9;
 }
 
 *{
@@ -44,7 +46,7 @@ h1, h2{
 /* ENTRAR */
 
 .fundo{
-    background-image: url('../assets/img_background.png');
+    background-image: url('../assets/img_background.svg');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -95,10 +97,6 @@ h1, h2{
 .link_login{
     grid-area: btn_login;
     margin: 32px 0 24px;
-}
-
-.link_login:focus-visible, .link_cadastrar:focus-visible{
-    outline: none;
 }
 
 .btn_entrar{
@@ -169,7 +167,15 @@ h1, h2{
     font-weight: bold;
 }
 
-.img_cadastrar{
+.img_cadastrar {
+    display: none;
+}
+  
+.img_placeholder {
+    width: 7em;
+    height: 7em;
+    object-fit: cover;
+    border-radius: 50%;
     cursor: pointer;
 }
 
