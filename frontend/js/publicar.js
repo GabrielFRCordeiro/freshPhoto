@@ -1,4 +1,4 @@
-const input_img = document.querySelector('#input_img');
+const input_img = document.querySelector('#publicacao_img');
 const input_categoria = document.querySelector("#input_categoria");
 const t_field_legenda = document.querySelector('#t_field_legenda');
 const t_field_receita = document.querySelector('#t_field_receita');
