@@ -47,19 +47,22 @@
             <div id="modal_postar" class="modal">
                 <form class="modal-content" id="form_publicar">
                     <fieldset class="img_postar">
-                        <label for="publicacao_img" class="w-100 d-flex justify-content-center">
+                        <label for="publicacao_img" class="w-100 d-flex justify-content-center img_preview_publicar_container">
                             <div id="img_preview_publicar" class="img_placeholder_publicar"></div>
                         </label>
                         <input type="file" name="publicacao_img" id="publicacao_img" accept="image/*" class="img_cadastrar" required>
                     </fieldset>
 
-                    <fieldset>
+                    <fieldset class="field_categoria px-3">
                         <label for="input_categoria" class="text-capitalize">categoria</label>
                         <!-- Required -->
-                        <select name="categoria" id="input_categoria">
-                            <option value="doce">Doce</option>
-                            <option value="salgado">Salgado</option>
-                        </select>
+                        <span class="input_categoria_wrapper">
+                            <select name="categoria" id="input_categoria" class="input_categoria">
+                                <option value="">selecione</option>
+                                <option value="doce">doce</option>
+                                <option value="salgado">salgado</option>
+                            </select>
+                        </span>
                     </fieldset>
 
                     <fieldset class="field_verde">
@@ -72,8 +75,10 @@
                         <textarea name="receita" id="t_field_receita" maxlength="500"></textarea>
                     </fieldset>
 
-                    <button type="submit" class="btn_acao text-capitalize" id="btn_publicar">publicar</button>
                     
+                </form>
+                <div class="w-100 d-flex justify-content-center mt-5">
+                    <button type="submit" class="btn_acao text-capitalize" id="btn_publicar" form="form_publicar">publicar</button>
                 </div>
 
             </div>

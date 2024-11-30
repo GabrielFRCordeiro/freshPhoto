@@ -305,22 +305,60 @@
     row-gap: 1em;
 }
 
+.modal-content .field_categoria{
+    background-color: var(--color-terciary);
+    border-radius: .7em;
+    align-self: center;
+}
+
+.modal-content fieldset{
+    padding: .5em 0;
+}
+
+.modal-content .field_categoria label {
+    display: inline;
+    margin-right: 1em;
+}
+
+.modal-content .input_categoria {
+    border: none;
+    border-radius: .3em;
+    padding: .2em .5em;
+}
+
+.modal-content .input_categoria_wrapper {
+    position: relative;
+}
+
+.modal-content .input_categoria_wrapper::after {
+    content: "▼";
+    font-size: 1rem;
+    top: 0;
+    right: .15rem;
+    position: absolute;
+}
+
 .modal-content .field_verde {
     background-color: var(--color-terciary);
     border-radius: .7em;
     box-sizing: content-box;
-    padding: 0 0 1em;
+    padding-bottom: 1em;
+}
+
+.modal-content .field_verde label{
+    margin: 0 1em;
 }
 
 .modal-content label {
     display: block;
-    font-size: 1.5em;
+    font-size: 1em;
     color: var(--color-white);
 }
 
 .modal-content textarea {
     width: 100%;
     border: none;
+    border-radius: .5em;
     word-wrap: break-word;
     word-break: break-word;
     resize: none;
