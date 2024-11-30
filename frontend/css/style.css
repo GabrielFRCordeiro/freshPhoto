@@ -179,7 +179,7 @@
     place-items: center;
 }
 
-.user_img{
+.post_card .user_img{
     grid-area: user_img;
     width: 5em;
 }
