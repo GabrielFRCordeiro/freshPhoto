@@ -5,12 +5,12 @@
 /* PERFIL */
 
 .navegacao{
-    width: 100vw;
     height: 10vh;
     background-color: var(--color-primary);
     position: fixed;
     bottom: 0;
     left: 0;
+    z-index: 1;
 }
 
 .navIcon{
@@ -82,7 +82,6 @@
 }
 
 .caixaPerfil{
-    width: 100vw;
     height: 30vh;
     background-color: var(--color-white);
     position: absolute;
@@ -335,17 +334,24 @@
     position: absolute;
     top: 30vh;
     left: 0;
-    width: 100vw;
     height: 60vh;
     display: grid;
     grid-auto-flow: row;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-auto-rows: 12.5vw;
 }
 
 .feed_card{
-    width: 25vw;
-    height: 25vw;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+}
+
+.feed_card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .img_placeholder_publicar {
@@ -386,7 +392,7 @@
     /* PERFIL */
 
     .navegacao{
-        width: 10vw;
+        width: 10vw !important;
         height: 100vh;
     }
 
@@ -414,7 +420,7 @@
     }
 
     .caixaPerfil{
-        width: 50vw;
+        width: 50vw !important;
         left: 25%;
         top: 10vh;
         border-top-left-radius: 1em;
@@ -422,7 +428,7 @@
     }
 
     .feed_cards{
-        width: 50vw;
+        width: 50vw !important;
         left: 25%;
         top: 40vh;
     }
