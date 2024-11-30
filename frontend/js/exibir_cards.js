@@ -17,7 +17,7 @@ cards_teste = [
 function show_cards() {
     feed_cards.innerHTML = ''
     cards_teste.forEach(card => {
-        feed_cards.innerHTML += `<a href="desenvolvimento.html">
+        feed_cards.innerHTML += `<a class="feed_card" href="desenvolvimento.html">
     <div class="feed_card">
         <img src="${card}" alt="">
     </div>
