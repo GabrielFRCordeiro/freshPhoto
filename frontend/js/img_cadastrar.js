@@ -23,7 +23,8 @@ publicacao_img.addEventListener('change', e => {
   if (file) {
     const reader = new FileReader();
     reader.onload = function(e) {
-      imgPreview.style.backgroundImage = `url(${e.target.result})`;
+      // imgPreview.style.backgroundImage = `url(${e.target.result})`;
+      imgPreview.innerHTML = `<img src="${e.target.result}" class="w-100 h-100 object-fit-cover">`;
     };
     reader.readAsDataURL(file);
   }

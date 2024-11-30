@@ -90,7 +90,7 @@
     left: 0;
 }
 
-.caixaPerfil img{
+.caixaPerfil .user_img{
     height: 7rem;
 }
 
@@ -349,8 +349,8 @@
 }
 
 .img_placeholder_publicar {
-    height: 20em;
-    width: 100%;
+    height: 250px;
+    width: 250px;
     border-radius: 1.5em;
     background-color: var(--color-img-modal);
     background-size: cover;
@@ -358,16 +358,21 @@
     cursor: pointer;
 }
 
+@media (min-width: 576px) {
+    .img_placeholder_publicar {
+        height: 400px;
+        width: 400px;
+    }
+}
+
+@media (min-width: 768px) {
+    .img_placeholder_publicar {
+        height: 500px;
+        width: 500px;
+    }
+}
+
 @media (min-width: 992px) {
-    .modal {
-        width: 50vw;
-        left: 25%;
-    }
-
-    .modal-content{
-        background-color: var(--color-white);
-    }
-
     .modal-content textarea[name="legenda"] {
         height: 3em;
     }
@@ -427,7 +432,7 @@
         height: 12.5vw;
     }
 
-    .caixaPerfil img{
+    .caixaPerfil .user_img{
         height: 8rem;
     }
 
