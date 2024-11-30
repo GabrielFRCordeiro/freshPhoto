@@ -12,7 +12,6 @@ form_login.addEventListener('submit', async (e) => {
     const users = await response.json();
 
     users.forEach(user => {
-        console.log(user);
         user_exist = (t_field_login.value === user.usuario || t_field_login.value === user.email) && t_field_senha.value === user.senha;
         if (!t_field_login.value) {
             text_validacao.innerText = 'Preencha o campo de usuario';
