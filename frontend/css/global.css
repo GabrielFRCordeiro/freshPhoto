@@ -77,6 +77,10 @@ h1, h2{
     width: 12em;
 }
 
+.esqueceu_senha{
+    margin-left: 1.6em;
+}
+
 
 .img_container::after{
     font-family: 'Kodchasan';
