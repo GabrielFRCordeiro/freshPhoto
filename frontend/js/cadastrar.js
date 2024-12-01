@@ -29,11 +29,19 @@ async function valida_formulario(usuario, novo_usuario) {
         text_validacao.innerText = 'Este usuário já existe';
 		text_validacao.style.display = 'block';
     } else {
+        const formData = new FormData();
+        formData.append('nome', novo_usuario.nome);
+        formData.append('usuario', novo_usuario.usuario);
+        formData.append('senha', novo_usuario.senha);
+        formData.append('email', novo_usuario.email);
+        formData.append('img', novo_usuario.img);
+
         await fetch(API_URL, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(novo_usuario)
-        });
+            body: formData,
+            mode: 'cors'
+        })
+        .catch(error => console.error('Erro:', error));;
 
         sessionStorage.setItem('usuario', novo_usuario.usuario);
         window.location.href = 'perfil.html';
@@ -47,7 +55,7 @@ form_cadastrar.addEventListener('submit', async (e) => {
         usuario: t_field_usuario.value,
         senha: t_field_senha.value,
         email: t_field_email.value,
-        img: user_img.value
+        img: user_img.files[0]
     };
 
     const usuario_existe = await verifica_existencia(new_user.usuario, new_user.email);
