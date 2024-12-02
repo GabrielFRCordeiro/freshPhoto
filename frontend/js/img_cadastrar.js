@@ -19,7 +19,7 @@ publicacao_img.addEventListener('change', e => {
   const input = e.target;
   const file = input.files[0];
   const imgPreview = document.getElementById('img_preview_publicar');
-  
+
   if (file) {
     const reader = new FileReader();
     reader.onload = function(e) {

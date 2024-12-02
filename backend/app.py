@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from db import get_connection
+from dotenv import load_dotenv
 import os
 
 app = Flask(__name__)
@@ -69,6 +70,7 @@ def get_usuario_perfil():
 # Criado usuario
 @app.route("/usuario/cadastrar", methods=['POST'])
 def criar_usuario():
+    load_dotenv()
     nome = request.form.get('nome')
     usuario = request.form.get('usuario')
     senha = request.form.get('senha')
@@ -78,7 +80,7 @@ def criar_usuario():
     conn = get_connection()
     cursor = conn.cursor()
     if img:
-        img_path = os.path.join('caminho\\img', img.filename)  # colocar caminho para salvar img no servidor
+        img_path = os.path.join(os.getenv("IMG_PATH"), img.filename)  # colocar caminho para salvar img no servidor
         img.save(img_path)
         cursor.execute("""
         INSERT INTO usuario(nome, usuario, senha, email, foto)

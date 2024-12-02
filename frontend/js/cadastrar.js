@@ -44,6 +44,13 @@ async function valida_formulario(usuario, novo_usuario) {
         .catch(error => console.error('Erro:', error));;
 
         sessionStorage.setItem('usuario', novo_usuario.usuario);
+        if (novo_usuario.img) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                localStorage.setItem(`${novo_usuario.usuario} img`, e.target.result);
+              };
+              reader.readAsDataURL(novo_usuario.img);
+        }
         window.location.href = 'perfil.html';
     };
 };
