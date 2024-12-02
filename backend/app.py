@@ -97,15 +97,72 @@ def criar_usuario():
 # Criar uma publicação
 @app.route("/postagem", methods=["POST"])
 def criar_postagem():
+    load_dotenv()
+    id_usuario = request.form.get('id_usuario')
+    id_categoria = request.form.get('id_categoria')
+    legenda = request.form.get('legenda')
+    id_receita = request.form.get('id_receita')
+
+    img = request.files.get('foto')
+    conn = get_connection()
+    cursor = conn.cursor()
+    img_path = os.path.join(os.getenv("IMG_PATH"), img.filename)
+    img.save(img_path)
+    cursor.execute("""
+    INSERT INTO postagem(id_usuario, id_categoria, foto, legenda, id_receita)
+    VALUES (%s, %s, %s, %s, %s)
+    """, (id_usuario, id_categoria, img_path, legenda, id_receita))
+    conn.commit()
+    return jsonify({"message": "Usuario criado com sucesso"}), 201
+
+# Buscar categoria
+@app.route("/categoria", methods=["GET"])
+def buscar_categoria():
+    try:
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("SELECT * FROM categoria")
+        categoria = cursor.fetchall() 
+        return jsonify(categoria), 200
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({"error": "Failed to fetch categories"}), 500
+
+    finally:
+        cursor.close()
+        conn.close()
+
+# Buscar receita
+@app.route("/receita", methods=["GET"])
+def buscar_receita():
+    try:
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("SELECT * FROM receita")
+        receita = cursor.fetchall() 
+        return jsonify(receita), 200
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({"error": "Failed to fetch recipes"}), 500
+
+    finally:
+        cursor.close()
+        conn.close()
+
+# Criar uma receita
+@app.route("/receita", methods=["POST"])
+def criar_receita():
     data = request.json
     conn = get_connection()
     cursor = conn.cursor()
     cursor.execute("""
-    INSERT INTO postagem(id_usuario, id_categoria, foto, legenda)
-    VALUES (%s, %s, %s, %s)
-    """, (data["id_usuario"], data["id_categoria"], data["foto"], data["legenda"]))
+    INSERT INTO receita(texto)
+    VALUES (%s)
+    """, (data['texto'],))
     conn.commit()
-    return jsonify({"message": "Usuario criado com sucesso"}), 201
+    return jsonify({"message": "Receita criada com sucesso"}), 201
 
 if __name__ == '__main__':
     app.run(debug=True)
