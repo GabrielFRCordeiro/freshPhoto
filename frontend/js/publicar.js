@@ -84,4 +84,6 @@ form_publicar.addEventListener('submit', async (e) => {
         mode: 'cors'
     })
     .catch(error => console.error('Erro:', error));
+
+    window.location.reload();
 });

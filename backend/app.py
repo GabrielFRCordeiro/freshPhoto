@@ -94,6 +94,28 @@ def criar_usuario():
     conn.commit()
     return jsonify({"message": "Usuario criado com sucesso"}), 201
 
+# Buscar publicacação
+@app.route("/postagem", methods=["GET"])
+def get_postagem():
+    try:
+        data = request.form
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("""SELECT u.usuario, p.foto
+FROM postagem p
+INNER JOIN usuario u
+ON p.id_usuario = u.id""")
+        postagem = cursor.fetchall() 
+        return jsonify(postagem), 200
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({"error": "Failed to fetch products"}), 500
+
+    finally:
+        cursor.close()
+        conn.close()
+
 # Criar uma publicação
 @app.route("/postagem", methods=["POST"])
 def criar_postagem():
