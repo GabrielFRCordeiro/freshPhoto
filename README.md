@@ -26,6 +26,14 @@
 > [!NOTE]
 > Comente nas receitas de outros usuários.
 
+## ⚙️ Pré-requisitos
+
+> Python
+
+> Flask
+
+> MySQL (usamoso XAMPP no desenvolvimento do projeto)
+
 ## 🤝 Colaboradores
 
 Agradecemos às seguintes pessoas que contribuíram para este projeto:
