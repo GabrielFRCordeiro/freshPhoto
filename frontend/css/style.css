@@ -104,7 +104,7 @@
 
 .caixaPerfil h2{
     color: var(--color-white);
-    font-size: 2rem;
+    font-size: 3rem;
     margin: 0;
     grid-area: user_nome;
     align-self: end;
@@ -112,7 +112,7 @@
 
 .caixaPerfil p{
     color: var(--color-white);
-    font-size: 1rem;
+    font-size: 2rem;
     grid-area: user_usuario;
 }
 
