@@ -254,7 +254,8 @@ h1, h2{
 }
 
 .texto_desenv{
-    color: var(--new-color-primary);
+    color: var(--color-white);
+    font-size: 1.2rem;
 }
 
 /* TELA CADASTRADO */
