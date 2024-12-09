@@ -20,31 +20,18 @@
                 <a href="#" class="mt-lg-4"><i class="bi bi-person-circle navIcon navIconFocus"></i></a>
             </div>
         </nav>
-
-        <section class='perfil'>
-            <hr class='barraTitulo' />
-            <div class='caixaTitulo'>
-                <h1>Fresh Photo</h1>
-            </div>
-        </section>
-
-        <button class="btn_sair text-capitalize" id="btn_sair">Sair</button>
     </header>
 
     <main class="w-100">
-        <section class='caixaPerfil d-flex flex-column flex-lg-row justify-content-evenly justify-content-lg-around w-100 px-5'>
-            <div class='d-flex align-items-center justify-content-center pe-5 pe-lg-0'>
-                <img id="user_img" class='pe-4 pe-lg-3' src='../assets/img_perfil.svg' alt='imagem padrão de usuário' />
-                <div class='pe-5 pe-lg-0'>
-                <h2 id="user_nome">Nome</h2>
-                <p id="user_usuario">@usuario</p>
-                </div>
-            </div>
+        <header class='caixaPerfil w-100 px-5'>
+            <img id="user_img" class='user_img pe-4 pe-lg-3' src='../assets/img_perfil.svg' alt='imagem padrão de usuário' />
+            <h2 id="user_nome">Nome</h2>
+            <p id="user_usuario">@usuario</p>
 
-            <button class="btn_acao text-capitalize" id="btn_postar">publicar</button>
+            <button class="btn_acao btn_postar text-capitalize" id="btn_postar">publicar</button>
 
             <!-- Modal Publicar -->
-            <div id="modal_postar" class="modal">
+            <section id="modal_postar" class="modal">
                 <form class="modal-content" id="form_publicar">
                     <fieldset class="w-100 d-flex justify-content-center img_postar">
                         <label for="publicacao_img" class="img_preview_publicar_container">
@@ -81,20 +68,23 @@
                     <button type="submit" class="btn_acao text-capitalize" id="btn_publicar" form="form_publicar">publicar</button>
                 </div>
 
-            </div>
-        </section>
+            </section>
+
+            <button class="btn_acao btn_menu text-capitalize d-none d-lg-inline-block">configurações</button>
+            <button class="btn_menu btn_menu_mobile d-lg-none"><i class="bi bi-three-dots-vertical"></i></button>
+        </header>
 
         <section id="feed_cards" class="feed_cards w-100"></section>
     </main>
 
-    <script>
+    <!-- <script>
         const usuarioNome = sessionStorage.getItem('usuario');
         if (usuarioNome) {
             document.getElementById('usuarioNome').textContent = usuarioNome;
         } else {
             window.location.href = "../index.html";
         }
-    </script>
+    </script> -->
     
     <script src="../js/user_perfil.js"></script>
     <script src="../js/exibir_cards.js"></script>
