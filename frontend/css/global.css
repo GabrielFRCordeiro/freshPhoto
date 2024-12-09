@@ -18,6 +18,7 @@
     --new-color-primary: #A5B244;
     --new-color-btn: #7D863D;
     --new-color-background: #C95D5D;
+    --new-color-dots: #00000033;
 }
 
 *{
@@ -131,6 +132,34 @@ h1, h2{
 }
 
 /* LOGIN */
+
+.fundo_melancia1 {
+    /* posicoes da esquerda para a direita */
+    background-image:
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%);
+    background-size: 20% 20%;
+    background-position:
+    -13% 25%,
+    0% 70%,
+    13% -13%,
+    26% 113%,
+    37% 15%,
+    60% 85%,
+    70% 37%,
+    87% -3%,
+    100% 100%,
+    112.5% 60%;
+    background-repeat: no-repeat;
+}
 
 .btn_voltar{
     width: 4em;
