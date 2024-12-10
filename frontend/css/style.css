@@ -98,7 +98,7 @@
 }
 
 .caixaPerfil .user_img{
-    /* height: 7rem; */
+    height: 70%;
     grid-area: user_img;
 }
 
@@ -438,7 +438,7 @@
     }
 
     .caixaPerfil .user_img{
-        height: 8rem;
+        height: 100%;
     }
 
     /* USER FEED */
