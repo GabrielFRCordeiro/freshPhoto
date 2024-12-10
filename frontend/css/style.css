@@ -463,6 +463,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     row-gap: 2rem;
+    padding-bottom: 15vh;
 }
 
 .feed_cards :nth-child(even){
