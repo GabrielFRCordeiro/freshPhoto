@@ -372,35 +372,6 @@
     cursor: pointer;
 }
 
-.feed_cards{
-    position: absolute;
-    top: 30vh;
-    left: 0;
-    height: 60vh;
-    display: grid;
-    grid-auto-flow: row;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-
-.feed_card{
-    height: 100%;
-    width: 100%;
-}
-
-.feed_card div{
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    cursor: pointer;
-}
-
-.feed_card img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 .img_placeholder_publicar {
     height: 250px;
     width: 250px;
@@ -466,19 +437,6 @@
         margin-left: 0;
     }
 
-    .feed_cards{
-        width: 50vw !important;
-        left: 25%;
-        top: 40vh;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-auto-rows: 12.5vw;
-    }
-
-    .feed_card{
-        width: 12.5vw;
-        height: 12.5vw;
-    }
-
     .caixaPerfil .user_img{
         height: 8rem;
     }
@@ -494,5 +452,61 @@
 
     .post_cards{
         margin-top: 6vh;
+    }
+}
+
+.feed_cards {
+    width: 100vw;
+    position: absolute;
+    top: 30vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.feed_cards :nth-child(even){
+    transform: translateY(15em);
+}
+
+.feed_card{
+    width: 47%;
+    height: 47%;
+}
+
+.feed_card div{
+    width: 80%;
+}
+
+.feed_card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    border: 5px var(--new-color-btn) solid;
+    object-fit: cover;
+}
+
+@media (min-width: 992px) {
+    .feed_cards{
+        width: 75vw;
+        left: 15%;
+        row-gap: 100px;
+    }
+
+    .feed_card{
+        width: 30%;
+        height: 30%;
+    }
+
+    .feed_cards :nth-child(even){
+        transform: translateY(0);
+    }
+
+    .feed_cards :nth-child(3n + 2){
+        transform: translateY(20em);
+    }
+
+    .feed_cards :last-child{
+        transform: translateY(0);
     }
 }
