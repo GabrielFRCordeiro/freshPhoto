@@ -456,26 +456,28 @@
 }
 
 .feed_cards {
-    width: 100vw;
+    width: 100%;
     position: absolute;
     top: 30vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 2rem;
+    row-gap: 2rem;
 }
 
 .feed_cards :nth-child(even){
-    transform: translateY(15em);
+    transform: translateY(55%);
 }
 
 .feed_card{
-    width: 47%;
-    height: 47%;
+    width: 50%;
+    height: 50%;
+    border-radius: 100%;
 }
 
 .feed_card div{
     width: 80%;
+    border-radius: 100%;
 }
 
 .feed_card img {
@@ -503,7 +505,7 @@
     }
 
     .feed_cards :nth-child(3n + 2){
-        transform: translateY(20em);
+        transform: translateY(80%);
     }
 
     .feed_cards :last-child{
