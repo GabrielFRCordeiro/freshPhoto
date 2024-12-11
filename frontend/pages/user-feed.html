@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="fundo_melancia2">
     <header>
         <nav class='navbar navegacao fs-1'>
             <div class="container d-lg-flex flex-lg-column justify-content-lg-aroundcontainer d-lg-flex flex-lg-column justify-content-lg-start">
@@ -21,18 +21,18 @@
             </div>
         </nav>
 
-        <section>
-            <hr class='barraTitulo' />
-            <div class='caixaTitulo'>
+        <section class='caixaTitulo d-lg-none'>
                 <h1>Fresh Photo</h1>
-            </div>
         </section>
+
+        <button class="btn_acao btn_menu btn_menu_posicao text-capitalize d-none d-lg-inline-block">configurações</button>
+        <button class="btn_menu btn_menu_mobile btn_menu_posicao_mobile d-lg-none"><i class="bi bi-three-dots-vertical"></i></button>
     </header>
 
     <main class="cor_fundo">
-        <section class="post_cards">
+        <!-- <section class="post_cards">
             <div class="post_card rounded-4">
-                <img id="user_img" class='user_img' src='../assets/img_perfil.svg' alt='imagem padrão de usuário' />
+                <img id="user_img" class='user_img' src='../assets/img_perfil_padrao.svg' alt='imagem padrão de usuário' />
                 <p id="user_usuario" class="user_usuario">@usuario</p>
                 <img src="../assets/icon_receita.svg" alt="clique para ver a receita" class="icon_receita">
                 <div class="post_img d-flex justify-content-center align-items-center">
@@ -42,7 +42,7 @@
                 <i class="bi bi-chat-square-text icon_comentario"></i>
             </div>
             <div class="post_card rounded-4">
-                <img id="user_img" class='pe-4 pe-lg-3 user_img' src='../assets/img_perfil.svg' alt='imagem padrão de usuário' />
+                <img id="user_img" class='pe-4 pe-lg-3 user_img' src='../assets/img_perfil_padrao.svg' alt='imagem padrão de usuário' />
                 <p id="user_usuario" class="user_usuario">@usuario</p>
                 <img src="../assets/icon_receita.svg" alt="clique para ver a receita" class="icon_receita">
                 <div class="post_img d-flex justify-content-center align-items-center">
@@ -52,7 +52,7 @@
                 <i class="bi bi-chat-square-text icon_comentario"></i>
             </div>
             <div class="post_card rounded-4">
-                <img id="user_img" class='pe-4 pe-lg-3 user_img' src='../assets/img_perfil.svg' alt='imagem padrão de usuário' />
+                <img id="user_img" class='pe-4 pe-lg-3 user_img' src='../assets/img_perfil_padrao.svg' alt='imagem padrão de usuário' />
                 <p id="user_usuario" class="user_usuario">@usuario</p>
                 <img src="../assets/icon_receita.svg" alt="clique para ver a receita" class="icon_receita">
                 <div class="post_img d-flex justify-content-center align-items-center">
@@ -61,17 +61,17 @@
                 <i class="bi bi-heart icon_curtir"></i>
                 <i class="bi bi-chat-square-text icon_comentario"></i>
             </div>
-        </section>
+        </section> -->
     </main>
 
-    <script>
+    <!-- <script>
         const usuarioNome = sessionStorage.getItem('usuario');
         if (usuarioNome) {
             document.getElementById('usuarioNome').textContent = usuarioNome;
         } else {
             window.location.href = "../index.html";
         }
-    </script>
+    </script> -->
     <script src="../js/logout.js"></script>
 </body>
 </html>

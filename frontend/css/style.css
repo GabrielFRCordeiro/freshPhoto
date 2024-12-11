@@ -6,6 +6,7 @@
 
 .navegacao{
     height: 10vh;
+    width: 100vw;
     background-color: var(--new-color-primary);
     position: fixed;
     bottom: 0;
@@ -24,20 +25,6 @@
 
 .perfil{
     display: none;
-}
-
-.barraTitulo{
-    color: var(--color-secundary);
-    background-color: var(--color-secundary);
-    border: none;
-    height: .25em;
-    width: 100vw;
-    opacity: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    margin: 0;
 }
 
 .caixaTitulo{
@@ -150,6 +137,21 @@
     color: var(--new-color-btn);
 }
 
+.btn_menu_posicao, .btn_menu_posicao_mobile{
+    position: absolute;
+    z-index: 2;
+}
+
+.btn_menu_posicao{
+    top: 2rem;
+    right: 4rem;
+}
+
+.btn_menu_posicao_mobile{
+    top: .25rem;
+    right: 1rem;
+}
+
 @media (min-width: 992px) {
     .caixaPerfil{
         background-color: transparent;
@@ -168,7 +170,6 @@
 .cor_fundo{
     width: 100vw;
     height: 90vh;
-    background-color: var(--color-white);
     position: absolute;
     top: 0;
     overflow: scroll;
@@ -425,16 +426,6 @@
 
     .perfil{
         display: block;
-    }
-
-    .barraTitulo, .caixaTitulo{
-        width: 50vw;
-        left: 25%;
-    }
-   
-    .caixaTitulo h1{
-        text-align: center;
-        margin-left: 0;
     }
 
     .caixaPerfil .user_img{
