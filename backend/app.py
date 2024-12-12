@@ -115,6 +115,47 @@ def criar_usuario():
     conn.commit()
     return jsonify({"message": "Usuario criado com sucesso"}), 201
 
+# Criado usuario
+@app.route("/postagem", methods=['POST'])
+def criar_usuario():
+    load_dotenv()
+    usuario = request.form.get('usuario')
+    categoria = request.form.get('categoria')
+    legenda = request.form.get('leganda')
+    receita = request.form.get('receita')
+    
+    img = request.files.get('img')
+    conn = get_connection()
+    cursor = conn.cursor()
+    if img:
+        img_path = os.path.join(os.getenv("IMG_PATH"), img.filename)  # colocar caminho para salvar img no servidor
+        img.save(img_path)
+        cursor.execute("""
+        INSERT INTO usuario(usuario, categoria, foto, legenda, receita)
+        VALUES (%s, %s, %s, %s, %s)
+        """, (usuario, categoria, img_path, legenda, receita))
+    elif img:
+        img_path = os.path.join(os.getenv("IMG_PATH"), img.filename)  # colocar caminho para salvar img no servidor
+        img.save(img_path)
+        cursor.execute("""
+        INSERT INTO usuario(usuario, categoria, foto, legenda)
+        VALUES (%s, %s, %s, %s)
+        """, (usuario, categoria, img_path, legenda))
+    elif img:
+        img_path = os.path.join(os.getenv("IMG_PATH"), img.filename)  # colocar caminho para salvar img no servidor
+        img.save(img_path)
+        cursor.execute("""
+        INSERT INTO usuario(usuario, categoria, foto, receita)
+        VALUES (%s, %s, %s, %s)
+        """, (usuario, categoria, img_path, receita))
+    else:
+        cursor.execute("""
+        INSERT INTO usuario(usuario, categoria, foto)
+        VALUES (%s, %s, %s)
+        """, (usuario, categoria, img_path))
+    conn.commit()
+    return jsonify({"message": "Usuario criado com sucesso"}), 201
+
 # Buscar publicacação
 @app.route("/postagem", methods=["GET"])
 def get_postagem():
@@ -123,9 +164,9 @@ def get_postagem():
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
         cursor.execute("""SELECT u.usuario, p.foto
-FROM postagem p
-INNER JOIN usuario u
-ON p.id_usuario = u.id""")
+        FROM postagem p
+        INNER JOIN usuario u
+        ON p.id_usuario = u.id""")
         postagem = cursor.fetchall() 
         return jsonify(postagem), 200
 
@@ -137,26 +178,26 @@ ON p.id_usuario = u.id""")
         cursor.close()
         conn.close()
 
-# Criar uma publicação
-@app.route("/postagem", methods=["POST"])
-def criar_postagem():
-    load_dotenv()
-    id_usuario = request.form.get('id_usuario')
-    id_categoria = request.form.get('id_categoria')
-    legenda = request.form.get('legenda')
-    id_receita = request.form.get('id_receita')
+# # Criar uma publicação
+# @app.route("/postagem", methods=["POST"])
+# def criar_postagem():
+#     load_dotenv()
+#     id_usuario = request.form.get('id_usuario')
+#     id_categoria = request.form.get('id_categoria')
+#     legenda = request.form.get('legenda')
+#     id_receita = request.form.get('id_receita')
 
-    img = request.files.get('foto')
-    conn = get_connection()
-    cursor = conn.cursor()
-    img_path = os.path.join(os.getenv("IMG_PATH"), img.filename)
-    img.save(img_path)
-    cursor.execute("""
-    INSERT INTO postagem(id_usuario, id_categoria, foto, legenda, id_receita)
-    VALUES (%s, %s, %s, %s, %s)
-    """, (id_usuario, id_categoria, img_path, legenda, id_receita))
-    conn.commit()
-    return jsonify({"message": "Usuario criado com sucesso"}), 201
+#     img = request.files.get('foto')
+#     conn = get_connection()
+#     cursor = conn.cursor()
+#     img_path = os.path.join(os.getenv("IMG_PATH"), img.filename)
+#     img.save(img_path)
+#     cursor.execute("""
+#     INSERT INTO postagem(id_usuario, id_categoria, foto, legenda, id_receita)
+#     VALUES (%s, %s, %s, %s, %s)
+#     """, (id_usuario, id_categoria, img_path, legenda, id_receita))
+#     conn.commit()
+#     return jsonify({"message": "Usuario criado com sucesso"}), 201
 
 # Buscar categoria
 @app.route("/categoria", methods=["GET"])
