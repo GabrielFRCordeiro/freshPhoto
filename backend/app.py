@@ -88,6 +88,27 @@ def get_card_perfil():
         cursor.close()
         conn.close()
 
+# Chamar card_perfil_completo
+@app.route("/usuario/card_perfil_completo", methods=["GET"])
+def get_card_perfil_completo():
+    try:
+        data = request.json
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("""
+        CALL card_perfil_comleto(%s)
+        """, (data['usuario'],))
+        cards_perfil = cursor.fetchall() 
+        return jsonify(cards_perfil), 200
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({"error": "Failed to fetch products"}), 500
+
+    finally:
+        cursor.close()
+        conn.close()
+
 # Criado usuario
 @app.route("/usuario/cadastrar", methods=['POST'])
 def criar_usuario():
