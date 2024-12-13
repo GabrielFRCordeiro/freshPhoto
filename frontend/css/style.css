@@ -280,7 +280,8 @@
     height: 100%;
     overflow: auto;
     background-color: var(--color-primary);
-    background-color: var(--color-modal);
+    background-color: var(--new-color-modal);
+    backdrop-filter: blur(20px);
 }
 
 .modal-content {
@@ -293,9 +294,10 @@
 }
 
 .modal-content .field_categoria{
-    background-color: var(--color-terciary);
+    background-color: var(--new-color-primary);
     border-radius: .7em;
-    align-self: center;
+    margin: 0 auto;
+    width: 15rem;
 }
 
 .modal-content fieldset{
@@ -326,10 +328,26 @@
 }
 
 .modal-content .field_verde {
-    background-color: var(--color-terciary);
+    background-color: var(--new-color-primary);
     border-radius: .7em;
     box-sizing: content-box;
     padding-bottom: 1em;
+    position: relative;
+}
+
+.modal-content :is(.img_placeholder_publicar, .field_verde) i {
+    color: var(--new-color-btn);
+    position: absolute;
+    right: .5em;
+}
+
+.modal-content .field_verde i {
+    bottom: 1.5em;
+}
+
+.modal-content .img_placeholder_publicar i {
+    font-size: 2.5rem;
+    bottom: .3em;
 }
 
 .modal-content .field_verde label{
@@ -377,10 +395,21 @@
     height: 250px;
     width: 250px;
     border-radius: 1.5em;
-    background-color: var(--color-img-modal);
+    background-color: var(--new-color-img-modal);
     background-size: cover;
     background-position: center;
     cursor: pointer;
+    position: relative;
+}
+
+.img_placeholder_publicar p {
+    color: var(--new-color-primary);
+    font-size: 1.4rem;
+    font-weight: 500;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 @media (min-width: 576px) {

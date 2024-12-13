@@ -31,42 +31,50 @@
             <button class="btn_acao btn_postar text-capitalize" id="btn_postar">publicar</button>
 
             <!-- Modal Publicar -->
-            <section id="modal_postar" class="modal">
-                <form class="modal-content" id="form_publicar">
-                    <fieldset class="w-100 d-flex justify-content-center img_postar">
+            <section id="modal_postar" class="modal align-items-center">
+                <button type="button" class="btn_voltar" id="btn_modal"><i class="bi bi-arrow-left"></i></button>
+                <form class="modal-content flex-lg-row justify-content-lg-between" id="form_publicar">
+                    <fieldset class="d-flex justify-content-center img_postar col-lg-5">
                         <label for="publicacao_img" class="img_preview_publicar_container">
-                            <div id="img_preview_publicar" class="img_placeholder_publicar overflow-hidden"></div>
+                            <div id="img_preview_publicar" class="img_placeholder_publicar overflow-hidden">
+                                <p class="text-center">Clique para escolher uma foto</p>
+                                <i class="bi bi-arrow-up-square"></i>
+                            </div>
                         </label>
                         <input type="file" name="publicacao_img" id="publicacao_img" accept="image/*" class="img_cadastrar" enctype="multipart/form-data" required>
                     </fieldset>
 
-                    <fieldset class="field_categoria px-3">
-                        <label for="input_categoria" class="text-capitalize">categoria</label>
-                        <!-- Required -->
-                        <span class="input_categoria_wrapper">
-                            <select name="categoria" id="input_categoria" class="input_categoria">
-                                <option value="">selecione</option>
-                                <option value="doce">doce</option>
-                                <option value="salgado">salgado</option>
-                            </select>
-                        </span>
-                    </fieldset>
-
-                    <fieldset class="field_verde">
-                        <label for="t_field_legenda" class="text-capitalize">legenda</label>
-                        <textarea name="legenda" id="t_field_legenda" maxlength="50"></textarea>
-                    </fieldset>
-
-                    <fieldset class="field_verde">
-                        <label for="t_field_receita" class="text-capitalize">receita</label>
-                        <textarea name="receita" id="t_field_receita" maxlength="500"></textarea>
+                    <fieldset class="field_informacoes d-flex flex-column justify-content-between col-lg-5">
+                        <div class="field_categoria px-3 py-1">
+                            <label for="input_categoria" class="text-capitalize">categoria</label>
+                            <!-- Required -->
+                            <span class="input_categoria_wrapper">
+                                <select name="categoria" id="input_categoria" class="input_categoria">
+                                    <option value="">selecione</option>
+                                    <option value="doce">doce</option>
+                                    <option value="salgado">salgado</option>
+                                </select>
+                            </span>
+                        </div>
+                        
+                        <div class="field_verde mt-5">
+                            <label for="t_field_legenda" class="text-capitalize">legenda</label>
+                            <textarea name="legenda" id="t_field_legenda" maxlength="50"></textarea>
+                            <i class="bi bi-pencil"></i>
+                        </div>
+                        
+                        <div class="field_verde mt-5">
+                            <label for="t_field_receita" class="text-capitalize">receita</label>
+                            <textarea name="receita" id="t_field_receita" maxlength="500"></textarea>
+                            <i class="bi bi-pencil"></i>
+                        </div>
+                        <div class="w-100 d-flex justify-content-center mt-5    ">
+                            <button type="submit" class="btn_acao text-capitalize" id="btn_publicar" form="form_publicar">publicar</button>
+                        </div>
                     </fieldset>
 
                     
                 </form>
-                <div class="w-100 d-flex justify-content-center mt-5">
-                    <button type="submit" class="btn_acao text-capitalize" id="btn_publicar" form="form_publicar">publicar</button>
-                </div>
 
             </section>
 
