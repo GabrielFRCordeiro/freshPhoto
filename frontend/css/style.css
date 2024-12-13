@@ -400,10 +400,11 @@
     background-position: center;
     cursor: pointer;
     position: relative;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 
 .img_placeholder_publicar p {
-    color: var(--new-color-primary);
+    color: var(--new-color-btn);
     font-size: 1.4rem;
     font-weight: 500;
     position: absolute;
