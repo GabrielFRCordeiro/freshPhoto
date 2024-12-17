@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="fundo_melancia2">
     <header>
         <nav class='navbar navegacao fs-1 w-100'>
             <div class="d-flex flex-lg-column justify-content-around justify-content-lg-start w-100 align-items-lg-center">
@@ -20,81 +20,135 @@
                 <a href="#" class="mt-lg-4"><i class="bi bi-person-circle navIcon navIconFocus"></i></a>
             </div>
         </nav>
-
-        <section class='perfil'>
-            <hr class='barraTitulo' />
-            <div class='caixaTitulo'>
-                <h1>Fresh Photo</h1>
-            </div>
-        </section>
-
-        <button class="btn_sair text-capitalize" id="btn_sair">Sair</button>
     </header>
 
     <main class="w-100">
-        <section class='caixaPerfil d-flex flex-column flex-lg-row justify-content-evenly justify-content-lg-around w-100 px-5'>
-            <div class='d-flex align-items-center justify-content-center pe-5 pe-lg-0'>
-                <img id="user_img" class='pe-4 pe-lg-3' src='../assets/img_perfil.svg' alt='imagem padrão de usuário' />
-                <div class='pe-5 pe-lg-0'>
-                <h2 id="user_nome">Nome</h2>
-                <p id="user_usuario">@usuario</p>
-                </div>
-            </div>
+        <header class='caixaPerfil w-100 px-5'>
+            <img id="user_img" class='user_img pe-4 pe-lg-3' src='../assets/img_perfil_padrao.svg' alt='imagem padrão de usuário' />
+            <h2 id="user_nome">Nome</h2>
+            <p id="user_usuario">@usuario</p>
 
-            <button class="btn_acao text-capitalize" id="btn_postar">publicar</button>
+            <button class="btn_acao btn_postar text-capitalize" id="btn_postar">publicar</button>
 
             <!-- Modal Publicar -->
-            <div id="modal_postar" class="modal">
-                <form class="modal-content" id="form_publicar">
-                    <fieldset class="w-100 d-flex justify-content-center img_postar">
+            <section id="modal_postar" class="modal align-items-center">
+                <button type="button" class="btn_voltar" id="btn_modal"><i class="bi bi-arrow-left"></i></button>
+                <form class="modal-content flex-lg-row justify-content-lg-between" id="form_publicar">
+                    <fieldset class="d-flex justify-content-center img_postar col-lg-5">
                         <label for="publicacao_img" class="img_preview_publicar_container">
-                            <div id="img_preview_publicar" class="img_placeholder_publicar overflow-hidden"></div>
+                            <div id="img_preview_publicar" class="img_placeholder_publicar overflow-hidden">
+                                <p class="text-center">Clique para escolher uma foto</p>
+                                <i class="bi bi-arrow-up-square"></i>
+                            </div>
                         </label>
                         <input type="file" name="publicacao_img" id="publicacao_img" accept="image/*" class="img_cadastrar" enctype="multipart/form-data" required>
                     </fieldset>
 
-                    <fieldset class="field_categoria px-3">
-                        <label for="input_categoria" class="text-capitalize">categoria</label>
-                        <!-- Required -->
-                        <span class="input_categoria_wrapper">
-                            <select name="categoria" id="input_categoria" class="input_categoria">
-                                <option value="">selecione</option>
-                                <option value="doce">doce</option>
-                                <option value="salgado">salgado</option>
-                            </select>
-                        </span>
-                    </fieldset>
-
-                    <fieldset class="field_verde">
-                        <label for="t_field_legenda" class="text-capitalize">legenda</label>
-                        <textarea name="legenda" id="t_field_legenda" maxlength="50"></textarea>
-                    </fieldset>
-
-                    <fieldset class="field_verde">
-                        <label for="t_field_receita" class="text-capitalize">receita</label>
-                        <textarea name="receita" id="t_field_receita" maxlength="500"></textarea>
+                    <fieldset class="field_informacoes d-flex flex-column justify-content-between col-lg-5">
+                        <div class="field_categoria px-3 py-1">
+                            <label for="input_categoria" class="text-capitalize">categoria</label>
+                            <!-- Required -->
+                            <span class="input_categoria_wrapper">
+                                <select name="categoria" id="input_categoria" class="input_categoria">
+                                    <option value="">selecione</option>
+                                    <option value="doce">doce</option>
+                                    <option value="salgado">salgado</option>
+                                </select>
+                            </span>
+                        </div>
+                        
+                        <div class="field_verde mt-5">
+                            <label for="t_field_legenda" class="text-capitalize">legenda</label>
+                            <textarea name="legenda" id="t_field_legenda" maxlength="50"></textarea>
+                            <i class="bi bi-pencil"></i>
+                        </div>
+                        
+                        <div class="field_verde mt-5">
+                            <label for="t_field_receita" class="text-capitalize">receita</label>
+                            <textarea name="receita" id="t_field_receita" maxlength="500"></textarea>
+                            <i class="bi bi-pencil"></i>
+                        </div>
+                        <div class="w-100 d-flex justify-content-center mt-5    ">
+                            <button type="submit" class="btn_acao text-capitalize" id="btn_publicar" form="form_publicar">publicar</button>
+                        </div>
                     </fieldset>
 
                     
                 </form>
-                <div class="w-100 d-flex justify-content-center mt-5">
-                    <button type="submit" class="btn_acao text-capitalize" id="btn_publicar" form="form_publicar">publicar</button>
+
+            </section>
+
+            <button class="btn_acao btn_menu text-capitalize d-none d-lg-inline-block">configurações</button>
+            <button class="btn_menu btn_menu_mobile d-lg-none"><i class="bi bi-three-dots-vertical"></i></button>
+        </header>
+
+        <section id="feed_cards" class="feed_cards mt-5">
+            <a class="feed_card d-flex justify-content-center" href="desenvolvimento.html">
+                <div class="d-flex align-items-center">
+                    <img src="../assets/imgs/img_teste_1.png" alt="">
                 </div>
-
-            </div>
+            </a>
+            <a class="feed_card d-flex justify-content-center" href="desenvolvimento.html">
+                <div class="d-flex align-items-center">
+                    <img src="../assets/imgs/img_teste_2.png" alt="">
+                </div>
+            </a>
+            <a class="feed_card d-flex justify-content-center" href="desenvolvimento.html">
+                <div class="d-flex align-items-center">
+                    <img src="../assets/imgs/img_teste_3.png" alt="">
+                </div>
+            </a>
+            <a class="feed_card d-flex justify-content-center" href="desenvolvimento.html">
+                <div class="d-flex align-items-center">
+                    <img src="../assets/imgs/img_teste_1.png" alt="">
+                </div>
+            </a>
+            <a class="feed_card d-flex justify-content-center" href="desenvolvimento.html">
+                <div class="d-flex align-items-center">
+                    <img src="../assets/imgs/img_teste_2.png" alt="">
+                </div>
+            </a>
+            <a class="feed_card d-flex justify-content-center" href="desenvolvimento.html">
+                <div class="d-flex align-items-center">
+                    <img src="../assets/imgs/img_teste_3.png" alt="">
+                </div>
+            </a>
+            <a class="feed_card d-flex justify-content-center" href="desenvolvimento.html">
+                <div class="d-flex align-items-center">
+                    <img src="../assets/imgs/img_teste_1.png" alt="">
+                </div>
+            </a>
+            <a class="feed_card d-flex justify-content-center" href="desenvolvimento.html">
+                <div class="d-flex align-items-center">
+                    <img src="../assets/imgs/img_teste_2.png" alt="">
+                </div>
+            </a>
+            <a class="feed_card d-flex justify-content-center" href="desenvolvimento.html">
+                <div class="d-flex align-items-center">
+                    <img src="../assets/imgs/img_teste_3.png" alt="">
+                </div>
+            </a>
+            <a class="feed_card d-flex justify-content-center" href="desenvolvimento.html">
+                <div class="d-flex align-items-center">
+                    <img src="../assets/imgs/img_teste_1.png" alt="">
+                </div>
+            </a>
+            <a class="feed_card d-flex justify-content-center" href="desenvolvimento.html">
+                <div class="d-flex align-items-center">
+                    <img src="../assets/imgs/img_teste_2.png" alt="">
+                </div>
+            </a>
         </section>
-
-        <section id="feed_cards" class="feed_cards w-100"></section>
     </main>
 
-    <script>
+    <!-- <script>
         const usuarioNome = sessionStorage.getItem('usuario');
         if (usuarioNome) {
             document.getElementById('usuarioNome').textContent = usuarioNome;
         } else {
             window.location.href = "../index.html";
         }
-    </script>
+    </script> -->
     
     <script src="../js/user_perfil.js"></script>
     <script src="../js/exibir_cards.js"></script>

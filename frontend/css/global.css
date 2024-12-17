@@ -15,6 +15,12 @@
     --color-validacao: #e92e2e;
     --color-modal: #072c3980;
     --color-img-modal: #d9d9d9;
+    --new-color-primary: #A5B244;
+    --new-color-btn: #7D863D;
+    --new-color-background: #C95D5D;
+    --new-color-dots: #00000033;
+    --new-color-modal: #FEE2D080;
+    --new-color-img-modal: #FEE2D0;
 }
 
 *{
@@ -26,7 +32,7 @@
 }
 
 body{
-    background-color: var(--color-background);
+    background-color: var(--new-color-background);
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -129,6 +135,60 @@ h1, h2{
 
 /* LOGIN */
 
+.fundo_melancia1 {
+    /* posicoes da esquerda para a direita */
+    background-image:
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%);
+    background-size: 20% 20%;
+    background-position:
+    -13% 25%,
+    0% 70%,
+    13% -13%,
+    26% 113%,
+    37% 15%,
+    60% 85%,
+    70% 37%,
+    87% -3%,
+    100% 100%,
+    112.5% 60%;
+    background-repeat: no-repeat;
+}
+
+.fundo_melancia2{
+    /* posicoes da esquerda para a direita */
+    background-image:
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
+    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%);
+    background-size: 20% 20%;
+    background-position:
+    0% 5%,
+    0% 80%,
+    26% -13%,
+    42% 42%,
+    69% 113%,
+    69% -5%,
+    78% 65%,
+    96% 93%,
+    112.5% 30%;
+    background-repeat: no-repeat;
+}
+
 .btn_voltar{
     width: 4em;
     height: 4em;
@@ -138,11 +198,12 @@ h1, h2{
     top: 2em;
     left: 2em;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+    background-color: var(--new-color-btn);
 }
 
 .btn_voltar i{
     font-size: 2em;
-    color: var(--color-black);
+    color: var(--color-white);
 }
 
 .t_field{
@@ -187,11 +248,16 @@ h1, h2{
 /* TELA INATIVA */
 
 .titulo_desenv{
-    color: var(--color-primary);
+    color: var(--new-color-primary);
     font-weight: bold;
     text-align: center;
     position: absolute;
     top: 1.1em;
+}
+
+.texto_desenv{
+    color: var(--color-white);
+    font-size: 1.2rem;
 }
 
 /* TELA CADASTRADO */

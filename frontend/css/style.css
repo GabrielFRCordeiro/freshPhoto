@@ -6,7 +6,8 @@
 
 .navegacao{
     height: 10vh;
-    background-color: var(--color-primary);
+    width: 100vw;
+    background-color: var(--new-color-primary);
     position: fixed;
     bottom: 0;
     left: 0;
@@ -26,24 +27,10 @@
     display: none;
 }
 
-.barraTitulo{
-    color: var(--color-secundary);
-    background-color: var(--color-secundary);
-    border: none;
-    height: .25em;
-    width: 100vw;
-    opacity: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    margin: 0;
-}
-
 .caixaTitulo{
     width: 100vw;
     height: 8vh;
-    background-color: var(--color-primary);
+    background-color: var(--new-color-primary);
     position: absolute;
     top: 0;
     left: 0;
@@ -83,32 +70,47 @@
 
 .caixaPerfil{
     height: 30vh;
-    background-color: var(--color-white);
+    background-color: var(--new-color-primary);
     position: absolute;
     top: 0;
     left: 0;
+    display: grid;
+    grid-template:
+    'user_img user_nome menu' .33fr
+    'user_img user_usuario menu' .33fr
+    '. btn_postar .' .33fr
+    / 1fr 1fr 1fr
+    ;
+    place-items: center;
 }
 
 .caixaPerfil .user_img{
-    height: 7rem;
+    height: 70%;
+    grid-area: user_img;
 }
 
 .caixaPerfil h2{
-    color: var(--color-primary);
-    font-size: 2rem;
+    color: var(--color-white);
+    font-size: 3rem;
     margin: 0;
+    grid-area: user_nome;
+    align-self: end;
 }
 
 .caixaPerfil p{
-    color: var(--color-secundary);
-    font-size: 1rem;
-    margin: 0;
+    color: var(--color-white);
+    font-size: 2rem;
+    grid-area: user_usuario;
+}
+
+.caixaPerfil .btn_postar {
+    grid-area: btn_postar;
 }
 
 .btn_acao{
     border: none;
-    background-color: var(--color-terciary);
-    color: var(--color-text-secundary);
+    background-color: var(--new-color-btn);
+    color: var(--color-white);
     border-radius: .5em;
     width: 10em;
     height: 2.5em;
@@ -121,12 +123,53 @@
     transition: .5s;
 }
 
+.btn_menu{
+    border: none;
+    grid-area: menu;
+}
+
+.btn_menu_mobile {
+    background-color: transparent;
+    font-size: 2rem;
+}
+
+.btn_menu i {
+    color: var(--new-color-btn);
+}
+
+.btn_menu_posicao, .btn_menu_posicao_mobile{
+    position: absolute;
+    z-index: 2;
+}
+
+.btn_menu_posicao{
+    top: 2rem;
+    right: 4rem;
+}
+
+.btn_menu_posicao_mobile{
+    top: .25rem;
+    right: 1rem;
+}
+
+@media (min-width: 992px) {
+    .caixaPerfil{
+        background-color: transparent;
+        grid-template:
+        '. . . . menu' .25fr
+        '. user_img user_nome btn_postar .' .25fr
+        '. user_img user_usuario btn_postar .' .25fr
+        '. . . . .' .25fr
+        / 1fr 1fr 1fr 1fr 1fr
+        ;
+    }
+}
+
 /* USER FEED */
 
 .cor_fundo{
     width: 100vw;
     height: 90vh;
-    background-color: var(--color-white);
     position: absolute;
     top: 0;
     overflow: scroll;
@@ -237,7 +280,8 @@
     height: 100%;
     overflow: auto;
     background-color: var(--color-primary);
-    background-color: var(--color-modal);
+    background-color: var(--new-color-modal);
+    backdrop-filter: blur(20px);
 }
 
 .modal-content {
@@ -250,9 +294,10 @@
 }
 
 .modal-content .field_categoria{
-    background-color: var(--color-terciary);
+    background-color: var(--new-color-primary);
     border-radius: .7em;
-    align-self: center;
+    margin: 0 auto;
+    width: 15rem;
 }
 
 .modal-content fieldset{
@@ -283,10 +328,26 @@
 }
 
 .modal-content .field_verde {
-    background-color: var(--color-terciary);
+    background-color: var(--new-color-primary);
     border-radius: .7em;
     box-sizing: content-box;
     padding-bottom: 1em;
+    position: relative;
+}
+
+.modal-content :is(.img_placeholder_publicar, .field_verde) i {
+    color: var(--new-color-btn);
+    position: absolute;
+    right: .5em;
+}
+
+.modal-content .field_verde i {
+    bottom: 1.5em;
+}
+
+.modal-content .img_placeholder_publicar i {
+    font-size: 2.5rem;
+    bottom: .3em;
 }
 
 .modal-content .field_verde label{
@@ -330,43 +391,26 @@
     cursor: pointer;
 }
 
-.feed_cards{
-    position: absolute;
-    top: 30vh;
-    left: 0;
-    height: 60vh;
-    display: grid;
-    grid-auto-flow: row;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-
-.feed_card{
-    height: 100%;
-    width: 100%;
-}
-
-.feed_card div{
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    cursor: pointer;
-}
-
-.feed_card img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 .img_placeholder_publicar {
     height: 250px;
     width: 250px;
     border-radius: 1.5em;
-    background-color: var(--color-img-modal);
+    background-color: var(--new-color-img-modal);
     background-size: cover;
     background-position: center;
     cursor: pointer;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+.img_placeholder_publicar p {
+    color: var(--new-color-btn);
+    font-size: 1.4rem;
+    font-weight: 500;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 @media (min-width: 576px) {
@@ -414,39 +458,8 @@
         display: block;
     }
 
-    .barraTitulo, .caixaTitulo{
-        width: 50vw;
-        left: 25%;
-    }
-   
-    .caixaTitulo h1{
-        text-align: center;
-        margin-left: 0;
-    }
-
-    .caixaPerfil{
-        width: 50vw !important;
-        left: 25%;
-        top: 10vh;
-        border-top-left-radius: 1em;
-        border-top-right-radius: 1em;
-    }
-
-    .feed_cards{
-        width: 50vw !important;
-        left: 25%;
-        top: 40vh;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-auto-rows: 12.5vw;
-    }
-
-    .feed_card{
-        width: 12.5vw;
-        height: 12.5vw;
-    }
-
     .caixaPerfil .user_img{
-        height: 8rem;
+        height: 100%;
     }
 
     /* USER FEED */
@@ -460,5 +473,64 @@
 
     .post_cards{
         margin-top: 6vh;
+    }
+}
+
+.feed_cards {
+    width: 100%;
+    position: absolute;
+    top: 30vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 2rem;
+    padding-bottom: 15vh;
+}
+
+.feed_cards :nth-child(even){
+    transform: translateY(55%);
+}
+
+.feed_card{
+    width: 50%;
+    height: 50%;
+    border-radius: 100%;
+}
+
+.feed_card div{
+    width: 80%;
+    border-radius: 100%;
+}
+
+.feed_card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    border: 5px var(--new-color-btn) solid;
+    object-fit: cover;
+}
+
+@media (min-width: 992px) {
+    .feed_cards{
+        width: 75vw;
+        left: 15%;
+        row-gap: 100px;
+    }
+
+    .feed_card{
+        width: 30%;
+        height: 30%;
+    }
+
+    .feed_cards :nth-child(even){
+        transform: translateY(0);
+    }
+
+    .feed_cards :nth-child(3n + 2){
+        transform: translateY(80%);
+    }
+
+    .feed_cards :last-child{
+        transform: translateY(0);
     }
 }
