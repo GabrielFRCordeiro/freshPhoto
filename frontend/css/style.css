@@ -209,7 +209,7 @@
 
 .post_card{
     width: 100%;
-    height: 70vh;
+    height: 70%;
     margin-bottom: 8vh;
     display: grid;
     grid-template-areas: 
@@ -230,7 +230,7 @@
 }
 
 .post_card div{
-    width: 100%;
+    width: 250px;
     grid-area: post_img;
     overflow: hidden;
     border-radius: 100%;
@@ -238,7 +238,6 @@
 
 .post_card .post_img {
     width: 100%;
-    height: 100%;
     border-radius: 100%;
     border: 5px var(--new-color-btn) solid;
     object-fit: cover;
@@ -448,11 +447,19 @@
         height: 400px;
         width: 400px;
     }
+
+    .post_card div{
+        width: 400px;
+    }
 }
 
 @media (min-width: 768px) {
     .img_placeholder_publicar {
         height: 500px;
+        width: 500px;
+    }
+
+    .post_card div{
         width: 500px;
     }
 }
