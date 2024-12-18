@@ -24,7 +24,7 @@ window.addEventListener('load', async (e) => {
 function show_cards(cards) {
     feed_cards.innerHTML = ''
     cards.forEach(card => {
-        feed_cards.innerHTML += `<a class="feed_card" href="desenvolvimento.html">
+        feed_cards.innerHTML += `<a class="feed_card" href="./user-feed.html">
     <div class="feed_card">
         <img src="${card}" alt="">
     </div>
