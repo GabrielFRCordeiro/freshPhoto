@@ -210,6 +210,7 @@
     min-height: 70vh;
     background-color: transparent;
     margin-top: 12vh;
+    column-gap: 2em;
 }
 
 .post_card{
@@ -503,10 +504,6 @@
 @media (min-width: 768px) {
     .img_placeholder_publicar {
         height: 500px;
-        width: 500px;
-    }
-
-    .post_card div{
         width: 500px;
     }
 }
