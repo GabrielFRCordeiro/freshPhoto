@@ -142,7 +142,7 @@
     color: var(--new-color-btn);
 }
 
-.btn_menu_posicao, .btn_menu_posicao_mobile{
+.btn_menu_posicao, .btn_menu_posicao_mobile, .config_conta, .config_sair{
     position: absolute;
     z-index: 2;
 }
@@ -155,6 +155,32 @@
 .btn_menu_posicao_mobile{
     top: .25rem;
     right: 1rem;
+}
+
+.modal_config {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding: 100px 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--new-color-modal);
+    backdrop-filter: blur(20px);
+}
+
+.config_conta {
+    top: 6rem;
+    right: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+.config_sair {
+    top: 10rem;
+    right: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 
 @media (min-width: 992px) {
