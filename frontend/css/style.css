@@ -239,56 +239,79 @@
     column-gap: 2em;
 }
 
-.post_card{
+.post_card, .post_card-clicado{
     width: 100%;
     height: 70%;
     margin-bottom: 8vh;
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    place-items: center;
+}
+
+.post_card{
     grid-template-areas: 
         'post_img post_img post_img post_img'
         'post_img post_img post_img post_img'
         'post_img post_img post_img post_img'
         'post_img post_img post_img post_img'
         'icon_curtir post_categoria post_categoria icon_receita';
-    grid-template-rows: .25f .25f .25f .25f;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    place-items: center;
 }
 
-.post_card .user_img{
+.post_card-clicado{
+    grid-template-areas:
+    'user_img user_usuario user_usuario .'
+    'post_img post_img post_img post_img'
+    'post_img post_img post_img post_img'
+    'post_img post_img post_img post_img'
+    'post_img post_img post_img post_img'
+    'icon_curtir post_categoria post_categoria icon_receita'
+    'legenda legenda legenda icon_comentario'
+    'legenda legenda legenda .';
+}
+
+.post_card .user_img {
     display: none;
-    /* grid-area: user_img; */
+}
+
+.post_card-clicado .user_img{
+    display: block;
+    grid-area: user_img;
     width: 5em;
 }
 
-.post_card div{
+:is(.post_card, .post_card-clicado) div{
     width: 250px;
     grid-area: post_img;
     overflow: hidden;
     border-radius: 100%;
 }
 
-.post_card .post_img {
+:is(.post_card, .post_card-clicado) .post_img_container{
+    grid-area: post_img;
+}
+
+:is(.post_card, .post_card-clicado) .post_img {
     width: 100%;
     border-radius: 100%;
     border: 5px var(--new-color-btn) solid;
     object-fit: cover;
 }
 
-.user_usuario{
+.post_card .user_usuario {
     display: none;
-    /* grid-area: user_usuario; */
+}
+
+.post_card-clicado .user_usuario{
+    display: block;
+    grid-area: user_usuario;
     justify-self: start;
     margin: 0;
-    color: var(--color-secundary);
+    color: var(--color-white);
     font-size: 1rem;
 }
 
 .icon_receita{
     grid-area: icon_receita;
-}
-
-.icon_receita{
     width: 2.5em;
 }
 
@@ -307,10 +330,6 @@
     overflow: hidden;
 } */
 
-.post_img img{
-    width: 100%;
-}
-
 .icon_curtir{
     grid-area: icon_curtir;
 }
@@ -325,9 +344,23 @@
     text-align: center;
 }
 
-.icon_comentario{
+.post_card .icon_comentario{
     display: none;
-    /* grid-area: icon_comentario; */
+}
+
+.post_card-clicado .icon_comentario{
+    display: block;
+    grid-area: icon_comentario;
+}
+
+.post_card .post_legenda {
+    display: none;
+}
+
+.post_card-clicado .post_legenda {
+    display: block;
+    color: var(--color-white);
+    grid-area: legenda;
 }
 
 .modal {
@@ -522,7 +555,7 @@
         width: 400px;
     }
 
-    .post_card div{
+    :is(.post_card, .post_card-clicado) div{
         width: 400px;
     }
 }
