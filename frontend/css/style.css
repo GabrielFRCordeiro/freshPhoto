@@ -385,52 +385,27 @@
     column-gap: 2em;
 }
 
-.post_card, .post_card-clicado{
+.post_card {
     width: 100%;
     height: 70%;
     margin-bottom: 8vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     place-items: center;
-}
-
-.post_card{
-    grid-template-areas: 
-        'post_img post_img post_img post_img'
-        'post_img post_img post_img post_img'
-        'post_img post_img post_img post_img'
-        'post_img post_img post_img post_img'
-        'icon_curtir post_categoria post_categoria icon_receita';
-}
-
-.post_card-clicado{
     grid-template-areas:
-    'user_img user_usuario user_usuario .'
+    'user_img user_usuario user_usuario icon_receita'
     'post_img post_img post_img post_img'
     'post_img post_img post_img post_img'
     'post_img post_img post_img post_img'
-    'post_img post_img post_img post_img'
-    'icon_curtir post_categoria post_categoria icon_receita'
-    'legenda legenda legenda icon_comentario'
-    'legenda legenda legenda .';
+    'post_img post_img post_img post_img';
 }
 
 .post_card .user_img {
-    display: none;
-}
-
-.post_card-clicado .user_img{
-    display: block;
     grid-area: user_img;
     width: 5em;
 }
 
 .post_card .user_usuario {
-    display: none;
-}
-
-.post_card-clicado .user_usuario{
-    display: block;
     grid-area: user_usuario;
     justify-self: start;
     margin: 0;
@@ -438,68 +413,23 @@
     font-size: 1rem;
 }
 
-:is(.post_card, .post_card-clicado) div{
+.icon_receita{
+    grid-area: icon_receita;
+    width: 2.5em;
+}
+
+.post_card div{
     width: 250px;
     grid-area: post_img;
     overflow: hidden;
     border-radius: 100%;
 }
 
-:is(.post_card, .post_card-clicado) .post_img_container{
-    grid-area: post_img;
-}
-
-:is(.post_card, .post_card-clicado) .post_img {
+.post_card .post_img {
     width: 100%;
     border-radius: 100%;
     border: 5px var(--new-color-btn) solid;
     object-fit: cover;
-}
-
-.icon_curtir, .icon_comentario{
-    width: 1em;
-    font-size: 2em;
-    color: var(--color-secundary);
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.icon_curtir{
-    grid-area: icon_curtir;
-}
-
-.post_categoria{
-    grid-area: post_categoria;
-    background-color: var(--color-black);
-    color: var(--color-white);
-    border-radius: .8em;
-    font-size: 1.8em;
-    width: 8em;
-    text-align: center;
-}
-
-.icon_receita{
-    grid-area: icon_receita;
-    width: 2.5em;
-}
-
-.post_card .post_legenda {
-    display: none;
-}
-
-.post_card-clicado .post_legenda {
-    display: block;
-    color: var(--color-white);
-    grid-area: legenda;
-}
-
-.post_card .icon_comentario{
-    display: none;
-}
-
-.post_card-clicado .icon_comentario{
-    display: block;
-    grid-area: icon_comentario;
 }
 
 /* PESQUISA */
@@ -552,7 +482,7 @@
     }
 
     /* USER-FEED */
-    :is(.post_card, .post_card-clicado) div{
+    .post_card div{
         width: 400px;
     }
 }
