@@ -6,6 +6,6 @@ btn_sair.addEventListener('click', e => {
 		sessionStorage.removeItem('id_usuario')
 		window.location.href = 'login.html';
 	} else {
-		alert('Usuario ou senha incorretos')
+		alert('Erro ao finalizar sessão')
 	}
 });
