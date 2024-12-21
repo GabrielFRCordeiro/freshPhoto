@@ -2,7 +2,26 @@
 
 @import url('./global.css');
 
-/* PERFIL */
+/* Largura (mudar so width) */
+::-webkit-scrollbar {
+    width: 0.8em;
+    height: 0;
+}
+      
+/* Cor de fundo */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+       
+/* Cor da barra */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+      
+/* Cor da barra quando mouse ta em cima */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
 
 .navegacao{
     height: 10vh;
@@ -23,50 +42,82 @@
     color: var(--color-secundary);
 }
 
-.perfil{
-    display: none;
-}
-
-.caixaTitulo{
-    width: 100vw;
-    height: 8vh;
-    background-color: var(--new-color-primary);
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    padding: 1em 0;
-}
-
-.caixaTitulo h1{
-    text-align: start;
-    font-weight: bold;
-    color: var(--color-white);
-    letter-spacing: 2px;
-    margin-left: 1em;
-}
-
-.btn_sair{
+.btn_acao{
     border: none;
-    background-color: var(--color-white);
-    color: var(--color-text-secundary);
-    border-color: black;
+    background-color: var(--new-color-btn);
+    color: var(--color-white);
     border-radius: .5em;
-    width: 5em;
+    width: 10em;
     height: 2.5em;
-    position: absolute;
-    top: 3em;
-    right: 3em;
-    z-index: 2;
     align-self: center;
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 
-.btn_sair:hover{
-    background-color: #e1e1e1;
+.btn_acao:hover{
+    background-color: rgb(124, 185, 48, 0.6);
     color: black;
     transition: .5s;
 }
+
+.btn_menu{
+    border: none;
+    letter-spacing: 2px;
+}
+
+.btn_menu i {
+    color: var(--new-color-btn);
+}
+
+.btn_menu_mobile {
+    background-color: transparent;
+    font-size: 2rem;
+}
+
+.btn_menu_posicao, .btn_menu_posicao_mobile, .config_conta, .config_sair{
+    position: absolute;
+    z-index: 2;
+}
+
+.btn_menu_posicao_mobile{
+    top: .25rem;
+    right: 1rem;
+}
+
+.btn_menu_desktop {
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+.btn_menu_posicao{
+    top: 1rem;
+    right: 2rem;
+}
+
+.modal_config {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding: 100px 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--new-color-modal);
+    backdrop-filter: blur(20px);
+}
+
+.config_conta {
+    top: 6rem;
+    right: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+.config_sair {
+    top: 10rem;
+    right: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+/* PERFIL */
 
 .caixaPerfil{
     height: 30vh;
@@ -107,96 +158,213 @@
     grid-area: btn_postar;
 }
 
-.btn_acao{
-    border: none;
-    background-color: var(--new-color-btn);
-    color: var(--color-white);
-    border-radius: .5em;
-    width: 10em;
-    height: 2.5em;
-    align-self: center;
-}
-
-.btn_acao:hover{
-    background-color: rgb(124, 185, 48, 0.6);
-    color: black;
-    transition: .5s;
-}
-
-.btn_menu{
-    border: none;
-    grid-area: menu;
-    letter-spacing: 2px;
-}
-
-.btn_menu_mobile {
-    background-color: transparent;
-    font-size: 2rem;
-}
-
-.btn_menu_desktop {
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
-}
-
-.btn_menu i {
-    color: var(--new-color-btn);
-}
-
-.btn_menu_posicao, .btn_menu_posicao_mobile, .config_conta, .config_sair{
-    position: absolute;
-    z-index: 2;
-}
-
-.btn_menu_posicao{
-    top: 1rem;
-    right: 2rem;
-}
-
-.btn_menu_posicao_mobile{
-    top: .25rem;
-    right: 1rem;
-}
-
-.modal_config {
+.modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     padding: 100px 0;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
+    background-color: var(--color-primary);
     background-color: var(--new-color-modal);
     backdrop-filter: blur(20px);
 }
 
-.config_conta {
-    top: 6rem;
-    right: 2rem;
+.modal-content {
+    background-color: transparent;
+    margin: auto;
+    padding: 20px;
+    border: none;
+    width: 80%;
+    row-gap: 1em;
+}
+
+.modal-content fieldset{
+    padding: .5em 0;
+}
+
+.modal-content label {
+    display: block;
+    font-size: 1em;
+    color: var(--color-white);
+}
+
+.img_placeholder_publicar {
+    height: 250px;
+    width: 250px;
+    border-radius: 1.5em;
+    background-color: var(--new-color-img-modal);
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    position: relative;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 
-.config_sair {
-    top: 10rem;
-    right: 2rem;
+.img_placeholder_publicar p {
+    color: var(--new-color-btn);
+    font-size: 1.4rem;
+    font-weight: 500;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-content :is(.img_placeholder_publicar, .field_verde) i {
+    color: var(--new-color-btn);
+    position: absolute;
+    right: .5em;
+}
+
+.modal-content .img_placeholder_publicar i {
+    font-size: 2.5rem;
+    bottom: .3em;
+}
+
+.modal-content .field_categoria{
+    background-color: var(--new-color-primary);
+    border-radius: .7em;
+    margin: 0 auto;
+    width: 15rem;
+}
+
+.modal-content .field_categoria label {
+    display: inline;
+    margin-right: 1em;
+}
+
+.modal-content .input_categoria_wrapper {
+    position: relative;
+}
+
+.modal-content .input_categoria_wrapper::after {
+    content: "▼";
+    font-size: 1rem;
+    top: 0;
+    right: .15rem;
+    position: absolute;
+}
+
+.modal-content .input_categoria {
+    border: none;
+    border-radius: .3em;
+    padding: .2em .5em;
+}
+
+.modal-content .field_verde {
+    background-color: var(--new-color-primary);
+    border-radius: .7em;
+    box-sizing: content-box;
+    padding-bottom: 1em;
+    position: relative;
+}
+
+.modal-content .field_verde label{
+    margin: 0 1em;
+}
+
+.modal-content textarea {
+    width: 100%;
+    border: none;
+    border-radius: .5em;
+    word-wrap: break-word;
+    word-break: break-word;
+    resize: none;
+}
+
+.modal-content textarea[name="legenda"] {
+    height: 4em;
+}
+
+.modal-content .field_verde i {
+    bottom: 1.5em;
+}
+
+.modal-content textarea[name="receita"] {
+    height: 12em;
+}
+
+/* 
+.btn_sair{
+    border: none;
+    background-color: var(--color-white);
+    color: var(--color-text-secundary);
+    border-color: black;
+    border-radius: .5em;
+    width: 5em;
+    height: 2.5em;
+    position: absolute;
+    top: 3em;
+    right: 3em;
+    z-index: 2;
+    align-self: center;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 
-@media (min-width: 992px) {
-    .caixaPerfil{
-        background-color: transparent;
-        grid-template:
-        '. . . . menu' .25fr
-        '. user_img user_nome btn_postar .' .25fr
-        '. user_img user_usuario btn_postar .' .25fr
-        '. . . . .' .25fr
-        / 1fr 1fr 1fr 1fr 1fr
-        ;
-    }
+.btn_sair:hover{
+    background-color: #e1e1e1;
+    color: black;
+    transition: .5s;
+} */
+
+.feed_cards {
+    width: 100%;
+    position: absolute;
+    top: 30vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 2rem;
+    padding-bottom: 15vh;
+}
+
+.feed_card{
+    width: 50%;
+    height: 50%;
+    border-radius: 100%;
+}
+
+.feed_card div{
+    width: 80%;
+    border-radius: 100%;
+}
+
+.feed_card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    border: 5px var(--new-color-btn) solid;
+    object-fit: cover;
+}
+
+.feed_cards :nth-child(even){
+    transform: translateY(55%);
 }
 
 /* USER FEED */
+
+.caixaTitulo{
+    width: 100vw;
+    height: 8vh;
+    background-color: var(--new-color-primary);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    padding: 1em 0;
+}
+
+.caixaTitulo h1{
+    text-align: start;
+    font-weight: bold;
+    color: var(--color-white);
+    letter-spacing: 2px;
+    margin-left: 1em;
+}
 
 .logo_posicao {
     bottom: 25em;
@@ -207,28 +375,6 @@
     height: 90vh;
     position: absolute;
     top: 0;
-    /* overflow: scroll; */
-}
-
-/* Largura (mudar so width) */
-::-webkit-scrollbar {
-    width: 0.8em;
-    height: 0;
-}
-      
-/* Cor de fundo */
-::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-}
-       
-/* Cor da barra */
-::-webkit-scrollbar-thumb {
-    background: #888; 
-}
-      
-/* Cor da barra quando mouse ta em cima */
-::-webkit-scrollbar-thumb:hover {
-    background: #555; 
 }
 
 .post_cards{
@@ -279,24 +425,6 @@
     width: 5em;
 }
 
-:is(.post_card, .post_card-clicado) div{
-    width: 250px;
-    grid-area: post_img;
-    overflow: hidden;
-    border-radius: 100%;
-}
-
-:is(.post_card, .post_card-clicado) .post_img_container{
-    grid-area: post_img;
-}
-
-:is(.post_card, .post_card-clicado) .post_img {
-    width: 100%;
-    border-radius: 100%;
-    border: 5px var(--new-color-btn) solid;
-    object-fit: cover;
-}
-
 .post_card .user_usuario {
     display: none;
 }
@@ -315,6 +443,24 @@
     width: 2.5em;
 }
 
+:is(.post_card, .post_card-clicado) div{
+    width: 250px;
+    grid-area: post_img;
+    overflow: hidden;
+    border-radius: 100%;
+}
+
+:is(.post_card, .post_card-clicado) .post_img_container{
+    grid-area: post_img;
+}
+
+:is(.post_card, .post_card-clicado) .post_img {
+    width: 100%;
+    border-radius: 100%;
+    border: 5px var(--new-color-btn) solid;
+    object-fit: cover;
+}
+
 .icon_curtir, .icon_comentario{
     width: 1em;
     font-size: 2em;
@@ -322,13 +468,6 @@
     text-align: center;
     margin-bottom: 10px;
 }
-
-/* .post_img{
-    width: 100%;
-    height: 50vh;
-    grid-area: post_img;
-    overflow: hidden;
-} */
 
 .icon_curtir{
     grid-area: icon_curtir;
@@ -363,150 +502,6 @@
     grid-area: legenda;
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 3;
-    padding: 100px 0;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: var(--color-primary);
-    background-color: var(--new-color-modal);
-    backdrop-filter: blur(20px);
-}
-
-.modal-content {
-    background-color: transparent;
-    margin: auto;
-    padding: 20px;
-    border: none;
-    width: 80%;
-    row-gap: 1em;
-}
-
-.modal-content .field_categoria{
-    background-color: var(--new-color-primary);
-    border-radius: .7em;
-    margin: 0 auto;
-    width: 15rem;
-}
-
-.modal-content fieldset{
-    padding: .5em 0;
-}
-
-.modal-content .field_categoria label {
-    display: inline;
-    margin-right: 1em;
-}
-
-.modal-content .input_categoria {
-    border: none;
-    border-radius: .3em;
-    padding: .2em .5em;
-}
-
-.modal-content .input_categoria_wrapper {
-    position: relative;
-}
-
-.modal-content .input_categoria_wrapper::after {
-    content: "▼";
-    font-size: 1rem;
-    top: 0;
-    right: .15rem;
-    position: absolute;
-}
-
-.modal-content .field_verde {
-    background-color: var(--new-color-primary);
-    border-radius: .7em;
-    box-sizing: content-box;
-    padding-bottom: 1em;
-    position: relative;
-}
-
-.modal-content :is(.img_placeholder_publicar, .field_verde) i {
-    color: var(--new-color-btn);
-    position: absolute;
-    right: .5em;
-}
-
-.modal-content .field_verde i {
-    bottom: 1.5em;
-}
-
-.modal-content .img_placeholder_publicar i {
-    font-size: 2.5rem;
-    bottom: .3em;
-}
-
-.modal-content .field_verde label{
-    margin: 0 1em;
-}
-
-.modal-content label {
-    display: block;
-    font-size: 1em;
-    color: var(--color-white);
-}
-
-.modal-content textarea {
-    width: 100%;
-    border: none;
-    border-radius: .5em;
-    word-wrap: break-word;
-    word-break: break-word;
-    resize: none;
-}
-
-.modal-content textarea[name="legenda"] {
-    height: 4em;
-}
-
-.modal-content textarea[name="receita"] {
-    height: 12em;
-}
-
-.fechar_modal {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.fechar_modal:hover,
-.fechar_modal:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.img_placeholder_publicar {
-    height: 250px;
-    width: 250px;
-    border-radius: 1.5em;
-    background-color: var(--new-color-img-modal);
-    background-size: cover;
-    background-position: center;
-    cursor: pointer;
-    position: relative;
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
-}
-
-.img_placeholder_publicar p {
-    color: var(--new-color-btn);
-    font-size: 1.4rem;
-    font-weight: 500;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
 /* PESQUISA */
 .pesquisa {
     width: 100vw;
@@ -527,11 +522,6 @@
     border-radius: .5em;
 }
 
-.pesquisa input::placeholder {
-    color: var(--color-white);
-    padding-left: 1.2em;
-}
-
 .pesquisa input::before {
     content: '\F52A';
     position: absolute;
@@ -542,6 +532,11 @@
     font-weight: bold;
 }
 
+.pesquisa input::placeholder {
+    color: var(--color-white);
+    padding-left: 1.2em;
+}
+
 .pesquisa button {
     color: var(--color-white);
     width: 8em;
@@ -550,17 +545,20 @@
 }
 
 @media (min-width: 576px) {
+    /* PERFIL */
     .img_placeholder_publicar {
         height: 400px;
         width: 400px;
     }
 
+    /* USER-FEED */
     :is(.post_card, .post_card-clicado) div{
         width: 400px;
     }
 }
 
 @media (min-width: 768px) {
+    /* PERFIL */
     .img_placeholder_publicar {
         height: 500px;
         width: 500px;
@@ -568,6 +566,7 @@
 }
 
 @media (min-width: 992px) {
+    /* PERFIL */
     .modal-content textarea[name="legenda"] {
         height: 3em;
     }
@@ -594,63 +593,21 @@
     font-size: 1.8em;
     }
 
-    .perfil{
-        display: block;
+    .caixaPerfil{
+        background-color: transparent;
+        grid-template:
+        '. . . . menu' .25fr
+        '. user_img user_nome btn_postar .' .25fr
+        '. user_img user_usuario btn_postar .' .25fr
+        '. . . . .' .25fr
+        / 1fr 1fr 1fr 1fr 1fr
+        ;
     }
 
     .caixaPerfil .user_img{
         height: 100%;
     }
 
-    /* USER FEED */
-
-    .cor_fundo{
-        background-color: transparent;
-        width: 50vw;
-        height: 92vh;
-        top: 4vh;
-    }
-
-    .post_cards{
-        margin-top: 6vh;
-    }
-}
-
-.feed_cards {
-    width: 100%;
-    position: absolute;
-    top: 30vh;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    row-gap: 2rem;
-    padding-bottom: 15vh;
-}
-
-.feed_cards :nth-child(even){
-    transform: translateY(55%);
-}
-
-.feed_card{
-    width: 50%;
-    height: 50%;
-    border-radius: 100%;
-}
-
-.feed_card div{
-    width: 80%;
-    border-radius: 100%;
-}
-
-.feed_card img {
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-    border: 5px var(--new-color-btn) solid;
-    object-fit: cover;
-}
-
-@media (min-width: 992px) {
     .feed_cards{
         width: 75vw;
         left: 15%;
@@ -672,5 +629,17 @@
 
     .feed_cards :last-child{
         transform: translateY(0);
+    }
+
+    /* USER FEED */
+
+    .cor_fundo{
+        width: 50vw;
+        height: 92vh;
+        top: 4vh;
+    }
+
+    .post_cards{
+        margin-top: 6vh;
     }
 }

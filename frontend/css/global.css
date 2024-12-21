@@ -49,92 +49,6 @@ h1, h2{
     font-family: 'Kodchasan';
 }
 
-/* ENTRAR */
-
-.fundo{
-    background-image: url('../assets/img_background.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.tela_entrar{
-    height: 70vh;
-    width: 80vw;
-    background-color: var(--color-entrar);
-    border-radius: 2.5em;
-    display: grid;
-    grid-template: 
-    '. logo .' .3fr
-    '. . .' .1fr
-    '. btn_login .' .1fr
-    '. btn_cadastrar .' .1fr
-    / .3fr .3fr .3fr;
-    place-content: center;
-    place-items: center;
-}
-
-.img_container{
-    grid-area: logo;
-    width: 12em;
-    position: relative;
-}
-
-.img_logo{
-    width: 12em;
-}
-
-.esqueceu_senha{
-    margin-left: 1.6em;
-}
-
-
-.img_container::after{
-    font-family: 'Kodchasan';
-    content: attr(data-titulo);
-    position: absolute;
-    left: -.1em;
-    bottom: -1.5em;
-    color: var(--color-secundary);
-    font-size: 2em;
-    width: 7em;
-    font-weight: bold;
-}
-
-.link_login{
-    grid-area: btn_login;
-    margin: 32px 0 24px;
-}
-
-.btn_entrar{
-    width: 9em;
-    border: none;
-    background-color: var(--color-white);
-    color: var(--color-text-secundary);
-    border-color: black;
-    border-radius: .5em;
-    height: 2.5em;
-    align-self: center;
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
-}
-
-.btn_entrar:hover{
-    background-color: #e1e1e1;
-    color: black;
-}
-
-.btn_entrar:focus-visible, .tela_entrar .btn_entrar:active{
-    background-color: var(--color-white);
-    color: var(--color-text-secundary);
-    border-color: black;
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
-}
-
-.link_cadastrar{
-    grid-area: btn_cadastrar;
-}
-
-/* LOGIN */
-
 .fundo_melancia1 {
     /* posicoes da esquerda para a direita */
     background-image:
@@ -189,6 +103,86 @@ h1, h2{
     background-repeat: no-repeat;
 }
 
+/* ENTRAR */
+
+.fundo{
+    background-image: url('../assets/img_background.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.tela_entrar{
+    height: 70vh;
+    width: 80vw;
+    background-color: var(--color-entrar);
+    border-radius: 2.5em;
+    display: grid;
+    grid-template: 
+    '. logo .' .3fr
+    '. . .' .1fr
+    '. btn_login .' .1fr
+    '. btn_cadastrar .' .1fr
+    / .3fr .3fr .3fr;
+    place-content: center;
+    place-items: center;
+}
+
+.img_container{
+    grid-area: logo;
+    width: 12em;
+    position: relative;
+}
+
+.img_logo{
+    width: 12em;
+}
+
+.img_container::after{
+    font-family: 'Kodchasan';
+    content: attr(data-titulo);
+    position: absolute;
+    left: -.1em;
+    bottom: -1.5em;
+    color: var(--color-secundary);
+    font-size: 2em;
+    width: 7em;
+    font-weight: bold;
+}
+
+.link_login{
+    grid-area: btn_login;
+    margin: 32px 0 24px;
+}
+
+.btn_entrar{
+    width: 9em;
+    border: none;
+    background-color: var(--color-white);
+    color: var(--color-text-secundary);
+    border-color: black;
+    border-radius: .5em;
+    height: 2.5em;
+    align-self: center;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+.btn_entrar:hover{
+    background-color: #e1e1e1;
+    color: black;
+}
+
+.btn_entrar:focus-visible, .tela_entrar .btn_entrar:active{
+    background-color: var(--color-white);
+    color: var(--color-text-secundary);
+    border-color: black;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+.link_cadastrar{
+    grid-area: btn_cadastrar;
+}
+
+/* LOGIN */
 .btn_voltar{
     width: 4em;
     height: 4em;
@@ -211,6 +205,10 @@ h1, h2{
     width: 25ch !important;
 }
 
+.esqueceu_senha{
+    margin-left: 1.6em;
+}
+
 .validacao{
     color: var(--color-validacao);
     font-size: .8em;
@@ -228,16 +226,16 @@ h1, h2{
     font-weight: bold;
 }
 
-.img_cadastrar {
-    display: none;
-}
-  
 .img_placeholder {
     width: 7em;
     height: 7em;
     object-fit: cover;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.img_cadastrar {
+    display: none;
 }
 
 .termos_de_uso{
