@@ -143,7 +143,7 @@ h1, h2{
     position: absolute;
     left: -.1em;
     bottom: -1.5em;
-    color: var(--color-secundary);
+    color: var(--new-color-primary);
     font-size: 2em;
     width: 7em;
     font-weight: bold;
@@ -157,8 +157,8 @@ h1, h2{
 .btn_entrar{
     width: 9em;
     border: none;
-    background-color: var(--color-white);
-    color: var(--color-text-secundary);
+    background-color: var(--new-color-btn);
+    color: var(--color-white);
     border-color: black;
     border-radius: .5em;
     height: 2.5em;
@@ -207,6 +207,7 @@ h1, h2{
 
 .esqueceu_senha{
     margin-left: 1.6em;
+    color: var(--color-white);
 }
 
 .validacao{
@@ -217,6 +218,11 @@ h1, h2{
 
 .btn_entrar_alinhado{
     justify-self: center;
+}
+
+.sem_conta{
+    color: var(--color-white);
+    font-size: .8em;
 }
 
 /* CADASTRAR */
