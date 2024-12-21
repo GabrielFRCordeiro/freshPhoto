@@ -109,6 +109,106 @@ def get_card_perfil_completo():
         cursor.close()
         conn.close()
 
+
+# TELA PESQUISA
+# Chamar card_perquisa
+#Procedure:
+# delimiter //
+
+# CREATE PROCEDURE pesquisa()
+# BEGIN
+# 	SELECT foto FROM usuario;
+# END //
+
+# delimiter ;
+
+#Back-End:
+@app.route("/pesquisa/card_pesquisa", methods=["GET"])
+def get_card_pesquisa():
+    try:
+        data = request.json
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("""
+        CALL card_perquisa(%s)
+        """, (data['pesquisa'],))
+        cards_pequisa = cursor.fetchall() 
+        return jsonify(cards_pequisa), 200
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({"error": "Failed to fetch products"}), 500
+
+    finally:
+        cursor.close()
+        conn.close()
+
+# Chamar perquisa_categoria
+#Procedure:
+# delimiter //
+
+# CREATE PROCEDURE pesquisa_categoria()
+# BEGIN
+# 	SELECT nome FROM categoria;
+# END //
+
+# delimiter ;
+
+#Back-End:
+@app.route("/pesquisa/perquisa_categoria", methods=["GET"])
+def get_perquisa_categoria():
+    try:
+        data = request.json
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("""
+        CALL perquisa_categoria(%s)
+        """, (data['pesquisa'],))
+        pesquisa_categorias = cursor.fetchall() 
+        return jsonify(pesquisa_categorias), 200
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({"error": "Failed to fetch products"}), 500
+
+    finally:
+        cursor.close()
+        conn.close()
+
+# Chamar perquisa_usuario
+#Procedure:
+# delimiter //
+
+# CREATE PROCEDURE pesquisa_usuario()
+# BEGIN
+# 	SELECT nome, usuario, foto FROM usuario;
+# END //
+
+# delimiter ;
+
+#Back-End:
+@app.route("/pesquisa/pesquisa_usuario", methods=["GET"])
+def get_pesquisa_usuario():
+    try:
+        data = request.json
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("""
+        CALL pesquisa_usuario(%s)
+        """, (data['pesquisa'],))
+        pesquisa_usuarios = cursor.fetchall() 
+        return jsonify(pesquisa_usuarios), 200
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({"error": "Failed to fetch products"}), 500
+
+    finally:
+        cursor.close()
+        conn.close()
+
+
+# TELA CADASTRO
 # Criado usuario
 @app.route("/usuario/cadastrar", methods=['POST'])
 def criar_usuario():
@@ -136,7 +236,7 @@ def criar_usuario():
     conn.commit()
     return jsonify({"message": "Usuario criado com sucesso"}), 201
 
-# Criado usuario
+# Criado postagem
 @app.route("/postagem", methods=['POST'])
 def criar_usuario():
     load_dotenv()
