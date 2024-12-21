@@ -438,11 +438,6 @@
     font-size: 1rem;
 }
 
-.icon_receita{
-    grid-area: icon_receita;
-    width: 2.5em;
-}
-
 :is(.post_card, .post_card-clicado) div{
     width: 250px;
     grid-area: post_img;
@@ -483,13 +478,9 @@
     text-align: center;
 }
 
-.post_card .icon_comentario{
-    display: none;
-}
-
-.post_card-clicado .icon_comentario{
-    display: block;
-    grid-area: icon_comentario;
+.icon_receita{
+    grid-area: icon_receita;
+    width: 2.5em;
 }
 
 .post_card .post_legenda {
@@ -500,6 +491,15 @@
     display: block;
     color: var(--color-white);
     grid-area: legenda;
+}
+
+.post_card .icon_comentario{
+    display: none;
+}
+
+.post_card-clicado .icon_comentario{
+    display: block;
+    grid-area: icon_comentario;
 }
 
 /* PESQUISA */
