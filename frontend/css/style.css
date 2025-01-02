@@ -337,7 +337,7 @@
     width: 100%;
     height: 100%;
     border-radius: 100%;
-    border: 5px var(--new-color-btn) solid;
+    border: 5px var(--color-black) solid;
     object-fit: cover;
 }
 
@@ -428,7 +428,7 @@
 .post_card .post_img {
     width: 100%;
     border-radius: 100%;
-    border: 5px var(--new-color-btn) solid;
+    border: 5px var(--color-black) solid;
     object-fit: cover;
 }
 
