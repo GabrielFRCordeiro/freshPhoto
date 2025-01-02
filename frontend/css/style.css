@@ -474,6 +474,16 @@
     border-radius: 1em;
 }
 
+/* SEGUINDO */
+.seguindo--nao {
+    margin-top: 5rem;
+}
+
+.seguindo--nao h2 {
+    /* font-size: 1.2rem; */
+    color: var(--color-white);
+}
+
 @media (min-width: 576px) {
     /* PERFIL */
     .img_placeholder_publicar {
