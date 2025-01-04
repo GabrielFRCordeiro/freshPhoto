@@ -18,7 +18,7 @@
 
         <h1 class='titulo_config'>Fresh Photo</h1>
         <section class="h-75 d-flex flex-column align-items-center justify-content-around">
-          <h2>Minha conta</h2>
+          <h2 class="text_white">Minha conta</h2>
           
           <div class="d-flex flex-column align-items-center">
             <label for="user_img" class="w-100 d-flex justify-content-center">
@@ -26,23 +26,23 @@
             </label>
             <input type="file" name="user_img" id="user_img" accept="image/*" class="img_cadastrar">
             
-            <h3 id="user_nome">Nome</h3>
-            <p id="user_usuario">@usuario</p>
+            <h3 id="user_nome" class="titulo_config">Nome</h3>
+            <p id="user_usuario" class="text_white">@usuario</p>
           </div>
           
             <form class="d-flex flex-column">
-              <input type="email" name="email" id="t_field_email" placeholder="usuario@exemplo.com" class="mb-2" required>
+              <input type="email" id="t_field_email" class="form-control t_field" aria-describedby="passwordHelpBlock" placeholder="usuario@exemplo.com" required>
               <button type="submit" class="btn_acao">Alterar email</button>
             </form>
             
             <form class="d-flex flex-column">
-              <input type="password" name="senha" id="t_field_senha" placeholder="Cadastrar nova senha" class="mb-2" required>
-              <button type="submit" class="btn_acao">Alterar email</button>
+              <input type="password" id="t_field_senha" class="form-control t_field" aria-describedby="passwordHelpBlock" placeholder="Cadastrar nova senha" required>
+              <button type="submit" class="btn_acao">Alterar senha</button>
             </form>
         </section>
           
         <form>
-          <button type="submit">Excluir conta</button>
+          <button type="submit" class="btn_excluir">Excluir conta</button>
         </form>
 
       </div>

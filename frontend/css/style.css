@@ -474,6 +474,27 @@
     border-radius: 1em;
 }
 
+/* MINHA CONTA */
+.text_white {
+    color: var(--color-white);
+}
+
+.btn_excluir{
+    border: none;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border-radius: .5em;
+    width: 8em;
+    height: 2.5em;
+    align-self: center;
+}
+
+.btn_excluir:hover{
+    background-color: rgb(124, 185, 48, 0.6);
+    background-color: var(--color-modal);
+    transition: .5s;
+}
+
 /* SEGUINDO */
 .seguindo--nao {
     margin-top: 5rem;
