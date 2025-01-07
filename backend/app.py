@@ -67,6 +67,24 @@ def get_usuario_perfil():
         cursor.close()
         conn.close()
 
+# pegando informaçõesde um usuario especifico
+@app.route("/usuario/perfil", methods=["GET"])
+def get_usuario_perfil():
+    try:
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("SELECT nome, usuario, foto FROM perfil")
+        usuario = cursor.fetchall() 
+        return jsonify(usuario), 200
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({"error": "Failed to fetch products"}), 500
+
+    finally:
+        cursor.close()
+        conn.close()
+
 # Chamar card_perfil
 @app.route("/usuario/card_perfil", methods=["GET"])
 def get_card_perfil():
@@ -109,31 +127,39 @@ def get_card_perfil_completo():
         cursor.close()
         conn.close()
 
-
-# TELA PESQUISA
-# Chamar card_perquisa
-#Procedure:
-# delimiter //
-
-# CREATE PROCEDURE pesquisa()
-# BEGIN
-# 	SELECT foto FROM usuario;
-# END //
-
-# delimiter ;
-
-#Back-End:
-@app.route("/pesquisa/card_pesquisa", methods=["GET"])
-def get_card_pesquisa():
+# chamar card_perfil_outro_usuario
+@app.route("/usuario/card_perfil_outro_usuario", methods=["GET"])
+def get_card_perfil_outro_usuario():
     try:
         data = request.json
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
         cursor.execute("""
-        CALL card_perquisa(%s)
-        """, (data['pesquisa'],))
-        cards_pequisa = cursor.fetchall() 
-        return jsonify(cards_pequisa), 200
+        CALL card_perfil_outro_usuario(%s)
+        """, (data['usuario'],))
+        cards_perfil = cursor.fetchall() 
+        return jsonify(cards_perfil), 200
+    
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({"error": "Failed to fetch products"}), 500
+
+    finally:
+        cursor.close()
+        conn.close()
+
+# Buscar publicacação
+@app.route("/feed", methods=["GET"])
+def get_feed():
+    try:
+        data = request.form
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("""
+        CALL feed_perfil(%s)
+        """, (data['usuario'],))
+        postagem = cursor.fetchall() 
+        return jsonify(postagem), 200
 
     except Exception as e:
         print(f"Error: {e}")
@@ -143,29 +169,17 @@ def get_card_pesquisa():
         cursor.close()
         conn.close()
 
-# Chamar perquisa_categoria
-#Procedure:
-# delimiter //
-
-# CREATE PROCEDURE pesquisa_categoria()
-# BEGIN
-# 	SELECT nome FROM categoria;
-# END //
-
-# delimiter ;
-
-#Back-End:
-@app.route("/pesquisa/perquisa_categoria", methods=["GET"])
-def get_perquisa_categoria():
+# TABELA SEGUIDORES
+# metodo GET para pegar as informações do usuario que esta seguindo
+@app.route9("/seguindo", methods=["GET"])
+def verificar_seguidores():
     try:
         data = request.json
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("""
-        CALL perquisa_categoria(%s)
-        """, (data['pesquisa'],))
-        pesquisa_categorias = cursor.fetchall() 
-        return jsonify(pesquisa_categorias), 200
+        cursor.execute("SELECT * FROM seguidores WHERE id_seguidor=%s", (data['seguidor']))
+        usuario = cursor.fetchall() 
+        return jsonify(usuario), 200
 
     except Exception as e:
         print(f"Error: {e}")
@@ -175,29 +189,59 @@ def get_perquisa_categoria():
         cursor.close()
         conn.close()
 
-# Chamar perquisa_usuario
-#Procedure:
-# delimiter //
+# metodo POST para salvar no banco de dados
+@app.route("/seguidores", methods=["POST"])
+def seguir():
+    data = request.json
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("""
+    INSERT INTO seguidores(id_seguidor, id_seguindo)
+    VALUES (%s, %s)
+    """, (data['id_seguidor'], data['id_seguindo']))
+    conn.commit()
+    return jsonify({"message": "Seguindo com sucesso"}), 201
 
-# CREATE PROCEDURE pesquisa_usuario()
-# BEGIN
-# 	SELECT nome, usuario, foto FROM usuario;
-# END //
+# metodo DELETE para deletar as informações do banco de dados quando deixar de seguir
+@app.route("/seguidores", methods=["DELETE"])
+def deixar_de_seguir(id_seguidor, id_seguindo):
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM seguidores WHERE (%s, %s)", (id_seguidor, id_seguindo))
+    conn.commit()
+    return jsonify({"message": "Deixado de seguir com sucesso"}), 200
 
-# delimiter ;
-
-#Back-End:
-@app.route("/pesquisa/pesquisa_usuario", methods=["GET"])
-def get_pesquisa_usuario():
+# TELA SEGUIDORES
+@app.route("/seguidores", methods=["GET"])
+def get_card_postado():
     try:
-        data = request.json
+        data = request.form
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
         cursor.execute("""
-        CALL pesquisa_usuario(%s)
-        """, (data['pesquisa'],))
-        pesquisa_usuarios = cursor.fetchall() 
-        return jsonify(pesquisa_usuarios), 200
+        CALL card_postado(%s)
+        """, (data['usuario'],))
+        postagem = cursor.fetchall() 
+        return jsonify(postagem), 200
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({"error": "Failed to fetch products"}), 500
+
+    finally:
+        cursor.close()
+        conn.close()
+
+#TELA HOME
+@app.route("/home", methods=["GET"])
+def get_card_postado():
+    try:
+        data = request.form
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("CALL card_postado()")
+        postagem = cursor.fetchall() 
+        return jsonify(postagem), 200
 
     except Exception as e:
         print(f"Error: {e}")
@@ -299,27 +343,6 @@ def get_postagem():
         cursor.close()
         conn.close()
 
-# # Criar uma publicação
-# @app.route("/postagem", methods=["POST"])
-# def criar_postagem():
-#     load_dotenv()
-#     id_usuario = request.form.get('id_usuario')
-#     id_categoria = request.form.get('id_categoria')
-#     legenda = request.form.get('legenda')
-#     id_receita = request.form.get('id_receita')
-
-#     img = request.files.get('foto')
-#     conn = get_connection()
-#     cursor = conn.cursor()
-#     img_path = os.path.join(os.getenv("IMG_PATH"), img.filename)
-#     img.save(img_path)
-#     cursor.execute("""
-#     INSERT INTO postagem(id_usuario, id_categoria, foto, legenda, id_receita)
-#     VALUES (%s, %s, %s, %s, %s)
-#     """, (id_usuario, id_categoria, img_path, legenda, id_receita))
-#     conn.commit()
-#     return jsonify({"message": "Usuario criado com sucesso"}), 201
-
 # Buscar categoria
 @app.route("/categoria", methods=["GET"])
 def buscar_categoria():
@@ -368,6 +391,68 @@ def criar_receita():
     """, (data['texto'],))
     conn.commit()
     return jsonify({"message": "Receita criada com sucesso"}), 201
+
+# TELA MINHA CONTA
+# atualizar foto de perfil
+@app.route('/usuario', methods=['PUT'])
+def update_user(id):
+    img = request.files.get('img')
+    img_path = os.path.join(os.getenv("IMG_PATH"), img.filename)  # colocar caminho para salvar img no servidor
+    img.save(img_path)
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("UPDATE usuario SET foto=%s", (img))
+    conn.commit()
+    return jsonify({"message": "User updated successfully"}), 200
+
+# atualizar nome
+@app.route('/usuario', methods=['PUT'])
+def update_user(id):
+    data = request.json
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("UPDATE usuario SET nome", (data['name'], ))
+    conn.commit()
+    return jsonify({"message": "User updated successfully"}), 200
+
+# atualizar usuario
+@app.route('/usuario', methods=['PUT'])
+def update_user(id):
+    data = request.json
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("UPDATE usuario SET usuario", (data['user'], ))
+    conn.commit()
+    return jsonify({"message": "User updated successfully"}), 200
+
+# atualizar senha
+@app.route('/usuario', methods=['PUT'])
+def update_user(id):
+    data = request.json
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("UPDATE usuario SET senha", (data['password'], ))
+    conn.commit()
+    return jsonify({"message": "User updated successfully"}), 200
+
+# atualizar email
+@app.route('/usuario', methods=['PUT'])
+def update_user(id):
+    data = request.json
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("UPDATE usuario SET email", (data['email'], ))
+    conn.commit()
+    return jsonify({"message": "User updated successfully"}), 200
+
+# deletar usuario completo
+@app.route('/usuario', methods=['DELETE'])
+def delete_user(id):
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM usuario WHERE id=%s", (id,))
+    conn.commit()
+    return jsonify({"message": "User deleted successfully"}), 200
 
 if __name__ == '__main__':
     app.run(debug=True)
