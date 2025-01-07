@@ -35,7 +35,7 @@
 
 .navIcon{
     color: var(--color-white);
-    font-size: 1.3em;
+    font-size: 1.5em;
 }
 
 .navIconFocus{
@@ -572,7 +572,7 @@
 
     .navIcon{
     cursor: pointer;
-    font-size: 1.8em;
+    font-size: 1.3em;
     }
 
     .caixaPerfil{
@@ -623,5 +623,11 @@
 
     .post_cards{
         margin-top: 6vh;
+    }
+}
+
+@media (min-width: 1300px) {
+    .navIcon {
+        font-size: 1.5em;
     }
 }
