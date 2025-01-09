@@ -5,7 +5,7 @@ const modal_config = document.querySelector("#modal_config");
 const btn_menu_desktop = document.querySelector("#btn_menu_desktop");
 const btn_menu_mobile = document.querySelector("#btn_menu_mobile");
 const modal_receita = document.querySelector("#modal_receita");
-const post_receita = document.querySelector("#post_receita");
+const post_receita = document.querySelectorAll(".post_receita");
 
 if (modal_postar) {
   btn_postar.onclick = () => {
@@ -44,9 +44,11 @@ if (modal_config) {
 }
 
 if (modal_receita) {
-  post_receita.onclick = () => {
-    modal_receita.style.display = "flex";
-  }
+  post_receita.forEach(post => {
+    post.onclick = () => {
+      modal_receita.style.display = "flex";
+    }
+  });
 
   window.onclick = e => {
     if (e.target == modal_receita) {
