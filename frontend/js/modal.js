@@ -46,6 +46,9 @@ if (modal_config && sessao) {
 } else {
   btn_menu_mobile.onclick = () => {
     modal_entrar.classList.replace('d-none', 'd-inline-block');
+    modal_entrar.style.position = 'fixed'
+    modal_entrar.style.width = '100%'
+    modal_entrar.style.height = '100%'
     btn_menu_desktop.classList.replace('d-none', 'd-inline-block');
     btn_menu_mobile.classList.replace('d-inline-block', 'd-none');
   }
