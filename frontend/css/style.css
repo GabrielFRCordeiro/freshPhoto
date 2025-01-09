@@ -545,6 +545,10 @@
         height: 500px;
         width: 500px;
     }
+
+    .modal_receita {
+        width: 60%;
+    }
 }
 
 @media (min-width: 992px) {
@@ -624,10 +628,18 @@
     .post_cards{
         margin-top: 6vh;
     }
+
+    .modal_receita {
+        width: 40%;
+    }
 }
 
 @media (min-width: 1300px) {
     .navIcon {
         font-size: 1.5em;
+    }
+
+    .modal_receita {
+        width: 30%;
     }
 }
