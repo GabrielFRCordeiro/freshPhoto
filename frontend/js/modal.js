@@ -6,6 +6,8 @@ const btn_menu_desktop = document.querySelector("#btn_menu_desktop");
 const btn_menu_mobile = document.querySelector("#btn_menu_mobile");
 const modal_receita = document.querySelector("#modal_receita");
 const post_receita = document.querySelectorAll(".post_receita");
+const sessao = sessionStorage.getItem('usuario');
+const modal_entrar = document.querySelector('#modal_entrar');
 
 if (modal_postar) {
   btn_postar.onclick = () => {
@@ -23,7 +25,7 @@ if (modal_postar) {
   }
 }
 
-if (modal_config) {  
+if (modal_config && sessao) {  
   btn_menu_desktop.onclick = () => {
     modal_config.style.display = "block";
   }
@@ -37,6 +39,20 @@ if (modal_config) {
   window.onclick = e => {
     if (e.target == modal_config) {
       modal_config.style.display = "none";
+      btn_menu_desktop.classList.replace('d-inline-block', 'd-none');
+      btn_menu_mobile.classList.replace('d-none', 'd-inline-block');
+    }
+  } 
+} else {
+  btn_menu_mobile.onclick = () => {
+    modal_entrar.classList.replace('d-none', 'd-inline-block');
+    btn_menu_desktop.classList.replace('d-none', 'd-inline-block');
+    btn_menu_mobile.classList.replace('d-inline-block', 'd-none');
+  }
+
+  window.onclick = e => {
+    if (e.target == modal_entrar) {
+      modal_entrar.classList.replace('d-inline-block', 'd-none');
       btn_menu_desktop.classList.replace('d-inline-block', 'd-none');
       btn_menu_mobile.classList.replace('d-none', 'd-inline-block');
     }
