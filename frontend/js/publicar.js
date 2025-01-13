@@ -12,6 +12,8 @@ const API_URL_POSTAGEM = 'http://127.0.0.1:5000/postagem';
 
 form_publicar.addEventListener('submit', async (e) => {
     e.preventDefault();
+    btn_publicar.disabled = true;
+    btn_publicar.innerText = 'Publicando...';
 
     // const receita = {texto: t_field_receita.value}
 

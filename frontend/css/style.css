@@ -58,6 +58,10 @@
     transition: .5s;
 }
 
+.btn_acao:disabled {
+    background-color: var(--color-btn-hover);
+}
+
 .btn_menu{
     border: none;
     letter-spacing: 2px;
