@@ -188,7 +188,6 @@
 }
 
 .modal {
-    display: none;
     position: fixed;
     z-index: 3;
     padding: 100px 0;
