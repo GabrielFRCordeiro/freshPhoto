@@ -270,7 +270,7 @@ h1, h2, h3 {
 
 .esqueceu_senha{
     margin-left: 1.6em;
-    color: var(--color-white);
+    letter-spacing: -1.4px;
 }
 
 .validacao{
@@ -286,6 +286,29 @@ h1, h2, h3 {
 .sem_conta{
     color: var(--color-white);
     font-size: .8em;
+    letter-spacing: -.7px;
+}
+
+.onda span {
+    display: inline-block;
+    color: var(--color-white);
+}
+
+.onda:hover span {
+    animation: onda 1s ease-in-out infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+
+@keyframes onda {
+    0% {
+        transform: translateY(0px);
+    }
+    20% {
+        transform: translateY(-5px);
+    }
+    40% {
+        transform: translateY(0px);
+    }
 }
 
 /* CADASTRAR */
