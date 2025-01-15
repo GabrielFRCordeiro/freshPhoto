@@ -24,12 +24,14 @@ if (modal_postar) {
 if (modal_config && sessao) {  
   btn_menu_desktop.onclick = () => {
     modal_config.style.display = "block";
+    btn_menu_desktop.style.position = "fixed";
   }
   
   btn_menu_mobile.onclick = () => {
     modal_config.style.display = "block";
     btn_menu_desktop.classList.replace('d-none', 'd-inline-block');
     btn_menu_mobile.classList.replace('d-inline-block', 'd-none');
+    btn_menu_desktop.style.position = "fixed";
   }
 } else {
   btn_menu_mobile.onclick = () => {
@@ -74,6 +76,7 @@ window.onclick = e => {
       modal_config.style.display = "none";
       btn_menu_desktop.classList.replace('d-inline-block', 'd-none');
       btn_menu_mobile.classList.replace('d-none', 'd-inline-block');
+      btn_menu_desktop.style.position = "absolute";
       break;
   
     default:
