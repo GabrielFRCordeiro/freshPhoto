@@ -34,7 +34,7 @@
         <div id="modal_entrar" class="modal_entrar d-none">
             <div class="logo_sem_sessao">
                 <img src="../assets/img_logo.svg" alt="Logo do Fresh Photo" class="w-25 d-none d-lg-inline">
-                <span>Fresh Photo</span>
+                <span class="d-none d-lg-inline">Fresh Photo</span>
             </div>
             <a href="./login.html"><button class="btn_acao btn_entrar config_conta fs-5 text-uppercase" id="btn_login"><i class="bi bi-box-arrow-in-right"></i> login</button></a>
             <a href="./cadastrar.html"><button class="btn_acao config_sair config_cadastrar fs-5 text-uppercase" id="btn_cadastrar"><i class="bi bi-pen"></i> cadastrar</button></a>
@@ -42,76 +42,6 @@
     </header>
 
     <main class="w-100">
-        <!-- <section class="post_cards d-flex overflow-x-scroll flex-lg-column">
-            <div class="post_card rounded-4">
-                <img id="user_img" class='user_img' src='../assets/img_perfil_padrao.svg' alt='imagem padrão de usuário' />
-                <p id="user_usuario" class="user_usuario">@usuario</p>
-                <img src="../assets/icon_receita.svg" alt="clique para ver a receita" class="icon_receita">
-                <div class="post_img_container d-flex align-items-center py-5">
-                    <img src="../assets/imgs/img_teste_1.png" alt="" class="post_img">
-                </div>
-            </div>
-            <div class="post_card rounded-4">
-                <img id="user_img" class='pe-4 pe-lg-3 user_img' src='../assets/img_perfil_padrao.svg' alt='imagem padrão de usuário' />
-                <p id="user_usuario" class="user_usuario">@usuario</p>
-                <img src="../assets/icon_receita.svg" alt="clique para ver a receita" class="icon_receita">
-                <div class="post_img_container d-flex align-items-center py-5">
-                    <img src="../assets/imgs/img_teste_2.png" alt="" class="post_img">
-                </div>
-            </div>
-            <div class="post_card rounded-4">
-                <img id="user_img" class='pe-4 pe-lg-3 user_img' src='../assets/img_perfil_padrao.svg' alt='imagem padrão de usuário' />
-                <p id="user_usuario" class="user_usuario">@usuario</p>
-                <img src="../assets/icon_receita.svg" alt="clique para ver a receita" class="icon_receita">
-                <div class="post_img_container d-flex align-items-center py-5">
-                    <img src="../assets/imgs/img_teste_3.png" alt="" class="post_img">
-                </div>
-            </div>
-        </section> -->
-
-        <!-- <div id="carouselExample" class="carousel slide post_cards pointer-event" data-bs-touch="true">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="post_card rounded-4">
-                        <img id="user_img" class='user_img' src='../assets/img_perfil_padrao.svg' alt='imagem padrão de usuário' />
-                        <p id="user_usuario" class="user_usuario">@usuario</p>
-                        <div class="post_img_container d-flex align-items-center py-5">
-                            <img src="../assets/imgs/img_teste_1.png" alt="" class="post_img">
-                        </div>
-                        <img src="../assets/icon_receita.svg" alt="clique para ver a receita" class="icon_receita">
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="post_card rounded-4">
-                        <img id="user_img" class='user_img' src='../assets/img_perfil_padrao.svg' alt='imagem padrão de usuário' />
-                        <p id="user_usuario" class="user_usuario">@usuario</p>
-                        <div class="post_img_container d-flex align-items-center py-5">
-                            <img src="../assets/imgs/img_teste_2.png" alt="" class="post_img">
-                        </div>
-                        <img src="../assets/icon_receita.svg" alt="clique para ver a receita" class="icon_receita">
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="post_card rounded-4">
-                        <img id="user_img" class='user_img' src='../assets/img_perfil_padrao.svg' alt='imagem padrão de usuário' />
-                        <p id="user_usuario" class="user_usuario">@usuario</p>
-                        <div class="post_img_container d-flex align-items-center py-5">
-                            <img src="../assets/imgs/img_teste_3.png" alt="" class="post_img">
-                        </div>
-                        <img src="../assets/icon_receita.svg" alt="clique para ver a receita" class="icon_receita">
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev z-0" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next z-0" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div> -->
-
         <section id="feed_cards" class="feed_cards mt-4">
             <div class="feed_card d-flex justify-content-center" role="button">
                 <div class="d-flex align-items-center post_receita">
@@ -183,15 +113,6 @@
             </div>
         </section>
     </main>
-
-    <!-- <script>
-        const usuarioNome = sessionStorage.getItem('usuario');
-        if (usuarioNome) {
-            document.getElementById('usuarioNome').textContent = usuarioNome;
-        } else {
-            window.location.href = "../index.html";
-        }
-    </script> -->
 
     <script src="../js/validar_sessao.js"></script>
     <script src="../js/lazy_loading.js"></script>

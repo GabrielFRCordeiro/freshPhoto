@@ -53,34 +53,6 @@ h1, h2, h3 {
     font-family: 'Kodchasan';
 }
 
-/* .fundo_melancia1 {
-    posicoes da esquerda para a direita
-    background-image:
-    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%);
-    background-size: 20% 20%;
-    background-position:
-    -13% 25%,
-    0% 70%,
-    13% -13%,
-    26% 113%,
-    37% 15%,
-    60% 85%,
-    70% 37%,
-    87% -3%,
-    100% 100%,
-    112.5% 60%;
-    background-repeat: no-repeat;
-} */
-
 .fundo_melancia1 {
     position: fixed;
     top: 0;
@@ -112,31 +84,6 @@ h1, h2, h3 {
     background-repeat: no-repeat;
     transition: background-position 0.1s linear;
 }
-
-/* .fundo_melancia2{
-    posicoes da esquerda para a direita
-    background-image:
-    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-    radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%);
-    background-size: 20% 20%;
-    background-position:
-    0% 5%,
-    0% 80%,
-    26% -13%,
-    42% 42%,
-    69% 113%,
-    69% -5%,
-    78% 65%,
-    96% 93%,
-    112.5% 30%;
-    background-repeat: no-repeat;
-} */
 
 .fundo_melancia2 {
     position: fixed;
