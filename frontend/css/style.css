@@ -221,7 +221,7 @@
 .img_placeholder_publicar {
     height: 250px;
     width: 250px;
-    border-radius: 1.5em;
+    border-radius: 100%;
     background-color: var(--new-color-img-modal);
     background-size: cover;
     background-position: center;
@@ -248,7 +248,8 @@
 
 .modal-content .img_placeholder_publicar i {
     font-size: 2.5rem;
-    bottom: .3em;
+    bottom: 7%;
+    left: 43.5%;
 }
 
 .modal-content .field_categoria{
@@ -553,6 +554,12 @@
         width: 400px;
     }
 
+    .modal-content .img_placeholder_publicar i {
+        font-size: 2.5rem;
+        bottom: 25%;
+        left: 46%;
+    }
+
     /* USER-FEED */
     .post_card div{
         width: 400px;
@@ -568,6 +575,12 @@
 
     .modal_receita {
         width: 60%;
+    }
+
+    .modal-content .img_placeholder_publicar i {
+        font-size: 2.5rem;
+        bottom: 28%;
+        left: 46%;
     }
 }
 
