@@ -337,15 +337,22 @@
     transition: .5s;
 } */
 
-.feed_cards {
+:is(.perfil_cards, .feed_cards) {
     width: 100%;
     position: absolute;
-    top: 30vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     row-gap: 2rem;
     padding-bottom: 15vh;
+}
+
+.perfil_cards {
+    top: 30vh;
+}
+
+.feed_cards {
+    top: 10vh;
 }
 
 .feed_card{
@@ -367,7 +374,7 @@
     object-fit: cover;
 }
 
-.feed_cards :nth-child(even){
+:is(.perfil_cards, .feed_cards) :nth-child(even){
     transform: translateY(55%);
 }
 
@@ -635,7 +642,7 @@
         height: 100%;
     }
 
-    .feed_cards{
+    :is(.perfil_cards, .feed_cards){
         width: 75vw;
         left: 15%;
         row-gap: 100px;
@@ -646,15 +653,15 @@
         height: 30%;
     }
 
-    .feed_cards :nth-child(even){
+    :is(.perfil_cards, .feed_cards) :nth-child(even){
         transform: translateY(0);
     }
 
-    .feed_cards :nth-child(3n + 2){
+    :is(.perfil_cards, .feed_cards) :nth-child(3n + 2){
         transform: translateY(80%);
     }
 
-    .feed_cards :last-child{
+    :is(.perfil_cards, .feed_cards) :last-child{
         transform: translateY(0);
     }
 
