@@ -7,8 +7,8 @@
     --color-secundary: #299F23;
     --color-terciary: #7CB930;
     --color-background: #0045171a;
-    --color-white: #fff;
-    --color-black: #000;
+    --color-white: #f8f8ff;
+    --color-black: #101212;
     --color-text: #939393;
     --color-text-secundary: #004517;
     --color-entrar: #FEE2D0;
@@ -21,7 +21,9 @@
     --new-color-dots: #00000033;
     --new-color-modal: #FEE2D080;
     --new-color-img-modal: #FEE2D0;
-    --color-btn-hover: #222;
+    --color-btn-hover: #8c9256;
+    --color-btn-disabled: #2c2c2c;
+    --color-btn-active: #6e7535;
     --color-cadastrar: #d17373;
 }
 
@@ -229,15 +231,18 @@ h1, h2, h3 {
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 
-.btn_entrar:hover{
-    background-color: #e1e1e1;
-    color: black;
+.btn_entrar i {
+    color: var(--color-white);
 }
 
-.btn_entrar:focus-visible, .tela_entrar .btn_entrar:active{
-    background-color: var(--color-white);
-    color: var(--color-text-secundary);
-    border-color: black;
+.btn_entrar:hover{
+    background-color: var(--color-btn-hover);
+    color: var(--color-white);
+}
+
+.btn_entrar:focus-visible, :is(.tela_entrar, .tela_entrando) .btn_entrar:active{
+    background-color: var(--color-btn-active);
+    color: var(--color-white);
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 

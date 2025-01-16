@@ -53,13 +53,12 @@
 }
 
 .btn_acao:hover{
-    background-color: rgb(124, 185, 48, 0.6);
-    color: black;
+    background-color: var(--color-btn-hover);
     transition: .5s;
 }
 
 .btn_acao:disabled {
-    background-color: var(--color-btn-hover);
+    background-color: var(--color-btn-disabled);
 }
 
 .btn_menu{
@@ -539,8 +538,7 @@
 }
 
 .btn_excluir:hover{
-    background-color: rgb(124, 185, 48, 0.6);
-    background-color: var(--color-modal);
+    background-color: var(--color-btn-disabled);
     transition: .5s;
 }
 
