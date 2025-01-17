@@ -135,6 +135,14 @@
     opacity: .8;
 }
 
+.modal_entrar_container {
+    height: 30vh;
+    width: 16rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
 .modal_entrar {
     z-index: 1;
     padding: 100px 0;
