@@ -3,28 +3,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kodchasan:wght@400;700&display=swap');
 
 :root{
-    --color-primary: #072C39;
+    --color-primary: #A5B244;
     --color-secundary: #299F23;
-    --color-terciary: #7CB930;
-    --color-background: #0045171a;
     --color-white: #f8f8ff;
     --color-black: #101212;
+    --color-title: #072C39;
     --color-text: #939393;
-    --color-text-secundary: #004517;
-    --color-entrar: #FEE2D0;
-    --color-validacao: #e92e2e;
-    --color-modal: #072c3980;
-    --color-img-modal: #d9d9d9;
-    --new-color-primary: #A5B244;
-    --new-color-btn: #7D863D;
-    --new-color-background: #C95D5D;
-    --new-color-dots: #00000033;
-    --new-color-modal: #FEE2D080;
-    --new-color-img-modal: #FEE2D0;
+    --color-background: #C95D5D;
+    --color-btn: #7D863D;
     --color-btn-hover: #8c9256;
     --color-btn-disabled: #2c2c2c;
     --color-btn-active: #6e7535;
     --color-cadastrar: #d17373;
+    --color-entrar: #FEE2D0;
+    --color-validacao: #e92e2e;
+    --color-modal: #FEE2D080;
+    --color-img-modal: #FEE2D0;
+    --color-dots: #00000033;
 }
 
 *{
@@ -36,7 +31,7 @@
 }
 
 body{
-    background-color: var(--new-color-background);
+    background-color: var(--color-background);
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -61,14 +56,14 @@ h1, h2, h3 {
     height: 100%;
     z-index: -1;
     background-image:
-        radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-        radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-        radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-        radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-        radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-        radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-        radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-        radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%);
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%);
     background-size: 20% 20%;
     background-position:
     -13% 25%,
@@ -93,14 +88,14 @@ h1, h2, h3 {
     height: 100%;
     z-index: -1;
     background-image:
-        radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-        radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-        radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-        radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-        radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-        radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-        radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%),
-        radial-gradient(circle, var(--new-color-dots) 15%, transparent 16%);
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%);
     background-size: 20% 20%;
     background-position:
         0% 5%,
@@ -155,7 +150,7 @@ h1, h2, h3 {
     position: absolute;
     left: -.1em;
     bottom: -1.5em;
-    color: var(--color-primary);
+    color: var(--color-title);
     font-size: 2em;
     width: 7em;
     font-weight: bold;
@@ -169,7 +164,7 @@ h1, h2, h3 {
 .btn_entrar{
     width: 9em;
     border: none;
-    background-color: var(--new-color-btn);
+    background-color: var(--color-btn);
     color: var(--color-white);
     border-color: black;
     border-radius: .5em;
@@ -207,7 +202,7 @@ h1, h2, h3 {
     top: 2em;
     left: 2em;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
-    background-color: var(--new-color-btn);
+    background-color: var(--color-btn);
 }
 
 .btn_voltar i{
@@ -266,7 +261,7 @@ h1, h2, h3 {
 /* CADASTRAR */
 
 .titulo_config{
-    color: var(--color-primary);
+    color: var(--color-title);
     font-weight: bold;
 }
 
@@ -290,7 +285,7 @@ h1, h2, h3 {
 /* TELA INATIVA */
 
 .titulo_desenv{
-    color: var(--new-color-primary);
+    color: var(--color-title);
     font-weight: bold;
     text-align: center;
     position: absolute;
@@ -300,16 +295,6 @@ h1, h2, h3 {
 .texto_desenv{
     color: var(--color-white);
     font-size: 1.2rem;
-}
-
-/* TELA CADASTRADO */
-
-.tela_cadastrado{
-    color: var(--color-primary);
-    font-weight: bold;
-    text-align: center;
-    position: absolute;
-    top: 1.1em;
 }
 
 @media (min-width: 992px) {

@@ -26,7 +26,7 @@
 .navegacao{
     height: 10vh;
     width: 100vw;
-    background-color: var(--new-color-primary);
+    background-color: var(--color-primary);
     position: fixed;
     bottom: 0;
     left: 0;
@@ -44,7 +44,7 @@
 
 .btn_acao{
     border: none;
-    background-color: var(--new-color-btn);
+    background-color: var(--color-btn);
     color: var(--color-white);
     border-radius: .5em;
     width: 10em;
@@ -67,7 +67,7 @@
 }
 
 .btn_menu i {
-    color: var(--new-color-btn);
+    color: var(--color-btn);
 }
 
 .btn_menu_mobile {
@@ -104,7 +104,7 @@
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: var(--new-color-modal);
+    background-color: var(--color-modal);
     backdrop-filter: blur(20px);
 }
 
@@ -121,17 +121,17 @@
 }
 
 .config_cadastrar {
-    background-color: var(--new-color-background);
-    color: var(--new-color-primary);
+    background-color: var(--color-background);
+    color: var(--color-primary);
 }
 
 .config_cadastrar i {
-    color: var(--new-color-primary);
+    color: var(--color-primary);
 }
 
 .config_cadastrar:hover {
     background-color: var(--color-cadastrar);
-    color: var(--new-color-primary);
+    color: var(--color-primary);
     opacity: .8;
 }
 
@@ -149,7 +149,7 @@
     right: 0;
     top: 0;
     overflow: auto;
-    background-color: var(--new-color-modal);
+    background-color: var(--color-modal);
     backdrop-filter: blur(20px);
 }
 
@@ -157,7 +157,7 @@
 
 .caixaPerfil{
     height: 30vh;
-    background-color: var(--new-color-primary);
+    background-color: var(--color-primary);
     position: absolute;
     top: 0;
     left: 0;
@@ -203,7 +203,7 @@
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: var(--new-color-modal);
+    background-color: var(--color-modal);
     backdrop-filter: blur(20px);
 }
 
@@ -230,7 +230,7 @@
     height: 250px;
     width: 250px;
     border-radius: 100%;
-    background-color: var(--new-color-img-modal);
+    background-color: var(--color-img-modal);
     background-size: cover;
     background-position: center;
     cursor: pointer;
@@ -239,7 +239,7 @@
 }
 
 .img_placeholder_publicar p {
-    color: var(--new-color-btn);
+    color: var(--color-btn);
     font-size: 1.4rem;
     font-weight: 500;
     position: absolute;
@@ -249,7 +249,7 @@
 }
 
 .modal-content :is(.img_placeholder_publicar, .field_verde) i {
-    color: var(--new-color-btn);
+    color: var(--color-btn);
     position: absolute;
     right: .5em;
 }
@@ -261,7 +261,7 @@
 }
 
 .modal-content .field_categoria{
-    background-color: var(--new-color-primary);
+    background-color: var(--color-primary);
     border-radius: .7em;
     margin: 0 auto;
     width: 15rem;
@@ -291,7 +291,7 @@
 }
 
 .modal-content .field_verde {
-    background-color: var(--new-color-primary);
+    background-color: var(--color-primary);
     border-radius: .7em;
     box-sizing: content-box;
     padding-bottom: 1em;
@@ -369,7 +369,7 @@
 .caixaTitulo{
     width: 100vw;
     height: 8vh;
-    background-color: var(--new-color-primary);
+    background-color: var(--color-primary);
     position: absolute;
     top: 0;
     left: 0;
@@ -465,7 +465,7 @@
     height: 70%;
     width: 80%;
     border-radius: 1.5em;
-    background-color: var(--new-color-background);
+    background-color: var(--color-background);
     position: relative;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
     overflow-y: auto;
@@ -486,7 +486,7 @@
 /* PESQUISA */
 .pesquisa {
     width: 100vw;
-    background-color: var(--new-color-primary);
+    background-color: var(--color-primary);
     position: absolute;
     top: 0;
     left: 0;
@@ -494,7 +494,7 @@
 
 .pesquisa :is(input, button) {
     border: none;
-    background-color: var(--new-color-btn);
+    background-color: var(--color-btn);
 }
 
 .pesquisa input {
