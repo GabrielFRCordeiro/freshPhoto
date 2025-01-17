@@ -41,6 +41,7 @@ if (modal_config && sessao) {
     modal_entrar.style.height = '100%'
     btn_menu_desktop.classList.replace('d-none', 'd-inline-block');
     btn_menu_mobile.classList.replace('d-inline-block', 'd-none');
+    btn_menu_desktop.style.position = "fixed";
   }
 }
 
@@ -64,6 +65,9 @@ window.onclick = e => {
 
     case modal_entrar:
       modal_entrar.classList.replace('d-inline-block', 'd-none');
+      modal_entrar.style.position = 'absolute'
+      modal_entrar.style.width = '16rem'
+      modal_entrar.style.height = '100%'
       btn_menu_desktop.classList.replace('d-inline-block', 'd-none');
       btn_menu_mobile.classList.replace('d-none', 'd-inline-block');
       break;

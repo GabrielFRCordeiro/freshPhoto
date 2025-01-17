@@ -138,7 +138,7 @@
 .modal_entrar {
     z-index: 1;
     padding: 100px 0;
-    left: 0;
+    right: 0;
     top: 0;
     overflow: auto;
     background-color: var(--new-color-modal);
