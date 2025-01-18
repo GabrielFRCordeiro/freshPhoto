@@ -79,7 +79,7 @@ def criar_usuario():
 
 # TELA HOME #
 @app.route("/home", methods=["GET"])
-def get_card_postado():
+def get_card_postado_home():
     try:
         data = request.form
         conn = get_connection()
@@ -123,8 +123,8 @@ def get_feed():
 
 # TELA PEFIL OUTRO USUARIO #
 # pegando informaçõesde um usuario especifico
-@app.route("/usuario/perfil", methods=["GET"])
-def get_usuario_perfil():
+@app.route("/outro-usuario/perfil", methods=["GET"])
+def get_outro_usuario_perfil():
     try:
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
@@ -231,8 +231,8 @@ def get_card_perfil_completo():
 
 # TELA MINHA CONTA #
 # atualizar foto de perfil
-@app.route('/usuario', methods=['PUT'])
-def update_user(id):
+@app.route('/usuario/foto', methods=['PUT'])
+def update_user_photo(id):
     img = request.files.get('img')
     img_path = os.path.join(os.getenv("IMG_PATH"), img.filename)  # colocar caminho para salvar img no servidor
     img.save(img_path)
@@ -244,8 +244,8 @@ def update_user(id):
 
 
 # atualizar nome
-@app.route('/usuario', methods=['PUT'])
-def update_user(id):
+@app.route('/usuario/nome', methods=['PUT'])
+def update_user_name(id):
     data = request.json
     conn = get_connection()
     cursor = conn.cursor()
@@ -255,8 +255,8 @@ def update_user(id):
 
 
 # atualizar usuario
-@app.route('/usuario', methods=['PUT'])
-def update_user(id):
+@app.route('/usuario/usuario', methods=['PUT'])
+def update_user_user(id):
     data = request.json
     conn = get_connection()
     cursor = conn.cursor()
@@ -266,8 +266,8 @@ def update_user(id):
 
 
 # atualizar senha
-@app.route('/usuario', methods=['PUT'])
-def update_user(id):
+@app.route('/usuario/senha', methods=['PUT'])
+def update_user_password(id):
     data = request.json
     conn = get_connection()
     cursor = conn.cursor()
@@ -277,8 +277,8 @@ def update_user(id):
 
 
 # atualizar email
-@app.route('/usuario', methods=['PUT'])
-def update_user(id):
+@app.route('/usuario/email', methods=['PUT'])
+def update_user_email(id):
     data = request.json
     conn = get_connection()
     cursor = conn.cursor()
@@ -301,7 +301,7 @@ def delete_user(id):
 # TELA SEGUIDORES #
 # pegar cards postados
 @app.route("/seguidores", methods=["GET"])
-def get_card_postado():
+def get_card_postado_seguidores():
     try:
         data = request.form
         conn = get_connection()
@@ -322,7 +322,7 @@ def get_card_postado():
 
 
 # metodo GET para pegar as informações do usuario que esta seguindo
-@app.route9("/seguindo", methods=["GET"])
+@app.route("/seguindo", methods=["GET"])
 def verificar_seguidores():
     try:
         data = request.json
