@@ -8,6 +8,7 @@ const form_cadastrar = document.querySelector("#form_cadastrar");
 const text_validacao = document.querySelector('#text_validacao');
 
 const API_URL = 'http://127.0.0.1:5000/usuario/cadastrar';
+const API_URL_CURRENT_USER = 'http://127.0.0.1:5000/usuario';
 
 async function verifica_existencia(usuario, email) {
     const response = await fetch(API_URL);
@@ -43,7 +44,8 @@ async function valida_formulario(usuario, novo_usuario) {
         })
         .catch(error => console.error('Erro:', error));;
 
-        sessionStorage.setItem('usuario', novo_usuario.usuario);
+        // sessionStorage.setItem('usuario', novo_usuario.usuario);
+        storeSession(user.usuario)
         if (novo_usuario.img) {
             const reader = new FileReader();
             reader.onload = function(e) {
@@ -69,3 +71,10 @@ form_cadastrar.addEventListener('submit', async (e) => {
 
     valida_formulario(usuario_existe, new_user);
 });
+
+async function storeSession(usuario) {
+    const response = await fetch(`${API_URL_CURRENT_USER}/${usuario}`);
+    const user = await response.json();
+
+    sessionStorage.setItem('usuario', JSON.stringify(user));
+}
