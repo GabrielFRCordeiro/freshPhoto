@@ -162,6 +162,14 @@ def get_card_perfil_outro_usuario():
         cursor.close()
         conn.close()
 
+@app.route("/usuario/user", methods=["GET"])
+def get_todas_informacoes_usuario():
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM usuario")
+    usuario = cursor.fetchall() 
+    return jsonify(usuario), 200
+
 # -------------------------------------------------------------------------------------------------------- #
 
 # TELA PERFIL USUARIO #
@@ -266,12 +274,12 @@ def update_user_user(id):
 
 
 # atualizar senha
-@app.route('/usuario/senha', methods=['PUT'])
+@app.route('/usuario/senha/<int:id>', methods=['PUT'])
 def update_user_password(id):
     data = request.json
     conn = get_connection()
     cursor = conn.cursor()
-    cursor.execute("UPDATE usuario SET senha", (data['password'], ))
+    cursor.execute("UPDATE usuario SET senha WHERE id=%s", (data['password'], id))
     conn.commit()
     return jsonify({"message": "User updated successfully"}), 200
 
@@ -395,7 +403,6 @@ def criar_postagem():
     load_dotenv()
     usuario = request.form.get('usuario')
     categoria = request.form.get('categoria')
-    legenda = request.form.get('leganda')
     receita = request.form.get('receita')
     
     img = request.files.get('img')
@@ -405,63 +412,16 @@ def criar_postagem():
         img_path = os.path.join(os.getenv("IMG_PATH"), img.filename)  # colocar caminho para salvar img no servidor
         img.save(img_path)
         cursor.execute("""
-        INSERT INTO usuario(usuario, categoria, foto, legenda, receita)
+        INSERT INTO postagem(id_usuario, categoria, foto, receita)
         VALUES (%s, %s, %s, %s, %s)
-        """, (usuario, categoria, img_path, legenda, receita))
-    elif img:
-        img_path = os.path.join(os.getenv("IMG_PATH"), img.filename)  # colocar caminho para salvar img no servidor
-        img.save(img_path)
-        cursor.execute("""
-        INSERT INTO usuario(usuario, categoria, foto, legenda)
-        VALUES (%s, %s, %s, %s)
-        """, (usuario, categoria, img_path, legenda))
-    elif img:
-        img_path = os.path.join(os.getenv("IMG_PATH"), img.filename)  # colocar caminho para salvar img no servidor
-        img.save(img_path)
-        cursor.execute("""
-        INSERT INTO usuario(usuario, categoria, foto, receita)
-        VALUES (%s, %s, %s, %s)
         """, (usuario, categoria, img_path, receita))
     else:
         cursor.execute("""
-        INSERT INTO usuario(usuario, categoria, foto)
+        INSERT INTO postagem(id_usuario, categoria, foto)
         VALUES (%s, %s, %s)
         """, (usuario, categoria, img_path))
     conn.commit()
     return jsonify({"message": "Usuario criado com sucesso"}), 201
-
-
-# Criar uma receita
-@app.route("/receita", methods=["POST"])
-def criar_receita():
-    data = request.json
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute("""
-    INSERT INTO receita(texto)
-    VALUES (%s)
-    """, (data['texto'],))
-    conn.commit()
-    return jsonify({"message": "Receita criada com sucesso"}), 201
-
-
-# Buscar categoria
-@app.route("/categoria", methods=["GET"])
-def buscar_categoria():
-    try:
-        conn = get_connection()
-        cursor = conn.cursor(dictionary=True)
-        cursor.execute("SELECT * FROM categoria")
-        categoria = cursor.fetchall() 
-        return jsonify(categoria), 200
-
-    except Exception as e:
-        print(f"Error: {e}")
-        return jsonify({"error": "Failed to fetch categories"}), 500
-
-    finally:
-        cursor.close()
-        conn.close()
 
 
 # Buscar receita
