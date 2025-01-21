@@ -60,7 +60,6 @@ form_publicar.addEventListener('submit', async (e) => {
     formData.append('usuario', sessionStorage.getItem('usuario'));
     formData.append('categoria', input_categoria.value);
     formData.append('img', input_img.files[0]);
-    formData.append('legenda', t_field_legenda.value);
     formData.append('receita', t_field_receita.value);
 
     if (!input_img.files.length) {
