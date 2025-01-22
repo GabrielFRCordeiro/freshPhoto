@@ -1,3 +1,4 @@
+CREATE DATABASE fresh_photo;
 USE fresh_photo;
 CREATE TABLE usuario(
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -80,8 +81,6 @@ END $$
 
 DELIMITER ;
 
-CALL obterImagensSeguidos(id_usuario); 
-
 DELIMITER $$
 
 CREATE PROCEDURE atualizarNomePerfil(
@@ -119,11 +118,6 @@ BEGIN
 END //
 
 DELIMITER ;
-CALL AtualizarUsuario(1);
-SELECT * FROM usuario WHERE id_usuario = 1;
-
-
-
 
 DELIMITER //
 
@@ -133,13 +127,11 @@ CREATE PROCEDURE AtualizarEmail(
 )
 BEGIN
     UPDATE usuario
-    SET email = p_novo_email,
+    SET email = p_novo_email
     WHERE id_usuario = p_id_usuario;
 END //
 
 DELIMITER ;
-CALL AtualizarEmail(1);
-SELECT id_usuario, email, id_usuario = 1;
 
 DELIMITER //
 
@@ -150,16 +142,11 @@ CREATE PROCEDURE AtualizarSenha(
 BEGIN
 
     UPDATE usuario
-    SET senha = SHA2(p_nova_senha, 256), 
+    SET senha = SHA2(p_nova_senha, 256)
     WHERE id_usuario = p_id_usuario;
 END //
 
 DELIMITER ;
-CALL AtualizarSenha(1);
-SELECT id_usuario FROM usuarios WHERE id_usuario = 1; --- não revela a senha 
-
-
-
 
 DELIMITER //
 
@@ -178,7 +165,3 @@ BEGIN
 END //
 
 DELIMITER ;
-
-CALL ApagarContaUsuario(1);
-SELECT * FROM usuario WHERE id_usuario = 1;
-
