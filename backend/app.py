@@ -180,8 +180,10 @@ def get_usuario_perfil():
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
         cursor.execute("CALL perfil()")
-        usuario = cursor.fetchall() 
-        return jsonify(usuario), 200
+        usuario = cursor.fetchall()
+        img = open(usuario.foto, 'rb') 
+        print(img)
+        return jsonify(usuario, img), 200
 
     except Exception as e:
         print(f"Error: {e}")
