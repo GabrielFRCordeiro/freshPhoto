@@ -315,7 +315,7 @@ def get_card_postado_seguidores():
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
         cursor.execute("""
-        CALL card_postado(%s)
+        CALL card_seguidores(%s)
         """, (data['usuario'],))
         postagem = cursor.fetchall() 
         return jsonify(postagem), 200
