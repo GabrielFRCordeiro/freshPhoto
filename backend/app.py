@@ -1,3 +1,4 @@
+import base64
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from db import get_connection
@@ -181,9 +182,13 @@ def get_usuario_perfil():
         cursor = conn.cursor(dictionary=True)
         cursor.execute("CALL perfil()")
         usuario = cursor.fetchall()
-        img = open(usuario.foto, 'rb') 
-        print(img)
-        return jsonify(usuario, img), 200
+        print(usuario)
+        with open(usuario[0]['foto'], 'rb') as img_file:
+            img_data = base64.b64encode(img_file.read()).decode('utf-8')
+
+        # Adicionar a imagem em base64 no dicionário de resposta
+        usuario[0]['foto_base64'] = img_data
+        return jsonify(usuario), 200
 
     except Exception as e:
         print(f"Error: {e}")
