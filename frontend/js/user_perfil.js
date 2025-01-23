@@ -9,6 +9,7 @@ window.addEventListener('load', async (e) => {
 
     const response = await fetch(API_URL_PUBLICAR);
     const users = await response.json();
+    console.log(users)
     const usuarioNome = sessionStorage.getItem('usuario');
     const usuarioEncontrado = users.find((usuario) => {
         if (usuario.usuario == usuarioNome) {
