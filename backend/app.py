@@ -85,7 +85,10 @@ def get_card_postado_home(id):
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
         cursor.execute("CALL card_postado() WHERE id=%s", id)
-        postagem = cursor.fetchall() 
+        postagem = cursor.fetchall()
+        with open(postagem['foto'], 'rb') as img_postagem:
+            img_data = base64.b64decode(img_postagem.read()).decode('utf-8')
+        postagem[0]['foto_base64'] - img_data
         return jsonify(postagem), 200
 
     except Exception as e:
@@ -138,45 +141,45 @@ def get_outro_usuario_perfil():
         conn.close()
 
 
-# chamar card_perfil_outro_usuario
-@app.route("/usuario/card_perfil_outro_usuario/<int:id>", methods=["GET"])
-def get_card_perfil_outro_usuario(id):
-    try:
-        conn = get_connection()
-        cursor = conn.cursor(dictionary=True)
-        cursor.execute("CALL card_perfil_outro_usuario() WHERE id=%s", id)
-        cards_perfil = cursor.fetchall() 
-        return jsonify(cards_perfil), 200
+# # chamar card_perfil_outro_usuario
+# @app.route("/usuario/card_perfil_outro_usuario/<int:id>", methods=["GET"])
+# def get_card_perfil_outro_usuario(id):
+#     try:
+#         conn = get_connection()
+#         cursor = conn.cursor(dictionary=True)
+#         cursor.execute("CALL card_perfil_outro_usuario() WHERE id=%s", id)
+#         cards_perfil = cursor.fetchall() 
+#         return jsonify(cards_perfil), 200
     
-    except Exception as e:
-        print(f"Error: {e}")
-        return jsonify({"error": "Failed to fetch products"}), 500
+#     except Exception as e:
+#         print(f"Error: {e}")
+#         return jsonify({"error": "Failed to fetch products"}), 500
 
-    finally:
-        cursor.close()
-        conn.close()
+#     finally:
+#         cursor.close()
+#         conn.close()
 
-@app.route("/usuario/user", methods=["GET"])
-def get_todas_informacoes_usuario():
+# pegar informações do usuario
+@app.route("/usuario/user<varchar:usuario>", methods=["GET"])
+def get_todas_informacoes_usuario(usuario):
     conn = get_connection()
     cursor = conn.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM usuario")
-    usuario = cursor.fetchall() 
-    return jsonify(usuario), 200
+    cursor.execute("SELECT * FROM usuario WHERE usuario=%s", usuario)
+    data_usuario = cursor.fetchall() 
+    return jsonify(data_usuario), 200
 
 # -------------------------------------------------------------------------------------------------------- #
 
 # TELA PERFIL USUARIO #
 # pegando as informações do perfil do usuario
-@app.route("/usuario/perfil", methods=["GET"])
-def get_usuario_perfil():
+@app.route("/usuario/perfil/<int:id>", methods=["GET"])
+def get_usuario_perfil(id):
     try:
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("CALL perfil()")
+        cursor.execute("CALL perfil() WHERE id=%s", id)
         usuario = cursor.fetchall()
-        print(usuario)
-        with open(usuario[0]['foto'], 'rb') as img_file:
+        with open(usuario['foto'], 'rb') as img_file:
             img_data = base64.b64encode(img_file.read()).decode('utf-8')
 
         # Adicionar a imagem em base64 no dicionário de resposta
@@ -198,8 +201,14 @@ def get_card_perfil(id):
     try:
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("CALL card_perfil() WHERE id-%s", id)
-        cards_perfil = cursor.fetchall() 
+        cursor.execute("CALL card_perfil() WHERE id=%s", id)
+        cards_perfil = cursor.fetchall()
+        with open(cards_perfil['u.foto'], 'rb') as img_usuario:
+            img_data = base64.b64decode(img_usuario.read()).decode('utf-8')
+        cards_perfil[0]['foto_base64'] - img_data
+        with open(cards_perfil['p.foto'], 'rb') as img_postagem:
+            img_data = base64.b64decode(img_postagem.read()).decode('utf-8')
+        cards_perfil[0]['foto_base64'] - img_data
         return jsonify(cards_perfil), 200
 
     except Exception as e:
@@ -211,23 +220,23 @@ def get_card_perfil(id):
         conn.close()
 
 
-# Chamar card_perfil_completo
-@app.route("/usuario/card_perfil_completo/<int:id>", methods=["GET"])
-def get_card_perfil_completo(id):
-    try:
-        conn = get_connection()
-        cursor = conn.cursor(dictionary=True)
-        cursor.execute("CALL card_perfil_comleto() WHERE id=%s", id)
-        cards_perfil = cursor.fetchall() 
-        return jsonify(cards_perfil), 200
+# # Chamar card_perfil_completo
+# @app.route("/usuario/card_perfil_completo/<int:id>", methods=["GET"])
+# def get_card_perfil_completo(id):
+#     try:
+#         conn = get_connection()
+#         cursor = conn.cursor(dictionary=True)
+#         cursor.execute("CALL card_perfil_comleto() WHERE id=%s", id)
+#         cards_perfil = cursor.fetchall() 
+#         return jsonify(cards_perfil), 200
 
-    except Exception as e:
-        print(f"Error: {e}")
-        return jsonify({"error": "Failed to fetch products"}), 500
+#     except Exception as e:
+#         print(f"Error: {e}")
+#         return jsonify({"error": "Failed to fetch products"}), 500
 
-    finally:
-        cursor.close()
-        conn.close()
+#     finally:
+#         cursor.close()
+#         conn.close()
 
 # -------------------------------------------------------------------------------------------------------- #
 
