@@ -79,13 +79,12 @@ def criar_usuario():
 # -------------------------------------------------------------------------------------------------------- #
 
 # TELA HOME #
-@app.route("/home", methods=["GET"])
-def get_card_postado_home():
+@app.route("/home/<int:id>", methods=["GET"])
+def get_card_postado_home(id):
     try:
-        data = request.form
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("CALL card_postado()")
+        cursor.execute("CALL card_postado() WHERE id=%s", id)
         postagem = cursor.fetchall() 
         return jsonify(postagem), 200
 
@@ -100,15 +99,12 @@ def get_card_postado_home():
 # -------------------------------------------------------------------------------------------------------- #
 
 # TELA FEED #
-@app.route("/feed", methods=["GET"])
-def get_feed():
+@app.route("/feed/<int:id>", methods=["GET"])
+def get_feed(id):
     try:
-        data = request.form
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("""
-        CALL feed_perfil(%s)
-        """, (data['usuario'],))
+        cursor.execute("CALL feed_perfil() WHERE id=%s", id)
         postagem = cursor.fetchall() 
         return jsonify(postagem), 200
 
@@ -143,15 +139,12 @@ def get_outro_usuario_perfil():
 
 
 # chamar card_perfil_outro_usuario
-@app.route("/usuario/card_perfil_outro_usuario", methods=["GET"])
-def get_card_perfil_outro_usuario():
+@app.route("/usuario/card_perfil_outro_usuario/<int:id>", methods=["GET"])
+def get_card_perfil_outro_usuario(id):
     try:
-        data = request.json
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("""
-        CALL card_perfil_outro_usuario(%s)
-        """, (data['usuario'],))
+        cursor.execute("CALL card_perfil_outro_usuario() WHERE id=%s", id)
         cards_perfil = cursor.fetchall() 
         return jsonify(cards_perfil), 200
     
@@ -200,15 +193,12 @@ def get_usuario_perfil():
 
 
 # Chamar card_perfil
-@app.route("/usuario/card_perfil", methods=["GET"])
-def get_card_perfil():
+@app.route("/usuario/card_perfil/<int:id>", methods=["GET"])
+def get_card_perfil(id):
     try:
-        data = request.json
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("""
-        CALL card_perfil(%s)
-        """, (data['usuario'],))
+        cursor.execute("CALL card_perfil() WHERE id-%s", id)
         cards_perfil = cursor.fetchall() 
         return jsonify(cards_perfil), 200
 
@@ -222,15 +212,12 @@ def get_card_perfil():
 
 
 # Chamar card_perfil_completo
-@app.route("/usuario/card_perfil_completo", methods=["GET"])
-def get_card_perfil_completo():
+@app.route("/usuario/card_perfil_completo/<int:id>", methods=["GET"])
+def get_card_perfil_completo(id):
     try:
-        data = request.json
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("""
-        CALL card_perfil_comleto(%s)
-        """, (data['usuario'],))
+        cursor.execute("CALL card_perfil_comleto() WHERE id=%s", id)
         cards_perfil = cursor.fetchall() 
         return jsonify(cards_perfil), 200
 
@@ -245,17 +232,17 @@ def get_card_perfil_completo():
 # -------------------------------------------------------------------------------------------------------- #
 
 # TELA MINHA CONTA #
-# atualizar foto de perfil
-@app.route('/usuario/foto', methods=['PUT'])
-def update_user_photo(id):
-    img = request.files.get('img')
-    img_path = os.path.join(os.getenv("IMG_PATH"), img.filename)  # colocar caminho para salvar img no servidor
-    img.save(img_path)
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute("UPDATE usuario SET foto=%s", (img))
-    conn.commit()
-    return jsonify({"message": "User updated successfully"}), 200
+# # atualizar foto de perfil
+# @app.route('/usuario/foto', methods=['PUT'])
+# def update_user_photo(id):
+#     img = request.files.get('img')
+#     img_path = os.path.join(os.getenv("IMG_PATH"), img.filename)  # colocar caminho para salvar img no servidor
+#     img.save(img_path)
+#     conn = get_connection()
+#     cursor = conn.cursor()
+#     cursor.execute("UPDATE usuario SET foto=%s", (img))
+#     conn.commit()
+#     return jsonify({"message": "User updated successfully"}), 200
 
 
 # atualizar nome
@@ -315,15 +302,12 @@ def delete_user(id):
 
 # TELA SEGUIDORES #
 # pegar cards postados
-@app.route("/seguidores", methods=["GET"])
-def get_card_postado_seguidores():
+@app.route("/seguidores/<int:id>", methods=["GET"])
+def get_card_postado_seguidores(id):
     try:
-        data = request.form
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("""
-        CALL card_seguidores(%s)
-        """, (data['usuario'],))
+        cursor.execute("CALL card_seguidores() WHERE id=%s", id)
         postagem = cursor.fetchall() 
         return jsonify(postagem), 200
 
@@ -337,13 +321,12 @@ def get_card_postado_seguidores():
 
 
 # metodo GET para pegar as informações do usuario que esta seguindo
-@app.route("/seguindo", methods=["GET"])
-def verificar_seguidores():
+@app.route("/seguindo/<int:id>", methods=["GET"])
+def verificar_seguidores(id):
     try:
-        data = request.json
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("SELECT * FROM seguidores WHERE id_seguidor=%s", (data['seguidor']))
+        cursor.execute("SELECT * FROM seguidores WHERE id_seguidor=%s", id)
         usuario = cursor.fetchall() 
         return jsonify(usuario), 200
 
@@ -383,16 +366,15 @@ def deixar_de_seguir(id_seguidor, id_seguindo):
 
 # TELA PUBLICAR #
 # Buscar publicacação
-@app.route("/postagem", methods=["GET"])
-def get_postagem():
+@app.route("/postagem/<int:id>", methods=["GET"])
+def get_postagem(id):
     try:
-        data = request.form
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
         cursor.execute("""SELECT u.usuario, p.foto
         FROM postagem p
         INNER JOIN usuario u
-        ON p.id_usuario = u.id""")
+        ON p.id_usuario = u.id""",)
         postagem = cursor.fetchall() 
         return jsonify(postagem), 200
 
