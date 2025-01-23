@@ -44,15 +44,15 @@ async function valida_formulario(usuario, novo_usuario) {
         })
         .catch(error => console.error('Erro:', error));;
 
-        // sessionStorage.setItem('usuario', novo_usuario.usuario);
-        storeSession(user.usuario)
-        if (novo_usuario.img) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                localStorage.setItem(`${novo_usuario.usuario} img`, e.target.result);
-              };
-              reader.readAsDataURL(novo_usuario.img);
-        }
+        sessionStorage.setItem('usuario', novo_usuario.usuario);
+        // storeSession(user.usuario)
+        // if (novo_usuario.img) {
+        //     const reader = new FileReader();
+        //     reader.onload = function(e) {
+        //         localStorage.setItem(`${novo_usuario.usuario} img`, e.target.result);
+        //       };
+        //       reader.readAsDataURL(novo_usuario.img);
+        // }
         window.location.href = 'perfil.html';
     };
 };
@@ -72,9 +72,9 @@ form_cadastrar.addEventListener('submit', async (e) => {
     valida_formulario(usuario_existe, new_user);
 });
 
-async function storeSession(usuario) {
-    const response = await fetch(`${API_URL_CURRENT_USER}/${usuario}`);
-    const user = await response.json();
+// async function storeSession(usuario) {
+//     const response = await fetch(`${API_URL_CURRENT_USER}/${usuario}`);
+//     const user = await response.json();
 
-    sessionStorage.setItem('usuario', JSON.stringify(user));
-}
+//     sessionStorage.setItem('usuario', JSON.stringify(user));
+// }

@@ -79,14 +79,16 @@ def criar_usuario():
 # -------------------------------------------------------------------------------------------------------- #
 
 # TELA HOME #
-@app.route("/home", methods=["GET"])
-def get_card_postado_home():
+@app.route("/home/<int:id>", methods=["GET"])
+def get_card_postado_home(id):
     try:
-        data = request.form
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("CALL card_postado()")
-        postagem = cursor.fetchall() 
+        cursor.execute("CALL card_postado() WHERE id=%s", id)
+        postagem = cursor.fetchall()
+        with open(postagem['foto'], 'rb') as img_postagem:
+            img_data = base64.b64decode(img_postagem.read()).decode('utf-8')
+        postagem[0]['foto_base64'] - img_data
         return jsonify(postagem), 200
 
     except Exception as e:
@@ -100,15 +102,12 @@ def get_card_postado_home():
 # -------------------------------------------------------------------------------------------------------- #
 
 # TELA FEED #
-@app.route("/feed", methods=["GET"])
-def get_feed():
+@app.route("/feed/<int:id>", methods=["GET"])
+def get_feed(id):
     try:
-        data = request.form
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("""
-        CALL feed_perfil(%s)
-        """, (data['usuario'],))
+        cursor.execute("CALL feed_perfil() WHERE id=%s", id)
         postagem = cursor.fetchall() 
         return jsonify(postagem), 200
 
@@ -142,48 +141,45 @@ def get_outro_usuario_perfil():
         conn.close()
 
 
-# chamar card_perfil_outro_usuario
-@app.route("/usuario/card_perfil_outro_usuario", methods=["GET"])
-def get_card_perfil_outro_usuario():
-    try:
-        data = request.json
-        conn = get_connection()
-        cursor = conn.cursor(dictionary=True)
-        cursor.execute("""
-        CALL card_perfil_outro_usuario(%s)
-        """, (data['usuario'],))
-        cards_perfil = cursor.fetchall() 
-        return jsonify(cards_perfil), 200
+# # chamar card_perfil_outro_usuario
+# @app.route("/usuario/card_perfil_outro_usuario/<int:id>", methods=["GET"])
+# def get_card_perfil_outro_usuario(id):
+#     try:
+#         conn = get_connection()
+#         cursor = conn.cursor(dictionary=True)
+#         cursor.execute("CALL card_perfil_outro_usuario() WHERE id=%s", id)
+#         cards_perfil = cursor.fetchall() 
+#         return jsonify(cards_perfil), 200
     
-    except Exception as e:
-        print(f"Error: {e}")
-        return jsonify({"error": "Failed to fetch products"}), 500
+#     except Exception as e:
+#         print(f"Error: {e}")
+#         return jsonify({"error": "Failed to fetch products"}), 500
 
-    finally:
-        cursor.close()
-        conn.close()
+#     finally:
+#         cursor.close()
+#         conn.close()
 
-@app.route("/usuario/user", methods=["GET"])
-def get_todas_informacoes_usuario():
+# pegar informações do usuario
+@app.route("/usuario/user<varchar:usuario>", methods=["GET"])
+def get_todas_informacoes_usuario(usuario):
     conn = get_connection()
     cursor = conn.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM usuario")
-    usuario = cursor.fetchall() 
-    return jsonify(usuario), 200
+    cursor.execute("SELECT * FROM usuario WHERE usuario=%s", usuario)
+    data_usuario = cursor.fetchall() 
+    return jsonify(data_usuario), 200
 
 # -------------------------------------------------------------------------------------------------------- #
 
 # TELA PERFIL USUARIO #
 # pegando as informações do perfil do usuario
-@app.route("/usuario/perfil", methods=["GET"])
-def get_usuario_perfil():
+@app.route("/usuario/perfil/<int:id>", methods=["GET"])
+def get_usuario_perfil(id):
     try:
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("CALL perfil()")
+        cursor.execute("CALL perfil() WHERE id=%s", id)
         usuario = cursor.fetchall()
-        print(usuario)
-        with open(usuario[0]['foto'], 'rb') as img_file:
+        with open(usuario['foto'], 'rb') as img_file:
             img_data = base64.b64encode(img_file.read()).decode('utf-8')
 
         # Adicionar a imagem em base64 no dicionário de resposta
@@ -200,16 +196,19 @@ def get_usuario_perfil():
 
 
 # Chamar card_perfil
-@app.route("/usuario/card_perfil", methods=["GET"])
-def get_card_perfil():
+@app.route("/usuario/card_perfil/<int:id>", methods=["GET"])
+def get_card_perfil(id):
     try:
-        data = request.json
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("""
-        CALL card_perfil(%s)
-        """, (data['usuario'],))
-        cards_perfil = cursor.fetchall() 
+        cursor.execute("CALL card_perfil() WHERE id=%s", id)
+        cards_perfil = cursor.fetchall()
+        with open(cards_perfil['u.foto'], 'rb') as img_usuario:
+            img_data = base64.b64decode(img_usuario.read()).decode('utf-8')
+        cards_perfil[0]['foto_base64'] - img_data
+        with open(cards_perfil['p.foto'], 'rb') as img_postagem:
+            img_data = base64.b64decode(img_postagem.read()).decode('utf-8')
+        cards_perfil[0]['foto_base64'] - img_data
         return jsonify(cards_perfil), 200
 
     except Exception as e:
@@ -221,41 +220,38 @@ def get_card_perfil():
         conn.close()
 
 
-# Chamar card_perfil_completo
-@app.route("/usuario/card_perfil_completo", methods=["GET"])
-def get_card_perfil_completo():
-    try:
-        data = request.json
-        conn = get_connection()
-        cursor = conn.cursor(dictionary=True)
-        cursor.execute("""
-        CALL card_perfil_comleto(%s)
-        """, (data['usuario'],))
-        cards_perfil = cursor.fetchall() 
-        return jsonify(cards_perfil), 200
+# # Chamar card_perfil_completo
+# @app.route("/usuario/card_perfil_completo/<int:id>", methods=["GET"])
+# def get_card_perfil_completo(id):
+#     try:
+#         conn = get_connection()
+#         cursor = conn.cursor(dictionary=True)
+#         cursor.execute("CALL card_perfil_comleto() WHERE id=%s", id)
+#         cards_perfil = cursor.fetchall() 
+#         return jsonify(cards_perfil), 200
 
-    except Exception as e:
-        print(f"Error: {e}")
-        return jsonify({"error": "Failed to fetch products"}), 500
+#     except Exception as e:
+#         print(f"Error: {e}")
+#         return jsonify({"error": "Failed to fetch products"}), 500
 
-    finally:
-        cursor.close()
-        conn.close()
+#     finally:
+#         cursor.close()
+#         conn.close()
 
 # -------------------------------------------------------------------------------------------------------- #
 
 # TELA MINHA CONTA #
-# atualizar foto de perfil
-@app.route('/usuario/foto', methods=['PUT'])
-def update_user_photo(id):
-    img = request.files.get('img')
-    img_path = os.path.join(os.getenv("IMG_PATH"), img.filename)  # colocar caminho para salvar img no servidor
-    img.save(img_path)
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute("UPDATE usuario SET foto=%s", (img))
-    conn.commit()
-    return jsonify({"message": "User updated successfully"}), 200
+# # atualizar foto de perfil
+# @app.route('/usuario/foto', methods=['PUT'])
+# def update_user_photo(id):
+#     img = request.files.get('img')
+#     img_path = os.path.join(os.getenv("IMG_PATH"), img.filename)  # colocar caminho para salvar img no servidor
+#     img.save(img_path)
+#     conn = get_connection()
+#     cursor = conn.cursor()
+#     cursor.execute("UPDATE usuario SET foto=%s", (img))
+#     conn.commit()
+#     return jsonify({"message": "User updated successfully"}), 200
 
 
 # atualizar nome
@@ -315,15 +311,12 @@ def delete_user(id):
 
 # TELA SEGUIDORES #
 # pegar cards postados
-@app.route("/seguidores", methods=["GET"])
-def get_card_postado_seguidores():
+@app.route("/seguidores/<int:id>", methods=["GET"])
+def get_card_postado_seguidores(id):
     try:
-        data = request.form
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("""
-        CALL card_seguidores(%s)
-        """, (data['usuario'],))
+        cursor.execute("CALL card_seguidores() WHERE id=%s", id)
         postagem = cursor.fetchall() 
         return jsonify(postagem), 200
 
@@ -337,13 +330,12 @@ def get_card_postado_seguidores():
 
 
 # metodo GET para pegar as informações do usuario que esta seguindo
-@app.route("/seguindo", methods=["GET"])
-def verificar_seguidores():
+@app.route("/seguindo/<int:id>", methods=["GET"])
+def verificar_seguidores(id):
     try:
-        data = request.json
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("SELECT * FROM seguidores WHERE id_seguidor=%s", (data['seguidor']))
+        cursor.execute("SELECT * FROM seguidores WHERE id_seguidor=%s", id)
         usuario = cursor.fetchall() 
         return jsonify(usuario), 200
 
@@ -383,16 +375,15 @@ def deixar_de_seguir(id_seguidor, id_seguindo):
 
 # TELA PUBLICAR #
 # Buscar publicacação
-@app.route("/postagem", methods=["GET"])
-def get_postagem():
+@app.route("/postagem/<int:id>", methods=["GET"])
+def get_postagem(id):
     try:
-        data = request.form
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
         cursor.execute("""SELECT u.usuario, p.foto
         FROM postagem p
         INNER JOIN usuario u
-        ON p.id_usuario = u.id""")
+        ON p.id_usuario = u.id""",)
         postagem = cursor.fetchall() 
         return jsonify(postagem), 200
 
