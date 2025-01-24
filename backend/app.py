@@ -322,7 +322,7 @@ def criar_postagem():
         img.save(img_path)
         cursor.execute("""
         INSERT INTO postagem(id_usuario, categoria, foto, receita)
-        VALUES (%s, %s, %s, %s, %s)
+        VALUES (%s, %s, %s, %s)
         """, (usuario, categoria, img_path, receita))
     else:
         cursor.execute("""

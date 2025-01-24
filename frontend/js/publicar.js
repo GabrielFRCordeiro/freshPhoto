@@ -57,7 +57,7 @@ form_publicar.addEventListener('submit', async (e) => {
     // });
 
     const formData = new FormData();
-    formData.append('usuario', sessionStorage.getItem('usuario'));
+    formData.append('usuario', JSON.parse(sessionStorage.getItem('usuario')).id);
     formData.append('categoria', input_categoria.value);
     formData.append('img', input_img.files[0]);
     formData.append('receita', t_field_receita.value);
