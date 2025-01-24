@@ -160,13 +160,13 @@ def get_outro_usuario_perfil():
 #         conn.close()
 
 # pegar informações do usuario
-@app.route("/usuario/user<varchar:usuario>", methods=["GET"])
-def get_todas_informacoes_usuario(usuario):
-    conn = get_connection()
-    cursor = conn.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM usuario WHERE usuario=%s", usuario)
-    data_usuario = cursor.fetchall() 
-    return jsonify(data_usuario), 200
+# @app.route("/usuario/user<varchar:usuario>", methods=["GET"])
+# def get_todas_informacoes_usuario(usuario):
+#     conn = get_connection()
+#     cursor = conn.cursor(dictionary=True)
+#     cursor.execute("SELECT * FROM usuario WHERE usuario=%s", usuario)
+#     data_usuario = cursor.fetchall() 
+#     return jsonify(data_usuario), 200
 
 # -------------------------------------------------------------------------------------------------------- #
 
@@ -177,7 +177,7 @@ def get_usuario_perfil(id):
     try:
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("CALL perfil() WHERE id=%s", id)
+        cursor.execute("CALL perfil() WHERE id=%s", (id,))
         usuario = cursor.fetchall()
         with open(usuario['foto'], 'rb') as img_file:
             img_data = base64.b64encode(img_file.read()).decode('utf-8')
