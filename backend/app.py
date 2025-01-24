@@ -122,42 +122,6 @@ def get_feed(id):
 # -------------------------------------------------------------------------------------------------------- #
 
 # TELA PEFIL OUTRO USUARIO #
-# # pegando informaçõesde um usuario especifico
-# @app.route("/outro-usuario/perfil", methods=["GET"])
-# def get_outro_usuario_perfil():
-#     try:
-#         conn = get_connection()
-#         cursor = conn.cursor(dictionary=True)
-#         cursor.execute("SELECT nome, usuario, foto FROM perfil")
-#         usuario = cursor.fetchall() 
-#         return jsonify(usuario), 200
-
-#     except Exception as e:
-#         print(f"Error: {e}")
-#         return jsonify({"error": "Failed to fetch products"}), 500
-
-#     finally:
-#         cursor.close()
-#         conn.close()
-
-
-# # chamar card_perfil_outro_usuario
-# @app.route("/usuario/card_perfil_outro_usuario/<int:id>", methods=["GET"])
-# def get_card_perfil_outro_usuario(id):
-#     try:
-#         conn = get_connection()
-#         cursor = conn.cursor(dictionary=True)
-#         cursor.execute("CALL card_perfil_outro_usuario() WHERE id=%s", id)
-#         cards_perfil = cursor.fetchall() 
-#         return jsonify(cards_perfil), 200
-    
-#     except Exception as e:
-#         print(f"Error: {e}")
-#         return jsonify({"error": "Failed to fetch products"}), 500
-
-#     finally:
-#         cursor.close()
-#         conn.close()
 
 # pegar informações do usuario
 @app.route("/usuario/user/<string:usuario>", methods=["GET"])
@@ -219,62 +183,9 @@ def get_card_perfil(id):
         cursor.close()
         conn.close()
 
-
-# # Chamar card_perfil_completo
-# @app.route("/usuario/card_perfil_completo/<int:id>", methods=["GET"])
-# def get_card_perfil_completo(id):
-#     try:
-#         conn = get_connection()
-#         cursor = conn.cursor(dictionary=True)
-#         cursor.execute("CALL card_perfil_comleto() WHERE id=%s", id)
-#         cards_perfil = cursor.fetchall() 
-#         return jsonify(cards_perfil), 200
-
-#     except Exception as e:
-#         print(f"Error: {e}")
-#         return jsonify({"error": "Failed to fetch products"}), 500
-
-#     finally:
-#         cursor.close()
-#         conn.close()
-
 # -------------------------------------------------------------------------------------------------------- #
 
 # TELA MINHA CONTA #
-# # atualizar foto de perfil
-# @app.route('/usuario/foto', methods=['PUT'])
-# def update_user_photo(id):
-#     img = request.files.get('img')
-#     img_path = os.path.join(os.getenv("IMG_PATH"), img.filename)  # colocar caminho para salvar img no servidor
-#     img.save(img_path)
-#     conn = get_connection()
-#     cursor = conn.cursor()
-#     cursor.execute("UPDATE usuario SET foto=%s", (img))
-#     conn.commit()
-#     return jsonify({"message": "User updated successfully"}), 200
-
-
-# # atualizar nome
-# @app.route('/usuario/nome', methods=['PUT'])
-# def update_user_name(id):
-#     data = request.json
-#     conn = get_connection()
-#     cursor = conn.cursor()
-#     cursor.execute("UPDATE usuario SET nome", (data['name'], ))
-#     conn.commit()
-#     return jsonify({"message": "User updated successfully"}), 200
-
-
-# # atualizar usuario
-# @app.route('/usuario/usuario', methods=['PUT'])
-# def update_user_user(id):
-#     data = request.json
-#     conn = get_connection()
-#     cursor = conn.cursor()
-#     cursor.execute("UPDATE usuario SET usuario", (data['user'], ))
-#     conn.commit()
-#     return jsonify({"message": "User updated successfully"}), 200
-
 
 # atualizar senha
 @app.route('/usuario/senha/<int:id>', methods=['PUT'])
