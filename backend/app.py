@@ -122,23 +122,23 @@ def get_feed(id):
 # -------------------------------------------------------------------------------------------------------- #
 
 # TELA PEFIL OUTRO USUARIO #
-# pegando informaçõesde um usuario especifico
-@app.route("/outro-usuario/perfil", methods=["GET"])
-def get_outro_usuario_perfil():
-    try:
-        conn = get_connection()
-        cursor = conn.cursor(dictionary=True)
-        cursor.execute("SELECT nome, usuario, foto FROM perfil")
-        usuario = cursor.fetchall() 
-        return jsonify(usuario), 200
+# # pegando informaçõesde um usuario especifico
+# @app.route("/outro-usuario/perfil", methods=["GET"])
+# def get_outro_usuario_perfil():
+#     try:
+#         conn = get_connection()
+#         cursor = conn.cursor(dictionary=True)
+#         cursor.execute("SELECT nome, usuario, foto FROM perfil")
+#         usuario = cursor.fetchall() 
+#         return jsonify(usuario), 200
 
-    except Exception as e:
-        print(f"Error: {e}")
-        return jsonify({"error": "Failed to fetch products"}), 500
+#     except Exception as e:
+#         print(f"Error: {e}")
+#         return jsonify({"error": "Failed to fetch products"}), 500
 
-    finally:
-        cursor.close()
-        conn.close()
+#     finally:
+#         cursor.close()
+#         conn.close()
 
 
 # # chamar card_perfil_outro_usuario
@@ -160,13 +160,13 @@ def get_outro_usuario_perfil():
 #         conn.close()
 
 # pegar informações do usuario
-# @app.route("/usuario/user<varchar:usuario>", methods=["GET"])
-# def get_todas_informacoes_usuario(usuario):
-#     conn = get_connection()
-#     cursor = conn.cursor(dictionary=True)
-#     cursor.execute("SELECT * FROM usuario WHERE usuario=%s", usuario)
-#     data_usuario = cursor.fetchall() 
-#     return jsonify(data_usuario), 200
+@app.route("/usuario/user<string:usuario>", methods=["GET"])
+def get_todas_informacoes_usuario(usuario):
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM usuario WHERE usuario=%s", (usuario,))
+    data_usuario = cursor.fetchall()
+    return jsonify(data_usuario), 200
 
 # -------------------------------------------------------------------------------------------------------- #
 
@@ -254,26 +254,26 @@ def get_card_perfil(id):
 #     return jsonify({"message": "User updated successfully"}), 200
 
 
-# atualizar nome
-@app.route('/usuario/nome', methods=['PUT'])
-def update_user_name(id):
-    data = request.json
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute("UPDATE usuario SET nome", (data['name'], ))
-    conn.commit()
-    return jsonify({"message": "User updated successfully"}), 200
+# # atualizar nome
+# @app.route('/usuario/nome', methods=['PUT'])
+# def update_user_name(id):
+#     data = request.json
+#     conn = get_connection()
+#     cursor = conn.cursor()
+#     cursor.execute("UPDATE usuario SET nome", (data['name'], ))
+#     conn.commit()
+#     return jsonify({"message": "User updated successfully"}), 200
 
 
-# atualizar usuario
-@app.route('/usuario/usuario', methods=['PUT'])
-def update_user_user(id):
-    data = request.json
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute("UPDATE usuario SET usuario", (data['user'], ))
-    conn.commit()
-    return jsonify({"message": "User updated successfully"}), 200
+# # atualizar usuario
+# @app.route('/usuario/usuario', methods=['PUT'])
+# def update_user_user(id):
+#     data = request.json
+#     conn = get_connection()
+#     cursor = conn.cursor()
+#     cursor.execute("UPDATE usuario SET usuario", (data['user'], ))
+#     conn.commit()
+#     return jsonify({"message": "User updated successfully"}), 200
 
 
 # atualizar senha
