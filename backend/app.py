@@ -423,12 +423,12 @@ def criar_postagem():
 
 
 # Buscar receita
-@app.route("/receita", methods=["GET"])
-def buscar_receita():
+@app.route("/receita/<int:id_postagem>", methods=["GET"])
+def buscar_receita(id_postagem):
     try:
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("SELECT * FROM receita")
+        cursor.execute("CALL receitas() WHERE id_postagem=%s", id_postagem)
         receita = cursor.fetchall() 
         return jsonify(receita), 200
 
