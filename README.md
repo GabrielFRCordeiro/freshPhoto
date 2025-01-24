@@ -23,16 +23,27 @@
 > [!NOTE]
 > Siga outros usuários para acompanhar suas receitas.
 
-> [!NOTE]
-> Comente nas receitas de outros usuários.
-
 ## ⚙️ Pré-requisitos
 
 > Python
 
-> Flask
+> MySQL
 
-> MySQL (usamoso XAMPP no desenvolvimento do projeto)
+## 🚀 Instalando Fresh Photo
+
+- Importar banco de dados
+- Instalar dependências do backend com o seguinte comando:
+    ```
+    pip install -r requirements.txt
+    ```
+- Criar arquivo .env com as seguintes configurações:
+    ```
+    DB_HOST=localhost
+    DB_USER=root
+    DB_PASSWORD=
+    DB_NAME=fresh_photo
+    IMG_PATH=<caminho_de_diretorio_em_maquina_local>
+    ```
 
 ## 🤝 Colaboradores
 
