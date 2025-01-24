@@ -160,7 +160,7 @@ def get_feed(id):
 #         conn.close()
 
 # pegar informações do usuario
-@app.route("/usuario/user<string:usuario>", methods=["GET"])
+@app.route("/usuario/user/<string:usuario>", methods=["GET"])
 def get_todas_informacoes_usuario(usuario):
     conn = get_connection()
     cursor = conn.cursor(dictionary=True)
