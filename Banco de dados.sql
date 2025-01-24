@@ -6,18 +6,15 @@ nome VARCHAR(100) NOT NULL,
 usuario VARCHAR(20) NOT NULL UNIQUE,
 senha VARCHAR(100) NOT NULL,
 email VARCHAR(100) NOT NULL UNIQUE,
-foto VARCHAR(255), imagem_perfil VARCHAR(255), status_usuario ENUM('ativo', 'inativo')
+foto VARCHAR(255)
 );
 
-CREATE TABLE receita(
-id INT PRIMARY KEY AUTO_INCREMENT,
-texto VARCHAR(500) UNIQUE
-);
 CREATE TABLE postagem(
 id INT PRIMARY KEY AUTO_INCREMENT,
 id_usuario INT NOT NULL,
 foto VARCHAR(255) NOT NULL,
 categoria ENUM('Bolo', 'fruta', 'dia-a-dia', 'fast food') NOT NULL,
+receita VARCHAR(500) UNIQUE,
 data_postagem DATE DEFAULT NOW(),
 FOREIGN KEY (id_usuario) REFERENCES usuario(id)
 );
@@ -53,71 +50,119 @@ END //
 
 delimiter ;
 
-delimiter //
+DELIMITER //
 
-CREATE PROCEDURE perfil()
-BEGIN
-SELECT nome, usuario, foto FROM usuario;
-END //
-
-delimiter ;
-
-DELIMITER $$
-
-CREATE PROCEDURE obterImagensSeguidos(
-    IN usuario_id INT
+CREATE PROCEDURE perfil(
+    IN p_usuario_id INT
 )
 BEGIN
-    SELECT i.id AS imagem_id, 
-           i.caminho_imagem, 
-           u.id AS usuario_id, 
-           u.nome
-    FROM imagens i
-    INNER JOIN usuario u ON i.usuario_id = u.id
-    INNER JOIN seguindo s ON s.seguido_id = u.id
-    WHERE s.seguidor_id = usuario_id
-    ORDER BY i.data_upload DESC;
-END $$
+    SELECT 
+        u.nome,
+        u.usuario,
+        u.foto
+    FROM 
+        usuario u
+    WHERE 
+        u.id = p_usuario_id;
+END //
 
 DELIMITER ;
 
-DELIMITER $$
 
-CREATE PROCEDURE atualizarNomePerfil(
-    IN p_usuario_id INT,
-    IN p_novo_nome VARCHAR(100)
+DELIMITER //
+
+CREATE PROCEDURE retornarTodosPosts()
+BEGIN
+    SELECT 
+        p.id AS postagem_id,
+        u.foto AS usuario_foto,
+        u.usuario,
+        p.foto AS postagem_foto,
+        p.categoria
+    FROM 
+        postagem p
+    INNER JOIN 
+        usuario u ON p.id_usuario = u.id
+    ORDER BY 
+        p.data_postagem DESC;
+END //
+ 
+DELIMITER ;
+
+DELIMITER //
+
+DELIMITER //
+
+CREATE PROCEDURE obterFotosSeguidos(
+    IN usuario_id INT
 )
 BEGIN
-    
-    IF EXISTS (SELECT 1 FROM usuario WHERE id = p_usuario_id) THEN
-        
-        UPDATE usuario SET nome = p_novo_nome WHERE id = p_usuario_id;
-    ELSE
-       
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Usuário não encontrado.';
-    END IF;
-END $$
+    SELECT 
+        p.id AS postagem_id,
+        u.foto AS usuario_foto,
+        u.usuario,
+        p.foto AS postagem_foto,
+        p.categoria
+    FROM 
+        postagem p
+    INNER JOIN 
+        usuario u ON p.id_usuario = u.id
+    WHERE 
+        u.id IN (
+            SELECT 
+                seguido_id 
+            FROM 
+                seguindo 
+            WHERE 
+                seguidor_id = usuario_id
+        )
+    ORDER BY 
+        p.data_postagem DESC;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE retornarPostsUsuario(
+    IN usuario_id INT
+)
+BEGIN
+    SELECT 
+        p.id AS postagem_id,
+        u.foto AS usuario_foto,
+        u.usuario,
+        p.foto AS postagem_foto,
+        p.categoria
+    FROM 
+        postagem p
+    INNER JOIN 
+        usuario u ON p.id_usuario = u.id
+    WHERE 
+        p.id_usuario = usuario_id
+    ORDER BY 
+        p.data_postagem DESC;
+END //
 
 DELIMITER ;
 
 DELIMITER //
 
-CREATE PROCEDURE AtualizarUsuario(
-    IN p_id_usuario INT,
-    IN p_nome VARCHAR(100),
-    IN p_email VARCHAR(150),
-    IN p_status ENUM('ativo', 'inativo')
+CREATE PROCEDURE retornaReceitaPost(
+    IN p_postagem_id INT
 )
 BEGIN
-    UPDATE usuario
-    SET 
-        nome = p_nome,
-        email = p_email,
-        status_usuario = p_status
-    WHERE id_usuario = p_id_usuario;
+    SELECT 
+        p.receita AS receita
+    FROM 
+        postagem p
+    WHERE 
+        p.id = p_postagem_id;
 END //
 
 DELIMITER ;
+
 
 DELIMITER //
 
@@ -128,7 +173,7 @@ CREATE PROCEDURE AtualizarEmail(
 BEGIN
     UPDATE usuario
     SET email = p_novo_email
-    WHERE id_usuario = p_id_usuario;
+    WHERE id = p_id_usuario;
 END //
 
 DELIMITER ;
@@ -143,7 +188,7 @@ BEGIN
 
     UPDATE usuario
     SET senha = SHA2(p_nova_senha, 256)
-    WHERE id_usuario = p_id_usuario;
+    WHERE id = p_id_usuario;
 END //
 
 DELIMITER ;
@@ -155,9 +200,9 @@ CREATE PROCEDURE ApagarContaUsuario(
 )
 BEGIN
     
-    IF EXISTS (SELECT 1 FROM usuarios WHERE id_usuario = p_id_usuario) THEN
+    IF EXISTS (SELECT 1 FROM usuario WHERE id = p_id_usuario) THEN
         DELETE FROM usuario
-        WHERE id_usuario = p_id_usuario;
+        WHERE id = p_id_usuario;
         SELECT CONCAT('usuário com id ', p_id_usuario, ' foi excluido.');
     ELSE
         SELECT CONCAT('usuário com id', p_id_usuario, ' não tem.');
