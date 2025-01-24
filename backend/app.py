@@ -84,7 +84,7 @@ def get_card_postado_home(id):
     try:
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("CALL card_postado() WHERE id=%s", id)
+        cursor.execute("CALL retornarTodosPosts() WHERE id=%s", id)
         postagem = cursor.fetchall()
         with open(postagem['foto'], 'rb') as img_postagem:
             img_data = base64.b64decode(img_postagem.read()).decode('utf-8')
@@ -107,7 +107,7 @@ def get_feed(id):
     try:
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("CALL feed_perfil() WHERE id=%s", id)
+        cursor.execute("CALL retornarPostsUsuario(%s) ", (id,))
         postagem = cursor.fetchall() 
         return jsonify(postagem), 200
 
@@ -141,7 +141,7 @@ def get_usuario_perfil(id):
     try:
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("CALL perfil() WHERE id=%s", (id,))
+        cursor.execute("CALL perfil(%s)", (id,))
         usuario = cursor.fetchall()
         with open(usuario['foto'], 'rb') as img_file:
             img_data = base64.b64encode(img_file.read()).decode('utf-8')
@@ -160,12 +160,12 @@ def get_usuario_perfil(id):
 
 
 # Chamar card_perfil
-@app.route("/usuario/card_perfil/<int:id>", methods=["GET"])
+@app.route("/usuario/retornarPostsUsuario/<int:id>", methods=["GET"])
 def get_card_perfil(id):
     try:
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("CALL card_perfil() WHERE id=%s", id)
+        cursor.execute("CALL retornarPostsUsuario() WHERE id=%s", id)
         cards_perfil = cursor.fetchall()
         with open(cards_perfil['u.foto'], 'rb') as img_usuario:
             img_data = base64.b64decode(img_usuario.read()).decode('utf-8')
@@ -227,7 +227,7 @@ def get_card_postado_seguidores(id):
     try:
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("CALL card_seguidores() WHERE id=%s", id)
+        cursor.execute("CALL obterFotosSeguidos(%s)", (id,))
         postagem = cursor.fetchall() 
         return jsonify(postagem), 200
 
@@ -334,12 +334,12 @@ def criar_postagem():
 
 
 # Buscar receita
-@app.route("/receita/<int:id_postagem>", methods=["GET"])
+@app.route("/postagem/receita/<int:id_postagem>", methods=["GET"])
 def buscar_receita(id_postagem):
     try:
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("CALL receitas() WHERE id_postagem=%s", id_postagem)
+        cursor.execute("CALL retornaReceitaPost(%s)", (id_postagem,))
         receita = cursor.fetchall() 
         return jsonify(receita), 200
 
