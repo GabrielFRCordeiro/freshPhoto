@@ -160,13 +160,13 @@ def get_outro_usuario_perfil():
 #         conn.close()
 
 # pegar informações do usuario
-@app.route("/usuario/user<str:usuario>", methods=["GET"])
-def get_todas_informacoes_usuario(usuario):
-    conn = get_connection()
-    cursor = conn.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM usuario WHERE usuario=%s", usuario)
-    data_usuario = cursor.fetchall()
-    return jsonify(data_usuario), 200
+# @app.route("/usuario/user<varchar:usuario>", methods=["GET"])
+# def get_todas_informacoes_usuario(usuario):
+#     conn = get_connection()
+#     cursor = conn.cursor(dictionary=True)
+#     cursor.execute("SELECT * FROM usuario WHERE usuario=%s", usuario)
+#     data_usuario = cursor.fetchall() 
+#     return jsonify(data_usuario), 200
 
 # -------------------------------------------------------------------------------------------------------- #
 
