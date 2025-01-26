@@ -1,15 +1,15 @@
 const feed_cards = document.querySelector('#feed_cards');
 
-const API_URL = 'http://127.0.0.1:5000/usuario/card_seguidores';
+const API_URL = 'http://127.0.0.1:5000/seguidores';
 
 window.addEventListener('load', async (e) => {
     e.preventDefault();
 
-    usuario = sessionStorage.getItem('usuario');
-    const response = await fetch(API_URL, {
-        body: usuario
-    });
+    usuario = JSON.parse(sessionStorage.getItem('usuario'));
+    // console.log(`${API_URL}/${usuario.id}`)
+    const response = await fetch(`${API_URL}/${usuario.id}`);
     const postagens = await response.json();
+    console.log(postagens)
 
     // let cards_teste = []
     // postagens.forEach(postagem => {
@@ -24,10 +24,10 @@ window.addEventListener('load', async (e) => {
 function show_cards(cards) {
     feed_cards.innerHTML = ''
     cards.forEach(card => {
-        feed_cards.innerHTML += `<a class="feed_card" href="./user-feed.html">
-    <div class="feed_card">
-        <img src="${card}" alt="">
-    </div>
-</a>`
+        feed_cards.innerHTML += `<div class="feed_card d-flex justify-content-center" role="button">
+                <div class="d-flex align-items-center post_receita">
+                    <img data-src="${card.postagem_foto}" alt="" class="lazy">
+                </div>
+            </div>`
     });
 }
