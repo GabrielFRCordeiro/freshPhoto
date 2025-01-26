@@ -26,7 +26,7 @@ form_login.addEventListener('submit', async (e) => {
         } else {
             // sessionStorage.setItem('usuario', JSON.stringify(user));
             storeSession(user.usuario)
-            window.location.href = 'perfil.html';
+            // window.location.href = 'perfil.html';
         }
     });
 })
@@ -36,4 +36,5 @@ async function storeSession(usuario) {
     const user = await response.json();
 
     sessionStorage.setItem('usuario', JSON.stringify(user[0]));
+    window.location.href = 'perfil.html';
 }
