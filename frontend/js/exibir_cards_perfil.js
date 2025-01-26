@@ -9,7 +9,6 @@ window.addEventListener('load', async (e) => {
     // console.log(`${API_URL}/${usuario.id}`)
     const response = await fetch(`${API_URL}/${usuario.id}`);
     const postagens = await response.json();
-    console.log(postagens)
 
     // let cards_teste = []
     // postagens.forEach(postagem => {

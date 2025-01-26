@@ -143,7 +143,7 @@ def get_usuario_perfil(id):
         cursor = conn.cursor(dictionary=True)
         cursor.execute("CALL perfil(%s)", (id,))
         usuario = cursor.fetchall()
-        with open(usuario['foto'], 'rb') as img_file:
+        with open(usuario[0]['foto'], 'rb') as img_file:
             img_data = base64.b64encode(img_file.read()).decode('utf-8')
 
         # Adicionar a imagem em base64 no dicionário de resposta
