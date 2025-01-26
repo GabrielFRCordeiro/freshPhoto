@@ -7,9 +7,9 @@ const API_URL_PERFIL = 'http://127.0.0.1:5000/usuario/perfil';
 window.addEventListener('load', async (e) => {
     e.preventDefault();
 
+    // console.log(JSON.parse(sessionStorage.getItem('usuario')).id)
     const response = await fetch(`${API_URL_PERFIL}/${JSON.parse(sessionStorage.getItem('usuario')).id}`);
     const users = await response.json();
-    console.log(users)
     const usuarioNome = sessionStorage.getItem('usuario');
     const usuarioEncontrado = users.find((usuario) => {
         if (usuario.usuario == usuarioNome) {
