@@ -14,7 +14,6 @@ window.addEventListener('load', async (e) => {
     user_usuario.innerHTML = `@${user[0].usuario}`
     const imgData = `data:image/png;base64,${user[0].foto_base64}`
     user_img.src = imgData
-    user_img.style = 'border-radius: 100%;'
     // const usuarioNome = sessionStorage.getItem('usuario');
     // const usuarioEncontrado = users.find((usuario) => {
     //     if (usuario.usuario == usuarioNome) {

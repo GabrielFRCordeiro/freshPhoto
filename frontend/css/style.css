@@ -171,8 +171,11 @@
     place-items: center;
 }
 
-.caixaPerfil .user_img{
-    height: 70%;
+.caixaPerfil .user_img_container {
+    width: 130px;
+    height: 130px;
+    overflow: hidden;
+    border-radius: 100%;
     grid-area: user_img;
 }
 
