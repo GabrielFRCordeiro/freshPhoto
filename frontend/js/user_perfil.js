@@ -10,7 +10,6 @@ window.addEventListener('load', async (e) => {
     // console.log(JSON.parse(sessionStorage.getItem('usuario')).id)
     const response = await fetch(`${API_URL_PERFIL}/${JSON.parse(sessionStorage.getItem('usuario')).id}`);
     const user = await response.json();
-    console.log(user[0])
     user_nome.innerHTML = `${user[0].nome}`
     user_usuario.innerHTML = `@${user[0].usuario}`
     const imgData = `data:image/png;base64,${user[0].foto_base64}`

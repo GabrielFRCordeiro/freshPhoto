@@ -1,6 +1,6 @@
 const feed_cards = document.querySelector('#feed_cards');
 
-const API_URL = 'http://127.0.0.1:5000/feed';
+const API_URL = `http://127.0.0.1:5000/usuario/retornarPostsUsuario`;
 
 window.addEventListener('load', async (e) => {
     e.preventDefault();
