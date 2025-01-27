@@ -14,7 +14,7 @@ id INT PRIMARY KEY AUTO_INCREMENT,
 id_usuario INT NOT NULL,
 foto VARCHAR(255) NOT NULL,
 categoria ENUM('Bolo', 'fruta', 'dia-a-dia', 'fast food') NOT NULL,
-receita VARCHAR(500) UNIQUE,
+receita VARCHAR(500),
 data_postagem DATE DEFAULT NOW(),
 FOREIGN KEY (id_usuario) REFERENCES usuario(id)
 );
