@@ -143,12 +143,13 @@ def get_usuario_perfil(id):
         cursor = conn.cursor(dictionary=True)
         cursor.execute("CALL perfil(%s)", (id,))
         usuario = cursor.fetchall()
-        with open(usuario[0]['foto'], 'rb') as img_file:
-            img_data = base64.b64encode(img_file.read()).decode('utf-8')
+        if usuario[0]['foto']:
+            with open(usuario[0]['foto'], 'rb') as img_file:
+                img_data = base64.b64encode(img_file.read()).decode('utf-8')
 
-        # Adicionar a imagem em base64 no dicionário de resposta
-        usuario[0]['foto_base64'] = img_data
-        return jsonify(usuario), 200
+            # Adicionar a imagem em base64 no dicionário de resposta
+            usuario[0]['foto_base64'] = img_data
+            return jsonify(usuario), 200
 
     except Exception as e:
         print(f"Error: {e}")
