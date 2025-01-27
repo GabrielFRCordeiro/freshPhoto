@@ -79,12 +79,12 @@ def criar_usuario():
 # -------------------------------------------------------------------------------------------------------- #
 
 # TELA HOME #
-@app.route("/home/<int:id>", methods=["GET"])
-def get_card_postado_home(id):
+@app.route("/home/", methods=["GET"])
+def get_card_postado_home():
     try:
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("CALL retornarTodosPosts() WHERE id=%s", id)
+        cursor.execute("CALL retornarTodosPosts()")
         postagem = cursor.fetchall()
         with open(postagem['foto'], 'rb') as img_postagem:
             img_data = base64.b64decode(img_postagem.read()).decode('utf-8')
@@ -158,14 +158,13 @@ def get_usuario_perfil(id):
         cursor.close()
         conn.close()
 
-
 # Chamar card_perfil
 @app.route("/usuario/retornarPostsUsuario/<int:id>", methods=["GET"])
 def get_card_perfil(id):
     try:
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("CALL retornarPostsUsuario() WHERE id=%s", id)
+        cursor.execute("CALL retornarPostsUsuario(%s)", (id,))
         cards_perfil = cursor.fetchall()
         with open(cards_perfil['u.foto'], 'rb') as img_usuario:
             img_data = base64.b64decode(img_usuario.read()).decode('utf-8')
