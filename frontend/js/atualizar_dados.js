@@ -5,7 +5,7 @@ btn_senha.addEventListener('click', async (e)=> {
     e.preventDefault();
     
     const nova_senha = document.querySelector("#t_field_senha").value;
-    const id = JSON.parse(sessionStorage.getItem('usuario')).id;
+    const id = JSON.parse(sessionStorage.getItem('usuario'));
     await fetch(`${API_URL}/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -17,7 +17,7 @@ btn_email.addEventListener('click', async (e)=> {
     e.preventDefault();
     
     const novo_email = document.querySelector("#t_field_email").value;
-    const id = JSON.parse(sessionStorage.getItem('usuario')).id;
+    const id = JSON.parse(sessionStorage.getItem('usuario'));
     await fetch(`${API_URL}/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
