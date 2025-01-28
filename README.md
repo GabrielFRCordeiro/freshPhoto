@@ -32,8 +32,10 @@
 ## 🚀 Instalando Fresh Photo
 
 - Importar banco de dados
-- Instalar dependências do backend com o seguinte comando:
+- Instalar ambiente virtual e dependências do backend com os seguintes comandos:
     ```
+    python -m venv venv
+    venv\Scripts\activate
     pip install -r requirements.txt
     ```
 - Criar arquivo .env com as seguintes configurações:
@@ -42,7 +44,8 @@
     DB_USER=root
     DB_PASSWORD=
     DB_NAME=fresh_photo
-    IMG_PATH=<caminho_de_diretorio_em_maquina_local>
+    IMG_PATH=<caminho_do_repositorio_na_maquina_local>\backend\assets\imgs
+    IMG_USER=<caminho_do_repositorio_na_maquina_local>\backend\assets\photo.png
     ```
 
 ## 🤝 Colaboradores
