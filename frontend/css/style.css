@@ -171,12 +171,15 @@
     place-items: center;
 }
 
-.caixaPerfil .user_img_container {
+.caixaPerfil .user_img_container{
+    grid-area: user_img;
+}
+
+.user_img_container {
     width: 130px;
     height: 130px;
     overflow: hidden;
     border-radius: 100%;
-    grid-area: user_img;
 }
 
 .caixaPerfil h2{
