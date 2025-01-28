@@ -255,7 +255,7 @@ def delete_user(id):
 
 # TELA SEGUIDORES #
 # pegar cards postados
-@app.route("/seguidores/<int:id>", methods=["GET"])
+@app.route("/seguindo/<int:id>", methods=["GET"])
 def get_card_postado_seguidores(id):
     try:
         conn = get_connection()
@@ -279,7 +279,7 @@ def verificar_seguidores(id):
     try:
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("SELECT * FROM seguidores WHERE id_seguidor=%s", id)
+        cursor.execute("SELECT * FROM seguidores WHERE seguidos_id=%s", id)
         usuario = cursor.fetchall() 
         return jsonify(usuario), 200
 
@@ -293,25 +293,25 @@ def verificar_seguidores(id):
 
 
 # metodo POST para salvar no banco de dados
-@app.route("/seguidores", methods=["POST"])
+@app.route("/seguindo", methods=["POST"])
 def seguir():
     data = request.json
     conn = get_connection()
     cursor = conn.cursor()
     cursor.execute("""
-    INSERT INTO seguidores(id_seguidor, id_seguindo)
+    INSERT INTO seguindo(seguido_id, seguidos_id)
     VALUES (%s, %s)
-    """, (data['id_seguidor'], data['id_seguindo']))
+    """, (data['seguido_id'], data['seguidos_id']))
     conn.commit()
     return jsonify({"message": "Seguindo com sucesso"}), 201
 
 
 # metodo DELETE para deletar as informações do banco de dados quando deixar de seguir
-@app.route("/seguidores", methods=["DELETE"])
-def deixar_de_seguir(id_seguidor, id_seguindo):
+@app.route("/seguindo", methods=["DELETE"])
+def deixar_de_seguir(seguido_id, seguidos_id):
     conn = get_connection()
     cursor = conn.cursor()
-    cursor.execute("DELETE FROM seguidores WHERE (%s, %s)", (id_seguidor, id_seguindo))
+    cursor.execute("DELETE FROM seguindo WHERE (%s, %s)", (seguido_id, seguidos_id))
     conn.commit()
     return jsonify({"message": "Deixado de seguir com sucesso"}), 200
 
