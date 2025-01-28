@@ -156,6 +156,14 @@ def get_usuario_perfil(id):
             usuario[0]['foto_base64'] = img_data
             return jsonify(usuario), 200
 
+        else:
+            with open(os.getenv("IMG_USER"), 'rb') as img_file:
+                img_data = base64.b64encode(img_file.read()).decode('utf-8')
+
+            # Adicionar a imagem em base64 no dicionário de resposta
+            usuario[0]['foto_base64'] = img_data
+            return jsonify(usuario), 200
+
     except Exception as e:
         print(f"Error: {e}")
         return jsonify({"error": "Failed to fetch products"}), 500
@@ -174,10 +182,10 @@ def get_card_perfil(id):
         cards_perfil = cursor.fetchall()
 
         for cp in cards_perfil:
-            with open(cp['u.foto'], 'rb') as img_usuario:
+            with open(cp['usuario_foto'], 'rb') as img_usuario:
                 img_data = base64.b64decode(img_usuario.read()).decode('utf-8')
             cp['usuario_base64'] - img_data
-            with open(cp['p.foto'], 'rb') as img_postagem:
+            with open(cp['postagem_foto'], 'rb') as img_postagem:
                 img_data = base64.b64decode(img_postagem.read()).decode('utf-8')
             cp['postagem_base64'] - img_data
             return jsonify(cards_perfil), 200
