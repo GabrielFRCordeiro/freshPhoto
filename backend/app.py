@@ -172,13 +172,15 @@ def get_card_perfil(id):
         cursor = conn.cursor(dictionary=True)
         cursor.execute("CALL retornarPostsUsuario(%s)", (id,))
         cards_perfil = cursor.fetchall()
-        with open(cards_perfil['u.foto'], 'rb') as img_usuario:
-            img_data = base64.b64decode(img_usuario.read()).decode('utf-8')
-        cards_perfil[0]['foto_base64'] - img_data
-        with open(cards_perfil['p.foto'], 'rb') as img_postagem:
-            img_data = base64.b64decode(img_postagem.read()).decode('utf-8')
-        cards_perfil[0]['foto_base64'] - img_data
-        return jsonify(cards_perfil), 200
+
+        for cp in cards_perfil:
+            with open(cp['u.foto'], 'rb') as img_usuario:
+                img_data = base64.b64decode(img_usuario.read()).decode('utf-8')
+            cp['usuario_base64'] - img_data
+            with open(cp['p.foto'], 'rb') as img_postagem:
+                img_data = base64.b64decode(img_postagem.read()).decode('utf-8')
+            cp['postagem_base64'] - img_data
+            return jsonify(cards_perfil), 200
 
     except Exception as e:
         print(f"Error: {e}")
