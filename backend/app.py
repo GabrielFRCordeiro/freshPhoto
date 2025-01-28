@@ -140,7 +140,7 @@ def get_todas_informacoes_usuario(usuario):
 # -------------------------------------------------------------------------------------------------------- #
 
 # TELA PERFIL USUARIO #
-# pegando as informações do perfil do usuario
+# Pegando as informações do perfil do usuario
 @app.route("/usuario/perfil/<int:id>", methods=["GET"])
 def get_usuario_perfil(id):
     try:
@@ -194,6 +194,24 @@ def get_card_perfil(id):
         print(f"Error: {e}")
         return jsonify({"error": "Failed to fetch products"}), 500
 
+    finally:
+        cursor.close()
+        conn.close()
+
+# Pegar as  categorias
+@app.route("/usuario/categorias", methods=["GET"])
+def get_categorias():
+    try:
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("CALL categorias()")
+        categorias = cursor.fetchall()
+        return jsonify(categorias), 200
+    
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({"error": "Failed to fetch products"}), 500
+    
     finally:
         cursor.close()
         conn.close()
