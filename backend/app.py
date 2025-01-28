@@ -79,17 +79,22 @@ def criar_usuario():
 # -------------------------------------------------------------------------------------------------------- #
 
 # TELA HOME #
-@app.route("/home/", methods=["GET"])
+@app.route("/home", methods=["GET"])
 def get_card_postado_home():
     try:
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
         cursor.execute("CALL retornarTodosPosts()")
         postagem = cursor.fetchall()
-        with open(postagem['foto'], 'rb') as img_postagem:
-            img_data = base64.b64decode(img_postagem.read()).decode('utf-8')
-        postagem[0]['foto_base64'] - img_data
-        return jsonify(postagem), 200
+
+        for p in postagem:
+            with open(p['usuario_foto'], 'rb') as img_postagem:
+                img_data = base64.b64decode(img_postagem.read()).decode('utf-8')
+            p['usuario_base64'] - img_data
+            with open(p['postagem_foto'], 'rb') as img_postagem:
+                img_data = base64.b64decode(img_postagem.read()).decode('utf-8')
+            p['postagem_base64'] - img_data
+            return jsonify(postagem), 200
 
     except Exception as e:
         print(f"Error: {e}")
