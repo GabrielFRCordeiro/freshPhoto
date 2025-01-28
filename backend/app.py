@@ -148,7 +148,7 @@ def get_usuario_perfil(id):
         cursor = conn.cursor(dictionary=True)
         cursor.execute("CALL perfil(%s)", (id,))
         usuario = cursor.fetchall()
-        if usuario[0]['foto']:
+        if usuario[0]['foto'] and type(usuario[0]['foto']) != None:
             with open(usuario[0]['foto'], 'rb') as img_file:
                 img_data = base64.b64encode(img_file.read()).decode('utf-8')
 
