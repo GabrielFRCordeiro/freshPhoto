@@ -353,8 +353,9 @@
     border-radius: 100%;
 }
 
-.feed_card div{
-    width: 80%;
+.post_receita{
+    width: 200px;
+    height: 200px;
     border-radius: 100%;
 }
 
@@ -574,6 +575,11 @@
         left: 46%;
     }
 
+    .post_receita{
+        width: 275px;
+        height: 275px;
+    }
+
     /* USER-FEED */
     .post_card div{
         width: 400px;
@@ -669,6 +675,11 @@
         transform: translateY(0);
     }
 
+    .post_receita{
+        width: 220px;
+        height: 220px;
+    }
+
     /* USER FEED */
 
     .cor_fundo{
@@ -693,5 +704,10 @@
 
     .modal_receita {
         width: 30%;
+    }
+
+    .post_receita{
+        width: 290px;
+        height: 290px;
     }
 }
