@@ -227,7 +227,7 @@ def update_user_password(id):
 def delete_user(id):
     conn = get_connection()
     cursor = conn.cursor()
-    cursor.execute("CALL ApagarContaUsuario WHERE id=%s", (id,))
+    cursor.execute("DELETE FROM usuario WHERE id=%s", (id,))
     conn.commit()
     return jsonify({"message": "User deleted successfully"}), 200
 
