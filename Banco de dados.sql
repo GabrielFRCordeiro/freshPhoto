@@ -18,18 +18,14 @@ receita VARCHAR(500),
 data_postagem DATE DEFAULT NOW(),
 FOREIGN KEY (id_usuario) REFERENCES usuario(id)
 );
-CREATE TABLE imagens( 
-id INT AUTO_INCREMENT PRIMARY KEY, 
- usuario_id INT,
- caminho_imagem VARCHAR(255),
- FOREIGN KEY (usuario_id) REFERENCES usuario(id) 
- );
  
- CREATE TABLE seguindo ( id INT AUTO_INCREMENT PRIMARY KEY,
- seguido_id INT, 
- seguidos_id INT, FOREIGN KEY (seguido_id) REFERENCES usuario(id),
- FOREIGN KEY (seguidos_id) REFERENCES usuario(id)
- );
+CREATE TABLE seguindo (
+id INT AUTO_INCREMENT PRIMARY KEY,
+seguido_id INT, 
+seguidos_id INT,
+FOREIGN KEY (seguido_id) REFERENCES usuario(id),
+FOREIGN KEY (seguidos_id) REFERENCES usuario(id)
+);
 
 /*Criando procedures*/
 delimiter //
@@ -91,8 +87,6 @@ DELIMITER ;
 
 DELIMITER //
 
-DELIMITER //
-
 CREATE PROCEDURE obterFotosSeguidos(
     IN usuario_id INT
 )
@@ -121,7 +115,6 @@ BEGIN
 END //
 
 DELIMITER ;
-
 
 DELIMITER //
 
@@ -163,7 +156,6 @@ END //
 
 DELIMITER ;
 
-
 DELIMITER //
 
 CREATE PROCEDURE AtualizarEmail(
@@ -195,18 +187,13 @@ DELIMITER ;
 
 DELIMITER //
 
-CREATE PROCEDURE ApagarContaUsuario(
-    IN p_id_usuario INT
-)
+CREATE TRIGGER tgr_delete_user BEFORE DELETE
+ON usuario
+FOR EACH ROW
 BEGIN
-    
-    IF EXISTS (SELECT 1 FROM usuario WHERE id = p_id_usuario) THEN
-        DELETE FROM usuario
-        WHERE id = p_id_usuario;
-        SELECT CONCAT('usuário com id ', p_id_usuario, ' foi excluido.');
-    ELSE
-        SELECT CONCAT('usuário com id', p_id_usuario, ' não tem.');
-    END IF;
-END //
+	DELETE FROM postagem WHERE id_usuario=OLD.id;
+    DELETE FROM seguindo WHERE seguido_id=OLD.id;
+    DELETE FROM seguindo WHERE seguidos_id=OLD.id;
+END//
 
 DELIMITER ;
