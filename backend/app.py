@@ -182,36 +182,27 @@ def get_card_perfil(id):
         cards_perfil = cursor.fetchall()
 
         for cp in cards_perfil:
-            with open(cp['usuario_foto'], 'rb') as img_usuario:
-                img_data = base64.b64decode(img_usuario.read()).decode('utf-8')
-            cp['usuario_base64'] - img_data
-            with open(cp['postagem_foto'], 'rb') as img_postagem:
-                img_data = base64.b64decode(img_postagem.read()).decode('utf-8')
-            cp['postagem_base64'] - img_data
-            return jsonify(cards_perfil), 200
+
+            if cp.get('usuario_foto'):
+                with open(cp['usuario_foto'], 'rb') as img_usuario:
+                    img_data = base64.b64decode(img_usuario.read()).decode('utf-8')
+                cp['usuario_base64'] = img_data
+            else:
+                cp['usuario_base64'] = None
+            
+            if cp.get('postagem_foto'):
+                with open(cp['postagem_foto'], 'rb') as img_postagem:
+                    img_data = base64.b64decode(img_postagem.read()).decode('utf-8')
+                cp['postagem_base64'] = img_data
+            else:
+                cp['postagem_base64'] = None
+            
+        return jsonify(cards_perfil), 200
 
     except Exception as e:
         print(f"Error: {e}")
         return jsonify({"error": "Failed to fetch products"}), 500
 
-    finally:
-        cursor.close()
-        conn.close()
-
-# Pegar as  categorias
-@app.route("/usuario/categorias", methods=["GET"])
-def get_categorias():
-    try:
-        conn = get_connection()
-        cursor = conn.cursor(dictionary=True)
-        cursor.execute("CALL categorias()")
-        categorias = cursor.fetchall()
-        return jsonify(categorias), 200
-    
-    except Exception as e:
-        print(f"Error: {e}")
-        return jsonify({"error": "Failed to fetch products"}), 500
-    
     finally:
         cursor.close()
         conn.close()
@@ -221,33 +212,22 @@ def get_categorias():
 # TELA MINHA CONTA #
 
 # atualizar senha
-@app.route('/usuario/senha/<int:id>', methods=['PUT'])
+@app.route('/usuario/AtualizarSenha/<int:id>', methods=['PUT'])
 def update_user_password(id):
     data = request.json
     conn = get_connection()
     cursor = conn.cursor()
-    cursor.execute("UPDATE usuario SET senha WHERE id=%s", (data['password'], id))
-    conn.commit()
-    return jsonify({"message": "User updated successfully"}), 200
-
-
-# atualizar email
-@app.route('/usuario/email', methods=['PUT'])
-def update_user_email(id):
-    data = request.json
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute("UPDATE usuario SET email", (data['email'], ))
+    cursor.execute("CALL AtualizarSenha WHERE id=%s", (data['password'], id))
     conn.commit()
     return jsonify({"message": "User updated successfully"}), 200
 
 
 # deletar usuario completo
-@app.route('/usuario', methods=['DELETE'])
+@app.route('/usuario/ApagarContaUsuario/<int:id>', methods=['DELETE'])
 def delete_user(id):
     conn = get_connection()
     cursor = conn.cursor()
-    cursor.execute("DELETE FROM usuario WHERE id=%s", (id,))
+    cursor.execute("CALL ApagarContaUsuario WHERE id=%s", (id,))
     conn.commit()
     return jsonify({"message": "User deleted successfully"}), 200
 
