@@ -112,9 +112,9 @@ BEGIN
             SELECT 
                 seguido_id 
             FROM 
-                seguindo 
+                seguindo
             WHERE 
-                seguidor_id = usuario_id
+                seguidos_id = usuario_id
         )
     ORDER BY 
         p.data_postagem DESC;
