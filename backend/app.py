@@ -88,14 +88,21 @@ def get_card_postado_home():
         postagem = cursor.fetchall()
 
         for p in postagem:
-            with open(p['usuario_foto'], 'rb') as img_postagem:
-                img_data = base64.b64decode(img_postagem.read()).decode('utf-8')
-            p['usuario_base64'] - img_data
-            with open(p['postagem_foto'], 'rb') as img_postagem:
-                img_data = base64.b64decode(img_postagem.read()).decode('utf-8')
-            p['postagem_base64'] - img_data
-            return jsonify(postagem), 200
-
+            if p.get('usuario_foto'):
+                with open(p['usuario_foto'], 'rb') as img_usuario:
+                    img_data = base64.b64encode(img_usuario.read()).decode('utf-8')
+                p['usuario_base64'] = img_data
+            else:
+                p['usuario_base64'] = None
+            
+            if p.get('postagem_foto'):
+                with open(p['postagem_foto'], 'rb') as img_postagem:
+                    img_data = base64.b64encode(img_postagem.read()).decode('utf-8')
+                p['postagem_base64'] = img_data
+            else:
+                p['postagem_base64'] = None
+            
+        return jsonify(postagem), 200
     except Exception as e:
         print(f"Error: {e}")
         return jsonify({"error": "Failed to fetch products"}), 500
