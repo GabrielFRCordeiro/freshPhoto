@@ -7,8 +7,8 @@ const API_URL_PERFIL = 'http://127.0.0.1:5000/usuario/perfil';
 window.addEventListener('load', async (e) => {
     e.preventDefault();
     
-    // console.log(JSON.parse(sessionStorage.getItem('usuario')).id)
-    const response = await fetch(`${API_URL_PERFIL}/${JSON.parse(sessionStorage.getItem('usuario')).id}`);
+    // console.log(JSON.parse(sessionStorage.getItem('usuario')))
+    const response = await fetch(`${API_URL_PERFIL}/${JSON.parse(sessionStorage.getItem('usuario'))}`);
     const user = await response.json();
     user_nome.innerHTML = `${user[0].nome}`
     user_usuario.innerHTML = `@${user[0].usuario}`

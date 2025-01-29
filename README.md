@@ -47,6 +47,8 @@
     IMG_PATH=<caminho_do_repositorio_na_maquina_local>\backend\assets\imgs
     IMG_USER=<caminho_do_repositorio_na_maquina_local>\backend\assets\photo.png
     ```
+> [!WARNING]
+> É necessário criar a pasta `imgs` no caminho especificado
 
 ## 🤝 Colaboradores
 

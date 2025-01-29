@@ -8,7 +8,15 @@ const form_publicar = document.querySelector("#form_publicar");
 // const API_URL_RECEITA = 'http://127.0.0.1:5000/receita';
 // const API_URL_USUARIO = 'http://127.0.0.1:5000/usuario';
 const API_URL_POSTAGEM = 'http://127.0.0.1:5000/postagem';
-// const API_URL_CATEGORIA = 'http://127.0.0.1:5000/categoria';
+const API_URL_CATEGORIA = 'http://127.0.0.1:5000/usuario/categorias';
+
+window.addEventListener('load', async e => {
+    const response = await fetch(API_URL_CATEGORIA);
+    const categorias = response.json();
+    categorias.forEach(categoria => {
+        input_categoria.innerHTML += `<option value="${categoria}">${categoria}</option>`;
+    });
+})
 
 form_publicar.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -55,7 +63,7 @@ form_publicar.addEventListener('submit', async (e) => {
     // });
 
     const formData = new FormData();
-    formData.append('usuario', JSON.parse(sessionStorage.getItem('usuario')).id);
+    formData.append('usuario', JSON.parse(sessionStorage.getItem('usuario')));
     formData.append('categoria', input_categoria.value);
     formData.append('img', input_img.files[0]);
     formData.append('receita', t_field_receita.value);

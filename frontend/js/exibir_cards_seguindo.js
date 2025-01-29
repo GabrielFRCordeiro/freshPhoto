@@ -7,7 +7,7 @@ window.addEventListener('load', async (e) => {
 
     usuario = JSON.parse(sessionStorage.getItem('usuario'));
     // console.log(`${API_URL}/${usuario.id}`)
-    const response = await fetch(`${API_URL}/${usuario.id}`);
+    const response = await fetch(`${API_URL}/${usuario}`);
     const postagens = await response.json();
     console.log(postagens)
 

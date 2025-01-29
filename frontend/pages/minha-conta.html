@@ -21,20 +21,13 @@
           <h2 class="text_white">Minha conta</h2>
           
           <div class="d-flex flex-column align-items-center">
-            <label for="user_img" class="w-100 d-flex justify-content-center">
-              <img id="img_preview" class="img_placeholder" src="../assets/img_perfil_padrao.svg" alt="Imagem do usuário">
-            </label>
-            <input type="file" name="user_img" id="user_img" accept="image/*" class="img_cadastrar">
+            <div class="user_img_container">
+                <img id="user_img" class='w-100 h-100 object-fit-cover' src='../assets/img_perfil_padrao.svg' alt='imagem padrão de usuário' />
+            </div>
             
             <h3 id="user_nome" class="titulo_config">Nome</h3>
             <p id="user_usuario" class="text_white">@usuario</p>
           </div>
-          
-            <form class="d-flex flex-column">
-              <input type="email" id="t_field_email" class="form-control t_field" aria-describedby="passwordHelpBlock" placeholder="usuario@exemplo.com" required>
-              <button type="submit" class="btn_acao" id="btn_email">Alterar email</button>
-            </form>
-            
             <form class="d-flex flex-column">
               <input type="password" id="t_field_senha" class="form-control t_field" aria-describedby="passwordHelpBlock" placeholder="Cadastrar nova senha" required>
               <button type="submit" class="btn_acao" id="btn_senha">Alterar senha</button>
@@ -56,8 +49,8 @@
           document.getElementById('usuarioNome').textContent = usuarioNome;
         }
     </script>
+    <script src="../js/user_perfil.js"></script>
     <script src="../js/voltar_pagina.js"></script>
-    <script src="../js/img_cadastrar.js"></script>
     <script src="../js/atualizar_dados.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

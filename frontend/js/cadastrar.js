@@ -82,6 +82,6 @@ async function storeSession(usuario) {
     const response = await fetch(`${API_URL_CURRENT_USER}/${usuario}`);
     const user = await response.json();
 
-    sessionStorage.setItem('usuario', JSON.stringify(user[0]));
+    sessionStorage.setItem('usuario', JSON.stringify(user[0].id));
     window.location.href = 'perfil.html';
 }
