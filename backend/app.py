@@ -183,19 +183,21 @@ def get_card_perfil(id):
 
         for cp in cards_perfil:
 
+            # Verifique se o caminho da foto do usuário não é None ou vazio
             if cp.get('usuario_foto'):
                 with open(cp['usuario_foto'], 'rb') as img_usuario:
-                    img_data = base64.b64decode(img_usuario.read()).decode('utf-8')
+                    img_data = base64.b64encode(img_usuario.read()).decode('utf-8')   # Codifica para base64 e depois decodifica como string
                 cp['usuario_base64'] = img_data
             else:
-                cp['usuario_base64'] = None
+                cp['usuario_base64'] = None    # Ou outro valor padrão, se necessário
             
+            # Verifique se o caminho da foto da postagem não é None ou vazio
             if cp.get('postagem_foto'):
                 with open(cp['postagem_foto'], 'rb') as img_postagem:
-                    img_data = base64.b64decode(img_postagem.read()).decode('utf-8')
+                    img_data = base64.b64encode(img_postagem.read()).decode('utf-8')  # Codifica para base64 e depois decodifica como string
                 cp['postagem_base64'] = img_data
             else:
-                cp['postagem_base64'] = None
+                cp['postagem_base64'] = None    # Ou outro valor padrão, se necessário
             
         return jsonify(cards_perfil), 200
 
