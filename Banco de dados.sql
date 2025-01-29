@@ -36,7 +36,7 @@ delimiter //
 
 CREATE PROCEDURE login()
 BEGIN
-	SELECT usuario, email, senha FROM usuario;
+	SELECT id, usuario, email, senha FROM usuario;
 END //
 
 delimiter ;
@@ -45,7 +45,7 @@ delimiter //
 
 CREATE PROCEDURE cadastrar()
 BEGIN
-	SELECT usuario, email FROM usuario;
+	SELECT id, usuario, email FROM usuario;
 END //
 
 delimiter ;

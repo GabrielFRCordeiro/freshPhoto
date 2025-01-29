@@ -4,7 +4,6 @@ const form_login = document.querySelector("#form_login");
 const text_validacao = document.querySelector('#text_validacao');
 
 const API_URL = 'http://127.0.0.1:5000/usuario/login';
-const API_URL_CURRENT_USER = 'http://127.0.0.1:5000/usuario/user';
 
 form_login.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -24,17 +23,8 @@ form_login.addEventListener('submit', async (e) => {
             text_validacao.innerText = 'Usuário ou senha incorretos';
 		    text_validacao.style.display = 'block';
         } else {
-            // sessionStorage.setItem('usuario', user.id);
-            storeSession(user.usuario)
-            // window.location.href = 'perfil.html';
+            sessionStorage.setItem('usuario', user.id);
+            window.location.href = 'perfil.html';
         }
     });
 })
-
-async function storeSession(usuario) {
-    const response = await fetch(`${API_URL_CURRENT_USER}/${usuario}`);
-    const user = await response.json();
-
-    sessionStorage.setItem('usuario', JSON.stringify(user[0].id));
-    window.location.href = 'perfil.html';
-}
