@@ -7,15 +7,6 @@ window.addEventListener('load', async (e) => {
 
     const response = await fetch(API_URL);
     const postagens = await response.json();
-    console.log(postagens)
-
-    // let cards_teste = []
-    // postagens.forEach(postagem => {
-    //     if (postagem.usuario == sessionStorage.getItem("usuario")) {
-    //         cards_teste.push(postagem.foto);
-    //     }
-    // });
-    // console.log(cards_teste)
     show_cards(postagens);
 })
 
