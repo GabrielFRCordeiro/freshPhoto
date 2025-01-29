@@ -15,7 +15,7 @@ function show_cards(cards) {
     cards.forEach(card => {
         feed_cards.innerHTML += `<div class="feed_card d-flex justify-content-center" role="button">
                 <div class="d-flex align-items-center post_receita">
-                    <img data-src="${card.postagem_foto}" alt="" class="lazy">
+                    <img src="data:image/png;base64,${card.postagem_base64}" alt="" class="lazy">
                 </div>
             </div>`
     });
