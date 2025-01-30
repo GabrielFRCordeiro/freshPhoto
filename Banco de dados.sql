@@ -179,7 +179,7 @@ CREATE PROCEDURE AtualizarSenha(
 BEGIN
 
     UPDATE usuario
-    SET senha = SHA2(p_nova_senha, 256)
+    SET senha = p_nova_senha
     WHERE id = p_id_usuario;
 END //
 

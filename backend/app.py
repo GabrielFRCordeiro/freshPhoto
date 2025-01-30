@@ -226,7 +226,7 @@ def update_user_password(id):
     data = request.json
     conn = get_connection()
     cursor = conn.cursor()
-    cursor.execute("CALL AtualizarSenha WHERE id=%s", (data['password'], id))
+    cursor.execute("CALL AtualizarSenha(%s, %s)", (id, data['password']))
     conn.commit()
     return jsonify({"message": "User updated successfully"}), 200
 

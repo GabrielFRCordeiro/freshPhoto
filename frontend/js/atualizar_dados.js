@@ -1,6 +1,6 @@
 const btn_senha = document.querySelector("#btn_senha");
 const btn_email = document.querySelector("#btn_email");
-const API_URL_SENHA = `http://127.0.0.1:5000/usuario/senha/${JSON.parse(sessionStorage.getItem('usuario'))}`;
+const API_URL_SENHA = `http://127.0.0.1:5000/usuario/AtualizarSenha/${JSON.parse(sessionStorage.getItem('usuario'))}`;
 const API_URL_DELETE = `http://127.0.0.1:5000/usuario/ApagarContaUsuario/${JSON.parse(sessionStorage.getItem('usuario'))}`;
 
 btn_senha.addEventListener('click', async (e)=> {
@@ -10,7 +10,7 @@ btn_senha.addEventListener('click', async (e)=> {
     await fetch(API_URL_SENHA, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(nova_senha)
+        body: JSON.stringify({'password':nova_senha})
     });
 })
 
