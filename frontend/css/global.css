@@ -140,6 +140,11 @@ h1, h2, h3 {
     position: relative;
 }
 
+.img_apresentacao{
+    margin-top: 10px;
+    width: 70em;
+}
+
 .img_logo{
     width: 12em;
 }
@@ -149,7 +154,7 @@ h1, h2, h3 {
     content: attr(data-titulo);
     position: absolute;
     left: -.1em;
-    bottom: -1.5em;
+    top: -1.5em;
     color: var(--color-title);
     font-size: 2em;
     width: 7em;
@@ -307,10 +312,10 @@ h1, h2, h3 {
     '. logo btn_login .'  1fr
     '. logo btn_cadastrar .'  1fr
     '. . . .'  1fr
-    / .25fr .25fr .25fr .25fr;
+    / .10fr .90fr .50fr .10fr;
     }
 
-    .img_logo{
-        width: 20em;
+    .img_apresentacao{
+        width: 50em;
     }
 }
