@@ -163,8 +163,8 @@
     left: 0;
     display: grid;
     grid-template:
-    'user_img user_nome menu' .33fr
     'user_img user_usuario menu' .33fr
+    'user_img user_nome menu' .33fr
     '. btn_postar .' .33fr
     / 1fr 1fr 1fr
     ;
@@ -184,16 +184,22 @@
 
 .caixaPerfil h2{
     color: var(--color-white);
-    font-size: 3rem;
+    font-size: 1.7rem;
     margin: 0;
     grid-area: user_nome;
-    align-self: end;
+    align-self: center;
+    text-align: center;
+    margin-top: -20px;
+
 }
 
 .caixaPerfil p{
     color: var(--color-white);
     font-size: 2rem;
     grid-area: user_usuario;
+    margin-bottom: 0;
+    align-self: end;
+    text-align: end;
 }
 
 .caixaPerfil .btn_postar {
@@ -641,11 +647,12 @@
         background-color: transparent;
         grid-template:
         '. . . . menu' .25fr
-        '. user_img user_nome btn_postar .' .25fr
         '. user_img user_usuario btn_postar .' .25fr
+        '. user_img user_nome btn_postar .' .25fr
         '. . . . .' .25fr
         / 1fr 1fr 1fr 1fr 1fr
         ;
+        border-bottom: var(--color-dots) 2px solid
     }
 
     .caixaPerfil .user_img{
