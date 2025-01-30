@@ -149,12 +149,24 @@ h1, h2, h3 {
     width: 12em;
 }
 
-.img_container::after{
+.img_apresentacao_container::after{
     font-family: 'Kodchasan';
     content: attr(data-titulo);
     position: absolute;
     left: -.1em;
     top: -1.5em;
+    color: var(--color-title);
+    font-size: 2em;
+    width: 7em;
+    font-weight: bold;
+}
+
+.img_logo_container::after{
+    font-family: 'Kodchasan';
+    content: attr(data-titulo);
+    position: absolute;
+    left: -.1em;
+    bottom: -1.5em;
     color: var(--color-title);
     font-size: 2em;
     width: 7em;
