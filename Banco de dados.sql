@@ -71,6 +71,7 @@ CREATE PROCEDURE retornarTodosPosts()
 BEGIN
     SELECT 
         p.id AS postagem_id,
+        u.id AS usuario_id,
         u.foto AS usuario_foto,
         u.usuario,
         p.foto AS postagem_foto,
@@ -93,6 +94,7 @@ CREATE PROCEDURE obterFotosSeguidos(
 BEGIN
     SELECT 
         p.id AS postagem_id,
+        u.id AS usuario_id,
         u.foto AS usuario_foto,
         u.usuario,
         p.foto AS postagem_foto,
@@ -124,6 +126,7 @@ CREATE PROCEDURE retornarPostsUsuario(
 BEGIN
     SELECT 
         p.id AS postagem_id,
+        u.id AS usuario_id,
         u.foto AS usuario_foto,
         u.usuario,
         p.foto AS postagem_foto,
