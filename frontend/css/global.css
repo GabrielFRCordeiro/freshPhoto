@@ -16,7 +16,6 @@
     --color-btn-active: #6e7535;
     --color-cadastrar: #d17373;
     --color-entrar: #FEE2D0;
-    --color-validacao: #e92e2e;
     --color-modal: #FEE2D080;
     --color-img-modal: #FEE2D0;
     --color-dots: #00000033;
@@ -221,7 +220,7 @@ h1, h2, h3 {
 }
 
 .validacao{
-    color: var(--color-validacao);
+    color: var(--color-white);
     font-size: .8em;
     display: none;
 }
