@@ -7,7 +7,7 @@ const modal_config = document.querySelector("#modal_config");
 const btn_menu_desktop = document.querySelector("#btn_menu_desktop");
 const btn_menu_mobile = document.querySelector("#btn_menu_mobile");
 const modal_receita = document.querySelector("#modal_receita");
-const post_receita = document.querySelectorAll(".post_receita");
+const post_receita = document.querySelectorAll(".btn_receita");
 const sessao = sessionStorage.getItem('usuario');
 const modal_entrar = document.querySelector('#modal_entrar');
 

@@ -1,6 +1,7 @@
 const feed_cards = document.querySelector('#feed_cards');
 
 const API_URL = 'http://127.0.0.1:5000/home';
+const API_URL_RECEITA = 'http://127.0.0.1:5000/postagem/receita';
 
 window.addEventListener('load', async (e) => {
     e.preventDefault();
@@ -9,7 +10,32 @@ window.addEventListener('load', async (e) => {
     const postagens = await response.json();
     show_cards(postagens);
     const cards = document.querySelectorAll('.feed_card');
-    navegar_perfil(cards);    
+    navegar_perfil(cards);
+    const post_receita = document.querySelectorAll(".btn_receita");
+    const modal_receita = document.querySelector("#modal_receita");
+    const texto_receita = document.querySelector('#texto_receita');
+    post_receita.forEach(post => {
+        post.addEventListener('click', async (e) => {
+            const receita_response = await fetch(`${API_URL_RECEITA}/${post.dataset.postagem}`)
+            const receita_lista = await receita_response.json();
+            let receita = receita_lista[0].receita
+            if (!receita) {
+                receita = 'Esta postagem não possui uma receita.'
+            }
+            texto_receita.innerText = receita
+        })
+    });
+    if (modal_receita) {
+        post_receita.forEach(post => {
+          post.onclick = () => {
+            modal_receita.style.display = "flex";
+          }
+        });
+      
+        btn_modal_receita.onclick = () => {
+          modal_receita.style.display = "none";
+        }
+    }
 })
 
 function show_cards(cards) {
@@ -27,7 +53,7 @@ function show_cards(cards) {
                     </div>
                     <div class="post_info d-flex justify-content-between align-items-center mb-5">
                         <p class="p-2">${card.categoria}</p>
-                        <button class="btn_receita">
+                        <button class="btn_receita" data-postagem="${card.postagem_id}">
                             <img src="../assets/icon_receita.svg" alt="botao para ver receita">
                         </button>
                     </div>
@@ -46,7 +72,7 @@ function show_cards(cards) {
                     </div>
                     <div class="post_info d-flex justify-content-between align-items-center mb-5">
                         <p class="p-2">${card.categoria}</p>
-                        <button class="btn_receita">
+                        <button class="btn_receita" data-postagem="${card.postagem_id}">
                             <img src="../assets/icon_receita.svg" alt="botao para ver receita">
                         </button>
                     </div>
