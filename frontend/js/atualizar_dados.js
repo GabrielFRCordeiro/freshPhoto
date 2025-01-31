@@ -27,16 +27,19 @@ btn_excluir.addEventListener('click', async (e) => {
         mode: 'cors'
     })
 
-    sessionStorage.removeItem('usuario')
-    window.location.href = 'cadastrar.html';
+    sessionStorage.removeItem('usuario');
+    texto_dados.innerText = 'Conta excluída com sucesso!'
+    modal_dados.style.display = "flex";
 })
 
 btn_modal_dados.onclick = () => {
     modal_dados.style.display = "none";
+    window.location.href = 'cadastrar.html';
 }
 
 window.onclick = e => {
     if (e.target == modal_dados) {
         modal_dados.style.display = "none";
+        window.location.href = 'cadastrar.html';
     }
 }
