@@ -27,7 +27,7 @@ function show_cards(cards) {
                     </div>
                     <div class="post_info d-flex justify-content-between align-items-center mb-5">
                         <p class="p-2">${card.categoria}</p>
-                        <button>
+                        <button class="btn_receita">
                             <img src="../assets/icon_receita.svg" alt="botao para ver receita">
                         </button>
                     </div>
@@ -46,7 +46,7 @@ function show_cards(cards) {
                     </div>
                     <div class="post_info d-flex justify-content-between align-items-center mb-5">
                         <p class="p-2">${card.categoria}</p>
-                        <button>
+                        <button class="btn_receita">
                             <img src="../assets/icon_receita.svg" alt="botao para ver receita">
                         </button>
                     </div>
@@ -60,7 +60,7 @@ function show_cards(cards) {
 function navegar_perfil(cards) {
     cards.forEach(card => {
         card.addEventListener('click', e => {
-            if (card.dataset.usuario == sessionStorage.getItem('usuario')) {
+            if ((card.dataset.usuario == sessionStorage.getItem('usuario') && e.target == card.firstChild)) {
                 e.preventDefault();
                 window.location.href = 'perfil.html';
             } else {
