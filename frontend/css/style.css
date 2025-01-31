@@ -514,48 +514,6 @@
     margin-bottom: 0;
 }
 
-/* PESQUISA */
-.pesquisa {
-    width: 100vw;
-    background-color: var(--color-primary);
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.pesquisa :is(input, button) {
-    border: none;
-    background-color: var(--color-btn);
-}
-
-.pesquisa input {
-    width: 90%;
-    position: relative;
-    border-radius: .5em;
-}
-
-.pesquisa input::before {
-    content: '\F52A';
-    position: absolute;
-    left: 1em;
-    color: var(--color-white);
-    font-size: 1em;
-    width: 1em;
-    font-weight: bold;
-}
-
-.pesquisa input::placeholder {
-    color: var(--color-white);
-    padding-left: 1.2em;
-}
-
-.pesquisa button {
-    color: var(--color-white);
-    width: 8em;
-    font-size: .8rem;
-    border-radius: 1em;
-}
-
 /* MINHA CONTA */
 .text_white {
     color: var(--color-white);
