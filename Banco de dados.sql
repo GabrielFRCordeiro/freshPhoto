@@ -80,7 +80,7 @@ BEGIN
     INNER JOIN 
         usuario u ON p.id_usuario = u.id
     ORDER BY 
-        p.data_postagem DESC;
+        p.id DESC;
 END //
  
 DELIMITER ;
@@ -111,7 +111,7 @@ BEGIN
                 seguidos_id = usuario_id
         )
     ORDER BY 
-        p.data_postagem DESC;
+        p.id DESC;
 END //
 
 DELIMITER ;
@@ -135,7 +135,7 @@ BEGIN
     WHERE 
         p.id_usuario = usuario_id
     ORDER BY 
-        p.data_postagem DESC;
+        p.id DESC;
 END //
 
 DELIMITER ;

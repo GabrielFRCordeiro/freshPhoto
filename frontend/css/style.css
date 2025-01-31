@@ -695,7 +695,7 @@
         transform: translateY(80%);
     }
 
-    :is(.perfil_cards, .feed_cards) :last-child{
+    :is(.perfil_cards, .feed_cards) .feed_card:last-child{
         transform: translateY(0);
     }
 
