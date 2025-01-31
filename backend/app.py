@@ -93,7 +93,9 @@ def get_card_postado_home():
                     img_data = base64.b64encode(img_usuario.read()).decode('utf-8')
                 p['usuario_base64'] = img_data
             else:
-                p['usuario_base64'] = None
+                with open(os.getenv("IMG_USER"), 'rb') as img_file:
+                    img_data = base64.b64encode(img_file.read()).decode('utf-8')
+                p['usuario_base64'] = img_data
             
             if p.get('postagem_foto'):
                 with open(p['postagem_foto'], 'rb') as img_postagem:
