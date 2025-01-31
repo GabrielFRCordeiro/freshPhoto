@@ -15,4 +15,5 @@ btn_seguir.addEventListener('click', async e => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(vinculo_seguir)
     })
+    btn_seguir.innerText = 'Deixar de seguir'
 })
