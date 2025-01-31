@@ -9,19 +9,14 @@ window.addEventListener('load', async (e) => {
     const postagens = await response.json();
     show_cards(postagens);
     const cards = document.querySelectorAll('.feed_card');
-
-    cards.forEach(card => {
-        card.addEventListener('click', e => {
-            sessionStorage.setItem('usuario-clicado', card.dataset.usuario)
-        })
-    });
+    navegar_perfil(cards);    
 })
 
 function show_cards(cards) {
     feed_cards.innerHTML = ''
     cards.forEach(card => {
         if (cards.length == 2 && card == cards[1]) {   
-        feed_cards.innerHTML += `<div class="feed_card d-flex flex-column align-items-center" style="transform: translateY(0);" data-usuario="${card.usuario_id}">
+            feed_cards.innerHTML += `<div class="feed_card d-flex flex-column align-items-center" style="transform: translateY(0);" data-usuario="${card.usuario_id}">
                 <div>
                     <a href="./outro-perfil.html" class="post_user d-flex align-items-center">
                         <img src="data:image/png;base64,${card.usuario_base64}" alt="perfil do usuario">
@@ -38,7 +33,7 @@ function show_cards(cards) {
                     </div>
                 </div>
             </div>
-    `
+            `
         } else {
             feed_cards.innerHTML += `<div class="feed_card d-flex flex-column align-items-center" data-usuario="${card.usuario_id}">
                 <div>
@@ -57,7 +52,20 @@ function show_cards(cards) {
                     </div>
                 </div>
             </div>
-    `
-    }
+            `
+        }
+    });
+}
+
+function navegar_perfil(cards) {
+    cards.forEach(card => {
+        card.addEventListener('click', e => {
+            if (card.dataset.usuario == sessionStorage.getItem('usuario')) {
+                e.preventDefault();
+                window.location.href = 'perfil.html';
+            } else {
+                sessionStorage.setItem('usuario-clicado', card.dataset.usuario);
+            }
+        })
     });
 }
