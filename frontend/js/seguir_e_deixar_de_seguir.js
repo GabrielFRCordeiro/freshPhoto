@@ -13,7 +13,7 @@ window.addEventListener('load', async e => {
             return
         }
     });
-})
+});
 
 btn_seguir.addEventListener('click', async e => {
     const vinculo_seguir = {
@@ -37,4 +37,8 @@ btn_seguir.addEventListener('click', async e => {
         btn_seguir.innerText = 'deixar de seguir'
         sessionStorage.setItem('seguindo', true)
     }
+});
+
+window.addEventListener('beforeunload', e => {
+    sessionStorage.removeItem('seguindo')
 })
