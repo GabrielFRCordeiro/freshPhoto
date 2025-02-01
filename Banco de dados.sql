@@ -28,10 +28,13 @@ FOREIGN KEY (seguidos_id) REFERENCES usuario(id)
 );
 
 INSERT INTO usuario(nome,usuario,senha,email,foto) VALUES
-('Gabriel Cordeiro','GabrielFRCordeiro','Ti97Ti97','gabriel.frcordeiro@senacsp.edu.br','<caminho_do_repositorio_na_maquina_local>\\backend\\assets\\GabrielFRCordeiro.png'),
-('Gustavo Brito','Gustavo-Brito-Bechelli','Ti97Ti97','gustavo.bbechelli@senacsp.edu.br','<caminho_do_repositorio_na_maquina_local>\\backend\\assets\\Gustavo-Brito-Bechelli.jpeg'),
-('Jheniffer Santiago','JhenySantiag','Ti97Ti97','jheniffer.ssantos@senacsp.edu.br','<caminho_do_repositorio_na_maquina_local>\\backend\\assets\\JhenySantiag.jpeg'),
-('Raviel Sousa','raviel-sousa','Ti97Ti97','raviel.slopes@senacsp.edu.br','<caminho_do_repositorio_na_maquina_local>\\backend\\assets\\raviel-sousa.jpeg');
+('Gabriel Cordeiro','GabrielFRCordeiro','Ti97Ti97','gabriel.frcordeiro@freshphoto.com','<caminho_do_repositorio_na_maquina_local>\\backend\\assets\\GabrielFRCordeiro.png'),
+('Gustavo Brito','Gustavo-Brito-Bechelli','Ti97Ti97','gustavo.bbechelli@freshphoto.com','<caminho_do_repositorio_na_maquina_local>\\backend\\assets\\Gustavo-Brito-Bechelli.jpeg'),
+('Jheniffer Santiago','JhenySantiag','Ti97Ti97','jheniffer.ssantos@freshphoto.com','<caminho_do_repositorio_na_maquina_local>\\backend\\assets\\JhenySantiag.jpeg'),
+('Raviel Sousa','raviel-sousa','Ti97Ti97','raviel.slopes@freshphoto.com','<caminho_do_repositorio_na_maquina_local>\\backend\\assets\\raviel-sousa.jpeg');
+
+INSERT INTO usuario(nome,usuario,senha,email)
+VALUE('Usuário Teste','teste','teste@freshphoto.com','Ti97Ti97');
 
 INSERT INTO seguindo (seguido_id, seguidos_id) VALUES
 ((SELECT id FROM usuario WHERE usuario = 'GabrielFRCordeiro'), (SELECT id FROM usuario WHERE usuario = 'Gustavo-Brito-Bechelli')),
