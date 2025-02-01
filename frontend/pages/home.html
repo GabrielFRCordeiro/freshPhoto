@@ -26,6 +26,13 @@
                     <a href="./perfil.html" class="mt-lg-4 d-flex align-items-center"><i class="bi bi-person-circle navIcon me-2"></i><p class="d-none d-xl-inline mb-0">Perfil</p></a>
                 </div>
                 
+                <div class="modal_entrar_container_nav d-none" id="modal_config_nav">
+                    <div class="d-none w-100 h-100 d-lg-flex flex-column justify-content-lg-end pb-5 ps-3 ps-xl-0">
+                        <a href="./minha-conta.html"><button class="btn_acao btn_entrar fs-6 text-uppercase">minha conta</button></a>
+                        <a><button class="btn_acao btn_entrar fs-6 text-uppercase" id="btn_sair">sair</button></a>
+                    </div>
+                </div>
+
                 <div id="modal_entrar_nav" class="modal_entrar_container_nav d-none">
                     <div class="d-none w-100 h-100 d-lg-flex flex-column justify-content-lg-end pb-5 ps-3 ps-xl-0">
                         <a href="./login.html"><button class="btn_acao btn_entrar fs-6 text-uppercase" id="btn_login"><i class="bi bi-box-arrow-in-right"></i> login</button></a>
@@ -39,9 +46,10 @@
             <h1>Fresh Photo</h1>
         </section>
 
-        <button class="btn_acao btn_menu btn_menu_desktop btn_menu_posicao text-capitalize d-none fs-4 fw-medium" id="btn_menu_desktop">configurações</button>
+        
         <button class="btn_menu btn_menu_mobile btn_menu_posicao_mobile d-inline-block d-lg-none" id="btn_menu_mobile"><i class="bi bi-three-dots-vertical"></i></button>
         <div class="modal_config" id="modal_config">
+            <button class="btn_acao btn_menu btn_menu_desktop btn_menu_posicao text-capitalize d-none fs-4 fw-medium" id="btn_menu_desktop">configurações</button>
             <a href="./minha-conta.html"><button class="btn_acao config_conta fs-5 text-capitalize">minha conta</button></a>
             <button class="btn_acao config_sair fs-5 text-capitalize" id="btn_sair">sair</button>
         </div>
