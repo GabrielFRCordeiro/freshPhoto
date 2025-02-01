@@ -8,7 +8,6 @@ window.addEventListener('load', async (e) => {
 
     const response = await fetch(API_URL);
     const postagens = await response.json();
-    console.log(postagens)
     show_cards(postagens);
     const cards = document.querySelectorAll('.feed_card');
     navegar_perfil(cards);
