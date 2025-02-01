@@ -24,7 +24,7 @@ form_login.addEventListener('submit', async (e) => {
 		    text_validacao.style.display = 'block';
         } else {
             sessionStorage.setItem('usuario', user.id);
-            window.location.href = 'perfil.html';
+            window.location.href = 'home.html';
         }
     });
 })

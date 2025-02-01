@@ -50,7 +50,7 @@ async function valida_formulario(usuario, novo_usuario) {
         const user = await response.json();
 
         sessionStorage.setItem('usuario', JSON.stringify(user[0].id));
-        window.location.href = 'perfil.html';
+        window.location.href = 'home.html';
     };
 };
 
