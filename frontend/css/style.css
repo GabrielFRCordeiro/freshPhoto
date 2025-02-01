@@ -33,6 +33,15 @@
     z-index: 1;
 }
 
+:is(.logo_sem_sessao, .logo_nav) span {
+    font-family: 'Kodchasan';
+    color: var(--color-white);
+}
+
+.logo_nav span {
+    font-size: 1.1rem;
+}
+
 .navIcon{
     color: var(--color-white);
     font-size: 1.5em;
@@ -441,9 +450,7 @@
     right: -1.5rem;
 }
 
-.logo_sem_sessao span {
-    font-family: 'Kodchasan';
-    color: var(--color-white);
+.logo_sem_sessao{
     font-size: 1.2rem;
 }
 
@@ -623,7 +630,7 @@
     /* PERFIL */
 
     .navegacao{
-        width: 10vw !important;
+        width: 15vw !important;
         height: 100vh;
     }
 
@@ -652,8 +659,8 @@
     }
 
     :is(.perfil_cards, .feed_cards){
-        width: 75vw;
-        left: 15%;
+        width: 70vw;
+        left: 20%;
         row-gap: 100px;
     }
 
@@ -696,9 +703,19 @@
     }
 }
 
+@media (min-width: 1200px) {
+    .logo_nav img{
+        width: 25% !important;
+    }
+}
+
 @media (min-width: 1300px) {
     .navIcon {
         font-size: 1.5em;
+    }
+
+    .logo_nav span {
+        font-size: 1.2rem;
     }
 
     .modal_receita {
