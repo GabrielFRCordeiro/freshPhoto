@@ -35,6 +35,14 @@ function validarEmail(email) {
 
 function validarSenha(senha) {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+    /* Explicando regex: 
+    ^           => Início da string.
+    (?=.*[a-z]) => Lookahead para garantir que haja pelo menos uma letra minúscula.
+    (?=.*[A-Z]) => Lookahead para garantir que haja pelo menos uma letra maiúscula.
+    (?=.*\d)    => Lookahead para garantir que haja pelo menos um número.
+    .{8,}       => Garante que a senha tenha no mínimo 8 caracteres.
+    $           => Fim da string.
+    */
     return regex.test(senha);
 }
 
