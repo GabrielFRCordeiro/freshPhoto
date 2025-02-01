@@ -50,7 +50,7 @@ def get_usuario_cadastrar():
 
 
 # criar um novo usuario
-@app.route("/usuario/cadastrar", methods=['POST'])
+@app.route("/usuario/cadastrar", methods=["POST"])
 def criar_usuario():
     load_dotenv()
     nome = request.form.get('nome')
@@ -223,7 +223,7 @@ def get_card_perfil(id):
 # TELA MINHA CONTA #
 
 # atualizar senha
-@app.route('/usuario/AtualizarSenha/<int:id>', methods=['PUT'])
+@app.route('/usuario/AtualizarSenha/<int:id>', methods=["PUT"])
 def update_user_password(id):
     data = request.json
     conn = get_connection()
@@ -331,7 +331,7 @@ def get_postagem(id):
         conn.close()
 
 # criar uma postagem
-@app.route("/postagem", methods=['POST'])
+@app.route("/postagem", methods=["POST"])
 def criar_postagem():
     load_dotenv()
     usuario = request.form.get('usuario')
