@@ -8,8 +8,13 @@ window.addEventListener('load', async (e) => {
 
     const response = await fetch(API_URL);
     const postagens = await response.json();
+    let cards;
     show_cards(postagens);
-    const cards = document.querySelectorAll('.feed_card');
+    if (postagens.length > 0) {
+        cards = document.querySelectorAll('.feed_card');
+    } else {
+        cards = document.querySelectorAll('.post_user');
+    }
     navegar_perfil(cards);
     const post_receita = document.querySelectorAll(".btn_receita");
     const modal_receita = document.querySelector("#modal_receita");
@@ -39,48 +44,73 @@ window.addEventListener('load', async (e) => {
 })
 
 function show_cards(cards) {
-    feed_cards.innerHTML = ''
-    cards.forEach(card => {
-        if (cards.length == 2 && card == cards[1]) {   
-            feed_cards.innerHTML += `<div class="feed_card feed_card_2 d-flex flex-column align-items-center" data-usuario="${card.usuario_id}">
-                <div>
-                    <a href="./outro-perfil.html" class="post_user d-flex align-items-center">
-                        <img src="data:image/png;base64,${card.usuario_base64}" alt="perfil do usuario">
-                        <p class="ps-3">@${card.usuario}</p>
-                    </a>
-                    <div class="d-flex align-items-center align-self-center my-2 post_receita">
-                        <img src="data:image/png;base64,${card.postagem_base64}" alt="postagem do usuario" class="lazy">
-                    </div>
-                    <div class="post_info d-flex justify-content-between align-items-center mb-5">
-                        <p class="p-2">${card.categoria}</p>
-                        <button class="btn_receita" data-postagem="${card.postagem_id}">
-                            <img src="../assets/icon_receita.svg" alt="botao para ver receita">
-                        </button>
-                    </div>
-                </div>
-            </div>
-            `
-        } else {
-            feed_cards.innerHTML += `<div class="feed_card d-flex flex-column align-items-center" data-usuario="${card.usuario_id}">
-                <div>
-                    <a href="./outro-perfil.html" class="post_user d-flex align-items-center">
-                        <img src="data:image/png;base64,${card.usuario_base64}" alt="perfil do usuario">
-                        <p class="ps-3">@${card.usuario}</p>
-                    </a>
-                    <div class="d-flex align-items-center align-self-center my-2 post_receita">
-                        <img src="data:image/png;base64,${card.postagem_base64}" alt="postagem do usuario" class="lazy">
-                    </div>
-                    <div class="post_info d-flex justify-content-between align-items-center mb-5">
-                        <p class="p-2">${card.categoria}</p>
-                        <button class="btn_receita" data-postagem="${card.postagem_id}">
-                            <img src="../assets/icon_receita.svg" alt="botao para ver receita">
-                        </button>
+    if (cards.length > 0) {
+        feed_cards.innerHTML = ''
+        cards.forEach(card => {
+            if (cards.length == 2 && card == cards[1]) {   
+                feed_cards.innerHTML += `<div class="feed_card feed_card_2 d-flex flex-column align-items-center" data-usuario="${card.usuario_id}">
+                    <div>
+                        <a href="./outro-perfil.html" class="post_user d-flex align-items-center">
+                            <img src="data:image/png;base64,${card.usuario_base64}" alt="perfil do usuario">
+                            <p class="ps-3">@${card.usuario}</p>
+                        </a>
+                        <div class="d-flex align-items-center align-self-center my-2 post_receita">
+                            <img src="data:image/png;base64,${card.postagem_base64}" alt="postagem do usuario" class="lazy">
+                        </div>
+                        <div class="post_info d-flex justify-content-between align-items-center mb-5">
+                            <p class="p-2">${card.categoria}</p>
+                            <button class="btn_receita" data-postagem="${card.postagem_id}">
+                                <img src="../assets/icon_receita.svg" alt="botao para ver receita">
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            `
-        }
-    });
+                `
+            } else {
+                feed_cards.innerHTML += `<div class="feed_card d-flex flex-column align-items-center" data-usuario="${card.usuario_id}">
+                    <div>
+                        <a href="./outro-perfil.html" class="post_user d-flex align-items-center">
+                            <img src="data:image/png;base64,${card.usuario_base64}" alt="perfil do usuario">
+                            <p class="ps-3">@${card.usuario}</p>
+                        </a>
+                        <div class="d-flex align-items-center align-self-center my-2 post_receita">
+                            <img src="data:image/png;base64,${card.postagem_base64}" alt="postagem do usuario" class="lazy">
+                        </div>
+                        <div class="post_info d-flex justify-content-between align-items-center mb-5">
+                            <p class="p-2">${card.categoria}</p>
+                            <button class="btn_receita" data-postagem="${card.postagem_id}">
+                                <img src="../assets/icon_receita.svg" alt="botao para ver receita">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                `
+            }
+        });
+    } else {
+        feed_cards.innerHTML = `
+        <div class="feed_card container d-flex flex-column align-items-center">
+            <h2 class="fs-5 text-center">Você ainda não segue ninguém, então aqui estão algumas sugestões para você:</h2>
+            <a href="./outro-perfil.html" class="post_user mt-5 d-flex align-items-center" data-usuario="1">
+                <img src="data:image/png;base64,card.usuario_base64" alt="perfil do usuario">
+                <p class="ps-3">@card.usuario</p>
+            </a>
+            <a href="./outro-perfil.html" class="post_user mt-5 d-flex align-items-center" data-usuario="2">
+                <img src="data:image/png;base64,card.usuario_base64" alt="perfil do usuario">
+                <p class="ps-3">@card.usuario</p>
+            </a>
+            <a href="./outro-perfil.html" class="post_user mt-5 d-flex align-items-center" data-usuario="3">
+                <img src="data:image/png;base64,card.usuario_base64" alt="perfil do usuario">
+                <p class="ps-3">@card.usuario</p>
+            </a>
+            <a href="./outro-perfil.html" class="post_user mt-5 d-flex align-items-center" data-usuario="4">
+                <img src="data:image/png;base64,card.usuario_base64" alt="perfil do usuario">
+                <p class="ps-3">@card.usuario</p>
+            </a>
+        </div>
+        `
+        feed_cards.classList += ' pb-0'
+    }
 }
 
 function navegar_perfil(cards) {

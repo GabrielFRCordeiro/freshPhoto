@@ -196,6 +196,27 @@ DELIMITER ;
 
 DELIMITER //
 
+CREATE PROCEDURE retornarUsuariosPrincipais()
+BEGIN
+    SELECT 
+        id AS usuario_id,
+        foto AS usuario_foto,
+        usuario
+    FROM 
+        usuario
+    WHERE 
+        usuario = 'GabrielFRCordeiro'
+        AND usuario = 'Gustavo-Brito-Bechelli'
+        AND usuario = 'JhenySantiag'
+        AND usuario = 'raviel-sousa'
+    ORDER BY
+        id DESC;
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
 CREATE PROCEDURE retornarPostsUsuario(
     IN usuario_id INT
 )

@@ -587,13 +587,10 @@
 }
 
 /* SEGUINDO */
-.seguindo--nao {
-    margin-top: 5rem;
-}
-
-.seguindo--nao h2 {
+.seguindo h2 {
     /* font-size: 1.2rem; */
     color: var(--color-white);
+    width: 100vw;
 }
 
 @media (min-width: 576px) {
