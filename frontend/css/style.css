@@ -230,6 +230,7 @@
     display: block;
     font-size: 1em;
     color: var(--color-white);
+    margin-top: .5em;
 }
 
 .img_placeholder_publicar {
@@ -257,7 +258,7 @@
 .modal-content :is(.img_placeholder_publicar, .field_verde) i {
     color: var(--color-btn);
     position: absolute;
-    right: .5em;
+    right: 1em;
 }
 
 .modal-content .img_placeholder_publicar i {
@@ -267,7 +268,6 @@
 }
 
 .modal-content .field_categoria{
-    background-color: var(--color-primary);
     border-radius: .7em;
     margin: 0 auto;
     width: 15rem;
@@ -276,6 +276,9 @@
 .modal-content .field_categoria label {
     display: inline;
     margin-right: 1em;
+    color: var(--color-black);
+    font-weight: 500;
+    letter-spacing: .05em;
 }
 
 .modal-content .input_categoria_wrapper {
@@ -288,33 +291,47 @@
     top: 0;
     right: .15rem;
     position: absolute;
+    color: var(--color-white);
+}
+
+.modal-content option {
+    color: var(--color-white);
 }
 
 .modal-content .input_categoria {
     border: none;
     border-radius: .3em;
     padding: .2em .5em;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    height: 2.2em;
 }
 
 .modal-content .field_verde {
     background-color: var(--color-primary);
     border-radius: .7em;
     box-sizing: content-box;
-    padding-bottom: 1em;
+    display: flex;
+    flex-direction: column;
     position: relative;
 }
 
 .modal-content .field_verde label{
-    margin: 0 1em;
+    margin: .5em 1em 0;
+    font-weight: 500;
+    letter-spacing: .05em;
 }
 
 .modal-content textarea {
-    width: 100%;
+    width: 99.5%;
     border: none;
-    border-radius: .5em;
+    border-radius: 0 0 .5em .5em;
     word-wrap: break-word;
     word-break: break-word;
     resize: none;
+    position: relative;
+    bottom: -.5em;
+    align-self: center;
 }
 
 .modal-content textarea[name="legenda"] {
@@ -322,7 +339,7 @@
 }
 
 .modal-content .field_verde i {
-    bottom: 1.5em;
+    bottom: 0.5em;
 }
 
 .modal-content textarea[name="receita"] {
