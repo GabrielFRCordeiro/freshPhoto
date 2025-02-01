@@ -70,21 +70,29 @@
                     <fieldset class="field_informacoes d-flex flex-column justify-content-between col-lg-5">
                         <div class="field_categoria py-1">
                             <span class="input_categoria_wrapper">
-                                <select name="categoria" id="input_categoria" class="input_categoria" required>
-                                    <option value="">selecione uma categoria</option>
-                                    <option value="Bolo">bolo</option>
-                                    <option value="Fruta">fruta</option>
-                                    <option value="Dia-a-dia">dia-a-dia</option>
-                                    <option value="Fast food">fast food</option>
-                                    <option value="Fruto do mar">fruto do mar</option>
-                                    <option value="Legumes">legumes</option>
-                                    <option value="Bebidas">bebidas</option>
-                                    <option value="Caldo">caldo</option>
-                                    <option value="Sopa">sopa</option>
-                                    <option value="Pizza">pizza</option>
+                                <input name="categoria" id="input_categoria" class="input_categoria" list="categoria-list" placeholder="seleciona uma categoria" required>
+                                <datalist id="categoria-list">
+                                    <option value="Bolo"></option>
+                                    <option value="Fruta"></option>
+                                    <option value="Dia-a-dia"></option>
+                                    <option value="Fast food"></option>
+                                    <option value="Fruto do mar"></option>
+                                    <option value="Legumes"></option>
+                                    <option value="Bebidas"></option>
+                                    <option value="Caldo"></option>
+                                    <option value="Sopa"></option>
+                                    <option value="Pizza"></option>
+                                    <option value="Massa"></option>
+                                    <option value="Hamburguer"></option>
+                                    <option value="Salgado"></option>
+                                    <option value="Graos"></option>
+                                    <option value="Vegano"></option>
+                                    <option value="Carne"></option>
+                                    <option value="Laticinio"></option>
+                                    <option value="Legume"></option>
                                     <!-- <option value="doce">doce</option>
                                     <option value="salgado">salgado</option> -->
-                                </select>
+                                </datalist>
                             </span>
                         </div>
                         

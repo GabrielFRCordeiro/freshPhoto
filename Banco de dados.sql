@@ -13,7 +13,7 @@ CREATE TABLE postagem(
 id INT PRIMARY KEY AUTO_INCREMENT,
 id_usuario INT NOT NULL,
 foto VARCHAR(255) NOT NULL,
-categoria ENUM('Bolo', 'Fruta', 'Dia-a-dia', 'Fast food', 'Fruto do mar', 'Legumes', 'Bebidas', 'Caldo', 'Sopa', 'Pizza', 'Massa', 'Hamburger', 'Salgado', 'Grãos', 'Vegano', 'Carne', 'Laticinio', 'Legume') NOT NULL,
+categoria ENUM('Bolo', 'Fruta', 'Dia-a-dia', 'Fast food', 'Fruto do mar', 'Legumes', 'Bebidas', 'Caldo', 'Sopa', 'Pizza', 'Massa', 'Hamburger', 'Salgado', 'Graos', 'Vegano', 'Carne', 'Laticinio', 'Legume') NOT NULL,
 receita VARCHAR(500),
 data_postagem DATE DEFAULT NOW(),
 FOREIGN KEY (id_usuario) REFERENCES usuario(id)

@@ -330,6 +330,10 @@
     height: 2.2em;
 }
 
+.modal-content .input_categoria::placeholder {
+    color: var(--color-white);
+}
+
 .modal-content .field_verde {
     background-color: var(--color-primary);
     border-radius: .7em;

@@ -5,6 +5,7 @@ const t_field_receita = document.querySelector('#t_field_receita');
 const btn_publicar = document.querySelector('#btn_publicar');
 const form_publicar = document.querySelector("#form_publicar");
 const text_validacao = document.querySelector('#text_validacao');
+const categoriaOptions = Array.from(document.querySelectorAll('#categoria-list option')).map(option => option.value);
 
 const API_URL_POSTAGEM = 'http://127.0.0.1:5000/postagem';
 
@@ -51,6 +52,12 @@ form_publicar.addEventListener('submit', async (e) => {
     //         id_receita = receita.id;
     //     }
     // });
+
+    if (!categoriaOptions.includes(input_categoria.value)) {
+        text_validacao.innerText = 'Por favor, selecione uma categoria válida.';
+        text_validacao.style.display = 'block';
+        return;
+    }
 
     if (!input_img.files.length) {
         text_validacao.innerText = 'Por favor, selecione uma imagem.';
