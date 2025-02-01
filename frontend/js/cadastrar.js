@@ -19,7 +19,7 @@ async function verifica_existencia(usuario, email) {
     return usuario_existe;
 };
 
-function validarEmail(email) {
+function validar_email(email) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     /* Explicando regex: 
     ^       => Início da string.
@@ -33,17 +33,20 @@ function validarEmail(email) {
     return regex.test(email);
 }
 
-function validarSenha(senha) {
-    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
-    /* Explicando regex: 
-    ^           => Início da string.
-    (?=.*[a-z]) => Lookahead para garantir que haja pelo menos uma letra minúscula.
-    (?=.*[A-Z]) => Lookahead para garantir que haja pelo menos uma letra maiúscula.
-    (?=.*\d)    => Lookahead para garantir que haja pelo menos um número.
-    .{8,}       => Garante que a senha tenha no mínimo 8 caracteres.
-    $           => Fim da string.
-    */
-    return regex.test(senha);
+function validar_senha(senha) {
+    if (senha.length < 8) {
+        return "A senha deve ter no mínimo 8 caracteres.";
+    }
+    if (!/[A-Z]/.test(senha)) {
+        return "A senha deve conter uma letra maiúscula.";
+    }
+    if (!/[a-z]/.test(senha)) {
+        return "A senha deve conter uma letra minúscula.";
+    }
+    if (!/\d/.test(senha)) {
+        return "A senha deve conter um número.";
+    }
+    return null;
 }
 
 async function valida_formulario(usuario, novo_usuario) {
@@ -52,14 +55,15 @@ async function valida_formulario(usuario, novo_usuario) {
 		text_validacao.style.display = 'block';
     }
     
-    if (!validarEmail(t_field_email.value)) {
+    if (!validar_email(t_field_email.value)) {
         text_validacao.innerText = 'Por favor, insira um e-mail válido';
         text_validacao.style.display = 'block';
         return;
     }
 
-    if (!validarSenha(t_field_senha.value)) {
-        text_validacao.innerText = 'Por favor, insira uma senha mais forte';
+    const mensagem_senha = validar_senha(t_field_senha.value);
+    if (mensagem_senha) {
+        text_validacao.innerText = mensagem_senha;
         text_validacao.style.display = 'block';
         return;
     }
