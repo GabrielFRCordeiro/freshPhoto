@@ -129,20 +129,6 @@
         </section>
     </main>
 
-    <script>
-        let windowSize = window.matchMedia("(min-width: 992px)")
-        
-        feedTop(windowSize);
-        windowSize.addEventListener('change', () => feedTop(windowSize))
-        
-        function feedTop(windowSize) {
-            if (!sessionStorage.getItem('usuario') && windowSize.matches) {
-                document.querySelector('.feed_cards').style.top = '30vh'
-            } else {
-                document.querySelector('.feed_cards').style.top = '10vh'
-            }
-        }
-    </script>
     <script src="../js/validar_sessao.js"></script>
     <script src="../js/lazy_loading.js"></script>
     <script src="../js/exibir_cards_home.js"></script>
