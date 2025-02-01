@@ -4,6 +4,7 @@ const t_field_legenda = document.querySelector('#t_field_legenda');
 const t_field_receita = document.querySelector('#t_field_receita');
 const btn_publicar = document.querySelector('#btn_publicar');
 const form_publicar = document.querySelector("#form_publicar");
+const text_validacao = document.querySelector('#text_validacao');
 
 const API_URL_POSTAGEM = 'http://127.0.0.1:5000/postagem';
 
@@ -51,24 +52,26 @@ form_publicar.addEventListener('submit', async (e) => {
     //     }
     // });
 
+    if (!input_img.files.length) {
+        text_validacao.innerText = 'Por favor, selecione uma imagem.';
+		text_validacao.style.display = 'block';
+        return;
+    }
+
+    if (!input_categoria.value) {
+        text_validacao.innerText = 'Por favor, selecione uma categoria.';
+		text_validacao.style.display = 'block';
+        return;
+    }
+
+    btn_publicar.disabled = true;
+    btn_publicar.innerText = 'Publicando...';
+
     const formData = new FormData();
     formData.append('usuario', JSON.parse(sessionStorage.getItem('usuario')));
     formData.append('categoria', input_categoria.value);
     formData.append('img', input_img.files[0]);
     formData.append('receita', t_field_receita.value);
-
-    if (!input_img.files.length) {
-        console.error('Por favor, selecione uma imagem.');
-        return; // Impede o envio se não houver arquivo
-    }
-
-    if (!input_categoria.value) {
-        console.error('Por favor, selecione uma categoria.');
-        return; // Impede o envio se algum ID estiver vazio
-    }
-
-    btn_publicar.disabled = true;
-    btn_publicar.innerText = 'Publicando...';
 
     await fetch(API_URL_POSTAGEM, {
         method: 'POST',

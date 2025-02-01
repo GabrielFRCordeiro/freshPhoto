@@ -369,6 +369,12 @@
     height: 12em;
 }
 
+.field_informacoes .validacao_postagem{
+    color: var(--color-black);
+    font-size: 1em;
+    display: none;
+}
+
 :is(.perfil_cards, .feed_cards) {
     width: 100%;
     position: absolute;

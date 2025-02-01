@@ -64,7 +64,7 @@
                                 <i class="bi bi-arrow-up-square"></i>
                             </div>
                         </label>
-                        <input type="file" name="publicacao_img" id="publicacao_img" accept="image/*" class="img_cadastrar" enctype="multipart/form-data" required>
+                        <input type="file" name="publicacao_img" id="publicacao_img" accept="image/*" class="img_cadastrar" enctype="multipart/form-data">
                     </fieldset>
 
                     <fieldset class="field_informacoes d-flex flex-column justify-content-between col-lg-5">
@@ -93,6 +93,9 @@
                             <textarea name="receita" id="t_field_receita" maxlength="500"></textarea>
                             <i class="bi bi-pencil"></i>
                         </div>
+
+                        <p class="validacao_postagem text-center mt-5" id="text_validacao"></p>
+
                         <div class="w-100 d-flex justify-content-center mt-5    ">
                             <button type="submit" class="btn_acao text-capitalize" id="btn_publicar" form="form_publicar">publicar</button>
                         </div>
