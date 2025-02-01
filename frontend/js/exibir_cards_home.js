@@ -42,7 +42,7 @@ function show_cards(cards) {
     feed_cards.innerHTML = ''
     cards.forEach(card => {
         if (cards.length == 2 && card == cards[1]) {   
-            feed_cards.innerHTML += `<div class="feed_card d-flex flex-column align-items-center" style="transform: translateY(0);" data-usuario="${card.usuario_id}">
+            feed_cards.innerHTML += `<div class="feed_card feed_card_2 d-flex flex-column align-items-center" data-usuario="${card.usuario_id}">
                 <div>
                     <a href="./outro-perfil.html" class="post_user d-flex align-items-center">
                         <img src="data:image/png;base64,${card.usuario_base64}" alt="perfil do usuario">

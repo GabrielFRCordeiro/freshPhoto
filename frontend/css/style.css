@@ -393,6 +393,10 @@
     border-radius: 100%;
 }
 
+.feed_card:last-child{
+    margin-bottom: 10rem;
+}
+
 .post_receita{
     width: 200px;
     height: 200px;
@@ -714,6 +718,10 @@
 
     .modal_receita {
         width: 40%;
+    }
+
+    .feed_card_2{
+        transform: translateY(0);
     }
 }
 

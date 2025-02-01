@@ -40,7 +40,7 @@ function show_cards(cards) {
     feed_cards.innerHTML = ''
     cards.forEach(card => {
         if (cards.length == 2 && card == cards[1]) {   
-            feed_cards.innerHTML += `<div class="feed_card d-flex flex-column align-items-center" style="transform: translateY(0);">
+            feed_cards.innerHTML += `<div class="feed_card feed_card_2 d-flex flex-column align-items-center">
                     <div>
                         <div class="d-flex align-items-center align-self-center my-2 post_receita">
                             <img src="data:image/png;base64,${card.postagem_base64}" alt="postagem do usuario" class="lazy">
