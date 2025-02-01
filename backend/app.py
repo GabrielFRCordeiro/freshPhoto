@@ -270,7 +270,7 @@ def verificar_seguidores(id):
     try:
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("SELECT * FROM seguidores WHERE seguidos_id=%s", id)
+        cursor.execute("SELECT * FROM seguindo WHERE seguidos_id=%s", (id,))
         usuario = cursor.fetchall() 
         return jsonify(usuario), 200
 
