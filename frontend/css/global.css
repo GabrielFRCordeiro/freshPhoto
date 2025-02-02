@@ -181,6 +181,10 @@ h1, h2, h3 {
     color: var(--color-white);
 }
 
+.link_cadastrar{
+    grid-area: btn_cadastrar;
+}
+
 .btn_entrar:hover{
     background-color: var(--color-btn-hover);
     color: var(--color-white);
@@ -190,10 +194,6 @@ h1, h2, h3 {
     background-color: var(--color-btn-active);
     color: var(--color-white);
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
-}
-
-.link_cadastrar{
-    grid-area: btn_cadastrar;
 }
 
 /* LOGIN */
@@ -224,12 +224,6 @@ h1, h2, h3 {
     letter-spacing: -1.4px;
 }
 
-.validacao{
-    color: var(--color-white);
-    font-size: .8em;
-    display: none;
-}
-
 .btn_entrar_alinhado{
     justify-self: center;
 }
@@ -240,6 +234,12 @@ h1, h2, h3 {
     letter-spacing: -.7px;
 }
 
+.validacao{
+    color: var(--color-white);
+    font-size: .8em;
+    display: none;
+}
+
 .onda span {
     display: inline-block;
     color: var(--color-white);
@@ -248,18 +248,6 @@ h1, h2, h3 {
 .onda:hover span {
     animation: onda 1s ease-in-out infinite;
     animation-delay: calc(0.1s * var(--i));
-}
-
-@keyframes onda {
-    0% {
-        transform: translateY(0px);
-    }
-    20% {
-        transform: translateY(-5px);
-    }
-    40% {
-        transform: translateY(0px);
-    }
 }
 
 /* CADASTRAR */
@@ -334,5 +322,17 @@ h1, h2, h3 {
 
     .img_logo{
         width: 20em;
+    }
+}
+
+@keyframes onda {
+    0% {
+        transform: translateY(0px);
+    }
+    20% {
+        transform: translateY(-5px);
+    }
+    40% {
+        transform: translateY(0px);
     }
 }
