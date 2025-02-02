@@ -6,6 +6,7 @@ const btn_modal_receita = document.querySelector("#btn_modal_receita");
 const modal_config = document.querySelector("#modal_config");
 const btn_menu_desktop = document.querySelector("#btn_menu_desktop");
 const btn_menu_mobile = document.querySelector("#btn_menu_mobile");
+const modal_logo = document.querySelector("#modal_logo");
 const modal_receita = document.querySelector("#modal_receita");
 const post_receita = document.querySelectorAll(".btn_receita");
 const sessao = sessionStorage.getItem('usuario');
@@ -40,6 +41,7 @@ if (modal_config && sessao) {
     modal_entrar.style.width = '100%'
     modal_entrar.style.height = '100%'
     btn_menu_desktop.classList.replace('d-none', 'd-inline-block');
+    modal_logo.classList.replace('d-none', 'd-inline-block');
     btn_menu_mobile.classList.replace('d-inline-block', 'd-none');
     btn_menu_desktop.style.position = "fixed";
   }
@@ -69,6 +71,7 @@ window.onclick = e => {
       modal_entrar.style.width = '16rem'
       modal_entrar.style.height = '100%'
       btn_menu_desktop.classList.replace('d-inline-block', 'd-none');
+      modal_logo.classList.replace('d-inline-block', 'd-none');
       btn_menu_mobile.classList.replace('d-none', 'd-inline-block');
       break;
 

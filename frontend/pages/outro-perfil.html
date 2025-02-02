@@ -59,9 +59,15 @@
                 <a href="./minha-conta.html"><button class="btn_acao config_conta fs-5 text-capitalize">minha conta</button></a>
                 <button class="btn_acao config_sair fs-5 text-capitalize" id="btn_sair_modal">sair</button>
             </div>
-            <div id="modal_entrar" class="modal_entrar d-none">
-                <a href="./login.html"><button class="btn_acao btn_entrar config_conta fs-5 text-uppercase" id="btn_login"><i class="bi bi-box-arrow-in-right"></i> login</button></a>
-                <a href="./cadastrar.html"><button class="btn_acao config_sair config_cadastrar fs-5 text-uppercase" id="btn_cadastrar"><i class="bi bi-pen"></i> cadastrar</button></a>
+            <div class="modal_entrar_container">
+                <div id="modal_entrar" class="modal_entrar d-none">
+                    <a class="logo_nav modal_logo d-none d-lg-flex align-items-center justify-content-center justify-content-xl-start mt-3" href="./home.html" id="modal_logo">
+                        <img src="../assets/img_logo.svg" alt="Logo do Fresh Photo" class="w-25 d-lg-none me-2">
+                        <span class="d-lg-none">Fresh Photo</span>
+                    </a>
+                    <a href="./login.html"><button class="btn_acao btn_entrar config_conta fs-5 text-uppercase" id="btn_login"><i class="bi bi-box-arrow-in-right"></i> login</button></a>
+                    <a href="./cadastrar.html"><button class="btn_acao config_sair config_cadastrar fs-5 text-uppercase" id="btn_cadastrar"><i class="bi bi-pen"></i> cadastrar</button></a>
+                </div>
             </div>
         </header>
 

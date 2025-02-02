@@ -198,6 +198,17 @@
     width: 90%;
 }
 
+.modal_logo {
+    width: 12em;
+    height: 2.5em;
+    position: absolute;
+    top: 1rem;
+    right: 5rem;
+}
+
+.modal_logo span {
+    color: var(--color-black);
+}
 /* HOME */
 
 .caixaTitulo{
