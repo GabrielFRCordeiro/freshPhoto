@@ -252,7 +252,24 @@ def get_card_postado_seguidores(id):
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
         cursor.execute("CALL obterFotosSeguidos(%s)", (id,))
-        postagem = cursor.fetchall() 
+        postagem = cursor.fetchall()
+        for p in postagem:
+            if p.get('usuario_foto'):
+                with open(p['usuario_foto'], 'rb') as img_usuario:
+                    img_data = base64.b64encode(img_usuario.read()).decode('utf-8')
+                p['usuario_base64'] = img_data
+            else:
+                with open(os.getenv("IMG_USER"), 'rb') as img_file:
+                    img_data = base64.b64encode(img_file.read()).decode('utf-8')
+                p['usuario_base64'] = img_data
+            
+            if p.get('postagem_foto'):
+                with open(p['postagem_foto'], 'rb') as img_postagem:
+                    img_data = base64.b64encode(img_postagem.read()).decode('utf-8')
+                p['postagem_base64'] = img_data
+            else:
+                p['postagem_base64'] = None
+
         return jsonify(postagem), 200
 
     except Exception as e:
@@ -272,6 +289,32 @@ def verificar_seguidores(id):
         cursor = conn.cursor(dictionary=True)
         cursor.execute("SELECT * FROM seguindo WHERE seguidos_id=%s", (id,))
         usuario = cursor.fetchall() 
+        return jsonify(usuario), 200
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({"error": "Failed to fetch products"}), 500
+
+    finally:
+        cursor.close()
+        conn.close()
+
+# chamando procedure retornarUsuariosPrincipais
+@app.route("/seguindo", methods=["GET"])
+def get_retornarUsuariosPrincipais():
+    try:
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("CALL retornarUsuariosPrincipais()")
+        usuario = cursor.fetchall()
+        for u in usuario:
+            if u.get('usuario_foto'):
+                with open(u['usuario_foto'], 'rb') as img_usuario:
+                    img_data = base64.b64encode(img_usuario.read()).decode('utf-8')
+                u['usuario_base64'] = img_data
+            else:
+                u['usuario_base64'] = None
+
         return jsonify(usuario), 200
 
     except Exception as e:
