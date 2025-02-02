@@ -3,7 +3,6 @@ const t_field_nome = document.querySelector('#t_field_nome');
 const t_field_usuario = document.querySelector('#t_field_usuario');
 const t_field_senha = document.querySelector('#t_field_senha');
 const t_field_email = document.querySelector('#t_field_email');
-const input_termos = document.querySelector('#input_termos');
 const form_cadastrar = document.querySelector("#form_cadastrar");
 const text_validacao = document.querySelector('#text_validacao');
 
@@ -67,13 +66,7 @@ async function valida_formulario(usuario, novo_usuario) {
         text_validacao.style.display = 'block';
         return;
     }
-    
-    if (!input_termos.checked) {
-        text_validacao.innerText = 'Aceite os Termos de Uso para continuar';
-		text_validacao.style.display = 'block';
-        return;
-    } 
-    
+
     if (usuario) {
         text_validacao.innerText = 'Este usuário já existe';
 		text_validacao.style.display = 'block';
