@@ -50,6 +50,9 @@
 > [!WARNING]
 > É necessário criar a pasta `imgs` no caminho especificado
 
+> [!CAUTION]
+> Este é um projeto educacional. Em projetos reais, não coloque as configurações de ambiente da .env no readme de seu projeto!
+
 ## 🤝 Colaboradores
 
 Agradecemos às seguintes pessoas que contribuíram para este projeto:
