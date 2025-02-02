@@ -205,10 +205,7 @@ BEGIN
     FROM 
         usuario
     WHERE 
-        usuario = 'GabrielFRCordeiro'
-        AND usuario = 'Gustavo-Brito-Bechelli'
-        AND usuario = 'JhenySantiag'
-        AND usuario = 'raviel-sousa'
+        usuario IN ('GabrielFRCordeiro', 'Gustavo-Brito-Bechelli', 'JhenySantiag', 'raviel-sousa')
     ORDER BY
         id DESC;
 END //

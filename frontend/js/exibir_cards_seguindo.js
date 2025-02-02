@@ -1,6 +1,7 @@
 const feed_cards = document.querySelector('#feed_cards');
 
 const API_URL = `http://127.0.0.1:5000/seguindo/obterFotosSeguidos/${JSON.parse(sessionStorage.getItem('usuario'))}`;
+const API_URL_SEM_SEGUIR = 'http://127.0.0.1:5000/seguindo';
 const API_URL_RECEITA = 'http://127.0.0.1:5000/postagem/receita';
 
 window.addEventListener('load', async (e) => {
@@ -8,14 +9,8 @@ window.addEventListener('load', async (e) => {
 
     const response = await fetch(API_URL);
     const postagens = await response.json();
-    let cards;
+    let perfis;
     show_cards(postagens);
-    if (postagens.length > 0) {
-        cards = document.querySelectorAll('.feed_card');
-    } else {
-        cards = document.querySelectorAll('.post_user');
-    }
-    navegar_perfil(cards);
     const post_receita = document.querySelectorAll(".btn_receita");
     const modal_receita = document.querySelector("#modal_receita");
     const texto_receita = document.querySelector('#texto_receita');
@@ -43,7 +38,7 @@ window.addEventListener('load', async (e) => {
     }
 })
 
-function show_cards(cards) {
+async function show_cards(cards) {
     if (cards.length > 0) {
         feed_cards.innerHTML = ''
         cards.forEach(card => {
@@ -87,30 +82,35 @@ function show_cards(cards) {
                 `
             }
         });
+        const perfis = document.querySelectorAll('.feed_card');
+        navegar_perfil(perfis);
     } else {
-        feed_cards.innerHTML = `
-        <div class="feed_card container d-flex flex-column align-items-center">
-            <h2 class="fs-5 text-center">Você ainda não segue ninguém, então aqui estão algumas sugestões para você:</h2>
-            <a href="./outro-perfil.html" class="post_user mt-5 d-flex align-items-center" data-usuario="1">
-                <img src="data:image/png;base64,card.usuario_base64" alt="perfil do usuario">
-                <p class="ps-3">@card.usuario</p>
+        const response = await fetch(API_URL_SEM_SEGUIR);
+        const usuarios = await response.json();
+        show_main_users(usuarios);
+        const perfis = document.querySelectorAll('.post_user');
+        navegar_perfil(perfis);
+    }
+}
+
+function show_main_users(cards) {
+    let html_cards = `
+        <div class="feed_card container d-flex flex-column align-items-start">
+            <h2 class="fs-5 text-center align-self-center">Você ainda não segue ninguém, então aqui estão algumas sugestões para você:</h2>
+    `
+    cards.forEach(card => {
+        html_cards += `
+            <a href="./outro-perfil.html" class="post_user mt-5 d-flex align-items-center" data-usuario="${card.usuario_id}">
+                <img src="data:image/png;base64,${card.usuario_base64}" alt="perfil do usuario">
+                <p class="ps-3">@${card.usuario}</p>
             </a>
-            <a href="./outro-perfil.html" class="post_user mt-5 d-flex align-items-center" data-usuario="2">
-                <img src="data:image/png;base64,card.usuario_base64" alt="perfil do usuario">
-                <p class="ps-3">@card.usuario</p>
-            </a>
-            <a href="./outro-perfil.html" class="post_user mt-5 d-flex align-items-center" data-usuario="3">
-                <img src="data:image/png;base64,card.usuario_base64" alt="perfil do usuario">
-                <p class="ps-3">@card.usuario</p>
-            </a>
-            <a href="./outro-perfil.html" class="post_user mt-5 d-flex align-items-center" data-usuario="4">
-                <img src="data:image/png;base64,card.usuario_base64" alt="perfil do usuario">
-                <p class="ps-3">@card.usuario</p>
-            </a>
+        `
+        })
+        html_cards += `
         </div>
         `
-        feed_cards.classList += ' pb-0'
-    }
+    feed_cards.innerHTML = html_cards
+    feed_cards.classList += ' pb-0'
 }
 
 function navegar_perfil(cards) {
