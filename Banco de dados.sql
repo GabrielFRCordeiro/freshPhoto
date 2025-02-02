@@ -34,7 +34,7 @@ INSERT INTO usuario(nome,usuario,senha,email,foto) VALUES
 ('Raviel Sousa','raviel-sousa','Ti97Ti97','raviel.slopes@freshphoto.com','<caminho_do_repositorio_na_maquina_local>\\backend\\assets\\raviel-sousa.jpeg');
 
 INSERT INTO usuario(nome,usuario,senha,email)
-VALUE('Usuário Teste','teste','teste@freshphoto.com','Ti97Ti97');
+VALUE('Usuário Teste','teste','Ti97Ti97','teste@freshphoto.com');
 
 INSERT INTO seguindo (seguido_id, seguidos_id) VALUES
 ((SELECT id FROM usuario WHERE usuario = 'GabrielFRCordeiro'), (SELECT id FROM usuario WHERE usuario = 'Gustavo-Brito-Bechelli')),
