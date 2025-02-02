@@ -16,6 +16,11 @@ window.addEventListener('load', async e => {
 });
 
 btn_seguir.addEventListener('click', async e => {
+    if (!JSON.parse(sessionStorage.getItem('usuario'))) {
+        window.location.href = 'cadastrar.html'
+        return
+    }
+
     const vinculo_seguir = {
         seguido_id: JSON.parse(sessionStorage.getItem('usuario-clicado')),
         seguidos_id: JSON.parse(sessionStorage.getItem('usuario'))

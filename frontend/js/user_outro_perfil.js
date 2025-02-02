@@ -6,6 +6,10 @@ const API_URL_PERFIL = `http://127.0.0.1:5000/usuario/perfil/${JSON.parse(sessio
 
 window.addEventListener('load', async (e) => {
     e.preventDefault();
+
+    if (!JSON.parse(sessionStorage.getItem('usuario-clicado'))) {
+        window.location.href = 'home.html'
+    }
     
     const response = await fetch(API_URL_PERFIL);
     const user = await response.json();
