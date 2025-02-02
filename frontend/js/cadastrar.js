@@ -94,8 +94,6 @@ async function valida_formulario(usuario, novo_usuario) {
     })
     .catch(error => console.error('Erro:', error));;
 
-    // sessionStorage.setItem('usuario', novo_usuario.usuario);
-    // await storeSession(user.usuario)
     const response = await fetch(`${API_URL_CURRENT_USER}/${novo_usuario.usuario}`);
     const user = await response.json();
 

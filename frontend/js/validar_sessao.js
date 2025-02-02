@@ -10,7 +10,6 @@ if (sessao_validada) {
     btn_menu_desktop.classList.add('d-lg-inline-block');
     modal_config_nav.classList.add('d-lg-block');
 } else {
-    // sem_sessao.classList.add('d-lg-inline-block');
     sem_sessao_nav.classList.add('d-lg-block');
     modal_entrar.style.position = 'absolute'
     modal_entrar.style.width = '16rem'

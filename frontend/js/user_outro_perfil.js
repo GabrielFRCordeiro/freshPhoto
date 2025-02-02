@@ -4,8 +4,6 @@ const user_img = document.querySelector("#user_img");
 
 const API_URL_PERFIL = `http://127.0.0.1:5000/usuario/perfil/${JSON.parse(sessionStorage.getItem('usuario-clicado'))}`;
 
-// sessionStorage.removeItem('usuario-clicado');
-
 window.addEventListener('load', async (e) => {
     e.preventDefault();
     

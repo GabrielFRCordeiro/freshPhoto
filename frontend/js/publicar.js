@@ -12,47 +12,6 @@ const API_URL_POSTAGEM = 'http://127.0.0.1:5000/postagem';
 form_publicar.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // const receita = {texto: t_field_receita.value}
-
-    // await fetch(API_URL_RECEITA, {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify(receita)
-    // });
-
-    // const response_users = await fetch(API_URL_USUARIO);
-    // const users = await response_users.json();
-
-    // let id_usuario = '';
-
-    // users.forEach(user => {
-    //     if (user.usuario === sessionStorage.getItem('usuario')) {
-    //         id_usuario = user.id;
-    //     }
-    // });
-
-    // const response_categorias = await fetch(API_URL_CATEGORIA);
-    // const categorias = await response_categorias.json();
-
-    // let id_categoria = '';
-
-    // categorias.forEach(categoria => {
-    //     if (categoria.nome === input_categoria.value) {
-    //         id_categoria = categoria.id;
-    //     }
-    // });
-
-    // const response_receitas = await fetch(API_URL_RECEITA);
-    // const receitas = await response_receitas.json();
-
-    // let id_receita = '';
-
-    // receitas.forEach(receita => {
-    //     if (receita.texto === t_field_receita.value) {
-    //         id_receita = receita.id;
-    //     }
-    // });
-
     if (!categoriaOptions.includes(input_categoria.value)) {
         text_validacao.innerText = 'Por favor, selecione uma categoria válida.';
         text_validacao.style.display = 'block';
