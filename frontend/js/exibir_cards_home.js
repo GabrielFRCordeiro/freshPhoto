@@ -54,7 +54,7 @@ function show_cards(cards) {
                     <div class="post_info d-flex justify-content-between align-items-center mb-5">
                         <p class="p-2">${card.categoria}</p>
                         <button class="btn_receita" data-postagem="${card.postagem_id}">
-                            <img src="../assets/icon_receita.svg" alt="botao para ver receita">
+                            <img src="../assets/icon_receita.png" alt="botao para ver receita">
                         </button>
                     </div>
                 </div>
@@ -73,7 +73,7 @@ function show_cards(cards) {
                     <div class="post_info d-flex justify-content-between align-items-center mb-5">
                         <p class="p-2">${card.categoria}</p>
                         <button class="btn_receita" data-postagem="${card.postagem_id}">
-                            <img src="../assets/icon_receita.svg" alt="botao para ver receita">
+                            <img src="../assets/icon_receita.png" alt="botao para ver receita">
                         </button>
                     </div>
                 </div>
