@@ -20,8 +20,9 @@
 
             
             <form id="form_cadastrar">
-                <label for="user_img" class="w-100 d-flex justify-content-center">
+                <label for="user_img" class="w-100 d-flex justify-content-center label_img_placeholder">
                     <img id="img_preview" class="img_placeholder" src="../assets/img_perfil_padrao.svg" alt="Imagem do usuário">
+                    <i class="bi bi-pen img_placeholder_icon"></i>
                 </label>
                 <input type="file" name="user_img" id="user_img" accept="image/*" class="img_cadastrar">
                   
@@ -34,19 +35,30 @@
                 
                 <input type="email" id="t_field_email" class="form-control t_field" aria-describedby="passwordHelpBlock" placeholder="Email" required>
                 
-                <div class="input-group justify-content-center">
-                    <div class="input-group-text termos_de_uso">
-
-                        <input id="input_termos" class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" required>
-
-                        <label htmlFor="termos" class='ms-2 text-capitalize'>aceitar termos de uso</label>
-                    </div>
-                </div>
                 <p class="validacao text-center" id="text_validacao"></p>
                 
-                <div class="d-grid gap-2">
+                <div class="d-grid gap-2 mt-3">
                     <button class="btn btn-primary text-uppercase btn_entrar btn_entrar_alinhado" type="submit" id="btn_cadastrar"><i class="bi bi-pen"></i> cadastrar</button>
                 </div>
+                <a href="./login.html"><p class="sem_conta onda text-center mt-3">
+                    <span style="--i: 1;">J</span>
+                    <span style="--i: 2;">á</span>
+                    <span></span>
+                    <span style="--i: 3;">t</span>
+                    <span style="--i: 4;">e</span>
+                    <span style="--i: 5;">m</span>
+                    <span></span>
+                    <span style="--i: 6;">u</span>
+                    <span style="--i: 7;">m</span>
+                    <span style="--i: 8;">a</span>
+                    <span></span>
+                    <span style="--i: 9;">c</span>
+                    <span style="--i: 10;">o</span>
+                    <span style="--i: 11;">n</span>
+                    <span style="--i: 12;">t</span>
+                    <span style="--i: 13;">a</span>
+                    <span style="--i: 14;">?</span>
+                </p></a>
             </form>
         </div>
     </main>

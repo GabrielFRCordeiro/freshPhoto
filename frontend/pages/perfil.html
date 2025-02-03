@@ -14,10 +14,31 @@
     <div class="fundo_melancia2" id="parallax"></div>
     <header>
         <nav class='navbar navegacao fs-1 w-100'>
-            <div class="d-flex flex-lg-column justify-content-around justify-content-lg-start w-100 align-items-lg-center">
-                <a href="./home.html" class="mt-lg-5"><i class="bi bi-house-door navIcon"></i></a>
-                <a href="./seguindo.html" class="mt-lg-4"><i class="bi bi-hand-thumbs-up navIcon"></i></a>
-                <a href="#" class="mt-lg-4"><i class="bi bi-person-circle navIcon navIconFocus"></i></a>
+            <div class="d-flex flex-lg-column justify-content-around justify-content-lg-start w-100 align-items-lg-center align-items-xl-start px-xl-3 px-xxl-4">
+                <a class="logo_nav w-100 d-none d-lg-flex align-items-center justify-content-center justify-content-xl-start mt-3" href="./home.html">
+                    <img src="../assets/img_logo.svg" alt="Logo do Fresh Photo" class="w-50 d-none d-lg-inline me-2">
+                    <span class="d-none d-xl-inline">Fresh Photo</span>
+                </a>
+
+                <div class="d-flex flex-lg-column justify-content-around justify-content-lg-start w-100 align-items-lg-center align-items-xl-start">
+                    <a href="./home.html" class="mt-lg-5 d-flex align-items-center"><i class="bi bi-house-door navIcon me-2"></i><p class="d-none d-xl-inline mb-0 texto_nav">Home</p></a>
+                    <a href="./seguindo.html" class="mt-lg-4 d-flex align-items-center"><i class="bi bi-hand-thumbs-up navIcon me-2"></i><p class="d-none d-xl-inline mb-0 texto_nav">Seguindo</p></a>
+                    <a href="#" class="mt-lg-4 d-flex align-items-center"><i class="bi bi-person-circle navIcon navIconFocus me-2"></i><p class="d-none d-xl-inline mb-0 texto_nav">Perfil</p></a>
+                </div>
+                
+                <div class="modal_entrar_container_nav d-none" id="modal_config_nav">
+                    <div class="d-none w-100 h-100 d-lg-flex flex-column justify-content-lg-end pb-5 ps-3 ps-xl-0">
+                        <a href="./minha-conta.html"><button class="btn_acao btn_entrar fs-6 text-uppercase">minha conta</button></a>
+                        <a><button class="btn_acao btn_entrar fs-6 text-uppercase" id="btn_sair">sair</button></a>
+                    </div>
+                </div>
+
+                <div id="modal_entrar_nav" class="modal_entrar_container_nav d-none">
+                    <div class="d-none w-100 h-100 d-lg-flex flex-column justify-content-lg-end pb-5 ps-3 ps-xl-0">
+                        <a href="./login.html"><button class="btn_acao btn_entrar fs-6 text-uppercase" id="btn_login"><i class="bi bi-box-arrow-in-right"></i> login</button></a>
+                        <a href="./cadastrar.html"><button class="btn_acao config_cadastrar fs-6 text-uppercase" id="btn_cadastrar"><i class="bi bi-pen"></i> cadastrar</button></a>
+                    </div>
+                </div>
             </div>
         </nav>
     </header>
@@ -25,10 +46,10 @@
     <main class="w-100">
         <header class='caixaPerfil w-100 px-5'>
             <div class="user_img_container">
-                <img id="user_img" class='w-100 h-100 object-fit-cover' src='../assets/img_perfil_padrao.svg' alt='imagem padrão de usuário' />
+                <img id="user_img" class='w-100 h-100 object-fit-cover' src='' alt='' />
             </div>
-            <h2 id="user_nome">Nome</h2>
-            <p id="user_usuario">@usuario</p>
+            <h2 id="user_nome"></h2>
+            <p id="user_usuario"></p>
 
             <button class="btn_acao btn_postar text-capitalize" id="btn_postar">publicar</button>
 
@@ -43,28 +64,35 @@
                                 <i class="bi bi-arrow-up-square"></i>
                             </div>
                         </label>
-                        <input type="file" name="publicacao_img" id="publicacao_img" accept="image/*" class="img_cadastrar" enctype="multipart/form-data" required>
+                        <input type="file" name="publicacao_img" id="publicacao_img" accept="image/*" class="img_cadastrar" enctype="multipart/form-data">
                     </fieldset>
 
                     <fieldset class="field_informacoes d-flex flex-column justify-content-between col-lg-5">
-                        <div class="field_categoria px-3 py-1">
-                            <label for="input_categoria" class="text-capitalize">categoria</label>
+                        <div class="field_categoria py-1">
                             <span class="input_categoria_wrapper">
-                                <select name="categoria" id="input_categoria" class="input_categoria" required>
-                                    <option value="">selecione</option>
-                                    <option value="Bolo">bolo</option>
-                                    <option value="Fruta">fruta</option>
-                                    <option value="Dia-a-dia">dia-a-dia</option>
-                                    <option value="Fast food">fast food</option>
-                                    <option value="Fruto do mar">fruto do mar</option>
-                                    <option value="Legumes">legumes</option>
-                                    <option value="Bebidas">bebidas</option>
-                                    <option value="Caldo">caldo</option>
-                                    <option value="Sopa">sopa</option>
-                                    <option value="Pizza">pizza</option>
-                                    <!-- <option value="doce">doce</option>
-                                    <option value="salgado">salgado</option> -->
-                                </select>
+                                <input name="categoria" id="input_categoria" class="input_categoria" list="categoria-list" placeholder="seleciona uma categoria" required>
+                                <datalist id="categoria-list">
+                                    <option value="Bolo"></option>
+                                    <option value="Fruta"></option>
+                                    <option value="Dia-a-dia"></option>
+                                    <option value="Fast food"></option>
+                                    <option value="Fruto do mar"></option>
+                                    <option value="Legumes"></option>
+                                    <option value="Bebidas"></option>
+                                    <option value="Caldo"></option>
+                                    <option value="Sopa"></option>
+                                    <option value="Pizza"></option>
+                                    <option value="Massa"></option>
+                                    <option value="Hamburguer"></option>
+                                    <option value="Salgado"></option>
+                                    <option value="Graos"></option>
+                                    <option value="Vegano"></option>
+                                    <option value="Carne"></option>
+                                    <option value="Laticinio"></option>
+                                    <option value="Legume"></option>
+                                    <option value="Sobremesa"></option>
+                                    <option value="Gelado"></option>
+                                </datalist>
                             </span>
                         </div>
                         
@@ -73,6 +101,9 @@
                             <textarea name="receita" id="t_field_receita" maxlength="500"></textarea>
                             <i class="bi bi-pencil"></i>
                         </div>
+
+                        <p class="validacao_postagem text-center mt-5" id="text_validacao"></p>
+
                         <div class="w-100 d-flex justify-content-center mt-5    ">
                             <button type="submit" class="btn_acao text-capitalize" id="btn_publicar" form="form_publicar">publicar</button>
                         </div>
@@ -84,81 +115,21 @@
             </section>
 
             <button class="btn_menu btn_menu_mobile btn_menu_posicao_mobile d-inline-block d-lg-none" id="btn_menu_mobile"><i class="bi bi-three-dots-vertical"></i></button>
-            <button class="btn_acao btn_menu btn_menu_desktop btn_menu_posicao text-capitalize d-none d-lg-inline-block fs-4 fw-medium" id="btn_menu_desktop">configurações</button>
             <div class="modal_config" id="modal_config">
+                <button class="btn_acao btn_menu btn_menu_desktop btn_menu_posicao text-capitalize d-none d-lg-inline-block fs-4 fw-medium" id="btn_menu_desktop">configurações</button>
                 <a href="./minha-conta.html"><button class="btn_acao config_conta fs-5 text-capitalize">minha conta</button></a>
-                <button class="btn_acao config_sair fs-5 text-capitalize" id="btn_sair">sair</button>
+                <button class="btn_acao config_sair fs-5 text-capitalize" id="btn_sair_modal">sair</button>
             </div>
         </header>
 
         <section id="feed_cards" class="perfil_cards mt-5">
-            <!-- <div class="feed_card d-flex justify-content-center" role="button">
-                <div class="d-flex align-items-center post_receita">
-                    <img data-src="../assets/imgs/img_teste_1.png" alt="" class="lazy">
-                </div>
-            </div>
-            <div class="feed_card d-flex justify-content-center" role="button">
-                <div class="d-flex align-items-center post_receita">
-                    <img data-src="../assets/imgs/img_teste_2.png" alt="" class="lazy">
-                </div>
-            </div>
-            <div class="feed_card d-flex justify-content-center" role="button">
-                <div class="d-flex align-items-center">
-                    <img data-src="../assets/imgs/img_teste_3.png" alt="" class="lazy">
-                </div>
-            </div>
-            <div class="feed_card d-flex justify-content-center" role="button">
-                <div class="d-flex align-items-center post_receita">
-                    <img data-src="../assets/imgs/img_teste_1.png" alt="" class="lazy">
-                </div>
-            </div>
-            <div class="feed_card d-flex justify-content-center" role="button">
-                <div class="d-flex align-items-center post_receita">
-                    <img data-src="../assets/imgs/img_teste_2.png" alt="" class="lazy">
-                </div>
-            </div>
-            <div class="feed_card d-flex justify-content-center" role="button">
-                <div class="d-flex align-items-center post_receita">
-                    <img data-src="../assets/imgs/img_teste_3.png" alt="" class="lazy">
-                </div>
-            </div>
-            <div class="feed_card d-flex justify-content-center" role="button">
-                <div class="d-flex align-items-center post_receita">
-                    <img data-src="../assets/imgs/img_teste_1.png" alt="" class="lazy">
-                </div>
-            </div>
-            <div class="feed_card d-flex justify-content-center" role="button">
-                <div class="d-flex align-items-center post_receita">
-                    <img data-src="../assets/imgs/img_teste_2.png" alt="" class="lazy">
-                </div>
-            </div>
-            <div class="feed_card d-flex justify-content-center" role="button">
-                <div class="d-flex align-items-center post_receita">
-                    <img data-src="../assets/imgs/img_teste_3.png" alt="" class="lazy">
-                </div>
-            </div>
-            <div class="feed_card d-flex justify-content-center" role="button">
-                <div class="d-flex align-items-center post_receita">
-                    <img data-src="../assets/imgs/img_teste_1.png" alt="" class="lazy">
-                </div>
-            </div>
-            <div class="feed_card d-flex justify-content-center" role="button">
-                <div class="d-flex align-items-center post_receita">
-                    <img data-src="../assets/imgs/img_teste_2.png" alt="" class="lazy">
-                </div>
-            </div> -->
         </section>
 
         <section id="modal_receita" class="modal align-items-center">
             <button type="button" class="btn_voltar" id="btn_modal_receita"><i class="bi bi-arrow-left"></i></button>
             <div class="modal-content modal_receita px-4">
                 <h3 class="text-center">Receita</h3>
-                <a href="#" class="d-flex align-items-center">
-                    <img src="../assets/img_perfil_padrao.svg" alt="">
-                    <p class="ms-2">@usuario</p>
-                </a>
-                <p>Categoria: bolo</p>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel repudiandae illum nihil culpa, at numquam, minus laborum distinctio, repellendus tempora facere quaerat dolor dolore aperiam voluptatem harum sunt veritatis est. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic quas dolorum repellendus error perferendis minus deserunt perspiciatis est, maiores, nostrum culpa dolorem neque velit recusandae ipsum amet tempore suscipit ipsa. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, magnam. Quisquam laborum corrupti eius deleniti tempore. Nihil nesciunt mollitia, tenetur, cum quis voluptas quo blanditiis saepe adipisci placeat, modi delectus?</p>
+                <p id="texto_receita"></p>
             </div>
         </section>
     </main>
@@ -171,7 +142,7 @@
             window.location.href = "../index.html";
         }
     </script>
-    
+    <script src="../js/validar_sessao.js"></script>
     <script src="../js/lazy_loading.js"></script>
     <script src="../js/user_perfil.js"></script>
     <script src="../js/exibir_cards_perfil.js"></script>

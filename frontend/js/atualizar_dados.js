@@ -1,6 +1,9 @@
+const t_field_senha = document.querySelector("#t_field_senha");
 const btn_senha = document.querySelector("#btn_senha");
-const btn_email = document.querySelector("#btn_email");
-const API_URL_SENHA = `http://127.0.0.1:5000/usuario/senha/${JSON.parse(sessionStorage.getItem('usuario'))}`;
+const modal_dados = document.querySelector("#modal_dados");
+const btn_modal_dados = document.querySelector("#btn_modal_dados");
+const texto_dados = document.querySelector("#texto_dados");
+const API_URL_SENHA = `http://127.0.0.1:5000/usuario/AtualizarSenha/${JSON.parse(sessionStorage.getItem('usuario'))}`;
 const API_URL_DELETE = `http://127.0.0.1:5000/usuario/ApagarContaUsuario/${JSON.parse(sessionStorage.getItem('usuario'))}`;
 
 btn_senha.addEventListener('click', async (e)=> {
@@ -10,8 +13,10 @@ btn_senha.addEventListener('click', async (e)=> {
     await fetch(API_URL_SENHA, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(nova_senha)
+        body: JSON.stringify({'password':nova_senha})
     });
+    texto_dados.innerText = 'Senha atualizada com sucesso!'
+    modal_dados.style.display = "flex";
 })
 
 btn_excluir.addEventListener('click', async (e) => {
@@ -22,6 +27,19 @@ btn_excluir.addEventListener('click', async (e) => {
         mode: 'cors'
     })
 
-    sessionStorage.removeItem('usuario')
-    window.location.href = 'cadastrar.html';
+    sessionStorage.removeItem('usuario');
+    texto_dados.innerText = 'Conta excluída com sucesso!'
+    modal_dados.style.display = "flex";
 })
+
+btn_modal_dados.onclick = () => {
+    modal_dados.style.display = "none";
+    window.location.href = 'cadastrar.html';
+}
+
+window.onclick = e => {
+    if (e.target == modal_dados) {
+        modal_dados.style.display = "none";
+        window.location.href = 'cadastrar.html';
+    }
+}

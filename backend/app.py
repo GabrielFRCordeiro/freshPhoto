@@ -50,7 +50,7 @@ def get_usuario_cadastrar():
 
 
 # criar um novo usuario
-@app.route("/usuario/cadastrar", methods=['POST'])
+@app.route("/usuario/cadastrar", methods=["POST"])
 def criar_usuario():
     load_dotenv()
     nome = request.form.get('nome')
@@ -93,7 +93,9 @@ def get_card_postado_home():
                     img_data = base64.b64encode(img_usuario.read()).decode('utf-8')
                 p['usuario_base64'] = img_data
             else:
-                p['usuario_base64'] = None
+                with open(os.getenv("IMG_USER"), 'rb') as img_file:
+                    img_data = base64.b64encode(img_file.read()).decode('utf-8')
+                p['usuario_base64'] = img_data
             
             if p.get('postagem_foto'):
                 with open(p['postagem_foto'], 'rb') as img_postagem:
@@ -221,12 +223,12 @@ def get_card_perfil(id):
 # TELA MINHA CONTA #
 
 # atualizar senha
-@app.route('/usuario/AtualizarSenha/<int:id>', methods=['PUT'])
+@app.route('/usuario/AtualizarSenha/<int:id>', methods=["PUT"])
 def update_user_password(id):
     data = request.json
     conn = get_connection()
     cursor = conn.cursor()
-    cursor.execute("CALL AtualizarSenha WHERE id=%s", (data['password'], id))
+    cursor.execute("CALL AtualizarSenha(%s, %s)", (id, data['password']))
     conn.commit()
     return jsonify({"message": "User updated successfully"}), 200
 
@@ -244,13 +246,30 @@ def delete_user(id):
 
 # TELA SEGUIDORES #
 # pegar cards postados
-@app.route("/seguindo/<int:id>", methods=["GET"])
+@app.route("/seguindo/obterFotosSeguidos/<int:id>", methods=["GET"])
 def get_card_postado_seguidores(id):
     try:
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
         cursor.execute("CALL obterFotosSeguidos(%s)", (id,))
-        postagem = cursor.fetchall() 
+        postagem = cursor.fetchall()
+        for p in postagem:
+            if p.get('usuario_foto'):
+                with open(p['usuario_foto'], 'rb') as img_usuario:
+                    img_data = base64.b64encode(img_usuario.read()).decode('utf-8')
+                p['usuario_base64'] = img_data
+            else:
+                with open(os.getenv("IMG_USER"), 'rb') as img_file:
+                    img_data = base64.b64encode(img_file.read()).decode('utf-8')
+                p['usuario_base64'] = img_data
+            
+            if p.get('postagem_foto'):
+                with open(p['postagem_foto'], 'rb') as img_postagem:
+                    img_data = base64.b64encode(img_postagem.read()).decode('utf-8')
+                p['postagem_base64'] = img_data
+            else:
+                p['postagem_base64'] = None
+
         return jsonify(postagem), 200
 
     except Exception as e:
@@ -268,8 +287,34 @@ def verificar_seguidores(id):
     try:
         conn = get_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("SELECT * FROM seguidores WHERE seguidos_id=%s", id)
+        cursor.execute("SELECT * FROM seguindo WHERE seguidos_id=%s", (id,))
         usuario = cursor.fetchall() 
+        return jsonify(usuario), 200
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({"error": "Failed to fetch products"}), 500
+
+    finally:
+        cursor.close()
+        conn.close()
+
+# chamando procedure retornarUsuariosPrincipais
+@app.route("/seguindo", methods=["GET"])
+def get_retornarUsuariosPrincipais():
+    try:
+        conn = get_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("CALL retornarUsuariosPrincipais()")
+        usuario = cursor.fetchall()
+        for u in usuario:
+            if u.get('usuario_foto'):
+                with open(u['usuario_foto'], 'rb') as img_usuario:
+                    img_data = base64.b64encode(img_usuario.read()).decode('utf-8')
+                u['usuario_base64'] = img_data
+            else:
+                u['usuario_base64'] = None
+
         return jsonify(usuario), 200
 
     except Exception as e:
@@ -297,10 +342,11 @@ def seguir():
 
 # metodo DELETE para deletar as informações do banco de dados quando deixar de seguir
 @app.route("/seguindo", methods=["DELETE"])
-def deixar_de_seguir(seguido_id, seguidos_id):
+def deixar_de_seguir():
+    data = request.json
     conn = get_connection()
     cursor = conn.cursor()
-    cursor.execute("DELETE FROM seguindo WHERE (%s, %s)", (seguido_id, seguidos_id))
+    cursor.execute("DELETE FROM seguindo WHERE seguido_id = %s AND seguidos_id = %s", (data['seguido_id'], data['seguidos_id']))
     conn.commit()
     return jsonify({"message": "Deixado de seguir com sucesso"}), 200
 
@@ -329,7 +375,7 @@ def get_postagem(id):
         conn.close()
 
 # criar uma postagem
-@app.route("/postagem", methods=['POST'])
+@app.route("/postagem", methods=["POST"])
 def criar_postagem():
     load_dotenv()
     usuario = request.form.get('usuario')
