@@ -13,7 +13,7 @@ CREATE TABLE postagem(
 id INT PRIMARY KEY AUTO_INCREMENT,
 id_usuario INT NOT NULL,
 foto VARCHAR(255) NOT NULL,
-categoria ENUM('Bolo', 'Fruta', 'Dia-a-dia', 'Fast food', 'Fruto do mar', 'Legumes', 'Bebidas', 'Caldo', 'Sopa', 'Pizza', 'Massa', 'Hamburger', 'Salgado', 'Graos', 'Vegano', 'Carne', 'Laticinio', 'Legume', 'Sobremesa', 'Gelado') NOT NULL,
+categoria ENUM('Bolo', 'Fruta', 'Dia-a-dia', 'Fast food', 'Fruto do mar', 'Legumes', 'Bebidas', 'Caldo', 'Sopa', 'Pizza', 'Massa', 'Hamburguer', 'Salgado', 'Graos', 'Vegano', 'Carne', 'Laticinio', 'Legume', 'Sobremesa', 'Gelado') NOT NULL,
 receita VARCHAR(500),
 data_postagem DATE DEFAULT NOW(),
 FOREIGN KEY (id_usuario) REFERENCES usuario(id)
@@ -67,7 +67,7 @@ INSERT INTO postagem(id_usuario,foto,categoria,receita) VALUES
 
 Modo de preparo:
 Bata a melancia, ovos e óleo no liquidificador. Misture a farinha e o açúcar em uma tigela. Junte os líquidos aos secos e adicione o fermento. Misture bem e asse por 40 minutos a 180°C. Sirva decorado a gosto! 🍉🍰'),
-((SELECT id FROM usuario WHERE usuario = 'Gustavo-Brito-Bechelli'),'<caminho_do_repositorio_na_maquina_local>\\backend\\assets\\picole-melancia.jpg','Gelado', 'Ingredientes:
+((SELECT id FROM usuario WHERE usuario = 'Gustavo-Brito-Bechelli'),'<caminho_do_repositorio_na_maquina_local>\\backend\\assets\\picole-melancia.png','Gelado', 'Ingredientes:
 
 4 xícaras de melancia picada (sem sementes)
 2 colheres de sopa de açúcar (opcional)

@@ -9,8 +9,32 @@ const categoriaOptions = Array.from(document.querySelectorAll('#categoria-list o
 
 const API_URL_POSTAGEM = 'http://127.0.0.1:5000/postagem';
 
+function verificarTamanhoImagem(file) {
+    const tamanhoMaximoMB = 30;
+    const tamanhoMaximoBytes = tamanhoMaximoMB * 1024 * 1024;
+    return file.size <= tamanhoMaximoBytes;
+}
+
+function verificarProporcaoImagem(file) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = URL.createObjectURL(file);
+        img.onload = () => {
+            const proporcaoMaxima = 1080;
+            resolve(img.width <= proporcaoMaxima && img.height <= proporcaoMaxima);
+        };
+        img.onerror = () => reject(new Error('Erro ao carregar a imagem.'));
+    });
+}
+
 form_publicar.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    if (!input_categoria.value) {
+        text_validacao.innerText = 'Por favor, selecione uma categoria.';
+        text_validacao.style.display = 'block';
+        return;
+    }
 
     if (!categoriaOptions.includes(input_categoria.value)) {
         text_validacao.innerText = 'Por favor, selecione uma categoria válida.';
@@ -24,9 +48,25 @@ form_publicar.addEventListener('submit', async (e) => {
         return;
     }
 
-    if (!input_categoria.value) {
-        text_validacao.innerText = 'Por favor, selecione uma categoria.';
-		text_validacao.style.display = 'block';
+    const file = input_img.files[0];
+
+    if (!verificarTamanhoImagem(file)) {
+        text_validacao.innerText = 'A imagem não pode ter mais de 30 MB.';
+        text_validacao.style.display = 'block';
+        return;
+    }
+
+    try {
+        const proporcaoValida = await verificarProporcaoImagem(file);
+        if (!proporcaoValida) {
+            text_validacao.innerText = 'A imagem não pode ter uma proporção maior que 1080 x 1080 pixels.';
+            text_validacao.style.display = 'block';
+            return;
+        }
+    } catch (error) {
+        console.error(error);
+        text_validacao.innerText = 'Erro ao verificar a proporção da imagem.';
+        text_validacao.style.display = 'block';
         return;
     }
 
@@ -36,7 +76,7 @@ form_publicar.addEventListener('submit', async (e) => {
     const formData = new FormData();
     formData.append('usuario', JSON.parse(sessionStorage.getItem('usuario')));
     formData.append('categoria', input_categoria.value);
-    formData.append('img', input_img.files[0]);
+    formData.append('img', file);
     formData.append('receita', t_field_receita.value);
 
     await fetch(API_URL_POSTAGEM, {
