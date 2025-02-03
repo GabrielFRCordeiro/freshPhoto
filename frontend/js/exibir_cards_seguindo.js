@@ -46,11 +46,11 @@ async function show_cards(cards) {
                 feed_cards.innerHTML += `<div class="feed_card feed_card_2 d-flex flex-column align-items-center" data-usuario="${card.usuario_id}">
                     <div>
                         <a href="./outro-perfil.html" class="post_user d-flex align-items-center">
-                            <img src="data:image/png;base64,${card.usuario_base64}" alt="perfil do usuario">
+                            <img src="data:image/png;base64,${card.usuario_base64}" alt="perfil de ${card.usuario}">
                             <p class="ps-3">@${card.usuario}</p>
                         </a>
                         <div class="d-flex align-items-center align-self-center my-2 post_receita">
-                            <img src="data:image/png;base64,${card.postagem_base64}" alt="postagem do usuario" class="lazy">
+                            <img src="data:image/png;base64,${card.postagem_base64}" alt="postagem de ${card.usuario}" class="lazy">
                         </div>
                         <div class="post_info d-flex justify-content-between align-items-center mb-5">
                             <p class="p-2">${card.categoria}</p>
@@ -65,11 +65,11 @@ async function show_cards(cards) {
                 feed_cards.innerHTML += `<div class="feed_card d-flex flex-column align-items-center" data-usuario="${card.usuario_id}">
                     <div>
                         <a href="./outro-perfil.html" class="post_user d-flex align-items-center">
-                            <img src="data:image/png;base64,${card.usuario_base64}" alt="perfil do usuario">
+                            <img src="data:image/png;base64,${card.usuario_base64}" alt="perfil de ${card.usuario}">
                             <p class="ps-3">@${card.usuario}</p>
                         </a>
                         <div class="d-flex align-items-center align-self-center my-2 post_receita">
-                            <img src="data:image/png;base64,${card.postagem_base64}" alt="postagem do usuario" class="lazy">
+                            <img src="data:image/png;base64,${card.postagem_base64}" alt="postagem de ${card.usuario}" class="lazy">
                         </div>
                         <div class="post_info d-flex justify-content-between align-items-center mb-5">
                             <p class="p-2">${card.categoria}</p>
@@ -101,7 +101,7 @@ function show_main_users(cards) {
     cards.forEach(card => {
         html_cards += `
             <a href="./outro-perfil.html" class="post_user mt-5 d-flex align-items-center" data-usuario="${card.usuario_id}">
-                <img src="data:image/png;base64,${card.usuario_base64}" alt="perfil do usuario">
+                <img src="data:image/png;base64,${card.usuario_base64}" alt="perfil de ${card.usuario}">
                 <p class="ps-3">@${card.usuario}</p>
             </a>
         `
