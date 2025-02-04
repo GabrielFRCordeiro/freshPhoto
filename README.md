@@ -32,6 +32,9 @@
 ## 🚀 Instalando Fresh Photo
 
 - Importar banco de dados
+> [!WARNING]
+> É necessário substituir `<caminho_do_repositorio_na_maquina_local>` antes de importar
+
 - Instalar ambiente virtual e dependências do backend com os seguintes comandos:
     ```
     python -m venv venv
@@ -47,8 +50,6 @@
     IMG_PATH=<caminho_do_repositorio_na_maquina_local>\backend\assets\imgs
     IMG_USER=<caminho_do_repositorio_na_maquina_local>\backend\assets\photo.png
     ```
-> [!WARNING]
-> É necessário criar a pasta `imgs` no caminho especificado
 
 > [!CAUTION]
 > Este é um projeto educacional. Em projetos reais, não coloque as configurações de ambiente da .env no readme de seu projeto!
