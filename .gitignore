@@ -121,6 +121,7 @@ celerybeat.pid
 
 # Environments
 backend/assets/imgs/*
+!backend/assets/imgs/.gitkeep
 .env
 .venv
 env/
