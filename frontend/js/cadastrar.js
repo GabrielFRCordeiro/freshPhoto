@@ -73,6 +73,18 @@ async function valida_formulario(usuario, novo_usuario) {
         return;
     }
 
+    if (t_field_usuario.value.length > 25) {
+        text_validacao.innerText = 'Seu usuário deve conter até 25 caracteres';
+		text_validacao.style.display = 'block';
+        return;
+    }
+
+    if (t_field_nome.value.length > 100) {
+        text_validacao.innerText = 'Seu nome deve conter até 100 caracteres';
+		text_validacao.style.display = 'block';
+        return;
+    }
+
     const formData = new FormData();
     formData.append('nome', novo_usuario.nome);
     formData.append('usuario', novo_usuario.usuario);
