@@ -260,8 +260,8 @@
     grid-template:
     'user_img user_usuario menu' .33fr
     'user_img user_nome menu' .33fr
-    '. btn_postar .' .33fr
-    / 1fr 1fr 1fr
+    'btn_postar btn_postar btn_postar' .33fr
+    / .6fr 1.2fr .2fr
     ;
     place-items: center;
 }
@@ -271,15 +271,15 @@
 }
 
 .user_img_container {
-    width: 130px;
-    height: 130px;
+    width: 100px;
+    height: 100px;
     overflow: hidden;
     border-radius: 100%;
 }
 
 .caixaPerfil h2{
     color: var(--color-white);
-    font-size: 1.7rem;
+    font-size: 1.3rem;
     margin-bottom: 0;
     grid-area: user_nome;
     align-self: center;
@@ -288,7 +288,7 @@
 
 .caixaPerfil p{
     color: var(--color-white);
-    font-size: 2rem;
+    font-size: 1.5rem;
     grid-area: user_usuario;
 }
 
