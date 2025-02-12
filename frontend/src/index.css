@@ -1,68 +1,396 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+/* GERAL */
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kodchasan:wght@400;700&display=swap');
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+:root{
+    --color-primary: #A5B244;
+    --color-secundary: #299F23;
+    --color-white: #f8f8ff;
+    --color-black: #101212;
+    --color-title: #072C39;
+    --color-text: #939393;
+    --color-background: #C95D5D;
+    --color-btn: #7D863D;
+    --color-btn-hover: #8c9256;
+    --color-btn-disabled: #2c2c2c;
+    --color-btn-active: #6e7535;
+    --color-cadastrar: #d17373;
+    --color-entrar: #FEE2D0;
+    --color-modal: #FEE2D080;
+    --color-img-modal: #FEE2D0;
+    --color-dots: #00000033;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter';
+    color: var(--color-text);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+body{
+    background-color: var(--color-background);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+a{
+    text-decoration: none;
+    font-size: .8em;
+}
+
+.texto_nav {
+    color: var(--color-white);
+    font-size: 1.5rem;
+}
+
+h1, h2, h3 {
+    font-family: 'Kodchasan';
+}
+
+.fundo_melancia1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image:
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%);
+    background-size: 20% 20%;
+    background-position:
+    -13% 25%,
+    0% 70%,
+    13% -13%,
+    26% 113%,
+    37% 15%,
+    60% 85%,
+    70% 37%,
+    87% -3%,
+    100% 100%,
+    112.5% 60%;
+    background-repeat: no-repeat;
+    transition: background-position 0.1s linear;
+}
+
+.fundo_melancia2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image:
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%),
+        radial-gradient(circle, var(--color-dots) 15%, transparent 16%);
+    background-size: 20% 20%;
+    background-position:
+        0% 5%,
+        0% 80%,
+        26% -13%,
+        42% 42%,
+        69% 113%,
+        69% -5%,
+        78% 65%,
+        96% 93%;
+    background-repeat: no-repeat;
+    transition: background-position 0.1s linear;
+}
+
+/* ENTRAR */
+
+.fundo{
+    background-image: url('../assets/img_background.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.tela_entrar{
+    height: 70vh;
+    width: 80vw;
+    background-color: var(--color-entrar);
+    border-radius: 2.5em;
+    display: grid;
+    grid-template: 
+    '. logo .' .3fr
+    '. . .' .1fr
+    '. btn_login .' .1fr
+    '. btn_cadastrar .' .1fr
+    / .3fr .3fr .3fr;
+    place-content: center;
+    place-items: center;
+}
+
+.img_container{
+    grid-area: logo;
+    width: 12em;
+    position: relative;
+}
+
+.img_apresentacao_container p {
+    color: var(--color-title);
+    font-size: .7rem;
+}
+
+.img_apresentacao{
+    margin-top: 10px;
+    width: 15em;
+}
+
+.img_logo{
+    width: 12em;
+}
+
+.img_apresentacao_container::after{
+    font-family: 'Kodchasan';
+    content: attr(data-titulo);
+    position: absolute;
+    left: -.1em;
+    top: -1.5em;
+    color: var(--color-title);
+    font-size: 2em;
+    width: 12em;
+    font-weight: bold;
+}
+
+.img_logo_container::after{
+    font-family: 'Kodchasan';
+    content: attr(data-titulo);
+    position: absolute;
+    left: -.1em;
+    bottom: -1.5em;
+    color: var(--color-title);
+    font-size: 2em;
+    width: 7em;
+    font-weight: bold;
+}
+
+.link_login{
+    grid-area: btn_login;
+    margin: 32px 0 24px;
+}
+
+.btn_entrar{
+    width: 9em;
+    border: none;
+    background-color: var(--color-btn);
+    color: var(--color-white);
+    border-color: black;
+    border-radius: .5em;
+    height: 2.5em;
+    align-self: center;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+.btn_entrar i {
+    color: var(--color-white);
+}
+
+.link_cadastrar{
+    grid-area: btn_cadastrar;
+}
+
+.btn_entrar:hover{
+    background-color: var(--color-btn-hover);
+    color: var(--color-white);
+}
+
+.btn_entrar:focus-visible, :is(.tela_entrar, .tela_entrando) .btn_entrar:active{
+    background-color: var(--color-btn-active);
+    color: var(--color-white);
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+/* LOGIN */
+.btn_voltar{
+    width: 4em;
+    height: 4em;
+    border: none;
+    border-radius: 1em;
+    position: absolute;
+    top: 2em;
+    left: 2em;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+    background-color: var(--color-btn);
+}
+
+.btn_voltar i{
+    font-size: 2em;
+    color: var(--color-white);
+}
+
+.t_field{
+    margin: 8px !important;
+    width: 25ch !important;
+}
+
+.esqueceu_senha{
+    margin-left: 1.6em;
+    letter-spacing: -1.4px;
+}
+
+.btn_entrar_alinhado{
+    justify-self: center;
+}
+
+.sem_conta{
+    color: var(--color-white);
+    font-size: .8em;
+    letter-spacing: -.7px;
+}
+
+.validacao{
+    color: var(--color-white);
+    font-size: .8em;
+    display: none;
+}
+
+.onda span {
+    display: inline-block;
+    color: var(--color-white);
+}
+
+.onda:hover span {
+    animation: onda 1s ease-in-out infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+
+/* CADASTRAR */
+
+.titulo_config{
+    color: var(--color-title);
+    font-weight: bold;
+}
+
+.label_img_placeholder{
+    position: relative;
+}
+
+.img_placeholder {
+    width: 7em;
+    height: 7em;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.img_placeholder_icon{
+    position: absolute;
+    width: 2em;
+    font-size: 1.5em;
+    color: var(--color-white);
+    background-color: var(--color-btn);
+    text-align: center;
+    height: 2em;
+    border-radius: 100%;
+    line-height: 2em;
+    right: 3em;
+    bottom: 0;
+}
+
+.img_cadastrar {
+    display: none;
+}
+
+.termos_de_uso{
+    width: 25ch;
+    margin: 8px 0 16px;
+}
+
+/* TELA INATIVA */
+
+.titulo_desenv{
+    color: var(--color-title);
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    top: 1.1em;
+}
+
+.texto_desenv{
+    color: var(--color-white);
+    font-size: 1.2rem;
+}
+
+@media (min-width: 576px) {
+    .img_apresentacao_container {
+        width: 100%;
+    }
+
+    .img_apresentacao_container::after {
+        left: 25%;
+    }
+
+    .img_apresentacao_container p {
+        font-size: .8rem;
+    }
+
+    .img_apresentacao {
+        width: 20em;
+    }
+}
+
+@media (min-width: 768px) {
+    .img_apresentacao_container p {
+        font-size: .9rem;
+    }
+
+    .img_apresentacao {
+        width: 25em;
+    }
+}
+
+@media (min-width: 992px) {
+
+    /* ENTRAR */
+
+    .tela_entrar{
+        grid-template: 
+    '. . . .'  1fr
+    '. logo btn_login .'  1fr
+    '. logo btn_cadastrar .'  1fr
+    '. . . .'  1fr
+    / .10fr .90fr .50fr .10fr;
+    }
+
+    .img_apresentacao_container {
+        width: 90%;
+    }
+
+    .img_apresentacao_container p {
+        font-size: 1rem;
+    }
+
+    .img_apresentacao{
+        width: 25em;
+    }
+}
+
+@keyframes onda {
+    0% {
+        transform: translateY(0px);
+    }
+    20% {
+        transform: translateY(-5px);
+    }
+    40% {
+        transform: translateY(0px);
+    }
 }
