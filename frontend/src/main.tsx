@@ -8,6 +8,7 @@ import Seguindo from './routes/Seguindo.tsx'
 import Entrar from './routes/Entrar.tsx'
 import Perfil from './routes/Perfil.tsx'
 import Desenvolvimento from './routes/Desenvolvimento.tsx'
+import MinhaConta from './routes/MinhaConta.tsx'
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/perfil",
         element: <Perfil />,
+      },
+      {
+        path: "/conta",
+        element: <MinhaConta />,
       }
     ],
   },
