@@ -10,31 +10,39 @@
     z-index: 1;
     border-top: 1px solid $color-black;
 
-    .nav_logo h2{
-        font-size: 1rem;
-        color: $color-black;
+    nav{
+        :is(i, p){
+            color: $color-black;
+            font-size: 1.5rem;
+        }
+
+        button{
+            border: none;
+            background-color: transparent;
+        }
     }
 
     @media (min-width: 992px) {
-        width: 15vw;
+        width: 25vw;
         height: 100vh;
         border-top: none;
         border-right: 1px solid $color-black;
 
-        .nav_logo img{
-                width: 50%;
-        }
-    }
-    
-    @media (min-width: 1200px) {
-        .nav_logo img{
-            width: 25%;
+        .nav_logo{
+            img{
+                width: 25%;
+            }
+
+            h2{
+                font-size: 1.6rem;
+                color: $color-black;
+            }
         }
     }
 
     @media (min-width: 1300px) {
         .nav_logo h2{
-            font-size: 1.1rem;
+            font-size: 1.8rem;
         }
     }
 }
