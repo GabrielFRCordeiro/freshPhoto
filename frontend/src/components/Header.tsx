@@ -4,10 +4,10 @@ import Logo from '../assets/img_logo.svg'
 
 export default function Header() {
   return (
-    <header className='navegacao'>
-        <Link to={'/home'} className='d-none d-lg-flex'>
-            <img src={Logo} alt="Logo do Fresh Photo" />
-            <h2>Fresh Photo</h2>
+    <header className='navegacao d-flex flex-lg-column justify-content-around justify-content-lg-start align-items-lg-center align-items-xl-start px-lg-3 px-xxl-4'>
+        <Link to={'/home'} className='nav_logo d-none d-lg-flex align-items-center justify-content-center justify-content-xl-start mt-3 w-100'>
+            <img src={Logo} alt="Logo do Fresh Photo" className='d-none d-lg-inline' />
+            <h2 className="d-none d-xl-inline mb-0">Fresh Photo</h2>
         </Link>
         <nav className='d-flex flex-lg-column justify-content-around justify-content-lg-start w-100 align-items-lg-center align-items-xl-start'>
             <Link to={'/home'} className='mt-lg-5 d-flex align-items-center'>
