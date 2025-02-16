@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import '../styles/components/header.scss'
 import Logo from '../assets/img_logo.svg'
+import BtnAcao from './BtnAcao'
 
 export default function Header() {
   return (
@@ -32,8 +33,8 @@ export default function Header() {
             </Link>
         </nav>
         <div className='d-none d-lg-flex flex-column'>
-            <button>Minha Conta</button>
-            <button>Sair</button>
+            <BtnAcao>Minha Conta</BtnAcao>
+            <BtnAcao>Sair</BtnAcao>
         </div>
     </header>
   )
