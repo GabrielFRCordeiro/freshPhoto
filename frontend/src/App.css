@@ -21,7 +21,7 @@
     background: #555; 
 }
 
-.navegacao{
+/* .navegacao{
     height: 10vh;
     width: 100vw;
     background-color: var(--color-primary);
@@ -29,7 +29,7 @@
     bottom: 0;
     left: 0;
     z-index: 1;
-}
+} */
 
 .navIcon{
     color: var(--color-white);
@@ -588,10 +588,10 @@
         backdrop-filter: none;
     }
 
-    .navegacao{
+    /* .navegacao{
         width: 15vw !important;
         height: 100vh;
-    }
+    } */
 
     .navegacao div{
         height: 100vh;

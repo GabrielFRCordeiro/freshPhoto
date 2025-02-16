@@ -1,0 +1,19 @@
+@use '../__index' as *;
+
+.navegacao{
+    height: 10vh;
+    width: 100vw;
+    color: $color-black;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    border-top: 1px solid $color-black;
+
+    @media (min-width: 992px) {
+        width: 15vw;
+        height: 100vh;
+        border-top: none;
+        border-right: 1px solid $color-black;
+    }
+}

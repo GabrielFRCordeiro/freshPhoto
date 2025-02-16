@@ -30,7 +30,7 @@
 }
 
 body{
-    background-color: var(--color-background);
+    /* background-color: var(--color-background); */
     height: 100vh;
     display: flex;
     flex-direction: column;
