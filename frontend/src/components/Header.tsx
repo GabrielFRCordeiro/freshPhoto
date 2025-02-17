@@ -11,7 +11,7 @@ export default function Header() {
             <h2 className="d-none d-lg-inline mb-0">Fresh Photo</h2>
         </Link>
         <nav className='d-flex flex-lg-column justify-content-around justify-content-lg-start w-100 align-items-lg-start'>
-            <Link to={'/home'} className='mt-lg-5 d-flex align-items-center'>
+            <Link to={'/'} className='mt-lg-5 d-flex align-items-center'>
                 <i className="bi bi-house-door"></i>
                 <p className="mb-0 ms-2">Home</p>
             </Link>
