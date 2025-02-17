@@ -16,11 +16,11 @@ export default function Header() {
                 <p className="mb-0 ms-2">Home</p>
             </Link>
             <Link to={'/explorar'} className='mt-lg-5 d-flex align-items-center'>
-                <i className="bi bi-compass-fill"></i>
+                <i className="bi bi-compass"></i>
                 <p className="mb-0 ms-2">Explorar</p>
             </Link>
             <Link to={'/duvidas'} className='mt-lg-5 d-flex align-items-center'>
-                <i className="bi bi-chat-dots-fill"></i>
+                <i className="bi bi-chat-dots"></i>
                 <p className="mb-0 ms-2">Dúvidas</p>
             </Link>
             <button className='mt-lg-5 d-flex align-items-center'>
@@ -32,9 +32,13 @@ export default function Header() {
                 <p className="mb-0 ms-2">Perfil</p>
             </Link>
         </nav>
-        <div className='d-none d-lg-flex flex-column'>
-            <BtnAcao>Minha Conta</BtnAcao>
-            <BtnAcao>Sair</BtnAcao>
+        <div className='nav_config d-none d-lg-flex flex-column justify-content-end mb-4'>
+            <Link to={'/configuracoes'}>
+                <BtnAcao icone='gear' >Minha Conta</BtnAcao>
+            </Link>
+            <Link to={'/entrar'}>
+                <BtnAcao icone='box-arrow-left'>Sair</BtnAcao>
+            </Link>
         </div>
     </header>
   )

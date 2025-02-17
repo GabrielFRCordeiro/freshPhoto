@@ -22,6 +22,11 @@
         }
     }
 
+    .nav_config{
+        width: 100%;
+        gap: 1.5rem
+    }
+
     @media (min-width: 992px) {
         width: 25vw;
         height: 100vh;

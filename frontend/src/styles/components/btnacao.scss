@@ -1,19 +1,24 @@
 @use '../__index' as *;
 
 .btn_acao{
-    border: none;
-    background-color: $color-black;
-    color: $color-white;
+    border: 1px solid $color-black;
+    background-color: transparent;
+    color: $color-black;
     border-radius: .5em;
     width: 10em;
     height: 2.5em;
+    font-size: 1rem;
+
+    i{
+        color: $color-black;
+    }
 }
 
 .btn_acao:hover{
-    background-color: $color-btn-hover;
+    background-color: $color-dots;
     transition: .5s;
 }
 
 .btn_acao:disabled {
-    background-color: $color-btn-hover;
+    background-color: $color-dots;
 }
