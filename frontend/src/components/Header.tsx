@@ -26,25 +26,25 @@ export default function Header() {
             <h2 className="d-none d-lg-inline mb-0">Fresh Photo</h2>
         </Link>
         <nav className='d-flex flex-lg-column justify-content-around justify-content-lg-start w-100 align-items-lg-start'>
-            <Link to={'/'} className='mt-lg-5 d-flex align-items-center'>
+            <Link to={'/'} className='mt-lg-5 d-flex align-items-center order-0'>
                 <i className={getHomeIconClass()}></i>
-                <p className="mb-0 ms-2">Home</p>
+                <p className="d-none d-lg-inline mb-0 ms-2">Home</p>
             </Link>
-            <Link to={'/explorar'} className='mt-lg-5 d-flex align-items-center'>
+            <Link to={'/explorar'} className='mt-lg-5 d-flex align-items-center order-1'>
                 <i className={getExplorarIconClass()}></i>
-                <p className="mb-0 ms-2">Explorar</p>
+                <p className="d-none d-lg-inline mb-0 ms-2">Explorar</p>
             </Link>
-            <Link to={'/duvidas'} className='mt-lg-5 d-flex align-items-center'>
-                <i className={getDuvidasIconClass()}></i>
-                <p className="mb-0 ms-2">Dúvidas</p>
-            </Link>
-            <button className='mt-lg-5 d-flex align-items-center'>
+            <button className='btn_criar mt-lg-5 d-flex align-items-center order-2 order-lg-3'>
                 <i className="bi bi-plus-circle"></i>
-                <p className="mb-0 ms-2">Criar</p>
+                <p className="d-none d-lg-inline mb-0 ms-2">Criar</p>
             </button>
-            <Link to={'/perfil'} className='my-lg-5 d-flex align-items-center'>
+            <Link to={'/duvidas'} className='mt-lg-5 d-flex align-items-center order-3 order-lg-2'>
+                <i className={getDuvidasIconClass()}></i>
+                <p className="d-none d-lg-inline mb-0 ms-2">Dúvidas</p>
+            </Link>
+            <Link to={'/perfil'} className='my-lg-5 d-flex align-items-center order-4'>
                 <i className={getPerfilIconClass()}></i>
-                <p className="mb-0 ms-2">Perfil</p>
+                <p className="d-none d-lg-inline mb-0 ms-2">Perfil</p>
             </Link>
         </nav>
         <div className='nav_config d-none d-lg-flex flex-column justify-content-end mb-4'>
