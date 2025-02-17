@@ -1,5 +1,10 @@
+import Header from "../components/Header";
+
 export default function Explorar() {
   return (
-    <div>Explorar</div>
+    <>
+      <Header />
+      <div>Explorar</div>
+    </>
   )
 }

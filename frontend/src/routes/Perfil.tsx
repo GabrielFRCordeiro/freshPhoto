@@ -1,5 +1,10 @@
+import Header from "../components/Header";
+
 export default function Perfil() {
   return (
-    <div>Perfil</div>
+    <>
+      <Header />
+      <div>Perfil</div>
+    </>
   )
 }

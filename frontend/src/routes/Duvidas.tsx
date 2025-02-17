@@ -1,5 +1,10 @@
+import Header from "../components/Header";
+
 export default function Duvidas() {
   return (
-    <div>Duvidas</div>
+    <>
+      <Header />
+      <div>Duvidas</div>
+    </>
   )
 }
