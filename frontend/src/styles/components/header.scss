@@ -30,19 +30,13 @@
 
         .nav_logo{
             img{
-                width: 25%;
+                width: 3rem;
             }
 
             h2{
                 font-size: 1.6rem;
                 color: $color-black;
             }
-        }
-    }
-
-    @media (min-width: 1300px) {
-        .nav_logo h2{
-            font-size: 1.8rem;
         }
     }
 }
