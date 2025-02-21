@@ -1,4 +1,4 @@
-import '../styles/components/btnacao.scss'
+import '../styles/components/btnacao.sass'
 
 interface BtnAcaoProps {
   children: React.ReactNode;

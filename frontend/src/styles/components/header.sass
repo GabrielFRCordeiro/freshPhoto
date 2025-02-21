@@ -1,6 +1,6 @@
 @use '../__index' as *;
 
-.navegacao{
+.navegacao
     height: 10vh;
     width: 100vw;
     color: $color-black;
@@ -10,46 +10,35 @@
     z-index: 1;
     border-top: 1px solid $color-black;
 
-    nav{
-        :is(i, p){
+    nav
+        :is(i, p)
             color: $color-black;
             font-size: 2rem;
-        }
 
-        button{
+        button
             border: none;
             background-color: transparent;
-        }
 
-        .btn_criar i{
+        .btn_criar i
             font-size: 2.7rem;
-        }
-    }
 
-    .nav_config{
+    .nav_config
         width: 100%;
         gap: 1.5rem
-    }
 
-    @media (min-width: 992px) {
+    @media (min-width: 992px)
         width: 25vw;
         height: 100vh;
         border-top: none;
         border-right: 1px solid $color-black;
 
-        nav :is(i, p, .btn_criar i){
+        nav :is(i, p, .btn_criar i)
             font-size: 1.5rem;
-        }
 
-        .nav_logo{
-            img{
+        .nav_logo
+            img
                 width: 3rem;
-            }
 
-            h2{
+            h2
                 font-size: 1.6rem;
                 color: $color-black;
-            }
-        }
-    }
-}

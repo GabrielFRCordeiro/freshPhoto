@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import '../styles/components/header.scss'
+import '../styles/components/header.sass'
 import Logo from '../assets/img_logo.svg'
 import BtnAcao from './BtnAcao'
 
