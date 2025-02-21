@@ -8,7 +8,7 @@
 ![MySQL](https://img.shields.io/badge/MySQL-0078D4?style=for-the-badge&logo=mysql&logoColor=EF9600)
 ![Visual Studio Code](https://img.shields.io/badge/-Visual%20Studio%20Code-2B579A?style=for-the-badge&logo=visual-studio-code&logoColor=007ACC)
 
-<img src='OLD_frontend/assets/img_logo.svg' alt='logo do Fresh Photo' width='200em'>
+<img src='frontend/src/assets/img_logo.svg' alt='logo do Fresh Photo' width='200em'>
 
 > Fresh Photo é uma rede social para compartilhamento de receitas, realizada por um grupo de alunos do Senac Santana.
 
