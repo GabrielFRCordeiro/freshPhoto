@@ -4,6 +4,7 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-087ED1?style=for-the-badge&logo=typescript&logoColor=white)
 ![SASS](https://img.shields.io/badge/SASS-CC6699?style=for-the-badge&logo=sass&logoColor=white)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+![Redux](https://img.shields.io/badge/Redux-7649BB?style=for-the-badge&logo=redux&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-0078D4?style=for-the-badge&logo=mysql&logoColor=EF9600)
 ![Visual Studio Code](https://img.shields.io/badge/-Visual%20Studio%20Code-2B579A?style=for-the-badge&logo=visual-studio-code&logoColor=007ACC)
